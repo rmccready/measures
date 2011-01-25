@@ -48,12 +48,14 @@ describe QME::Importer::GenericImporter do
 
     # 0068/N_c191 (acute MI) Active Cardiac Pacemaker in Situ 
     it "should extract information relevant to 0068" do
+      pending "Defining measure 0068"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0068', @loader)
       measure_info['acute_myocardial_infarction'].should include(22298006)
     end
 
     # 0070/A_c303 Pacemaker 
     it "should extract information relevant to 0070" do
+      pending "Defining measure 0070"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0070', @loader)
       measure_info['cardiac_pacer'].should include(14106009)
     end
@@ -61,6 +63,7 @@ describe QME::Importer::GenericImporter do
     # 0081/A_c532 Active Pregnancy  (changed the NIST example, which had a past pregnancy)
     # 0081/A_c39, added 3 records, one each for an allergy, intolerance, and an adverse event (A_518, A_68, A_75)
     it "should extract information relevant to 0081" do
+      pending "Defining measure 0081"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0081', @loader)
       measure_info['active_pregnancy'].should include(72892002)
       measure_info['medication_allergy'].should include(104376)
@@ -70,12 +73,14 @@ describe QME::Importer::GenericImporter do
 
     # 0389/A_c271 Bone Scan
     it "should extract information relevant to 0389" do
+      pending "Defining measure 0389"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0389', @loader)
       measure_info['bone_scan'].should include(169140007)
     end
 
     # 0387/A_c278History of Breast Cancer (basically inactive breast cancer) 
     it "should extract information relevant to 0387" do
+      pending "Defining measure 0387"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0387', @loader)
       measure_info['breast_cancer_history'].should include(429087003)
     end
