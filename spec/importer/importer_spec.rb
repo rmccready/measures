@@ -6,92 +6,74 @@ describe QME::Importer::GenericImporter do
     
     gi = QME::Importer::GenericImporter.new(measure_definition(loader, measure_id))
     c32_hash = QME::Importer::PatientImporter.instance.create_c32_hash(doc)
-    measure_info = nil
-    begin
-      measure_info = gi.parse(doc, c32_hash)
-    rescue
-      ap $!.backtrace
-    end
-    
-    measure_info
+    gi.parse(doc, c32_hash)
   end
 
   before(:all) do
     @loader = load_bundle
   end
-  
-  context 'when working with the NIST Example C32 file' do
 
-    it "should extract information relevant to 0001" do
-      measure_info0 = get_measure_info('fixtures/c32_fragments/0013/numerator.xml', '0001', @loader)
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0001', @loader)
-      measure_info['symptoms_daytime_asthma_quantified'].should include(370202007)
-    end
-
-    it "should extract information relevant to 0028" do
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0028', @loader)
-      measure_info['tobacco_non_user'].should include(228512004)
-      measure_info['cessation_counseling'].should include(99407)
-    end
-
-    it "should extract information relevant to 0033" do
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0033', @loader)
-      measure_info['iud_use'].should include(169477005)
-      measure_info['contraceptive_use_education'].should include(99407)
-    end
-
-    # 0055/N_c47 Diabetes active
-    it "should extract information relevant to 0055" do
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0055', @loader)
-      measure_info['diagnosis_diabetes'].should include(111552007)
-    end
-
-    # 0068/N_c191 (acute MI) Active Cardiac Pacemaker in Situ 
-    it "should extract information relevant to 0068" do
-      pending "Defining measure 0068"
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0068', @loader)
-      measure_info['acute_myocardial_infarction'].should include(22298006)
-    end
-
-    # 0070/A_c303 Pacemaker 
-    it "should extract information relevant to 0070" do
-      pending "Defining measure 0070"
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0070', @loader)
-      measure_info['cardiac_pacer'].should include(14106009)
-    end
-
-    # 0081/A_c532 Active Pregnancy  (changed the NIST example, which had a past pregnancy)
-    # 0081/A_c39, added 3 records, one each for an allergy, intolerance, and an adverse event (A_518, A_68, A_75)
-    it "should extract information relevant to 0081" do
-      pending "Defining measure 0081"
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0081', @loader)
-      measure_info['active_pregnancy'].should include(72892002)
-      measure_info['medication_allergy'].should include(104376)
-      measure_info['medication_intolerance'].should include(104376)
-      measure_info['medication_adverse_event'].should include(104376)
-    end
-
-    # 0389/A_c271 Bone Scan
-    it "should extract information relevant to 0389" do
-      pending "Defining measure 0389"
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0389', @loader)
-      measure_info['bone_scan'].should include(169140007)
-    end
-
-    # 0387/A_c278History of Breast Cancer (basically inactive breast cancer) 
-    it "should extract information relevant to 0387" do
-      pending "Defining measure 0387"
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0387', @loader)
-      measure_info['breast_cancer_history'].should include(429087003)
-    end
-
-    # 0421/Q_C155 BMI Management Plan
-    it "should extract information relevant to 0421" do
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0421', @loader)
-      measure_info['follow-up_plan_bmi_management'].should include(225171007)
-    end
+  # BEGIN *** Test cases for extended NIST example C32 file
+  it "should information from extended NIST example C32 relevant to 0001" do
+    measure_info0 = get_measure_info('fixtures/c32_fragments/0013/numerator.xml', '0001', @loader)
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0001', @loader)
+    measure_info['symptoms_daytime_asthma_quantified'].should include(370202007)
   end
 
+   it "should information from extended NIST example C32 relevant to 0028" do
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0028', @loader)
+    measure_info['tobacco_non_user'].should include(228512004)
+    measure_info['cessation_counseling'].should include(99407)
+  end
+
+  it "should information from extended NIST example C32 relevant to 0033" do
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0033', @loader)
+    measure_info['iud_use'].should include(169477005)
+    measure_info['contraceptive_use_education'].should include(99407)
+  end
+
+#	0055/N_c47 Diabetes active
+ it "should information from extended NIST example C32 relevant to 0055" do
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0055', @loader)
+    measure_info['diagnosis_diabetes'].should include(111552007)
+  end
+
+# 0068/N_c191 (acute MI) Active Cardiac Pacemaker in Situ 
+ it "should information from extended NIST example C32 relevant to 0068" do
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0068', @loader)
+    measure_info['acute_myocardial_infarction'].should include(22298006)
+  end
+# •	0070/A_c303 Pacemaker 
+ it "should information from extended NIST example C32 relevant to 0070" do
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0070', @loader)
+    measure_info['cardiac_pacer'].should include(14106009)
+  end
+
+# 0081/A_c532 Active Pregnancy  (changed the NIST example, which had a past pregnancy)
+# 0081/A_c39, added 3 records, one each for an allergy, intolerance, and an adverse event (A_518, A_68, A_75)
+ it "should information from extended NIST example C32 relevant to 0081" do
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0081', @loader)
+    measure_info['active_pregnancy'].should include(72892002)
+   measure_info['medication_allergy'].should include(104376)
+    measure_info['medication_intolerance'].should include(104376)
+    measure_info['medication_adverse_event'].should include(104376)
+  end
+# 0389/A_c271 Bone Scan
+ it "should information from extended NIST example C32 relevant to 0389" do
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0389', @loader)
+    measure_info['bone_scan'].should include(169140007)
+  end
+# 0387/A_c278History of Breast Cancer (basically inactive breast cancer) 
+ it "should information from extended NIST example C32 relevant to 0387" do
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0387', @loader)
+    measure_info['breast_cancer_history'].should include(429087003)
+  end
+# 0421/Q_C155 BMI Management Plan
+ it "should information from extended NIST example C32 relevant to 0421" do
+    measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0421', @loader)
+    measure_info['bmi_management'].should include(225171007)
+  end
+# 	END *** Test cases for extended NIST example C32 file
   it "should import the information relevant to determining hypertension blood pressure measurement" do
     measure_info = get_measure_info('fixtures/c32_fragments/0013/numerator.xml', '0013', @loader)
 
