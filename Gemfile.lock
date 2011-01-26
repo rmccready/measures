@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/pophealth/quality-measure-engine.git
-  revision: a4a438fe9f51fd9112d76485349ace6350fa0760
+  revision: 9e1ced1ee0eb636b1bc2bf2042b4d133cca35799
   branch: develop
   specs:
     quality-measure-engine (0.1.2)
@@ -58,7 +58,7 @@ GEM
       bundler (~> 1.0.0)
       git (>= 1.2.5)
       rake
-    json_pure (1.4.6)
+    json_pure (1.5.1)
     jsonschema (2.0.0)
     main (4.4.0)
       arrayfields (>= 4.7.4)
@@ -78,7 +78,7 @@ GEM
       bson (>= 1.2.0)
     nokogiri (1.4.4)
     rack (1.2.1)
-    rails_best_practices (0.6.5)
+    rails_best_practices (0.6.6)
       activesupport
       colored (~> 1.2)
       erubis (~> 2.6.6)
