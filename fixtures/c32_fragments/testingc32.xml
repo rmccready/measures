@@ -584,6 +584,9 @@
 									<text>
 										<reference value="PtrToValueInSectionText"/>
 									</text>
+									<effectiveTime>
+										<low value="20051212"/>
+									</effectiveTime>
 									<statusCode code="completed"/>
 									<!--Note that IHE/PCC and HITSP/C32 differ in how to represent the drug, substance, or food that one is allergic to. IHE/PCC expects to see that information in <value> and HITSP/C32 expects to see it in <participant>.-->
 									<participant typeCode="CSM">
@@ -629,7 +632,7 @@
 							<code nullFlavor="NA"/>
 							<statusCode code="active"/>
 							<effectiveTime>
-								<low nullFlavor="UNK"/>
+								<low value="20051212"/>
 							</effectiveTime>
 							<entryRelationship typeCode="SUBJ" inversionInd="false">
 								<observation classCode="OBS" moodCode="EVN">
@@ -707,7 +710,7 @@
 									</text>
 									<statusCode code="completed"/>
 									<effectiveTime>
-										<low nullFlavor="UNK"/>
+										<low value="20051212"/>
 									</effectiveTime>
 									<!--Note that IHE/PCC and HITSP/C32 differ in how to represent the brug, substance, or food that one is allergic to. IHE/PCC expects to see that information in <value> and HITSP/C32 expects to see it in <participant>.-->
 									<value xsi:type="CD"/>
@@ -1010,7 +1013,7 @@
 									</text>
 									<statusCode code="completed"/>
 									<effectiveTime>
-										<low value="199701"/>
+										<low value="19970101"/>
 										<high nullFlavor="UNK"/>
 									</effectiveTime>
 									<value xsi:type="CD" displayName="Myocardial infarction" code="22298006" codeSystemName="SNOMED" codeSystem="2.16.840.1.113883.6.96"/>
@@ -1109,7 +1112,7 @@
 									</text>
 									<statusCode code="completed"/>
 									<effectiveTime>
-										<low value="199701"/>
+										<low value="19970117"/>
 										<high nullFlavor="UNK"/>
 									</effectiveTime>
 									<value xsi:type="CD" displayName="IUD Use" code="169477005" codeSystemName="SNOMED" codeSystem="2.16.840.1.113883.6.96"/>
@@ -1420,7 +1423,7 @@
 							<text>IHE Requires reference to go here instead of originalText of code.<reference/>
 							</text>
 							<statusCode code="completed"/>
-							<effectiveTime value="2010"/>
+							<effectiveTime value="20101010"/>
 							<performer>
 								<assignedEntity>
 									<id/>
@@ -1447,7 +1450,7 @@
 							<text>IHE Requires reference to go here instead of originalText of code.<reference/>
 							</text>
 							<statusCode code="completed"/>
-							<effectiveTime value="2010"/>
+							<effectiveTime value="20101010"/>
 							<performer>
 								<assignedEntity>
 									<id/>
@@ -3257,7 +3260,7 @@
 							<id root="2413773c-2372-4299-bbe6-5b0f60664446"/>
 							<statusCode code="completed"/>
 							<effectiveTime xsi:type="IVL_TS">
-								<center value="199911"/>
+								<center value="19991111"/>
 							</effectiveTime>
 							<participant typeCode="DEV">
 								<participantRole classCode="MANU">
