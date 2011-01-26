@@ -1,0 +1,10 @@
+{ // doesn't match denominator since no encounter within a year
+  "first": "Gossmunder",              // personal data
+  "last": "Thunderfork",
+  "gender": "M",
+  "birthdate": 656294400,      // Time.gm(1990, 10, 19).to_i
+  "measures": {                 // bag of measures, one entry per measure
+    "0047": {
+    }
+  }
+}

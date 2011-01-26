@@ -204,7 +204,7 @@
                                     <text>Extract blood for CBC test. Note that IHE rules require description and reference to go here rather than in originalText of code.<reference value="Ptr to text  in parent Section"/>
                                     </text>
                                     <statusCode code="completed"/>
-                                    <effectiveTime value="200003231430"/>
+                                    <effectiveTime value="20000323"/>
                                     <performer>
                                         <assignedEntity>
                                             <id extension="PseudoMD-1" root="2.16.840.1.113883.3.72.5.2"/>
@@ -228,7 +228,7 @@
                                         <reference value="PtrToValueInsectionText"/>
                                     </text>
                                     <statusCode code="completed"/>
-                                    <effectiveTime value="201003231430"/>
+                                    <effectiveTime value="20100323"/>
                                     <value xsi:type="PQ" value="13.2" unit="g/dl"/>
                                     <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83"/>
                                     <referenceRange>
