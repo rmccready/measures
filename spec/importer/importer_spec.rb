@@ -17,7 +17,7 @@ describe QME::Importer::GenericImporter do
   it "should information from extended NIST example C32 relevant to 0001" do
     measure_info0 = get_measure_info('fixtures/c32_fragments/0013/numerator.xml', '0001', @loader)
     measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0001', @loader)
-    measure_info['symptoms_daytime_asthma_quantified'].should include(370202007)
+    measure_info['symptoms_daytime_asthma_quantified'].should include(1286668800)
   end
 
    it "should information from extended NIST example C32 relevant to 0028" do
