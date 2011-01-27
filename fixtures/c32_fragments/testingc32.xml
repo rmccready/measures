@@ -3438,7 +3438,7 @@
 							<code code="23426006" codeSystem="2.16.840.1.113883.6.96" displayName="Pulmonary function test"/>
 							<statusCode code="new"/>
 							<effectiveTime>
-								<center value="20000421"/>
+								<low value="20000421"/>
 							</effectiveTime>
 						</observation>
 					</entry>
@@ -3450,7 +3450,7 @@
 							<code code="225171007" codeSystem="2.16.840.1.113883.6.96" displayName="BMI Management Plan"/>
 							<statusCode code="new"/>
 							<effectiveTime>
-								<center value="20000421"/>
+								<low value="20000421"/>
 							</effectiveTime>
 						</observation>
 					</entry>
