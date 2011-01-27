@@ -40,9 +40,9 @@ describe QME::Importer::GenericImporter do
 
     # 0068/N_c191 (acute MI) Active Cardiac Pacemaker in Situ 
     it "should import the information relevant to 0068" do
-      pending "Waiting for measure 0068 to be defined"
+      # pending "Waiting for measure 0068 to be defined"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0068', @loader)
-      measure_info['acute_myocardial_infarction'].should include(22298006)
+      measure_info['acute_myocardial_infarction'].should include(852422400)
     end
     
     # 0070/A_c303 Pacemaker 

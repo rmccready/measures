@@ -584,10 +584,10 @@
 									<text>
 										<reference value="PtrToValueInSectionText"/>
 									</text>
+									<statusCode code="completed"/>
 									<effectiveTime>
 										<low value="20051212"/>
 									</effectiveTime>
-									<statusCode code="completed"/>
 									<!--Note that IHE/PCC and HITSP/C32 differ in how to represent the drug, substance, or food that one is allergic to. IHE/PCC expects to see that information in <value> and HITSP/C32 expects to see it in <participant>.-->
 									<participant typeCode="CSM">
 										<participantRole classCode="MANU">
@@ -1161,8 +1161,7 @@
 									</text>
 									<statusCode code="completed"/>
 									<effectiveTime>
-										<low value="199701"/>
-										<high nullFlavor="UNK"/>
+										<low value="19970105"/>
 									</effectiveTime>
 									<value xsi:type="CD" displayName="Active cardiac pacemaker in-situ" code="22298006" codeSystemName="SNOMED" codeSystem="2.16.840.1.113883.6.96"/>
 									<entryRelationship typeCode="REFR">
