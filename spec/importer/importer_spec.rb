@@ -48,7 +48,7 @@ describe QME::Importer::GenericImporter do
     
     # 0070/A_c303 Pacemaker 
     it "should import the information relevant to 0070" do
-      pending "Waiting for measure 0070 to be defined"
+      # pending "Waiting for measure 0070 to be defined"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0070', @loader)
       measure_info['cardiac_pacer'].should include(879206400)
     end
@@ -56,9 +56,9 @@ describe QME::Importer::GenericImporter do
     # 0081/A_c532 Active Pregnancy  (changed the NIST example, which had a past pregnancy)
     # 0081/A_c39, added 3 records, one each for an allergy, intolerance, and an adverse event (A_518, A_68, A_75)
     it "should import the information relevant to 0081" do
-      pending "Waiting for measure 0081 to be defined"
+      # pending "Waiting for measure 0081 to be defined"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0081', @loader)
-      measure_info['active_pregnancy'].should include(1291852800)
+      measure_info['pregnancy'].should include(1291852800)
       measure_info['medication_allergy'].should include(1134345600)
       measure_info['medication_intolerance'].should include(1134345600)
       measure_info['medication_adverse_event'].should include(1134345600)
@@ -66,14 +66,14 @@ describe QME::Importer::GenericImporter do
 
     # 0389/A_c271 Bone Scan
     it "should import the information relevant to 0389" do
-      pending "Waiting for measure 0389 to be defined"
+      #pending "Waiting for measure 0389 to be defined"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0389', @loader)
       measure_info['bone_scan'].should include(955026000)
     end
 
     # 0387/A_c278History of Breast Cancer (basically inactive breast cancer) 
     it "should import the information relevant to 0387" do
-      pending "Waiting for measure 0387 to be defined"
+      #pending "Waiting for measure 0387 to be defined"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0387', @loader)
       measure_info['breast_cancer_history'].should include(-631152000 )
     end
