@@ -29,7 +29,6 @@ describe QME::Importer::GenericImporter do
     it "should import the information relevant to 0033" do
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0033', @loader)
       measure_info['iud_use'].should include(853459200)
-      pending "Waiting for standard category 'communication' to be implemented"
       measure_info['contraceptive_use_education'].should include(1286668800)
     end
 
