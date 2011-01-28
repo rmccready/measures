@@ -19,7 +19,7 @@ function () {
   }
   
   var numerator = function() {
-    return (measure.vaccination <= effective_date);
+    return lessThan(measure.vaccination, effective_date);
   }
   
   var exclusion = function() {
