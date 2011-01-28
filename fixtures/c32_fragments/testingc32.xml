@@ -3259,7 +3259,7 @@
 							<id root="2413773c-2372-4299-bbe6-5b0f60664446"/>
 							<statusCode code="completed"/>
 							<effectiveTime xsi:type="IVL_TS">
-								<center value="19991111"/>
+								<low value="19991111"/>
 							</effectiveTime>
 							<participant typeCode="DEV">
 								<participantRole classCode="MANU">
