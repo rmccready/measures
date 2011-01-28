@@ -29,31 +29,7 @@
     }
   },
   "measure": {
-    "birthdate": {
-      "description": "birthdate",
-      "standard_concept_id": "N_c8",
-      "qds_data_types": [
-        "patient_characteristic"
-      ],
-      "standard_category": "individual_characteristic",
-      "type": "array",
-      "items": {
-        "type": "number",
-        "format": "utc-sec"
-      },
-      "codes": [
-        {
-          "set": "HL7",
-          "version": "3.0",
-          "standard_concept": "birthdate",
-          "standard_concept_id": "N_c8",
-          "values": [
-            "00110"
-          ]
-        }
-      ]
-    },
-    "oral_anti-platelet_therapy": {
+     "oral_anti-platelet_therapy": {
       "description": "oral_anti-platelet_therapy",
       "standard_concept_id": "N_c463",
       "qds_data_types": [
