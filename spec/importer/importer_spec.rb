@@ -6,7 +6,7 @@ describe QME::Importer::GenericImporter do
     
     gi = QME::Importer::GenericImporter.new(measure_definition(loader, measure_id))
     c32_hash = QME::Importer::PatientImporter.instance.create_c32_hash(doc)
-    gi.parse(doc, c32_hash)
+    gi.parse(c32_hash)
   end
 
   before(:all) do
@@ -49,13 +49,13 @@ describe QME::Importer::GenericImporter do
     it "should import the information relevant to 0070" do
       # pending "Waiting for measure 0070 to be defined"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0070', @loader)
-      measure_info['cardiac_pacer'].should include(879206400)
+      measure_info['cardiac_pacer'].should include(942278400)
     end
 
     # 0081/A_c532 Active Pregnancy  (changed the NIST example, which had a past pregnancy)
     # 0081/A_c39, added 3 records, one each for an allergy, intolerance, and an adverse event (A_518, A_68, A_75)
     it "should import the information relevant to 0081" do
-      # pending "Waiting for measure 0081 to be defined"
+      pending "Waiting for measure 0081 to be defined"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0081', @loader)
       measure_info['pregnancy'].should include(1291852800)
       measure_info['medication_allergy'].should include(1134345600)
@@ -65,7 +65,7 @@ describe QME::Importer::GenericImporter do
 
     # 0389/A_c271 Bone Scan
     it "should import the information relevant to 0389" do
-      #pending "Waiting for measure 0389 to be defined"
+      pending "Waiting for standard category diagnostic_study_performed to be implemented"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0389', @loader)
       measure_info['bone_scan'].should include(955026000)
     end
