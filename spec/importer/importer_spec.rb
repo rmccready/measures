@@ -119,7 +119,7 @@ describe QME::Importer::GenericImporter do
 
     measure_info['encounter_outpatient'].should include(1270598400)
     measure_info['pap_test'].should include(1269302400)
-    measure_info['hysterectomy'].should be_empty
+    measure_info['hysterectomy'].should eql(nil)
   end
 
   it "should import the the information relevant to chlamydia screening" do
