@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/pophealth/quality-measure-engine.git
-  revision: 9e1ced1ee0eb636b1bc2bf2042b4d133cca35799
+  revision: fd38f4f43c7c4c9284eec5d57b0b9223a098dcdd
   branch: develop
   specs:
     quality-measure-engine (0.1.2)
@@ -49,7 +49,7 @@ GEM
       sexp_processor (~> 3.0)
     git (1.2.5)
     haml (3.0.25)
-    hashie (0.4.0)
+    hashie (1.0.0)
     hirb (0.3.6)
     hoe (2.8.0)
       rake (>= 0.8.7)
