@@ -6,7 +6,7 @@ describe QME::Importer::GenericImporter do
     
     gi = QME::Importer::GenericImporter.new(measure_definition(loader, measure_id))
     c32_hash = QME::Importer::PatientImporter.instance.create_c32_hash(doc)
-    gi.parse(doc, c32_hash)
+    gi.parse(c32_hash)
   end
 
   before(:all) do
@@ -48,7 +48,7 @@ describe QME::Importer::GenericImporter do
 
     measure_info['encounter_outpatient'].should include(1270598400)
     measure_info['pap_test'].should include(1269302400)
-    measure_info['hysterectomy'].should be_empty
+    measure_info['hysterectomy'].should eql(nil)
   end
 
   it "should import the the information relevant to chlamydia screening" do
@@ -74,7 +74,7 @@ describe QME::Importer::GenericImporter do
     measure_info['unilateral_mastectomy'].should include(1248825600)
     measure_info['bilateral_mastectomy'].length.should == 1
     measure_info['bilateral_mastectomy'].should include(1248825600)
-    # measure_info['breast_cancer_screening'].should include(1248825600)
+    #measure_info['breast_cancer_screening'].should include(1248825600)
   end
   
   it "should import the the information relevant to determining pneumonia vaccination status" do
