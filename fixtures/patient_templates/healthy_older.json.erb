@@ -67,6 +67,15 @@
         "code_set": "SNOMED-CT"
       }
       <% end %>
+      <% if percent(70) %>
+      ,{
+        "description": "BMI",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 3, 31)) %>,
+        "code": "225171007",
+        "code_set": "SNOMED-CT",
+        "value": <%= between(22, 26) %>
+      }
+      <% end %>
     ],
     "procedures": [
       "dummy"
