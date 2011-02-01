@@ -13,17 +13,17 @@ function () {
  
   var population = function() {
      
-    return true ;
+    return false;
   }
   
   var denominator = function() {
 
-    return true;
+    return false;
   }
   
   var numerator = function() {
   
-    return true;
+    return false;
   }
   
   var exclusion = function() {
