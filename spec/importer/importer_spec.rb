@@ -65,7 +65,6 @@ describe QME::Importer::GenericImporter do
 
     # 0389/A_c271 Bone Scan
     it "should import the information relevant to 0389" do
-      pending "Waiting for standard category diagnostic_study_performed to be implemented"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0389', @loader)
       measure_info['bone_scan'].should include(955026000)
     end
@@ -145,7 +144,7 @@ describe QME::Importer::GenericImporter do
     measure_info['unilateral_mastectomy'].should include(1248825600)
     measure_info['bilateral_mastectomy'].length.should == 1
     measure_info['bilateral_mastectomy'].should include(1248825600)
-    pending "Waiting for standard category diagnostic_study_performed to be implemented" 
+    
     measure_info['breast_cancer_screening'].should include(1248825600)
   end
   
