@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/pophealth/quality-measure-engine.git
-  revision: fd38f4f43c7c4c9284eec5d57b0b9223a098dcdd
+  revision: 3a08fe7ed97400de884703e536b779db1e294c55
   branch: develop
   specs:
     quality-measure-engine (0.1.2)
@@ -51,7 +51,7 @@ GEM
     haml (3.0.25)
     hashie (1.0.0)
     hirb (0.3.6)
-    hoe (2.8.0)
+    hoe (2.9.0)
       rake (>= 0.8.7)
     i18n (0.5.0)
     jeweler (1.5.2)
