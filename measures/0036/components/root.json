@@ -694,7 +694,7 @@
       "qds_data_types": [
         "diagnosis_active"
       ],
-      "standard_category": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -738,7 +738,7 @@
       "qds_data_types": [
         "diagnosis_active"
       ],
-      "standard_category": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -850,7 +850,7 @@
       "qds_data_types": [
         "diagnosis_active"
       ],
-      "standard_category": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -946,7 +946,7 @@
       "qds_data_types": [
         "diagnosis_active"
       ],
-      "standard_category": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -998,7 +998,7 @@
       "qds_data_types": [
         "diagnosis_active"
       ],
-      "standard_category": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",

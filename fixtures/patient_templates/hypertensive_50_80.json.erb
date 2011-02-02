@@ -5,6 +5,8 @@
   "last": "<%= surname %>",
   "gender": "<%= sex %>",
   "birthdate": <%= between(Time.gm(1930, 1, 1), Time.gm(1960, 12, 31)) %>,
+  <% tobacco_user = percent(50) %>
+  <% known_tobacco_user = tobacco_user && percent(80) %>
   "events": {
     "encounters": [
       {
@@ -13,15 +15,45 @@
         "code": "99201",
         "code_set": "CPT"
       }
-      <% latest_encounter = between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>
+      <% latest_encounter = between(Time.gm(2010, 7, 1), Time.gm(2010, 12, 31)) %>
       ,{
         "description": "Outpatient encounter",
         "time": <%= latest_encounter %>,
         "code": "99201",
         "code_set": "CPT"
       }
+      <% if percent(75) %>
+      ,{
+        "description": "Preventative encounter",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 6, 30)) %>,
+        "code": "99385",
+        "code_set": "CPT"
+      }
+      <% end %>
     ],
-    "procedures": [
+    "conditions": [
+      "dummy"
+      ,{
+        "description": "Hypertension",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "401.0",
+        "code_set": "ICD-9-CM"
+      }
+      <% if known_tobacco_user %>
+      ,{
+        "description": "Tobacco User",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 3, 31)) %>,
+        "code": "160603005",
+        "code_set": "SNOMED-CT"
+      }
+      <% else %>
+      ,{
+        "description": "Tobacco Non-user",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 3, 31)) %>,
+        "code": "105539002",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
     ],
     "results": [
     ],
@@ -45,6 +77,41 @@
         "unit": "mmHg"
       }
       <% end %>
+      <% if known_tobacco_user %>
+      ,{
+        "description": "Tobacco User",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 3, 31)) %>,
+        "code": "160603005",
+        "code_set": "SNOMED-CT"
+      }
+      <% else %>
+      ,{
+        "description": "Tobacco Non-user",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 3, 31)) %>,
+        "code": "105539002",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
+      <% if percent(70) %>
+      ,{
+        "description": "BMI",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 3, 31)) %>,
+        "code": "225171007",
+        "code_set": "SNOMED-CT",
+        "value": <%= between(22, 35) %>
+      }
+      <% end %>
+    ],
+    "procedures": [
+      "dummy"
+      <% if known_tobacco_user && percent(90) %>
+      ,{
+        "description": "Tobacco Cessation Couselling",
+        "time": <%= between(Time.gm(2010, 4, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "171055003",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
     ],
     "medications": [
       "dummy"
@@ -64,15 +131,14 @@
         "code_set": "RxNorm"
       }
       <% end %>
-    ],
-    "conditions": [
-      "dummy"
+      <% if known_tobacco_user && percent(70) %>
       ,{
-        "description": "Hypertension",
-        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
-        "code": "401.0",
-        "code_set": "ICD-9-CM"
+        "description": "Tobacco Cessation Agent",
+        "time": <%= between(Time.gm(2010, 4, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "105075",
+        "code_set": "RxNorm"
       }
+      <% end %>
     ]
   }
 }
