@@ -28,18 +28,18 @@
       ]
     }
   },
-  "measure": {
+ "measure": {
     "ace_inhibitor_or_arb": {
       "description": "",
       "standard_concept_id": "ace_inhibitor_or_arb",
-      "standard_categories": [
+      "qds_data_types": [
         "medication_active",
         "medication_adverse_event",
         "medication_order",
         "medication_allergy",
         "medication_intolerance"
       ],
-      "category_type": "medication",
+      "standard_category": "medication",
       "type": "array",
       "items": {
         "type": "number",
@@ -223,10 +223,10 @@
     "birthdate": {
       "description": "",
       "standard_concept_id": "birthdate",
-      "standard_categories": [
+      "qds_data_types": [
         "patient_characteristic"
       ],
-      "category_type": "individual_characteristic",
+      "standard_category": "individual_characteristic",
       "type": "array",
       "items": {
         "type": "number",
@@ -247,10 +247,10 @@
     "ejection_fraction": {
       "description": "",
       "standard_concept_id": "ejection_fraction",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnostic_study_result"
       ],
-      "category_type": "diagnostic_study",
+      "standard_category": "diagnostic_study",
       "type": "array",
       "items": {
         "type": "number",
@@ -273,10 +273,10 @@
     "lvf_assmt": {
       "description": "number",
       "standard_concept_id": "lvf_assmt",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnostic_study_result"
       ],
-      "category_type": "diagnostic_study",
+      "standard_category": "diagnostic_study",
       "type": "array",
       "items": {
         "type": "object",
@@ -333,10 +333,10 @@
     "medical_reason": {
       "description": "",
       "standard_concept_id": "medical_reason",
-      "standard_categories": [
+      "qds_data_types": [
         "medication_not_done"
       ],
-      "category_type": "negation_rationale",
+      "standard_category": "negation_rationale",
       "type": "array",
       "items": {
         "type": "number",
@@ -366,10 +366,10 @@
     "patient_reason": {
       "description": "",
       "standard_concept_id": "patient_reason",
-      "standard_categories": [
+      "qds_data_types": [
         "medication_not_done"
       ],
-      "category_type": "negation_rationale",
+      "standard_category": "negation_rationale",
       "type": "array",
       "items": {
         "type": "number",
@@ -399,10 +399,10 @@
     "patient_reason_for_ace_inhibitor_or_arb_decline": {
       "description": "",
       "standard_concept_id": "patient_reason_for_ace_inhibitor_or_arb_decline",
-      "standard_categories": [
+      "qds_data_types": [
         "medication_not_done"
       ],
-      "category_type": "negation_rationale",
+      "standard_category": "negation_rationale",
       "type": "array",
       "items": {
         "type": "number",
@@ -424,10 +424,10 @@
     "system_reason": {
       "description": "",
       "standard_concept_id": "system_reason",
-      "standard_categories": [
+      "qds_data_types": [
         "medication_not_done"
       ],
-      "category_type": "negation_rationale",
+      "standard_category": "negation_rationale",
       "type": "array",
       "items": {
         "type": "number",
@@ -490,10 +490,10 @@
     "acute_renal_failure": {
       "description": "",
       "standard_concept_id": "acute_renal_failure",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -573,10 +573,10 @@
     "atherosclerosis_of_renal_artery": {
       "description": "",
       "standard_concept_id": "atherosclerosis_of_renal_artery",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -615,10 +615,10 @@
     "atresia_and_stenosis_of_aorta": {
       "description": "",
       "standard_concept_id": "atresia_and_stenosis_of_aorta",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -661,10 +661,10 @@
     "chronic_kidney_disease_with_and_without_hypertension": {
       "description": "",
       "standard_concept_id": "chronic_kidney_disease_with_and_without_hypertension",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -731,10 +731,10 @@
     "deficiencies_of_circulating_enzymes": {
       "description": "",
       "standard_concept_id": "deficiencies_of_circulating_enzymes",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -764,10 +764,10 @@
     "disease_of_aortic_and_mitral_valves": {
       "description": "",
       "standard_concept_id": "disease_of_aortic_and_mitral_valves",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -840,10 +840,10 @@
     "encounter_inpatient_discharge": {
       "description": "",
       "standard_concept_id": "encounter_inpatient_discharge",
-      "standard_categories": [
+      "qds_data_types": [
         "encounter"
       ],
-      "category_type": "encounter",
+      "standard_category": "encounter",
       "type": "array",
       "items": {
         "type": "number",
@@ -865,10 +865,10 @@
     "encounter_nursing_facility": {
       "description": "",
       "standard_concept_id": "encounter_nursing_facility",
-      "standard_categories": [
+      "qds_data_types": [
         "encounter"
       ],
-      "category_type": "encounter",
+      "standard_category": "encounter",
       "type": "array",
       "items": {
         "type": "number",
@@ -895,10 +895,10 @@
     "encounter_outpatient": {
       "description": "",
       "standard_concept_id": "encounter_outpatient",
-      "standard_categories": [
+      "qds_data_types": [
         "encounter"
       ],
-      "category_type": "encounter",
+      "standard_category": "encounter",
       "type": "array",
       "items": {
         "type": "number",
@@ -950,10 +950,10 @@
     "patient_encounter": {
       "description": "",
       "standard_concept_id": "patient_encounter_–_inpatient/nursing/outpatient",
-      "standard_categories": [
+      "qds_data_types": [
         "encounter"
       ],
-      "category_type": "encounter",
+      "standard_category": "encounter",
       "type": "array",
       "items": {
         "type": "number",
@@ -982,10 +982,10 @@
     "heart_failure": {
       "description": "",
       "standard_concept_id": "heart_failure",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -1145,10 +1145,10 @@
     "hypertensive_renal_disease_with_renal_failure": {
       "description": "",
       "standard_concept_id": "hypertensive_renal_disease_with_renal_failure",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -1241,10 +1241,10 @@
     "nonrheumatic_mitral_(valve)_disease": {
       "description": "",
       "standard_concept_id": "nonrheumatic_mitral_(valve)_disease",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -1285,10 +1285,10 @@
     "pregnancy": {
       "description": "",
       "standard_concept_id": "pregnancy",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
@@ -1428,10 +1428,10 @@
     "renal_failure_and_esrd": {
       "description": "",
       "standard_concept_id": "renal_failure_and_esrd",
-      "standard_categories": [
+      "qds_data_types": [
         "diagnosis_active"
       ],
-      "category_type": "diagnosis-condition-problem",
+      "standard_category": "diagnosis_condition_problem",
       "type": "array",
       "items": {
         "type": "number",
