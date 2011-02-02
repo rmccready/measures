@@ -1,29 +1,36 @@
 function () {
   var patient = this;
-  var measure = patient.measures["0043"];
+  var measure = patient.measures["0081"];
   if (measure==null)
     measure={};
 
-  var year = 365*24*60*60;
+  var day = 24*60*60;
+  var year = 365*day;
   var effective_date = <%= effective_date %>;
-  var earliest_birthdate = effective_date - 65*year;
+  var latest_birthdate = effective_date - 23*year;
+  var latest_birthdate = effective_date - 15*year;
   var earliest_encounter = effective_date - 1*year;
-  
+ 
   var population = function() {
-    return (patient.birthdate <= earliest_birthdate);
+     
+    return true ;
   }
   
   var denominator = function() {
-    outpatient_encounter = inRange(measure.encounter, earliest_encounter, effective_date);
-    return (outpatient_encounter);
+
+    return true;
   }
   
   var numerator = function() {
-    return lessThan(measure.vaccination, effective_date);
+  
+    return true;
   }
   
   var exclusion = function() {
-    return false;
+
+
+     return false
+
   }
   
   map(patient, population, denominator, numerator, exclusion);
