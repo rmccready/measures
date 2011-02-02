@@ -1,0 +1,12 @@
+{ 
+  "first": "Granite",              
+  "last": "Shaleface",
+  "gender": "M",
+  "birthdate": 656294400,      
+  "measures": {                 
+    "0068": {
+      "cabg": 1253318500,
+      "encounter_acute_inpt_and_outpt": 1253318500
+    }
+  }
+}

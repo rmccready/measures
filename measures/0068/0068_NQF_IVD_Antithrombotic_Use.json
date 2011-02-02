@@ -29,8 +29,8 @@
     }
   },
   "measure": {
-     "oral_anti-platelet_therapy": {
-      "description": "oral_anti-platelet_therapy",
+     "oral_anti_platelet_therapy": {
+      "description": "oral_anti_platelet_therapy",
       "standard_concept_id": "N_c463",
       "qds_data_types": [
         "medication_dispensed",
