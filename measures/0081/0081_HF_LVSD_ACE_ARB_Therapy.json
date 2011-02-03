@@ -28,10 +28,10 @@
       ]
     }
   },
-  "measure": {
+ "measure": {
     "ace_inhibitor_or_arb": {
-      "description": "ace_inhibitor_or_arb",
-      "standard_concept_id": "A_c39",
+      "description": "",
+      "standard_concept_id": "ace_inhibitor_or_arb",
       "qds_data_types": [
         "medication_active",
         "medication_adverse_event",
@@ -44,7 +44,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "RxNorm",
@@ -217,12 +217,36 @@
             "891622",
             "891626"
           ]
-        }
+                                        }
       ]
-    },
+            },
+    "birthdate": {
+      "description": "",
+      "standard_concept_id": "birthdate",
+      "qds_data_types": [
+        "patient_characteristic"
+      ],
+      "standard_category": "individual_characteristic",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+                        },
+      "codes": [
+        {
+          "set": "HL7",
+          "version": "3.0",
+          "standard_concept": "birthdate",
+          "standard_concept_id": "A_c8",
+          "values": [
+            "00110"
+          ]
+                                        }
+      ]
+            },
     "ejection_fraction": {
-      "description": "ejection_fraction",
-      "standard_concept_id": "A_c29",
+      "description": "",
+      "standard_concept_id": "ejection_fraction",
       "qds_data_types": [
         "diagnostic_study_result"
       ],
@@ -231,7 +255,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "SNOMED-CT",
@@ -243,9 +267,9 @@
             "250908004",
             "70822001"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "lvf_assmt": {
       "description": "number",
       "standard_concept_id": "lvf_assmt",
@@ -260,14 +284,14 @@
           "value": {
             "description": "number",
             "type": "LVF Assessment Result"
-          },
+                                                            },
           "date": {
             "description": "Date of LVF Assessment",
-            "type": "number",
+            "type": "LVF Assessment Result",
             "format": "utc-sec"
-          }
-        }
-      },
+                                                            }
+                                        }
+                        },
       "codes": [
         {
           "set": "CPT",
@@ -303,12 +327,12 @@
             "93352",
             "93543"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "medical_reason": {
-      "description": "medical_reason",
-      "standard_concept_id": "A_c313",
+      "description": "",
+      "standard_concept_id": "medical_reason",
       "qds_data_types": [
         "medication_not_done"
       ],
@@ -317,7 +341,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "HL7",
@@ -336,12 +360,12 @@
             "22261",
             "22855"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "patient_reason": {
-      "description": "patient_reason",
-      "standard_concept_id": "A_c311",
+      "description": "",
+      "standard_concept_id": "patient_reason",
       "qds_data_types": [
         "medication_not_done"
       ],
@@ -350,7 +374,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "HL7",
@@ -369,12 +393,12 @@
             "22260",
             "22851"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "patient_reason_for_ace_inhibitor_or_arb_decline": {
-      "description": "patient_reason_for_ace_inhibitor_or_arb_decline",
-      "standard_concept_id": "A_c305",
+      "description": "",
+      "standard_concept_id": "patient_reason_for_ace_inhibitor_or_arb_decline",
       "qds_data_types": [
         "medication_not_done"
       ],
@@ -383,7 +407,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "SNOMED-CT",
@@ -394,12 +418,12 @@
             "134397009",
             "401084003"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "system_reason": {
-      "description": "system_reason",
-      "standard_concept_id": "A_c310",
+      "description": "",
+      "standard_concept_id": "system_reason",
       "qds_data_types": [
         "medication_not_done"
       ],
@@ -408,7 +432,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "HL7",
@@ -460,12 +484,12 @@
             "22912",
             "22913"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "acute_renal_failure": {
-      "description": "acute_renal_failure",
-      "standard_concept_id": "A_c239",
+      "description": "",
+      "standard_concept_id": "acute_renal_failure",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -474,7 +498,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-10-CM",
@@ -489,7 +513,7 @@
             "N18.6",
             "R34"
           ]
-        },
+                                        },
         {
           "set": "ICD-9-CM",
           "version": "2010",
@@ -502,7 +526,7 @@
             "584.8",
             "584.9"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "2010",
@@ -543,12 +567,12 @@
             "71909003",
             "78209002"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "atherosclerosis_of_renal_artery": {
-      "description": "atherosclerosis_of_renal_artery",
-      "standard_concept_id": "A_c374",
+      "description": "",
+      "standard_concept_id": "atherosclerosis_of_renal_artery",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -557,7 +581,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-10-CM",
@@ -567,7 +591,7 @@
           "values": [
             "I70.1"
           ]
-        },
+                                        },
         {
           "set": "ICD-9-CM",
           "version": "2010",
@@ -576,7 +600,7 @@
           "values": [
             "440.1"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "2009",
@@ -585,12 +609,12 @@
           "values": [
             "45281005"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "atresia_and_stenosis_of_aorta": {
-      "description": "atresia_and_stenosis_of_aorta",
-      "standard_concept_id": "A_c414",
+      "description": "",
+      "standard_concept_id": "atresia_and_stenosis_of_aorta",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -599,7 +623,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-10-CM",
@@ -612,7 +636,7 @@
             "Q25.2",
             "Q25.3"
           ]
-        },
+                                        },
         {
           "set": "ICD-9-CM",
           "version": "2010",
@@ -622,7 +646,7 @@
             "440.0",
             "747.22"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "2009",
@@ -631,12 +655,12 @@
           "values": [
             "204431007"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "chronic_kidney_disease_with_and_without_hypertension": {
-      "description": "chronic_kidney_disease_with_and_without_hypertension",
-      "standard_concept_id": "A_c42",
+      "description": "",
+      "standard_concept_id": "chronic_kidney_disease_with_and_without_hypertension",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -645,7 +669,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-9-CM",
@@ -663,7 +687,7 @@
             "404.92",
             "404.93"
           ]
-        },
+                                        },
         {
           "set": "ICD-10-CM",
           "version": "2010",
@@ -680,7 +704,7 @@
             "N18.6",
             "N18.9"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "2009",
@@ -701,12 +725,12 @@
             "433146000",
             "57684003"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "deficiencies_of_circulating_enzymes": {
-      "description": "deficiencies_of_circulating_enzymes",
-      "standard_concept_id": "A_c375",
+      "description": "",
+      "standard_concept_id": "deficiencies_of_circulating_enzymes",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -715,7 +739,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-10-CM",
@@ -725,7 +749,7 @@
           "values": [
             "E88.09"
           ]
-        },
+                                        },
         {
           "set": "ICD-9-CM",
           "version": "2010",
@@ -734,12 +758,12 @@
           "values": [
             "277.6"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "disease_of_aortic_and_mitral_valves": {
-      "description": "disease_of_aortic_and_mitral_valves",
-      "standard_concept_id": "A_c41",
+      "description": "",
+      "standard_concept_id": "disease_of_aortic_and_mitral_valves",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -748,7 +772,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-10-CM",
@@ -756,7 +780,7 @@
           "standard_concept": "disease_of_aortic_and_mitral_valves",
           "standard_concept_id": "A_c525",
           "values": [
-            "I 34.8",
+            "I34.8",
             "I05.0",
             "I05.1",
             "I05.2",
@@ -781,7 +805,7 @@
             "Q23.2",
             "Q23.3"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "2009",
@@ -797,7 +821,7 @@
             "71799002",
             "81552002"
           ]
-        },
+                                        },
         {
           "set": "ICD-9-CM",
           "version": "2010",
@@ -810,12 +834,12 @@
             "396.2",
             "396.8"
           ]
-        }
+                                        }
       ]
-    },
-    "patient_encounter": {
-      "description": "patient_encounter_–_inpatient/nursing/outpatient",
-      "standard_concept_id": "added-A_c27-A_c28-A_c26",
+            },
+    "encounter_inpatient_discharge": {
+      "description": "",
+      "standard_concept_id": "encounter_inpatient_discharge",
       "qds_data_types": [
         "encounter"
       ],
@@ -824,23 +848,69 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "CPT",
           "version": "2010",
-          "standard_concept": "patient_encounter_–_inpatient/nursing/outpatient",
-          "standard_concept_id": "added-A_c27-A_c28-A_c26",
+          "standard_concept": "encounter_inpatient_discharge",
+          "standard_concept_id": "A_c27",
           "values": [
             "99238",
-            "99239",
+            "99239"
+          ]
+                                        }
+      ]
+            },
+    "encounter_nursing_facility": {
+      "description": "",
+      "standard_concept_id": "encounter_nursing_facility",
+      "qds_data_types": [
+        "encounter"
+      ],
+      "standard_category": "encounter",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+                        },
+      "codes": [
+        {
+          "set": "CPT",
+          "version": "2010",
+          "standard_concept": "encounter_nursing_facility",
+          "standard_concept_id": "A_c28",
+          "values": [
             "99304",
             "99305",
             "99306",
             "99307",
             "99308",
             "99309",
-            "99310",
+            "99310"
+          ]
+                                        }
+      ]
+            },
+    "encounter_outpatient": {
+      "description": "",
+      "standard_concept_id": "encounter_outpatient",
+      "qds_data_types": [
+        "encounter"
+      ],
+      "standard_category": "encounter",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+                        },
+      "codes": [
+        {
+          "set": "CPT",
+          "version": "2010",
+          "standard_concept": "encounter_outpatient",
+          "standard_concept_id": "A_c26",
+          "values": [
             "99201",
             "99202",
             "99203",
@@ -874,12 +944,44 @@
             "99349",
             "99350"
           ]
-        }
+                                        }
       ]
-    },
+            },
+    "patient_encounter": {
+      "description": "",
+      "standard_concept_id": "patient_encounter_–_inpatient/nursing/outpatient",
+      "qds_data_types": [
+        "encounter"
+      ],
+      "standard_category": "encounter",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+                        },
+      "codes": [
+        {
+          "set": "CPT",
+          "version": "2010",
+          "standard_concept": "patient_encounter_–_inpatient/nursing/outpatient",
+          "standard_concept_id": "added-A_c27-A_c28-A_c26",
+          "values": [
+            "A_c27",
+            "A_c28",
+            "A_c26",
+            "A_c27",
+            "A_c28",
+            "A_c26",
+            "A_c27",
+            "A_c28",
+            "A_c26"
+          ]
+                                        }
+      ]
+            },
     "heart_failure": {
-      "description": "heart_failure",
-      "standard_concept_id": "A_c376",
+      "description": "",
+      "standard_concept_id": "heart_failure",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -888,7 +990,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-9-CM",
@@ -921,7 +1023,7 @@
             "428.43",
             "428.9"
           ]
-        },
+                                        },
         {
           "set": "ICD-10-CM",
           "version": "2010",
@@ -977,7 +1079,7 @@
             "I50.43",
             "I50.9"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "07/2009",
@@ -1037,12 +1139,12 @@
             "90727007",
             "92506005"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "hypertensive_renal_disease_with_renal_failure": {
-      "description": "hypertensive_renal_disease_with_renal_failure",
-      "standard_concept_id": "A_c236",
+      "description": "",
+      "standard_concept_id": "hypertensive_renal_disease_with_renal_failure",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -1051,7 +1153,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-10-CM",
@@ -1073,7 +1175,7 @@
             "N18.5",
             "N18.9"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "2010",
@@ -1116,7 +1218,7 @@
             "86234004",
             "90493000"
           ]
-        },
+                                        },
         {
           "set": "ICD-9-CM",
           "version": "2010",
@@ -1133,12 +1235,12 @@
             "404.92",
             "404.93"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "nonrheumatic_mitral_(valve)_disease": {
-      "description": "nonrheumatic_mitral_(valve)_disease",
-      "standard_concept_id": "A_c237",
+      "description": "",
+      "standard_concept_id": "nonrheumatic_mitral_(valve)_disease",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -1147,7 +1249,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-10-CM",
@@ -1158,7 +1260,7 @@
             "I34.2",
             "I34.8"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "2010",
@@ -1168,7 +1270,7 @@
             "194727002",
             "194978002"
           ]
-        },
+                                        },
         {
           "set": "ICD-9-CM",
           "version": "2010",
@@ -1177,12 +1279,12 @@
           "values": [
             "424.0"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "pregnancy": {
-      "description": "pregnancy",
-      "standard_concept_id": "A_c378",
+      "description": "",
+      "standard_concept_id": "pregnancy",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -1191,7 +1293,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-10-CM",
@@ -1221,7 +1323,7 @@
             "Z34.0",
             "Z87.59"
           ]
-        },
+                                        },
         {
           "set": "ICD-9-CM",
           "version": "2009",
@@ -1248,7 +1350,7 @@
             "V23.89",
             "V23.9"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "2010",
@@ -1320,12 +1422,12 @@
             "83074005",
             "9279009"
           ]
-        }
+                                        }
       ]
-    },
+            },
     "renal_failure_and_esrd": {
-      "description": "renal_failure_and_esrd",
-      "standard_concept_id": "A_c46",
+      "description": "",
+      "standard_concept_id": "renal_failure_and_esrd",
       "qds_data_types": [
         "diagnosis_active"
       ],
@@ -1334,7 +1436,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-      },
+                        },
       "codes": [
         {
           "set": "ICD-9-CM",
@@ -1352,7 +1454,7 @@
             "586",
             "788.5"
           ]
-        },
+                                        },
         {
           "set": "ICD-10-CM",
           "version": "2010",
@@ -1366,7 +1468,7 @@
             "N17.9",
             "N99.0"
           ]
-        },
+                                        },
         {
           "set": "SNOMED-CT",
           "version": "2010",
@@ -1389,10 +1491,10 @@
             "49220004",
             "90688005"
           ]
-        }
+                                        }
       ]
-    }
-  },
+            }
+    },
   "population": {
     "and": [
       {
