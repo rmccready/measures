@@ -135,6 +135,25 @@
         }
       ]
     },
+    "encounter_ed":
+    {
+      "description": "Dates of ED Encounters",
+      "standard_category": "encounter",
+      "type":"array",
+      "items":
+      {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes":
+      [
+        {
+          "set": "CPT",
+          "version": "06/2009",
+          "values": ["99281", "99282", "99283", "99284", "99285"]
+        }
+      ]
+    },
     "encounter_non_acute_inpatient": 
     {
       "description": "Dates of Non-Acute Inpatient encounters",
@@ -416,6 +435,25 @@
           "values": ["E28.2"]
         }
       ]
+    },
+    "encounter_ophthalmology":
+    {
+      "description": "Ophthalmology Encounters",
+      "standard_category": "encounter",
+      "type":"array",
+      "items": 
+      {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": 
+      [
+        {
+          "set": "CPT",
+          "version": "06/2009",
+          "values": []
+        }
+      ]
     }
   },
   "population": 
@@ -495,7 +533,7 @@
         [
           {
             "category": "Diagnosis",
-            "title": "Gestational diabetes or seteriod induced diabetes within 2 years"
+            "title": "Gestational diabetes or steriod induced diabetes within 2 years"
           },
           {
             "category": "Medication",
