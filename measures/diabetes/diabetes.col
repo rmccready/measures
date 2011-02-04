@@ -503,6 +503,42 @@
               "values": ["113079009", "166833005", "166840006", "166841005", "167074000", "167075004", "270996006", "314036004", "314039006", "391291008"]
             }
           ]
+        },
+        "ldl_test_results": {
+          "description": "LDL Test",
+          "standard_category": "laboratory_test",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "description": "LDL test result",
+                "type": "number" 
+              },
+              "date": {
+                "description": "LDL test date",
+                "type": "number",
+                "format": "utc-sec" 
+              }
+            }
+          },
+          "codes": [
+            {
+              "set": "CPT",
+              "version": "06/2009",
+              "values": ["80061", "83700", "83701", "83704", "83721"]
+            },
+            {
+              "set": "LOINC",
+              "version": "06/2009",
+              "values": ["12773-8", "13457-7", "18261-8", "18262-6", "2089-1", "22748-8", "39469-2", "49132-4", "55440-2"]
+            },
+            {
+              "set": "SNOMED-CT",
+              "version": "07/2009",
+              "values": ["113079009", "166833005", "166840006", "166841005", "167074000", "167075004", "270996006", "314036004", "314039006", "391291008"]
+            }
+          ]
         }
       },
       "map_fn": "0064_NQF_Diabetes_LDL_Management.js"
@@ -524,6 +560,32 @@
         }
       },
       "measure": {
+        "ldl_test_dates": {
+          "description": "LDL test date",
+          "standard_category": "laboratory_test",
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "utc-sec"
+          },
+          "codes": [
+            {
+              "set": "CPT",
+              "version": "06/2009",
+              "values": ["80061", "83700", "83701", "83704", "83721"]
+            },
+            {
+              "set": "LOINC",
+              "version": "06/2009",
+              "values": ["12773-8", "13457-7", "18261-8", "18262-6", "2089-1", "22748-8", "39469-2", "49132-4", "55440-2"]
+            },
+            {
+              "set": "SNOMED-CT",
+              "version": "07/2009",
+              "values": ["113079009", "166833005", "166840006", "166841005", "167074000", "167075004", "270996006", "314036004", "314039006", "391291008"]
+            }
+          ]
+        },
         "ldl_test_results": {
           "description": "LDL Test",
           "standard_category": "laboratory_test",

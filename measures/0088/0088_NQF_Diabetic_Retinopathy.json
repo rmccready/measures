@@ -434,7 +434,7 @@
          ]
       },
       "patient_encounter": {
-         "description": "patient_encounter_–_domiciliary,_nursing_facility,_office_&_outpatient_consult,_opthalmological",
+         "description": "patient_encounter_–_domiciliary,_nursing_facility,_office_&_outpatient_consult,_ophthalmological",
          "standard_concept_id": "added-A_c110-A_c28-A_c99-A_c111",
          "standard_category": "encounter",
          "type": "array",
@@ -446,7 +446,7 @@
             {
                "set": "CPT",
                "version": "2010",
-               "standard_concept": "patient_encounter_–_domiciliary,_nursing_facility,_office_&_outpatient_consult,_opthalmological",
+               "standard_concept": "patient_encounter_–_domiciliary,_nursing_facility,_office_&_outpatient_consult,_ophthalmological",
                "standard_concept_id": "added-A_c110-A_c28-A_c99-A_c111",
                "values": [
                   "99324",
