@@ -6,7 +6,7 @@
   "gender": "<%= sex %>",
   "birthdate": <%= between(Time.gm(1930, 1, 1), Time.gm(1960, 12, 31)) %>,
   <% tobacco_user = percent(30) %>
-  <% known_tobacco_user = tobacco_user && percent(80) %>
+  <% asked_about_tobacco = percent(80) %>
   "events": {
     "encounters": [
       {
@@ -34,7 +34,8 @@
     ],
     "conditions": [
       "dummy"
-      <% if known_tobacco_user %>
+      <% if asked_about_tobacco %>
+      <% if tobacco_user %>
       ,{
         "description": "Tobacco User",
         "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 3, 31)) %>,
@@ -49,10 +50,12 @@
         "code_set": "SNOMED-CT"
       }
       <% end %>
+      <% end %>
     ],
     "vital_signs": [
       "dummy"
-      <% if known_tobacco_user %>
+      <% if asked_about_tobacco %>
+      <% if tobacco_user %>
       ,{
         "description": "Tobacco User",
         "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 3, 31)) %>,
@@ -66,6 +69,7 @@
         "code": "105539002",
         "code_set": "SNOMED-CT"
       }
+      <% end %>
       <% end %>
       <% if percent(70) %>
       ,{
@@ -79,7 +83,7 @@
     ],
     "procedures": [
       "dummy"
-      <% if known_tobacco_user && percent(70) %>
+      <% if asked_about_tobacco && tobacco_user && percent(70) %>
       ,{
         "description": "Tobacco Cessation Couselling",
         "time": <%= between(Time.gm(2010, 4, 1), Time.gm(2010, 12, 31)) %>,
@@ -108,7 +112,7 @@
         "code_set": "RxNorm"
       }
       <% end %>
-      <% if known_tobacco_user && percent(70) %>
+      <% if asked_about_tobacco && tobacco_user && percent(70) %>
       ,{
         "description": "Tobacco Cessation Agent",
         "time": <%= between(Time.gm(2010, 4, 1), Time.gm(2010, 12, 31)) %>,
