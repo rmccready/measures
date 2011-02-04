@@ -1,0 +1,1604 @@
+{
+  "id": "0070",
+  "name": "Coronary Artery Disease (CAD): Beta-Blocker Therapy for CAD Patients with Prior Myocardial Infarction (MI)",
+  "description": "Percentage of patients aged 18 years and older with a diagnosis of CAD and prior MI who were prescribed beta‐blocker therapy.",
+  "category": "Heart conditions",
+  "steward": "AMA",
+  "parameters": {
+    "effective_date": {
+      "description": "Effective end date for measure",
+      "type": "number",
+      "format": "utc-sec"
+    }
+  },
+  "patient": {
+    "birthdate": {
+      "description": "Date of birth",
+      "type": "number",
+      "category_type": "patient_characteristic",
+      "format": "utc-sec",
+      "codes": [
+        {
+          "set": "HL7",
+          "version": "3.0",
+          "values": [
+            "00110"
+          ]
+        }
+      ]
+    }
+  },
+  "measure": {
+    "beta_blocker_therapy": {
+      "description": "beta_blocker_therapy",
+      "standard_concept_id": "A_c133",
+      "qds_data_types": [
+        "medication_order",
+        "medication_active",
+        "medication_adverse_event",
+        "medication_allergy",
+        "medication_intolerance"
+      ],
+      "standard_category": "medication",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "RxNorm",
+          "version": "12/2009",
+          "standard_concept": "beta_blocker_therapy",
+          "standard_concept_id": "A_c133",
+          "values": [
+            "104302",
+            "141882",
+            "150750",
+            "152414",
+            "197296",
+            "197297",
+            "197379",
+            "197380",
+            "197381",
+            "197382",
+            "197383",
+            "198004",
+            "198005",
+            "198006",
+            "198007",
+            "198008",
+            "198104",
+            "198105",
+            "198284",
+            "198285",
+            "198286",
+            "200857",
+            "201322",
+            "201327",
+            "201337",
+            "201338",
+            "201340",
+            "206240",
+            "206244",
+            "206961",
+            "206964",
+            "206968",
+            "207367",
+            "207851",
+            "207852",
+            "207861",
+            "208003",
+            "208029",
+            "208140",
+            "208375",
+            "208575",
+            "208576",
+            "211773",
+            "211810",
+            "212388",
+            "212389",
+            "212390",
+            "213727",
+            "213728",
+            "213731",
+            "238246",
+            "260346",
+            "260348",
+            "260349",
+            "260693",
+            "261397",
+            "261398",
+            "351442",
+            "351443",
+            "351444",
+            "351709",
+            "404603",
+            "491234",
+            "686926",
+            "746023",
+            "746030",
+            "854901",
+            "854903",
+            "854905",
+            "854907",
+            "854908",
+            "854910",
+            "854916",
+            "854918",
+            "854919",
+            "854921",
+            "856422",
+            "856426",
+            "856429",
+            "856433",
+            "856443",
+            "856445",
+            "856448",
+            "856450",
+            "856457",
+            "856460",
+            "856462",
+            "856471",
+            "856481",
+            "856483",
+            "856508",
+            "856519",
+            "856521",
+            "856535",
+            "856537",
+            "856556",
+            "856557",
+            "856569",
+            "856571",
+            "856576",
+            "856578",
+            "856579",
+            "856586",
+            "856591",
+            "856596",
+            "856724",
+            "856733",
+            "856737",
+            "856739",
+            "866414",
+            "866421",
+            "866429",
+            "866438",
+            "866479",
+            "866482",
+            "866491",
+            "866498",
+            "866502",
+            "866506",
+            "866508",
+            "866510",
+            "866511",
+            "866513",
+            "866514",
+            "866516",
+            "866924",
+            "896758",
+            "896760",
+            "896762",
+            "896764",
+            "896766",
+            "896768",
+            "896771",
+            "896773",
+            "896775",
+            "896777",
+            "896781",
+            "896783"
+          ]
+        }
+      ]
+    },
+    "cardiac_monitoring": {
+      "description": "cardiac_monitoring",
+      "standard_concept_id": "A_c267",
+      "qds_data_types": [
+        "procedure_performed"
+      ],
+      "standard_category": "procedure",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "SNOMED-CT",
+          "version": "7/2009",
+          "standard_concept": "cardiac_monitoring",
+          "standard_concept_id": "A_c267",
+          "values": [
+            "134377004",
+            "170576007",
+            "170599006",
+            "23852006",
+            "268509003",
+            "281568006",
+            "309877008",
+            "38001000",
+            "395148004",
+            "408804006",
+            "417206009",
+            "417287002",
+            "417322008",
+            "422952004",
+            "47101004",
+            "50072001",
+            "63818009",
+            "85038003",
+            "88140007"
+          ]
+        }
+      ]
+    },
+    "cardiac_pacer": {
+      "description": "cardiac_pacer",
+      "standard_concept_id": "A_c303",
+      "qds_data_types": [
+        "device_applied"
+      ],
+      "standard_category": "device",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "SNOMED-CT",
+          "version": "July 2009",
+          "standard_concept": "cardiac_pacer",
+          "standard_concept_id": "A_c303",
+          "values": [
+            "14106009",
+            "360127006",
+            "360128001",
+            "424921004",
+            "56961003"
+          ]
+        }
+      ]
+    },
+    "heart_rate": {
+      "description": "heart_rate",
+      "standard_concept_id": "A_c409",
+      "qds_data_types": [
+        "physical_exam_finding"
+      ],
+      "standard_category": "physical_exam",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "SNOMED-CT",
+          "version": "07/2009",
+          "standard_concept": "heart_rate",
+          "standard_concept_id": "A_c409",
+          "values": [
+            "364075005"
+          ]
+        }
+      ]
+    },
+    "arrhythmia": {
+      "description": "arrhythmia",
+      "standard_concept_id": "A_c366",
+      "qds_data_types": [
+        "diagnosis_active"
+      ],
+      "standard_category": "diagnosis_condition_problem",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "ICD-9-CM",
+          "version": "2009",
+          "standard_concept": "arrhythmia",
+          "standard_concept_id": "A_c176",
+          "values": [
+            "427.81",
+            "427.89"
+          ]
+        },
+        {
+          "set": "ICD-10-CM",
+          "version": "2010",
+          "standard_concept": "arrhythmia",
+          "standard_concept_id": "A_c181",
+          "values": [
+            "I49.5",
+            "I49.8"
+          ]
+        },
+        {
+          "set": "SNOMED-CT",
+          "version": "7/2009",
+          "standard_concept": "arrhythmia",
+          "standard_concept_id": "A_c186",
+          "values": [
+            "10164001",
+            "10626002",
+            "11157007",
+            "11849007",
+            "13640000",
+            "17338001",
+            "17366009",
+            "17869006",
+            "184004",
+            "195060002",
+            "195069001",
+            "195071001",
+            "195072008",
+            "195083004",
+            "233891009",
+            "233892002",
+            "233893007",
+            "233894001",
+            "233895000",
+            "233904005",
+            "233915000",
+            "233922008",
+            "233923003",
+            "234172002",
+            "251161003",
+            "251162005",
+            "251163000",
+            "251164006",
+            "251165007",
+            "251166008",
+            "251167004",
+            "251168009",
+            "251170000",
+            "251172008",
+            "251173003",
+            "251174009",
+            "251175005",
+            "251176006",
+            "251177002",
+            "251178007",
+            "251179004",
+            "251180001",
+            "251181002",
+            "251182009",
+            "251186007",
+            "251187003",
+            "251188008",
+            "26950008",
+            "27337007",
+            "276796006",
+            "284470004",
+            "287057009",
+            "29320008",
+            "29894000",
+            "309809007",
+            "33413000",
+            "36083008",
+            "38274001",
+            "39260000",
+            "39357005",
+            "40593004",
+            "406461004",
+            "418341009",
+            "418818005",
+            "419752005",
+            "421869004",
+            "422348008",
+            "429243003",
+            "44602002",
+            "44808001",
+            "47830009",
+            "49044005",
+            "49710005",
+            "49982000",
+            "55475008",
+            "59272004",
+            "60423000",
+            "61277005",
+            "63232000",
+            "63593006",
+            "69730002",
+            "71908006",
+            "72654001",
+            "74390002",
+            "74615001",
+            "75532003",
+            "81681009",
+            "81898007",
+            "88412007"
+          ]
+        }
+      ]
+    },
+    "asthma": {
+      "description": "asthma",
+      "standard_concept_id": "A_c362",
+      "qds_data_types": [
+        "diagnosis_active"
+      ],
+      "standard_category": "diagnosis_condition_problem",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "ICD-9-CM",
+          "version": "2010",
+          "standard_concept": "asthma",
+          "standard_concept_id": "A_c59",
+          "values": [
+            "493.00",
+            "493.01",
+            "493.02",
+            "493.10",
+            "493.11",
+            "493.12",
+            "493.20",
+            "493.21",
+            "493.22",
+            "493.81",
+            "493.82",
+            "493.90",
+            "493.91",
+            "493.92"
+          ]
+        },
+        {
+          "set": "ICD-10-CM",
+          "version": "2010",
+          "standard_concept": "asthma",
+          "standard_concept_id": "A_c60",
+          "values": [
+            "J45",
+            "J45.22",
+            "J45.32",
+            "J45.42",
+            "J45.52",
+            "J45.90",
+            "J45.901",
+            "J45.902",
+            "J45.990",
+            "J45.991"
+          ]
+        },
+        {
+          "set": "SNOMED-CT",
+          "version": "July 2009",
+          "standard_concept": "asthma",
+          "standard_concept_id": "A_c61",
+          "values": [
+            "11641008",
+            "12428000",
+            "13151001",
+            "195949008",
+            "195967001",
+            "195977004",
+            "195979001",
+            "196013003",
+            "225057002",
+            "233672007",
+            "233678006",
+            "233679003",
+            "233681001",
+            "233683003",
+            "233685005",
+            "233688007",
+            "266361008",
+            "266364000",
+            "281239006",
+            "30352005",
+            "304527002",
+            "31387002",
+            "370218001",
+            "370219009",
+            "370220003",
+            "370221004",
+            "389145006",
+            "405944004",
+            "407674008",
+            "409663006",
+            "423889005",
+            "424199006",
+            "424643009",
+            "425969006",
+            "426656000",
+            "426979002",
+            "427295004",
+            "427354000",
+            "427603009",
+            "427679007",
+            "442025000",
+            "55570000",
+            "56968009",
+            "57546000",
+            "59327009",
+            "59786004",
+            "63088003",
+            "67415000",
+            "85761009",
+            "91340006",
+            "92807009",
+            "93432008"
+          ]
+        }
+      ]
+    },
+    "atresia_and_stenosis_of_aorta": {
+      "description": "atresia_and_stenosis_of_aorta",
+      "standard_concept_id": "A_c414",
+      "qds_data_types": [
+        "diagnosis_active"
+      ],
+      "standard_category": "diagnosis_condition_problem",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "ICD-10-CM",
+          "version": "2010",
+          "standard_concept": "atresia_and_stenosis_of_aorta",
+          "standard_concept_id": "A_c413",
+          "values": [
+            "I70.0",
+            "Q23.4",
+            "Q25.2",
+            "Q25.3"
+          ]
+        },
+        {
+          "set": "ICD-9-CM",
+          "version": "2010",
+          "standard_concept": "atresia_and_stenosis_of_aorta",
+          "standard_concept_id": "A_c48",
+          "values": [
+            "440.0",
+            "747.22"
+          ]
+        },
+        {
+          "set": "SNOMED-CT",
+          "version": "2009",
+          "standard_concept": "atresia_and_stenosis_of_aorta",
+          "standard_concept_id": "A_c519",
+          "values": [
+            "204431007"
+          ]
+        }
+      ]
+    },
+    "atrioventricular_block": {
+      "description": "atrioventricular_block",
+      "standard_concept_id": "A_c367",
+      "qds_data_types": [
+        "diagnosis_active"
+      ],
+      "standard_category": "diagnosis_condition_problem",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "ICD-9-CM",
+          "version": "2009",
+          "standard_concept": "atrioventricular__block",
+          "standard_concept_id": "A_c177",
+          "values": [
+            "426.0",
+            "426.12",
+            "426.13"
+          ]
+        },
+        {
+          "set": "SNOMED-CT",
+          "version": "7/2009",
+          "standard_concept": "atrioventricular_block",
+          "standard_concept_id": "A_c187",
+          "values": [
+            "129575004",
+            "13620007",
+            "195039008",
+            "195042002",
+            "195046004",
+            "20143001",
+            "204383001",
+            "204384007",
+            "20852007",
+            "233917008",
+            "233918003",
+            "233919006",
+            "2374000",
+            "251114004",
+            "251120003",
+            "251123001",
+            "251124007",
+            "251125008",
+            "251152003",
+            "270492004",
+            "276513001",
+            "27885002",
+            "28189009",
+            "283645003",
+            "302944009",
+            "30667004",
+            "32425009",
+            "32758004",
+            "37760005",
+            "41863008",
+            "43906007",
+            "44103008",
+            "4554005",
+            "46319007",
+            "46619002",
+            "46935006",
+            "4973001",
+            "50799005",
+            "54016002",
+            "59118001",
+            "6180003",
+            "62026008",
+            "63467002",
+            "6374002",
+            "64872007",
+            "66568003",
+            "71792006",
+            "73459006",
+            "74021003",
+            "76887001",
+            "77221000",
+            "82226007",
+            "82580003",
+            "86014007",
+            "93130009",
+            "9651007"
+          ]
+        },
+        {
+          "set": "ICD-10-CM",
+          "version": "2010",
+          "standard_concept": "atrioventricular_block",
+          "standard_concept_id": "A_c264",
+          "values": [
+            "I44.1",
+            "I44.2"
+          ]
+        }
+      ]
+    },
+    "bradycardia": {
+      "description": "bradycardia",
+      "standard_concept_id": "A_c412",
+      "qds_data_types": [
+        "diagnosis_active"
+      ],
+      "standard_category": "diagnosis_condition_problem",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "SNOMED-CT",
+          "version": "07/2009",
+          "standard_concept": "bradycardia",
+          "standard_concept_id": "A_c408",
+          "values": [
+            "162988008",
+            "251162005",
+            "278085001",
+            "29894000",
+            "309746001",
+            "397841007",
+            "413341007",
+            "42177007",
+            "426177001",
+            "426627000",
+            "44273001",
+            "44602002",
+            "47101004",
+            "48867003",
+            "49044005",
+            "49710005"
+          ]
+        },
+        {
+          "set": "ICD-9-CM",
+          "version": "2010",
+          "standard_concept": "bradycardia",
+          "standard_concept_id": "A_c410",
+          "values": [
+            "337.09",
+            "427.81",
+            "427.89"
+          ]
+        },
+        {
+          "set": "ICD-10-CM",
+          "version": "2010",
+          "standard_concept": "bradycardia",
+          "standard_concept_id": "A_c411",
+          "values": [
+            "G90.09",
+            "R00.1"
+          ]
+        }
+      ]
+    },
+    "cardiac_pacer_in_situ": {
+      "description": "cardiac_pacer_in_situ",
+      "standard_concept_id": "A_c368",
+      "qds_data_types": [
+        "diagnosis_active"
+      ],
+      "standard_category": "diagnosis_condition_problem",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "ICD-9-CM",
+          "version": "2009",
+          "standard_concept": "cardiac_pacer_in_situ",
+          "standard_concept_id": "A_c178",
+          "values": [
+            "V45.01"
+          ]
+        },
+        {
+          "set": "ICD-10-CM",
+          "version": "2010",
+          "standard_concept": "cardiac_pacer_in_situ",
+          "standard_concept_id": "A_c183",
+          "values": [
+            "Z95.0"
+          ]
+        }
+      ]
+    },
+    "cardiac_surgery": {
+      "description": "cardiac_surgery",
+      "standard_concept_id": "A_c371",
+      "qds_data_types": [
+        "procedure_performed"
+      ],
+      "standard_category": "procedure",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "SNOMED-CT",
+          "version": "July 2009",
+          "standard_concept": "cardiac_surgery",
+          "standard_concept_id": "A_c168",
+          "values": [
+            "10326007",
+            "119564002",
+            "119565001",
+            "15256002",
+            "174911007",
+            "175007008",
+            "175008003",
+            "175009006",
+            "175011002",
+            "175012009",
+            "175014005",
+            "175019000",
+            "175021005",
+            "175022003",
+            "175024002",
+            "175025001",
+            "175026000",
+            "175029007",
+            "175030002",
+            "175031003",
+            "175032005",
+            "175033000",
+            "175036008",
+            "175037004",
+            "175038009",
+            "175039001",
+            "175040004",
+            "175041000",
+            "175045009",
+            "175047001",
+            "175048006",
+            "175050003",
+            "175053001",
+            "175058005",
+            "175084004",
+            "175088001",
+            "232717009",
+            "232719007",
+            "232720001",
+            "232721002",
+            "232722009",
+            "232723004",
+            "232724005",
+            "265481001",
+            "275215001",
+            "275216000",
+            "275227003",
+            "275252001",
+            "275253006",
+            "287277008",
+            "30670000",
+            "309814006",
+            "3546002",
+            "359597003",
+            "359601003",
+            "39202005",
+            "39724006",
+            "414088005",
+            "48431000",
+            "74371005",
+            "81266008",
+            "82247006",
+            "90205004"
+          ]
+        },
+        {
+          "set": "CPT",
+          "version": "2010",
+          "standard_concept": "cardiac_surgery",
+          "standard_concept_id": "A_c169",
+          "values": [
+            "33140",
+            "33510",
+            "33511",
+            "33512",
+            "33513",
+            "33514",
+            "33516",
+            "33517",
+            "33518",
+            "33519",
+            "33521",
+            "33522",
+            "33523",
+            "33533",
+            "33534",
+            "33535",
+            "33536",
+            "92980",
+            "92981",
+            "92982",
+            "92984",
+            "92995",
+            "92996"
+          ]
+        }
+      ]
+    },
+    "coronary_artery_disease_no_mi": {
+      "description": "coronary_artery_disease_no_mi",
+      "standard_concept_id": "A_c369",
+      "qds_data_types": [
+        "diagnosis_active"
+      ],
+      "standard_category": "diagnosis_condition_problem",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "SNOMED-CT",
+          "version": "7/2009",
+          "standard_concept": "coronary_artery_disease_no_mi",
+          "standard_concept_id": "A_c120",
+          "values": [
+            "10365005",
+            "11433004",
+            "123641001",
+            "123642008",
+            "128555001",
+            "128556000",
+            "128557009",
+            "128558004",
+            "129582000",
+            "194821006",
+            "194842008",
+            "194843003",
+            "204378009",
+            "204379001",
+            "213037002",
+            "21981000",
+            "233817007",
+            "233844002",
+            "233970002",
+            "234010000",
+            "234029006",
+            "23687008",
+            "240567009",
+            "251024009",
+            "253700001",
+            "253701002",
+            "253702009",
+            "253703004",
+            "253704005",
+            "253706007",
+            "253707003",
+            "253708008",
+            "253709000",
+            "253710005",
+            "253711009",
+            "253712002",
+            "253713007",
+            "253714001",
+            "253715000",
+            "253716004",
+            "253717008",
+            "253718003",
+            "253719006",
+            "253720000",
+            "253721001",
+            "253722008",
+            "253723003",
+            "253724009",
+            "253725005",
+            "253726006",
+            "253727002",
+            "253728007",
+            "253729004",
+            "253730009",
+            "262941008",
+            "26900001",
+            "270510008",
+            "28248000",
+            "28574005",
+            "28931004",
+            "29899005",
+            "315348000",
+            "371803003",
+            "371804009",
+            "371805005",
+            "371894001",
+            "373092008",
+            "373093003",
+            "373094009",
+            "373095005",
+            "373096006",
+            "398274000",
+            "408546009",
+            "414024009",
+            "420006002",
+            "421327009",
+            "427919004",
+            "42866003",
+            "429245005",
+            "440444007",
+            "441024003",
+            "442298000",
+            "50570003",
+            "5230009",
+            "53741008",
+            "55546004",
+            "56276002",
+            "59062007",
+            "62207008",
+            "62827000",
+            "63739005",
+            "67682002",
+            "70390005",
+            "74218008",
+            "75398000",
+            "87343002",
+            "88596007",
+            "92517006"
+          ]
+        },
+        {
+          "set": "ICD-9-CM",
+          "version": "2010",
+          "standard_concept": "coronary_artery_disease_no_mi",
+          "standard_concept_id": "A_c56",
+          "values": [
+            "411.0",
+            "411.1",
+            "411.81",
+            "411.89",
+            "413.0",
+            "413.1",
+            "413.9",
+            "414.00",
+            "414.01",
+            "414.02",
+            "414.03",
+            "414.04",
+            "414.05",
+            "414.06",
+            "414.07",
+            "414.8",
+            "414.9",
+            "V45.81",
+            "V45.82"
+          ]
+        },
+        {
+          "set": "ICD-10-CM",
+          "version": "2010",
+          "standard_concept": "coronary_artery_disease_no_mi",
+          "standard_concept_id": "A_c57",
+          "values": [
+            "I20.1",
+            "I20.9",
+            "I24",
+            "I24.1",
+            "I24.9",
+            "I25.1",
+            "I25.70",
+            "I25.71",
+            "I25.72",
+            "I25.73",
+            "I25.75",
+            "I25.76",
+            "I25.79",
+            "Z95.1",
+            "Z95.5"
+          ]
+        }
+      ]
+    },
+    "encounter_inpatient_discharge": {
+      "description": "encounter_inpatient_discharge",
+      "standard_concept_id": "A_c27",
+      "qds_data_types": [
+        "encounter"
+      ],
+      "standard_category": "encounter",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "CPT",
+          "version": "2010",
+          "standard_concept": "encounter_inpatient_discharge",
+          "standard_concept_id": "A_c27",
+          "values": [
+            "99238",
+            "99239"
+          ]
+        }
+      ]
+    },
+    "encounter_nursing_facility": {
+      "description": "encounter_nursing_facility",
+      "standard_concept_id": "A_c28",
+      "qds_data_types": [
+        "encounter"
+      ],
+      "standard_category": "encounter",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "CPT",
+          "version": "2010",
+          "standard_concept": "encounter_nursing_facility",
+          "standard_concept_id": "A_c28",
+          "values": [
+            "99304",
+            "99305",
+            "99306",
+            "99307",
+            "99308",
+            "99309",
+            "99310"
+          ]
+        }
+      ]
+    },
+    "encounter_outpatient": {
+      "description": "encounter_outpatient",
+      "standard_concept_id": "A_c26",
+      "qds_data_types": [
+        "encounter"
+      ],
+      "standard_category": "encounter",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "CPT",
+          "version": "2010",
+          "standard_concept": "encounter_outpatient",
+          "standard_concept_id": "A_c26",
+          "values": [
+            "99201",
+            "99202",
+            "99203",
+            "99204",
+            "99205",
+            "99212",
+            "99213",
+            "99214",
+            "99215",
+            "99241",
+            "99242",
+            "99243",
+            "99244",
+            "99245",
+            "99324",
+            "99325",
+            "99326",
+            "99327",
+            "99328",
+            "99334",
+            "99335",
+            "99336",
+            "99337",
+            "99341",
+            "99342",
+            "99343",
+            "99344",
+            "99345",
+            "99347",
+            "99348",
+            "99349",
+            "99350"
+          ]
+        }
+      ]
+    },
+    "patient_encounter": {
+      "description": "patient_encounter,_inpatient_discharge,_nursing_facility,_or_outpatient",
+      "standard_concept_id": "added-A_c27- A_c28- A_c26",
+      "qds_data_types": [
+        "encounter"
+      ],
+      "standard_category": "encounter",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "CPT",
+          "version": "2010",
+          "standard_concept": "patient_encounter,_inpatient_discharge,_nursing_facility,_or_outpatient",
+          "standard_concept_id": "added-A_c27- A_c28- A_c26",
+          "values": [
+            "99238",
+            "99239",
+            "99304",
+            "99305",
+            "99306",
+            "99307",
+            "99308",
+            "99309",
+            "99310",
+            "99201",
+            "99202",
+            "99203",
+            "99204",
+            "99205",
+            "99212",
+            "99213",
+            "99214",
+            "99215",
+            "99241",
+            "99242",
+            "99243",
+            "99244",
+            "99245",
+            "99324",
+            "99325",
+            "99326",
+            "99327",
+            "99328",
+            "99334",
+            "99335",
+            "99336",
+            "99337",
+            "99341",
+            "99342",
+            "99343",
+            "99344",
+            "99345",
+            "99347",
+            "99348",
+            "99349",
+            "99350"
+          ]
+        }
+      ]
+    },
+    "hypotension": {
+      "description": "hypotension",
+      "standard_concept_id": "A_c370",
+      "qds_data_types": [
+        "diagnosis_active"
+      ],
+      "standard_category": "diagnosis_condition_problem",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "ICD-9-CM",
+          "version": "2009",
+          "standard_concept": "hypotension",
+          "standard_concept_id": "A_c175",
+          "values": [
+            "458.0",
+            "458.1",
+            "458.21",
+            "458.29",
+            "458.8",
+            "458.9"
+          ]
+        },
+        {
+          "set": "ICD-10-CM",
+          "version": "2010",
+          "standard_concept": "hypotension",
+          "standard_concept_id": "A_c180",
+          "values": [
+            "I95.1",
+            "I95.3",
+            "I95.89",
+            "I95.9"
+          ]
+        },
+        {
+          "set": "SNOMED-CT",
+          "version": "7/2009",
+          "standard_concept": "hypotension",
+          "standard_concept_id": "A_c185",
+          "values": [
+            "163022004",
+            "163024003",
+            "195506001",
+            "200113008",
+            "200114002",
+            "230664009",
+            "234171009",
+            "271870002",
+            "276519002",
+            "286963007",
+            "371073003",
+            "408667000",
+            "408668005",
+            "429561008",
+            "45007003",
+            "61933008",
+            "70247006",
+            "75181005",
+            "77545000",
+            "88887003"
+          ]
+        }
+      ]
+    },
+    "myocardial_infarction": {
+      "description": "myocardial_infarction",
+      "standard_concept_id": "A_c403",
+      "qds_data_types": [
+        "diagnosis_resolved"
+      ],
+      "standard_category": "diagnosis_condition_problem",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "ICD-9-CM",
+          "version": "2009",
+          "standard_concept": "myocardial_infarction",
+          "standard_concept_id": "A_c118",
+          "values": [
+            "410.00",
+            "410.01",
+            "410.02",
+            "410.10",
+            "410.11",
+            "410.12",
+            "410.20",
+            "410.21",
+            "410.22",
+            "410.30",
+            "410.31",
+            "410.32",
+            "410.40",
+            "410.41",
+            "410.42",
+            "410.50",
+            "410.51",
+            "410.52",
+            "410.60",
+            "410.61",
+            "410.62",
+            "410.70",
+            "410.71",
+            "410.72",
+            "410.80",
+            "410.81",
+            "410.82",
+            "410.90",
+            "410.91",
+            "410.92",
+            "412"
+          ]
+        },
+        {
+          "set": "ICD-10-CM",
+          "version": "2010",
+          "standard_concept": "myocardial_infarction",
+          "standard_concept_id": "A_c119",
+          "values": [
+            "I21",
+            "I21.0",
+            "I21.01",
+            "I21.02",
+            "I21.09",
+            "I21.11",
+            "I21.19",
+            "I21.2",
+            "I21.29",
+            "I21.3",
+            "I21.4",
+            "I22",
+            "I22.0",
+            "I22.1",
+            "I22.2",
+            "I22.8",
+            "I22.9",
+            "I25.2"
+          ]
+        },
+        {
+          "set": "SNOMED-CT",
+          "version": "July 2009",
+          "standard_concept": "myocardial_infarction",
+          "standard_concept_id": "A_c58",
+          "values": [
+            "161502000",
+            "161503005",
+            "1755008",
+            "22298006",
+            "233839009",
+            "233840006",
+            "233841005",
+            "233842003",
+            "275905002",
+            "308065005",
+            "32574007",
+            "399211009",
+            "428752002"
+          ]
+        }
+      ]
+    },
+    "medication_not_done_rationale": {
+      "description": "medical/patient/system_reason",
+      "standard_concept_id": "added-A_c310- A_c311- A_c313",
+      "qds_data_types": [
+        "medication_not_done"
+      ],
+      "standard_category": "negation_rationale",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
+      "codes": [
+        {
+          "set": "HL7",
+          "version": "3.0",
+          "standard_concept": "medical/patient/system_reason",
+          "standard_concept_id": "added-A_c310- A_c311- A_c313",
+          "values": [
+            "19730",
+            "19731",
+            "19733",
+            "19734",
+            "19735",
+            "19736",
+            "19987",
+            "19988",
+            "19989",
+            "19990",
+            "21408",
+            "21493",
+            "21568",
+            "21706",
+            "21707",
+            "21709",
+            "21728",
+            "21729",
+            "21730",
+            "21731",
+            "21732",
+            "21733",
+            "21734",
+            "21735",
+            "21744",
+            "22023",
+            "22024",
+            "22165",
+            "22166",
+            "22167",
+            "22168",
+            "22169",
+            "22857",
+            "22858",
+            "22859",
+            "22865",
+            "22866",
+            "22867",
+            "22907",
+            "22909",
+            "22911",
+            "22912",
+            "22913",
+            "14880",
+            "15985",
+            "19729",
+            "21708",
+            "21710",
+            "21741",
+            "21743",
+            "21746",
+            "22260",
+            "22851",
+            "21703",
+            "21704",
+            "21738",
+            "21745",
+            "21747",
+            "21815",
+            "21990",
+            "22259",
+            "22261",
+            "22855"
+          ]
+        }
+      ]
+    }
+  },
+  "population": {
+    "and": [
+      {
+	"category": "Patient characteristic",
+	"title": "Age >= 18 years"
+      },
+      {
+	"or": [
+	  {
+	    "category": "Diagnosis active",
+	    "title": "Active coronary artery disease without MI"
+	  },
+	  {
+	    "category": "Procedure performed",
+	    "title": "Cardiac surgery performed"
+	  }
+	]
+      },
+      {
+	"or": [
+	  {
+	    "category": "Encounter",
+	    "title": ">= 2 counts of outpatient encounter"
+	  },
+	  {
+	    "category": "Encounter",
+	    "title": ">= 2 counts of nursing facility encounter"
+	  },
+	  {
+	    "category": "Encounter",
+	    "title": ">= 1 count(s) of inpatient discharge encounter"
+	  }
+	]
+      }
+    ]
+  },
+  "denominator": {
+    "and": [
+      {
+	"category": "Diagnosis resolved",
+	"title": "Myocardial infarction resolved"
+      }
+    ]
+  },
+  "numerator": {
+    "and": [
+      {
+	"or": [
+	  {
+	    "category": "Medication order",
+	    "title": "Beta-blocker therapy ordered"
+	  },
+	  {
+	    "category": "Medication active",
+	    "title": "Beta-blocker therapy active"
+	  }
+	]
+      }
+    ]
+  },
+  "exclusions": {
+    "or": [
+      {
+	"category": "Diagnosis active",
+	"title": "Active arrhythmia"
+      },
+      {
+	"category": "Diagnosis active",
+	"title": "Active hypotension"
+      },
+      {
+	"category": "Diagnosis active",
+	"title": "Active asthma"
+      },
+      {
+	"category": "Diagnosis active",
+	"title": "Active bradycardia"
+      },
+      {
+	"category": "Diagnosis active",
+	"title": "Active atresia and stenosis of the aorta"
+      },
+      {
+	"and": [
+	  {
+	    "category": "Diagnosis active",
+	    "title": "Active atrioventricular block"
+	  },
+	  {
+	    "category": "Diagnosis inactive",
+	    "title": "Inactive cardiac pacer in situ"
+	  },
+	  {
+	    "category": "Device not applied",
+	    "title": "Cardiac pacer not applied"
+	  }
+	]
+      },
+      {
+	"category": "Procedure performed",
+	"title": "Cardiac monitoring performed"
+      },
+      {
+	"category": "Medication adverse event",
+	"title": "Beta-blocker therapy adverse event"
+      }
+    ]
+  }
+}

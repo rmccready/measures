@@ -72,18 +72,8 @@
          "standard_category": "physical_exam",
          "type": "array",
          "items": {
-            "type": "object",
-            "properties": {
-               "value": {
-                  "description": "BMI percentile",
-                  "type": "number"
-               },
-               "date": {
-                  "description": "Date of BMI Measurement",
-                  "type": "number",
-                  "format": "utc-sec"
-               }
-            }
+            "type": "number",
+            "format": "utc-sec"
          },
          "codes": [
             {

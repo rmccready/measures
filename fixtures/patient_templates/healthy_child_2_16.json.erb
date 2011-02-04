@@ -1,0 +1,60 @@
+{
+  "description": "Healthy 2-16 year old child, possibly with weigth issues",
+  <% sex=gender %>
+  "first": "<%= forename(sex) %>",
+  "last": "<%= surname %>",
+  "gender": "<%= sex %>",
+  "birthdate": <%= between(Time.gm(1995, 1, 1), Time.gm(2009, 1, 1)) %>,
+  "events": {
+    "encounters": [
+      "dummy"
+      <% if percent(90) %>
+      ,{
+        "description": "Outpatient encounter",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "99201",
+        "code_set": "CPT"
+      }
+      <% end %>
+    ],
+    "conditions": [
+      "dummy"
+    ],
+    "results": [
+    ],
+    "vital_signs": [
+      "dummy"
+      <% if percent(70) %>
+      ,{
+        "description": "BMI",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "Z68",
+        "code_set": "ICD-10-CM",
+        "value": <%= between(22, 35) %>
+      }
+      <% end %>
+    ],
+    "procedures": [
+      "dummy"
+      <% if percent(70) %>
+      ,{
+        "description": "Nutrition Counseling",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "Z00.1",
+        "code_set": "ICD-10-CM"
+      }
+      <% end %>
+      <% if percent(70) %>
+      ,{
+        "description": "Activity Counseling",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "Z71.3",
+        "code_set": "ICD-10-CM"
+      }
+      <% end %>
+    ],
+    "medications": [
+      "dummy"
+    ]
+  }
+}

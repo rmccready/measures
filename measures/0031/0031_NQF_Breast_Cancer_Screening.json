@@ -107,11 +107,39 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-                        },
+      },
       "codes": [
-
+        {
+          "set": "HPCT",
+          "version": "06/2009",
+          "standard_concept": "breast cancer screening",
+          "standard_concept_id": "N_c73",
+          "values": ["G0202", "G0204", "G0206"]
+        },
+        {
+          "set": "CPT",
+          "version": "06/2009",
+          "standard_concept": "breast cancer screening",
+          "standard_concept_id": "N_c72",
+          "values": ["76090", "76091", "76092", "77055", "77056", "77057"]
+        },
+        {
+          "set": "ICD-10-CM",
+          "version": "06/2009",
+          "standard_concept": "breast cancer screening",
+          "standard_concept_id": "N_c81",
+          "values": ["Z12.31"]
+        },
+        {
+          "set": "SNOMED-CT",
+          "version": "07/2009",
+          "standard_concept": "bilateral_mastectomy",
+          "standard_concept_id": "N_c83",
+          "values": ["12389009", "241055006", "241056007", "241057003", "241058008", "241189009", "241539009", "24623002", "258172002", 
+                     "35482003", "418074003", "418378007", "43204002",  "439324009", "71651007"]
+        }
       ]
-            },
+    },
     "unilateral_mastectomy": {
       "description": "unilateral_mastectomy",
       "standard_concept_id": "N_c445",
