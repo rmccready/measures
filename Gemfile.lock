@@ -1,7 +1,7 @@
 GIT
   remote: http://github.com/hadleynet/quality-measure-engine.git
-  revision: 0308d6aad1d7e960b30ff824e2150a046163553b
-  branch: sharding-test
+  revision: af7f327a258a5b4245dc5be4b8b701886541b73e
+  branch: develop
   specs:
     quality-measure-engine (0.1.2)
       bson_ext
