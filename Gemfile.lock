@@ -1,5 +1,5 @@
 GIT
-  remote: http://github.com/hadleynet/quality-measure-engine.git
+  remote: http://github.com/pophealth/quality-measure-engine.git
   revision: af7f327a258a5b4245dc5be4b8b701886541b73e
   branch: develop
   specs:
