@@ -51,6 +51,14 @@
       }
       <% end %>
       <% end %>
+      <% if percent(10) %>
+      ,{
+        "description": "Colorectal Cancer",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "109838007",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
     ],
     "vital_signs": [
       "dummy"
@@ -97,6 +105,14 @@
         "time": <%= between(Time.gm(2009, 1, 1), Time.gm(2010, 12, 31)) %>,
         "code": "12389009",
         "code_set": "SNOMED-CT"
+      }
+      <% end %>
+      <% if percent(60) %>
+      ,{
+        "description": "Colonscopy",
+        "time": <%= between(Time.gm(2000, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "44388",
+        "code_set": "CPT"
       }
       <% end %>
     ],
