@@ -155,6 +155,14 @@
         "code_set": "SNOMED-CT"
       }
       <% end %>
+      <% if sex.eql?('F') && percent(90) %>
+      ,{
+        "description": "Breast cancer screening",
+        "time": <%= between(Time.gm(2009, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "12389009",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
     ],
     "results": [
       "dummy"
