@@ -4,6 +4,8 @@ function () {
   if (measure==null)
     measure={};
 
+  <%= init_js_frameworks %>
+
   // TODO: rjm Get these definitions into the 'diabetes_utils.js' file
   // that is located in the /js directory of the project for shared 
   // code across all of the diabetes measures. 

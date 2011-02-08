@@ -4,14 +4,16 @@
   "first": "<%= forename(sex) %>",
   "last": "<%= surname %>",
   "gender": "<%= sex %>",
-  "birthdate": <%= between(Time.gm(1995, 1, 1), Time.gm(2009, 1, 1)) %>,
+  <% birthdate = between(Time.gm(1995, 1, 1), Time.gm(2009, 1, 1)) %>
+  "birthdate": <%= birthdate %>,
   "events": {
     "encounters": [
       "dummy"
       <% if percent(90) %>
+      <% date_of_encounter = between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>
       ,{
         "description": "Outpatient encounter",
-        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "time": <%= date_of_encounter %>,
         "code": "99201",
         "code_set": "CPT"
       }
@@ -19,8 +21,42 @@
     ],
     "conditions": [
       "dummy"
+      <% if date_of_encounter && percent(30) %>
+      <% pharyngitis = true %>
+      ,{
+        "description": "pharyngitis",
+        "time": <%= date_of_encounter %>,
+        "code": "102453009",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
     ],
     "results": [
+      "dummy"
+      <% if pharyngitis && percent(90) %>
+      ,{
+        "description": "Strep test",
+        "time": <%= date_of_encounter + between(24*60*60, 48*60*60) %>,
+        "code": "122121004",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
+      <% if sex.eql?('F') && birthdate>Time.gm(1997,1,1).to_i && percent(90) %>
+      ,{
+        "description": "Procedure indicative of sexual activity",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "86592",
+        "code_set": "CPT"
+      }
+      <% end %>
+      <% if sex.eql?('F') && birthdate>Time.gm(1997,1,1).to_i && percent(80) %>
+      ,{
+        "description": "Chlamydia screening",
+        "time": <%= between(Time.gm(2009, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "104281002",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
     ],
     "vital_signs": [
       "dummy"
@@ -55,6 +91,14 @@
     ],
     "medications": [
       "dummy"
+      <% if pharyngitis && percent(90) %>
+      ,{
+        "description": "Pharyngitis Drugs",
+        "time": <%= date_of_encounter + between(24*60*60, 48*60*60) %>,
+        "code": "105170",
+        "code_set": "RxNorm"
+      }
+      <% end %>
     ]
   }
 }
