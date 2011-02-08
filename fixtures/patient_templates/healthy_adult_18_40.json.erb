@@ -1,10 +1,10 @@
 {
-  "description": "Healthy 18-45 year old, possibly immunized for flu (0041)",
+  "description": "Healthy 18-40 year old, possibly immunized for flu (0041)",
   <% sex=gender %>
   "first": "<%= forename(sex) %>",
   "last": "<%= surname %>",
   "gender": "<%= sex %>",
-  "birthdate": <%= between(Time.gm(1965, 1, 1), Time.gm(1992, 12, 31)) %>,
+  "birthdate": <%= between(Time.gm(1970, 1, 1), Time.gm(1992, 12, 31)) %>,
   <% tobacco_user = percent(30) %>
   <% known_tobacco_user = tobacco_user && percent(80) %>
   "events": {
@@ -50,6 +50,7 @@
       }
       <% end %>
       <% if sex=='F' && percent(30) %>
+      <% pregnant = true %>
       ,{
         "description": "Pregnant",
         "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 6, 30)) %>,
@@ -97,6 +98,31 @@
       <% end %>
     ],
     "results": [
+      "dummy"
+      <% if sex.eql?('F') && percent(90) %>
+      ,{
+        "description": "Cervical cancer screening",
+        "time": <%= between(Time.gm(2009, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "439958008",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
+      <% if sex.eql?('F') && percent(90) %>
+      ,{
+        "description": "Procedure indicative of sexual activity",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "86592",
+        "code_set": "CPT"
+      }
+      <% end %>
+      <% if sex.eql?('F') && percent(80) %>
+      ,{
+        "description": "Chlamydia screening",
+        "time": <%= between(Time.gm(2009, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "104281002",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
     ],
     "medications": [
       "dummy"
