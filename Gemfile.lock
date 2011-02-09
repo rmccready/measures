@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/pophealth/quality-measure-engine.git
-  revision: af7f327a258a5b4245dc5be4b8b701886541b73e
+  revision: 7f83937c561eda058cc6492efdcb6405f3ff31a1
   branch: develop
   specs:
     quality-measure-engine (0.1.2)
@@ -16,7 +16,7 @@ GEM
   specs:
     Saikuro (1.1.0)
     abstract (1.0.0)
-    activesupport (3.0.3)
+    activesupport (3.0.4)
     arrayfields (4.7.4)
     awesome_print (0.3.2)
     bluecloth (2.0.10)

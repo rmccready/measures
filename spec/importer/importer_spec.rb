@@ -40,14 +40,14 @@ describe QME::Importer::GenericImporter do
 
     # 0068/N_c191 (acute MI) Active Cardiac Pacemaker in Situ 
     it "should import the information relevant to 0068" do
-      # pending "Waiting for measure 0068 to be defined"
+      pending "Waiting for measure 0068 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0068', @loader)
       measure_info['acute_myocardial_infarction'].should include(852422400)
     end
     
     # 0070/A_c303 Pacemaker 
     it "should import the information relevant to 0070" do
-      # pending "Waiting for measure 0070 to be defined"
+      pending "Waiting for measure 0070 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0070', @loader)
       measure_info['cardiac_pacer'].should include(942278400)
     end
@@ -65,13 +65,14 @@ describe QME::Importer::GenericImporter do
 
     # 0389/A_c271 Bone Scan
     it "should import the information relevant to 0389" do
+      pending "Waiting for measure 0389 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0389', @loader)
       measure_info['bone_scan'].should include(955026000)
     end
 
     # 0387/A_c278History of Breast Cancer (basically inactive breast cancer) 
     it "should import the information relevant to 0387" do
-      #pending "Waiting for measure 0387 to be defined"
+      pending "Waiting for measure 0387 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0387', @loader)
       measure_info['breast_cancer_history'].should include(-631152000 )
     end
