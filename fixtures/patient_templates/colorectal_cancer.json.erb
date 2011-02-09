@@ -1,5 +1,5 @@
 {
-  "description": "Healthy 40-80 year old, possibly immunized for flu (0041) and pneumonia (0043)",
+  "description": "Colorectal cancer 50-80 year old",
   <% sex=gender %>
   "first": "<%= forename(sex) %>",
   "last": "<%= surname %>",
@@ -15,22 +15,12 @@
         "code": "99201",
         "code_set": "CPT"
       }
-      <% if percent(60) %>
       ,{
         "description": "Outpatient encounter",
         "time": <%= between(Time.gm(2010, 7, 1), Time.gm(2010, 12, 31)) %>,
         "code": "99201",
         "code_set": "CPT"
       }
-      <% end %>
-      <% if percent(60) %>
-      ,{
-        "description": "Preventative encounter",
-        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 6, 30)) %>,
-        "code": "99385",
-        "code_set": "CPT"
-      }
-      <% end %>
     ],
     "conditions": [
       "dummy"
@@ -51,11 +41,17 @@
       }
       <% end %>
       <% end %>
-      <% if percent(10) %>
       ,{
         "description": "Colorectal Cancer",
-        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 6, 30)) %>,
         "code": "109838007",
+        "code_set": "SNOMED-CT"
+      }
+      <% if percent(10) %>
+      ,{
+        "description": "Metastatic sites",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 3, 31)) %>,
+        "code": "94222008",
         "code_set": "SNOMED-CT"
       }
       <% end %>
@@ -107,7 +103,16 @@
         "code_set": "SNOMED-CT"
       }
       <% end %>
-      <% if percent(60) %>
+      <% if percent(30) %>
+      <% stage_three_cancer = true %>
+      ,{
+        "description": "Stage 3 Colorectal Cancer",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 6, 30)) %>,
+        "code": "261654001",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
+      <% if percent(30) %>
       ,{
         "description": "Colonscopy",
         "time": <%= between(Time.gm(2000, 1, 1), Time.gm(2010, 12, 31)) %>,
@@ -150,6 +155,14 @@
         "description": "Tobacco Cessation Agent",
         "time": <%= between(Time.gm(2010, 4, 1), Time.gm(2010, 12, 31)) %>,
         "code": "105075",
+        "code_set": "RxNorm"
+      }
+      <% end %>
+      <% if stage_three_cancer && percent(80) %>
+      ,{
+        "description": "Chemotherapy",
+        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 6, 30)) %>,
+        "code": "105583",
         "code_set": "RxNorm"
       }
       <% end %>
