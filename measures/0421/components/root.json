@@ -163,7 +163,11 @@
     "terminal_illness": {
       "description": "Terminal Illness",
       "standard_category": "characteristic",
-      "type": "boolean",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "format": "utc-sec"
+      },
       "codes": [
         {
           "set": "SNOMED-CT",
