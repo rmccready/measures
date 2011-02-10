@@ -9,8 +9,8 @@
       "description": "Effective end date for measure",
       "type": "number",
       "format": "utc-sec"
-            }
-    },
+    }
+  },
   "patient": {
     "birthdate": {
       "description": "Date of birth",
@@ -24,10 +24,10 @@
           "values": [
             "00110"
           ]
-                                        }
+        }
       ]
-            }
-    },
+    }
+  },
   "measure": {
     "antiasthmatic_combinations": {
       "description": "antiasthmatic_combinations",
@@ -42,7 +42,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-                        },
+      },
       "codes": [
         {
           "set": "RxNorm",
@@ -79,9 +79,9 @@
             "756306",
             "756311"
           ]
-                                        }
+        }
       ]
-            },
+    },
     "antibody_inhibitor": {
       "description": "antibody_inhibitor",
       "standard_concept_id": "N_c297",
@@ -102,12 +102,10 @@
           "version": "07/2009",
           "standard_concept": "antibody_inhibitor",
           "standard_concept_id": "N_c297",
-          "values": [
-            "403866"
-          ]
-                                        }
+          "values": ["403866"]
+        }
       ]
-            },
+    },
     "inhaled_corticosteroids": {
       "description": "inhaled_corticosteroids",
       "standard_concept_id": "N_c299",
@@ -121,7 +119,7 @@
       "items": {
         "type": "number",
         "format": "utc-sec"
-                        },
+      },
       "codes": [
         {
           "set": "RxNorm",

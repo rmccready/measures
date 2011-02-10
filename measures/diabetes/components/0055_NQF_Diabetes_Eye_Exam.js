@@ -4,6 +4,8 @@ function () {
   if (measure==null)
     measure={};
 
+  <%= init_js_frameworks %>
+
   // TODO: rjm Get these definitions into the 'diabetes_utils.js' file
   // that is located in the /js directory of the project for shared 
   // code across all of the diabetes measures. 
@@ -33,7 +35,7 @@ function () {
                 !inRange(measure.diabetic_retinopathy, year_prior_to_measurement_period, effective_date))
             );
   }
-  
+
   var exclusion = function() {
     return diabetes_exclusions(measure, earliest_diagnosis, effective_date);
   }

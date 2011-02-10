@@ -8,9 +8,9 @@
   var root = this;
 
   root.weight_denominator = function(measure, period_start, effective_date) {
-    encounter = inRange(measure.patient_encounter, period_start, effective_date);
-    pregnant = inRange(measure.encounter_pregnancy, period_start, effective_date);
-    pregnancy_encounter = inRange(measure.encounter_pregnancy, period_start, effective_date);
+    var encounter = inRange(measure.patient_encounter, period_start, effective_date);
+    var pregnant = inRange(measure.encounter_pregnancy, period_start, effective_date);
+    var pregnancy_encounter = inRange(measure.encounter_pregnancy, period_start, effective_date);
     return encounter && !(pregnant || pregnancy_encounter);
   }
   
