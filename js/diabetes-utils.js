@@ -20,7 +20,7 @@
     var diagnosis_diabetes =            inRange(measure.diagnosis_diabetes, earliest_diagnosis, effective_date);
     var encounter_acute_inpatient =     inRange(measure.encounter_acute_inpatient, earliest_diagnosis, effective_date);
     var encounter_non_acute_inpatient = inRange(measure.encounter_non_acute_inpatient, earliest_diagnosis, effective_date);
-    var encounter_outpatient = inRange(measure.encounter_non_acute_inpatient, earliest_diagnosis, effective_date);
+    var encounter_outpatient = inRange(measure.encounter_outpatient, earliest_diagnosis, effective_date);
     var encounter_opthalmology = inRange(measure.encounter_outpatient_opthamological_services, earliest_diagnosis, effective_date);
     return (has_medications_indicative_of_diabetes(measure, earliest_diagnosis, effective_date) 
             || 
