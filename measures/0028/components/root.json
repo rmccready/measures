@@ -226,46 +226,37 @@
       ]
     }
   },
-  "population": {
-    "and": [
-    {
-      "category": "Patient Characteristic",
-      "title": "Age >= 18"
-    },
-    {
-      "or": [
-        {
-          "category": "Encounter",
-          "title": "2 or more health and behavior assessment encounter"
-        },
-        {
-          "category": "Encounter",
-          "title": "2 or more occupational therapy encounter"
-        },
-        {
-          "category": "Encounter",
-          "title": "2 or more office visit encounter"
-        },
-        {
-          "category": "Encounter",
-          "title": "2 or more psychiatric and psychologic encounter"
-        },
-        {
-          "category": "Encounter",
-          "title": "1 or more preventive medicine services 18 and older"
-        },
-        {
-          "category": "Encounter",
-          "title": "1 or more preventive medicine other services"
-        },
-        {
-          "category": "Encounter",
-          "title": "1 or more preventive medicine individual counseling"
-        },
-        {
-          "category": "Encounter",
-          "title": "1 or more preventive medicine group counseling"
-        }
+  "population": 
+  {
+    "and": 
+    [
+      {
+        "category": "Patient Characteristic",
+        "title": "Age >= 18"
+      },
+      {
+        "or": 
+        [
+          {
+            "category": "Encounter",
+            "title": "2 or more counts of health and behavior assessment OR occupational therapy OR office visit OR psychiatric and psychologic"
+          },
+          {
+            "category": "Encounter",
+            "title": "1 or more counts preventive medicine services 18 and older"
+          },
+          {
+            "category": "Encounter",
+            "title": "1 or more preventive medicine other services"
+          },
+          {
+            "category": "Encounter",
+            "title": "1 or more preventive medicine individual counseling"
+          },
+          {
+            "category": "Encounter",
+            "title": "1 or more preventive medicine group counseling"
+          }
         ]
       }
     ]
