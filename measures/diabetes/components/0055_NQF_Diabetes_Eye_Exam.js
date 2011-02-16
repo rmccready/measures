@@ -35,7 +35,7 @@ function () {
                 !inRange(measure.diabetic_retinopathy, year_prior_to_measurement_period, effective_date))
             );
   }
-  
+
   var exclusion = function() {
     return diabetes_exclusions(measure, earliest_diagnosis, effective_date);
   }

@@ -162,7 +162,7 @@ describe QME::Importer::GenericImporter do
     measure_info['encounter_acute_inpatient'].should include(1275177600)
     measure_info['encounter_non_acute_inpatient'].should include(1275177600)
     measure_info['encounter_outpatient'].should include(1275177600)
-    measure_info['encounter_outpatient_opthamological_services'].should include(1275177600)
+    measure_info['encounter_outpatient_ophthamological_services'].should include(1275177600)
     measure_info['medications_indicative_of_diabetes'].should include(1275177600)
     measure_info['diagnosis_diabetes'].should include(1275177600)
     measure_info['diagnosis_gestational_diabetes'].should include(1275177600)
