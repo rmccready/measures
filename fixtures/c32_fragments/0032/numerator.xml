@@ -178,9 +178,7 @@
                     <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Results"/>
                     <title>Diagnostic Results</title>
                     <text>
-                        <table border="1" width="100%">
-
-                        </table>
+                        Results
                     </text>
                     <!--HITSP/C83 requires Diagnostic Results to have both Procedure and Results, but gives no guidance as to how they should be related together. If Result requires a specimen, the Procedure to obtain the specimen could be under the specimen. This example simply groups a Procedure with the Results obtained from that Procedure. This is probably not the best way to do it, but satisfies the requirements of both IHE/PCC and HITSP/C83 for Diagnostic Results. -->
                     <entry typeCode="DRIV">
