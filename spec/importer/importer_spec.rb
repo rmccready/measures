@@ -15,18 +15,21 @@ describe QME::Importer::GenericImporter do
 
   context "when working with the extended NIST example C32 file" do
     it "should import the information relevant to 0001" do
+      pending "Waiting for measure 0001 to be completed"
       measure_info0 = get_measure_info('fixtures/c32_fragments/0013/numerator.xml', '0001', @loader)
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0001', @loader)
       measure_info['symptoms_daytime_asthma_quantified'].should include(1286668800)
     end
 
     it "should import the information relevant to 0028" do
+      pending "Waiting for measure 0028 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0028', @loader)
       measure_info['cessation_counseling'].should include(1286668800)
       measure_info['tobacco_non_user'].should include(-725846400)
     end
 
     it "should import the information relevant to 0033" do
+      pending "Waiting for measure 0033 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0033', @loader)
       measure_info['iud_use'].should include(853459200)
       measure_info['contraceptive_use_education'].should include(1286668800)
@@ -34,6 +37,7 @@ describe QME::Importer::GenericImporter do
 
     #	0055/N_c47 Diabetes active
     it "should import the information relevant relevant to 0055" do
+      pending "Waiting for measure 0055 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0055', @loader)
       measure_info['diagnosis_diabetes'].should include(-631152000 )
     end
@@ -79,12 +83,14 @@ describe QME::Importer::GenericImporter do
 
     # 0421/Q_C155 BMI Management Plan
     it "should import the information relevant to 0421" do
+      pending "Waiting for measure 0421 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0421', @loader)
       measure_info['bmi_management'].should include(956275200)
     end
   end
   
   it "should import the information relevant to determining hypertension blood pressure measurement" do
+    pending "Waiting for measure 0013 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0013/numerator.xml', '0013', @loader)
 
     measure_info['encounter_outpatient'].should include(1270598400)
@@ -94,6 +100,7 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the information relevant to determining high blood pressure" do
+    pending "Waiting for measure 0018 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0018/numerator.xml', '0018', @loader)
     
     measure_info['procedures_indicative_of_esrd'].should include(1291939200)
@@ -106,6 +113,7 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to determining tobacco use" do
+    pending "Waiting for measure 0028 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0028/numerator.xml', '0028', @loader)
 
     measure_info['individual_counseling_encounter'].should include(1270598400)
@@ -115,6 +123,7 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to determining cervical cancer screening status" do
+    pending "Waiting for measure 0032 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0032/numerator.xml', '0032', @loader)
 
     measure_info['encounter_outpatient'].should include(1270598400)
@@ -123,6 +132,7 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to chlamydia screening" do
+    pending "Waiting for measure 0033 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0033/numerator.xml', '0033', @loader)
 
     measure_info['encounter_outpatient'].should include(1270598400)
@@ -137,6 +147,7 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to breast cancer screening" do
+    pending "Waiting for measure 0031 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0031/numerator.xml', '0031', @loader)
     
     measure_info['encounter_outpatient'].should include(1270598400)
@@ -150,6 +161,7 @@ describe QME::Importer::GenericImporter do
   end
   
   it "should import the the information relevant to determining pneumonia vaccination status" do
+    pending "Waiting for measure 0043 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0043/numerator.xml', '0043', @loader)
 
     measure_info['vaccination'].should include(1248825600)
@@ -157,6 +169,7 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to determining diabetic eye exam measure status" do
+    pending "Waiting for measure 0055 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/diabetes/numerator.xml', '0055', @loader)
 
     measure_info['encounter_acute_inpatient'].should include(1275177600)

@@ -1,0 +1,30 @@
+{
+    "N_237": {  
+        "value": {
+	"type": "number",
+        "description": "HbA1c test",
+        "date_description": "Date of HbA1c test" 
+      }      },
+    "N_1980": {
+       "value": {
+	"type": "number",
+        "description": "HbA1c test",
+        "date_description": "Date of HbA1c test" 
+      }
+   },
+   "N_238": {
+       "value": {
+	"type": "number",
+        "description": "HbA1c test",
+        "date_description": "Date of HbA1c test" 
+      }
+    },
+   "N_239": {
+       "value": {
+	"type": "number",
+        "description": "HbA1c test",
+        "date_description": "Date of HbA1c test" 
+      }    
+   }
+}
+
