@@ -1,0 +1,75 @@
+{
+    "id": "0018",
+    "properties": "NQF_Retooled_Measure_0018.xlsx.json",
+    "name": "Controlling High Blood Pressure",
+    "description": "The percentage of patients 18‐85 years of age who had a diagnosis of hypertension and whose BP was adequately controlled during the measurement year.",
+    "category": "Miscellaneous",
+    "steward": "NCQA",
+    "parameters": {
+        "effective_date": {
+            "description": "Effective end date for measure",
+            "type": "number",
+            "format": "utc-sec"
+        }
+    },
+    "patient": {
+        "birthdate": {
+            "description": "Date of birth",
+            "type": "number",
+            "critical": true,
+            "standard_category": "characteristic",
+            "format": "utc-sec",
+            "codes": [
+                {
+                    "set": "HL7",
+                    "version": "3.0",
+                    "values": [
+                        "00110"
+                    ]
+                }
+            ]
+        }
+    },
+    "population": {
+      "category": "Patient Characteristic",
+      "title": "Age 18 to 85"        
+    },
+    "denominator": {
+      "and": [
+        {
+          "category": "Diagnosis active",
+          "title": "Hypertension <= 6 months after measurement start date"
+        },
+        {
+          "category": "Encounter",
+          "title": "Outpatient"
+        },
+        {
+          "category": "Diagnosis not active",
+          "title": "Pregnancy"
+        },
+        {
+          "category": "Diagnosis not active",
+          "title": "ESRD"
+        },
+        {
+          "category": "Procedure not performed",
+          "title": "Procedure indicative of ESRD"
+        }
+      ]        
+    },
+    "numerator": {
+      "and": [
+        {
+          "category": "Physical exam finding",
+          "title": "Min diastolic blood pressure < 90mmHg during most recent encounter"
+        },
+        {
+          "category": "Physical exam finding",
+          "title": "Min systolic blood pressure < 140mmHg during most recent encounter"
+        }
+      ]        
+    },
+    "exclusions": {
+    }
+}

@@ -1,3 +1,5 @@
+require 'ap'
+
 describe QME::Importer::GenericImporter do
 
   def get_measure_info(c32_file, measure_id, loader)
@@ -98,16 +100,14 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the information relevant to determining high blood pressure" do
-    pending "Waiting for measure 0018 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0018/numerator.xml', '0018', @loader)
-    
-    measure_info['procedures_indicative_of_esrd'].should include(1291939200)
-    measure_info['pregnancy'].should include(1291939200)
-    measure_info['esrd'].should include (1291939200)
-    measure_info['encounter_outpatient'].should include(1239062400)
-    measure_info['hypertension'].should include(1258156800)
-    measure_info['systolic_blood_pressure'].should include('date' => 1258156800, 'value' => '132')
-    measure_info['diastolic_blood_pressure'].should include('date' => 1258156800, 'value' => '86')
+    measure_info['procedures_indicative_of_esrd_procedure_performed'].should include(1291939200)
+    measure_info['pregnancy_diagnosis_active'].should include(1291939200)
+    measure_info['esrd_diagnosis_active'].should include (1291939200)
+    measure_info['encounter_outpatient_encounter'].should include(1239062400)
+    measure_info['hypertension_diagnosis_active'].should include(1258156800)
+    measure_info['systolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => '132')
+    measure_info['diastolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => '86')
   end
 
   it "should import the the information relevant to determining tobacco use" do

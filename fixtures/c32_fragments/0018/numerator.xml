@@ -215,7 +215,7 @@
                                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" assigningAuthorityName="IHE PCC"/>
                                     <!-- Result observation template -->
                                     <id root="c6f88323-67ad-11db-bd13-0800200c9a66"/>
-                                    <code code="314443004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="Systolic BP">
+                                    <code code="163030003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="Systolic BP">
                                     </code>
                                     <text>
                                         <reference value="PtrToValueInsectionText"/>
@@ -234,7 +234,7 @@
                                     <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2" assigningAuthorityName="IHE PCC"/>
                                     <!-- Result observation template -->
                                     <id root="c6f88324-67ad-11db-bd13-0800200c9a66"/>
-                                    <code code="174255007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="Diastolic BP">
+                                    <code code="163031004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED" displayName="Diastolic BP">
                                     </code>
                                     <text>
                                         <reference value="PtrToValueInsectionText"/>
