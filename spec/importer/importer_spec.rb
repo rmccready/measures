@@ -89,13 +89,12 @@ describe QME::Importer::GenericImporter do
   end
   
   it "should import the information relevant to determining hypertension blood pressure measurement" do
-    pending "Waiting for measure 0013 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0013/numerator.xml', '0013', @loader)
 
-    measure_info['encounter_outpatient'].should include(1270598400)
-    measure_info['hypertension'].should include(1262304000)
-    measure_info['diastolic_blood_pressure'].should include(942537600)
-    measure_info['systolic_blood_pressure'].should include(942537600)
+    measure_info['encounter_outpatient_encounter'].should include(1270598400)
+    measure_info['hypertension_diagnosis_active'].should include(1262304000)
+    measure_info['diastolic_blood_pressure_physical_exam_finding'].should include(942537600)
+    measure_info['systolic_blood_pressure_physical_exam_finding'].should include(942537600)
   end
 
   it "should import the information relevant to determining high blood pressure" do

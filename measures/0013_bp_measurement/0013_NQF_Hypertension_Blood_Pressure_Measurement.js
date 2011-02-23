@@ -13,9 +13,9 @@ function () {
   
   var population = function() {
     correct_age = patient.birthdate <= latest_birthdate;
-    hypertension = inRange(measure.hypertension, period_start, effective_date);
-    encounter_outpatient = inRange(measure.encounter_outpatient, period_start, effective_date);
-    encounter_nursing = inRange(measure.encounter_nursing_facility, period_start, effective_date);
+    hypertension = inRange(measure.hypertension_diagnosis_active, period_start, effective_date);
+    encounter_outpatient = inRange(measure.encounter_outpatient_encounter, period_start, effective_date);
+    encounter_nursing = inRange(measure.encounter_nursing_facility_encounter, period_start, effective_date);
     return (correct_age && hypertension && ((encounter_outpatient+encounter_nursing)>=2));
   }
   
@@ -24,8 +24,8 @@ function () {
   }
   
   var numerator = function() {
-    systolic = inRange(measure.systolic_blood_pressure, period_start, effective_date);
-    diastolic = inRange(measure.diastolic_blood_pressure, period_start, effective_date);
+    systolic = inRange(measure.systolic_blood_pressure_physical_exam_finding, period_start, effective_date);
+    diastolic = inRange(measure.diastolic_blood_pressure_physical_exam_finding, period_start, effective_date);
     return (systolic && diastolic);
   }
   
