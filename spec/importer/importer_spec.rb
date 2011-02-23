@@ -15,10 +15,9 @@ describe QME::Importer::GenericImporter do
 
   context "when working with the extended NIST example C32 file" do
     it "should import the information relevant to 0001" do
-      pending "Waiting for measure 0001 to be completed"
       measure_info0 = get_measure_info('fixtures/c32_fragments/0013/numerator.xml', '0001', @loader)
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0001', @loader)
-      measure_info['symptoms_daytime_asthma_quantified'].should include(1286668800)
+      measure_info['asthma_daytime_symptoms_quantified_symptom_assessed'].should include(1286668800)
     end
 
     it "should import the information relevant to 0028" do
