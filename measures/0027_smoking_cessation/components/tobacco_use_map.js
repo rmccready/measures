@@ -17,11 +17,11 @@ function () {
   }
   
   var denominator = function() {
-    return inRange(measure.encounter_outpatient, earliest_encounter, effective_date);
+    return inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
   }
   
   var numerator = function() {
-    return inRange(measure.tobacco_user, earliest_tobacco_user, effective_date);
+    return inRange(measure.tobacco_user_physical_exam_finding, earliest_tobacco_user, effective_date);
   }
   
   var exclusion = function() {

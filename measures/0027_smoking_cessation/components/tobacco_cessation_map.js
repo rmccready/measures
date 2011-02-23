@@ -17,12 +17,12 @@ function () {
   }
   
   var denominator = function() {
-    return inRange(measure.encounter_outpatient, earliest_encounter, effective_date);
+    return inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
   }
   
   var numerator = function() {
     encounter = inRange(measure.tobacco_use_cessation_counseling_encounter, earliest_tobacco_user, effective_date);
-    communication = inRange(measure.tobacco_use_cessation_counseling, earliest_tobacco_user, effective_date);
+    communication = inRange(measure.tobacco_use_cessation_counseling_communication_to_patient, earliest_tobacco_user, effective_date);
     return encounter || communication;
   }
   
