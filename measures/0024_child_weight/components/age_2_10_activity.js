@@ -22,7 +22,7 @@ function () {
   }
   
   var numerator = function() {
-    return inRange(measure.counseling_for_physical_activity, period_start, effective_date);
+    return inRange(measure.counseling_for_physical_activity_communication_to_patient, period_start, effective_date);
   }
   
   var exclusion = function() {

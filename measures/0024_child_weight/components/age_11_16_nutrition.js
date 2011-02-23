@@ -10,7 +10,7 @@ function () {
   var year = 365*day;
   var effective_date = <%= effective_date %>;
   var period_start = effective_date - year;
-  var latest_birthdate = effective_date - 2*year;
+  var latest_birthdate = effective_date - 11*year;
   var earliest_birthdate = effective_date - 16*year;
   
   var population = function() {
@@ -22,7 +22,7 @@ function () {
   }
   
   var numerator = function() {
-    return inRange(measure.counseling_for_nutrition, period_start, effective_date);
+    return inRange(measure.counseling_for_nutrition_communication_to_patient, period_start, effective_date);
   }
   
   var exclusion = function() {

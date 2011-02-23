@@ -5,7 +5,7 @@
   "birthdate": 936144000,     // Time.gm(1999, 9, 1).to_i
   "measures": {               // bag of measures, one entry per measure
     "0024": {
-      "patient_encounter": 1277856000
+      "encounter_outpatient_w_pcp_obgyn_encounter": 1277856000
     }
   }
 }
