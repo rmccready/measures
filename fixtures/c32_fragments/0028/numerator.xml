@@ -394,7 +394,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Smoking Cessation Agent</td>
+                        <td><content ID="med1">Smoking Cessation Agent</content></td>
                         <td></td>
                         <td>July 29, 2009</td>
                         <td>Active</td>
@@ -407,17 +407,20 @@
                 <templateId root="2.16.840.1.113883.10.20.1.24" assigningAuthorityName="CCD"/>
                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" assigningAuthorityName="IHE PCC"/>
                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" assigningAuthorityName="IHE Medications"/>
+                <templateId root="2.16.840.1.113883.3.88.11.83.8" assigningAuthorityName="HITSP/C83"/>
                 <!--Medication activity template -->
                 <id root="cdbd33f0-6cde-11db-9fe1-0800200c9a66"/>
-                <statusCode code="active"/>
-                <effectiveTime value="20090729"/>
+                <statusCode code="completed"/>
+                <effectiveTime xsi:type="TS" value="20090729"/>
                 <consumable>
                     <manufacturedProduct>
                         <templateId root="2.16.840.1.113883.10.20.1.53"/>
+                        <templateId root="2.16.840.1.113883.3.88.11.83.8.2"/>
+                        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2"/>
                         <!-- Product template -->
                         <manufacturedMaterial>
                             <code code="199677" codeSystem="2.16.840.1.113883.6.88" displayName="Smoking Cessation agent" codeSystemName="RxNorm">
-                                <originalText>Smoking Cessation Agent</originalText>
+                                <originalText><reference value="med1"/></originalText>
                             </code>
                         </manufacturedMaterial>
                     </manufacturedProduct>
