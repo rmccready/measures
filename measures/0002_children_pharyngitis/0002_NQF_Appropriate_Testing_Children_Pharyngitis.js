@@ -18,15 +18,18 @@ function () {
   }
   
   var denominator = function() {
-    var encounters = measure.encounter_ambulatory_including_pediatrics
+    var encounters = measure.encounter_ambulatory_including_pediatrics_encounter
     if (!inRange(encounters, earliest_encounter, effective_date))
       return false;
-    if (!inRange(measure.pharyngitis_diagnosed, earliest_encounter, effective_date))
+    if (!inRange(measure.pharyngitis_diagnosis_active, earliest_encounter, effective_date))
       return false;
       
     if (!_.isArray(encounters))
       encounters = [encounters];
-    var meds = measure.pharyngitis_antibiotics;
+    var meds = _.flatten(_.toArray(
+      measure.pharyngitis_antibiotics_medication_dispensed, 
+      measure.pharyngitis_antibiotics_medication_order, 
+      measure.pharyngitis_antibiotics_medication_active));
     if (!_.isArray(meds))
       meds = [meds];
     
@@ -55,7 +58,7 @@ function () {
 
   var numerator = function() {
     return actionFollowingSomething(measure.encounters_when_prescribed_pharyngitis_antibiotics,
-      measure.group_a_streptococcus_test, 3*day);
+      measure.group_a_streptococcus_test_laboratory_test_performed, 3*day);
   }
 
   var exclusion = function() {
