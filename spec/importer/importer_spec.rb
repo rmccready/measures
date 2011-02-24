@@ -23,10 +23,8 @@ describe QME::Importer::GenericImporter do
     end
 
     it "should import the information relevant to 0028" do
-      pending "Waiting for measure 0028 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0028', @loader)
-      measure_info['cessation_counseling'].should include(1286668800)
-      measure_info['tobacco_non_user'].should include(-725846400)
+      measure_info['tobacco_non_user_patient_characteristic'].should include(-725846400)
     end
 
     it "should import the information relevant to 0033" do
@@ -110,13 +108,9 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to determining tobacco use" do
-    pending "Waiting for measure 0028 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0028/numerator.xml', '0028', @loader)
-
-    measure_info['individual_counseling_encounter'].should include(1270598400)
-    measure_info['tobacco_user'].should include(1262304000)
-    measure_info['cessation_agent'].should include(1248825600)
-    measure_info['cessation_counseling'].should include(1252454400)
+    measure_info['encounter_prev_med_individual_counseling_encounter'].should include(1270598400)
+    measure_info['tobacco_user_patient_characteristic'].should include(1262304000)
   end
 
   it "should import the the information relevant to determining cervical cancer screening status" do
