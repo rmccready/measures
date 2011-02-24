@@ -28,7 +28,7 @@ function () {
   // the denominator, and the exclusions are shared in the 'diabetes_utils.js' file
   // that is located in the /js directory of the project
   var numerator = function() {
-    return inRange(measure.procedure_foot_exam, earliest_diagnosis, effective_date);
+    return inRange(measure.foot_exam_physical_exam_performed, earliest_diagnosis, effective_date);
   }
 
   var exclusion = function() {
