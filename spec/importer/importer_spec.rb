@@ -148,11 +148,10 @@ describe QME::Importer::GenericImporter do
   end
   
   it "should import the the information relevant to determining pneumonia vaccination status" do
-    pending "Waiting for measure 0043 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0043/numerator.xml', '0043', @loader)
 
-    measure_info['vaccination'].should include(1248825600)
-    measure_info['encounter'].should include(1270598400)
+    measure_info['pneumococcal_vaccine_all_ages_medication_administered'].should include(1248825600)
+    measure_info['encounter_outpatient_encounter'].should include(1270598400)
   end
 
   it "should import the the information relevant to determining diabetic eye exam measure status" do

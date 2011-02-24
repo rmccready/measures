@@ -16,12 +16,14 @@ function () {
   }
   
   var denominator = function() {
-    outpatient_encounter = inRange(measure.encounter, earliest_encounter, effective_date);
+    outpatient_encounter = inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
     return (outpatient_encounter);
   }
   
   var numerator = function() {
-    return lessThan(measure.vaccination, effective_date);
+    vaccination = lessThan(measure.pneumococcal_vaccination_all_ages_procedure_performed, effective_date);
+    vaccine = lessThan(measure.pneumococcal_vaccine_all_ages_medication_administered, effective_date);
+    return vaccination || vaccine;
   }
   
   var exclusion = function() {
