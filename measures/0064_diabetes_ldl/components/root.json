@@ -1,0 +1,124 @@
+{
+  "id": "0064",
+  "properties": "NQF_Retooled_Measure_0064.xlsx.json",
+  "name": "Diabetes LDL Management",
+  "description": "The percentage of patients 18–75 years of age with diabetes (type 1 or type 2) undergoing LDL management.",
+  "category": "Diabetes",
+  "steward": "NCQA",
+  "parameters": {
+    "effective_date": {
+      "description": "Effective end date for measure",
+      "type": "number",
+      "format": "utc-sec" 
+    } 
+  },
+  "patient": {
+    "birthdate": {
+      "description": "Date of birth",
+      "critical": true,
+      "type": "number",
+      "format": "utc-sec",
+      "codes": [
+        {
+          "set": "HL7",
+          "version": "3.0",
+          "values": [
+            "00110"
+          ] 
+        } 
+      ] 
+    } 
+  },
+  "population": {
+    "category": "Patient Characteristic",
+    "title": "Age between 17 and 74" 
+  },
+  "denominator": {
+    "or": [
+      {
+        "category": "Medication",
+        "title": "Medication Indicative of Diabetes Within 2 years" 
+      },
+      {
+        "and": [
+          {
+            "category": "Diagnosis",
+            "title": "Diabetes Active Within 2 years" 
+          },
+          {
+            "or": [
+              {
+                "category": "Encounter",
+                "title": "Acute Inpatient or ED" 
+              },
+              {
+                "category": "Encounter",
+                "title": "Non‐Acute Inpatient, Outpatient, or Ophthalmology" 
+              } 
+            ] 
+          } 
+        ] 
+      } 
+    ] 
+  },
+  "exclusions": {
+    "or": [
+      {
+        "and": [
+          {
+            "category": "Diagnosis",
+            "title": "Polycystic Ovaries" 
+          },
+          {
+            "and": [
+              {
+                "category": "Diagnosis",
+                "title": "Diabetes Not Active Within 2 years" 
+              },
+              {
+                "or": [
+                  {
+                    "category": "Encounter",
+                    "title": "No Acute Inpatient or ED" 
+                  },
+                  {
+                    "category": "Encounter",
+                    "title": "No Non‐Acute Inpatient, Outpatient, or Ophthalmology" 
+                  } 
+                ] 
+              } 
+            ] 
+          } 
+        ] 
+      },
+      {
+        "and": [
+          {
+            "category": "Diagnosis",
+            "title": "Gestational Diabetes or Steroid Induced Diabetes Within 2 years" 
+          },
+          {
+            "category": "Medication",
+            "title": "Medications Indicative of Diabetes Within 2 years" 
+          },
+          {
+            "category": "Diagnosis",
+            "title": "Diabetes Active within 2 years" 
+          },
+          {
+            "or": [
+              {
+                "category": "Encounter",
+                "title": "Acute Inpatient or ED Within 2 years" 
+              },
+              {
+                "category": "Encounter",
+                "title": "Non‐Acute Inpatient, Outpatient, or Opthalmology" 
+              } 
+            ] 
+          } 
+        ] 
+      } 
+    ] 
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "root": "root.json",
+  "combinations":
+  [
+    {
+      "metadata": {
+        "sub_id": "a",
+        "subtitle": "LDL Tested",
+        "numerator": {
+          "or": [
+            {
+              "category": "Laboratory Test Performed",
+              "title": "LDL Test"
+            }
+          ]
+        }
+      },
+      "map_fn": "0064_NQF_Diabetes_LDL_Management.js"
+    },
+    {
+      "metadata": {
+        "sub_id": "b",
+        "subtitle": "LDL Under Control",
+        "numerator": {
+          "or": [
+            {
+              "category": "Laboratory Test Performed",
+              "title": "LDL Test Result < 100 mg/dL"
+            }
+          ]
+        }
+      },
+      "map_fn": "0064_NQF_Diabetes_LDL_Control.js"
+    }
+  ]
+}
