@@ -1,0 +1,216 @@
+{
+  "id": "0036",
+  "properties": "NQF_Retooled_Measure_0036.xlsx.json",
+  "name": "Use of Appropriate Medications for Asthma",
+  "description": "The percentage of patients 5‐50 years of age during the measurement year who were identified as having persistent asthma and were appropriately prescribed medication during the measurement year.",
+  "category": "Asthma",
+  "steward": "NCQA",
+  "parameters": {
+    "effective_date": {
+      "description": "Effective end date for measure",
+      "type": "number",
+      "format": "utc-sec"
+    }
+  },
+  "patient": {
+    "birthdate": {
+      "description": "Date of birth",
+      "type": "number",
+      "category_type": "patient_characteristic",
+      "format": "utc-sec",
+      "codes": [
+        {
+          "set": "HL7",
+          "version": "3.0",
+          "values": [
+            "00110"
+          ]
+        }
+      ]
+    }
+  },
+  "denominator": {
+    "or": [
+      {
+        "and": [
+          {
+            "category": "Encounter",
+            "title": "ED Encounter in the past year"
+          },
+          {
+            "category": "Diagnosis Active",
+            "title": "Asthma in the past year"
+          }
+        ]
+      },
+      {
+        "and": [
+          {
+            "category": "Encounter",
+            "title": "Acute Inpt Encounter in the past year"
+          },
+          {
+            "category": "Diagnosis Active",
+            "title": "Asthma in the past year"
+          }
+        ]
+      },
+      {
+        "and": [
+          {
+            "category": "Encounter",
+            "title": "4 or more Outpt, Acute Inpt, or ED Encounter in the past year"
+          },
+          {
+            "category": "Diagnosis Active",
+            "title": "Asthma in the past year"
+          },
+		  {
+            "or": [
+	          {
+	            "category": "Medication Active, Order or Dispensed",
+	            "title": "2 or more Antiasthmatic combinations within 1 year"
+	          },
+	          {
+	            "category": "Medication Active, Order or Dispensed",
+	            "title": "2 or more Antibody inhibitor within 1 year"
+	          },
+			  {
+	            "category": "Medication Active, Order or Dispensed",
+	            "title": "2 or more Inhaled corticosteroids within 1 year"
+	          },
+			  {
+	            "category": "Medication Active, Order or Dispensed",
+	            "title": "2 or more Inhaled steroid combinations within 1 year"
+	          },
+	          {
+	            "category": "Medication Active, Order or Dispensed",
+	            "title": "2 or more Leukotriene inhibitors within 1 year"
+	          },
+			  {
+	            "category": "Medication Active, Order or Dispensed",
+	            "title": "2 or more Long acting inhaled beta 2 agonist within 1 year"
+	          },
+			  {
+	            "category": "Medication Active, Order or Dispensed",
+	            "title": "2 or more Mast cell stabilizer within 1 year"
+	          },
+			  {
+	            "category": "Medication Active, Order or Dispensed",
+	            "title": "2 or more Methylxanthines” within 1 year"
+	          },
+			  {
+	            "category": "Medication Active, Order or Dispensed",
+	            "title": "2 or more Short acting beta 2 agonist” within 1 year"
+	          }
+	        ]
+          }
+        ]
+      },
+      {
+		"or": [
+        {
+          "category": "Medication Active, Order or Dispensed",
+          "title": "4 or more Antiasthmatic combinations within 1 year"
+        },
+        {
+          "category": "Medication Active, Order or Dispensed",
+          "title": "4 or more Antibody inhibitor within 1 year"
+        },
+		  {
+          "category": "Medication Active, Order or Dispensed",
+          "title": "4 or more Inhaled corticosteroids within 1 year"
+        },
+		  {
+          "category": "Medication Active, Order or Dispensed",
+          "title": "4 or more Inhaled steroid combinations within 1 year"
+        },
+        {
+          "category": "Medication Active, Order or Dispensed",
+          "title": "4 or more Leukotriene inhibitors within 1 year"
+        },
+		  {
+          "category": "Medication Active, Order or Dispensed",
+          "title": "4 or more Long acting inhaled beta 2 agonist within 1 year"
+        },
+		  {
+          "category": "Medication Active, Order or Dispensed",
+          "title": "4 or more Mast cell stabilizer within 1 year"
+        },
+		  {
+          "category": "Medication Active, Order or Dispensed",
+          "title": "4 or more Methylxanthines” within 1 year"
+        },
+		  {
+          "category": "Medication Active, Order or Dispensed",
+          "title": "4 or more Short acting beta 2 agonist” within 1 year"
+        }
+      ]
+      },
+      {
+	    "and": [
+          {
+		    "category": "Medication Active, Order or Dispensed",
+            "title": "4 or more Leukotriene inhibitors within 1 year"
+          },
+          {
+            "category": "Diagnosis Active",
+            "title": "Asthma in the past year"
+          }
+        ]
+      }
+     ]
+    },
+  "numerator": {
+	  "or": [
+  		{
+		    "category": "Medication Active, Order or Dispensed",
+		    "title": "1 or more Antiasthmatic combinations within 1 year"
+		  },
+		  {
+		    "category": "Medication Active, Order or Dispensed",
+		    "title": "1 or more Antibody inhibitor within 1 year"
+		  },
+			{
+		    "category": "Medication Active, Order or Dispensed",
+		    "title": "1 or more Inhaled corticosteroids within 1 year"
+		  },
+			{
+		    "category": "Medication Active, Order or Dispensed",
+		    "title": "1 or more Inhaled steroid combinations within 1 year"
+		  },
+		  {
+		    "category": "Medication Active, Order or Dispensed",
+		    "title": "1 or more Leukotriene inhibitors within 1 year"
+		  },
+			{
+		    "category": "Medication Active, Order or Dispensed",
+		    "title": "1 or more Mast cell stabilizer within 1 year"
+		  },
+			{
+		    "category": "Medication Active, Order or Dispensed",
+		    "title": "1 or more Methylxanthines” within 1 year"
+		  }
+		 ]
+    },
+  "exclusions": {
+    "or": [
+			{
+		    "category": "Diagnosis Active",
+		    "title": "COPD"
+		  },
+		  {
+		    "category": "Diagnosis Active",
+		    "title": "Cystic Fibrosis"
+		  },
+			{
+		    "category": "Diagnosis Active",
+		    "title": "Emphysema"
+		  },
+			{
+		    "category": "Diagnosis Active",
+		    "title": "Acute respiratory failure"
+		  }
+	   ]
+   }
+}
