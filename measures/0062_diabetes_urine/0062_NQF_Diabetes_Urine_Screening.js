@@ -22,18 +22,24 @@ function () {
   var denominator = function() {
     return diabetes_denominator(measure, earliest_diagnosis, effective_date);
   }
+  
+  var ace_arbs = function() {
+    ace_arb_order = inRange(measure.ace_inhibitors_arbs_medication_order, period_start, effective_date);
+    ace_arb_active = inRange(measure.ace_inhibitors_arbs_medication_active, period_start, effective_date);
+    ace_arb_dispensed = inRange(measure.ace_inhibitors_arbs_medication_dispensed, period_start, effective_date);
+    return ace_arb_order || ace_arb_active || ace_arb_dispensed;
+  }
 
   // This numerator function is the only code that is specific to this particular 
   // MU diabetes measure.  All of the other definitions for the initial population, 
   // the denominator, and the exclusions are shared in the 'diabetes_utils.js' file
   // that is located in the /js directory of the project
   var numerator = function() {
-    nephropathy = inRange(measure.nephropathy_diagnosis, period_start, effective_date);
-    nephropathy_proc = inRange(measure.nephropathy_related_procedure, period_start, effective_date);
-    urine_microalbumin = inRange(measure.urine_microalbumin, period_start, effective_date);
-    nephropathy_screen = inRange(measure.nephropathy_screening, period_start, effective_date);
-    ace_arb = inRange(measure.ace_inhibitors_or_arbs, period_start, effective_date);
-    return (nephropathy || nephropathy_proc || urine_microalbumin || nephropathy_screen || ace_arb);
+    nephropathy = inRange(measure.nephropathy_diagnosis_active, period_start, effective_date);
+    nephropathy_proc = inRange(measure.nephropathy_related_procedures_procedure_performed, period_start, effective_date);
+    urine_microalbumin = inRange(measure.urine_macroalbumin_laboratory_test_performed, period_start, effective_date);
+    nephropathy_screen = inRange(measure.nephropathy_screening_laboratory_test_performed, period_start, effective_date);
+    return (nephropathy || nephropathy_proc || urine_microalbumin || nephropathy_screen || ace_arbs());
   }
 
   var exclusion = function() {
