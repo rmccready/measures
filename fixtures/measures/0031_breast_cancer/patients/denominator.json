@@ -5,7 +5,7 @@
   "gender" : "F",                           // Time.gm(1960, 10, 19).to_i
   "measures": {                                       // bag of measures, one entry per measure
     "0031": {
-      "encounter_outpatient": 1277856000 
+      "encounter_outpatient_encounter": 1277856000 
     }
   }
 }

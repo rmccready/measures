@@ -17,14 +17,14 @@ function () {
   }
   
   var denominator = function() {
-    var outpatient_encounter = inRange(measure.encounter_outpatient, earliest_encounter, effective_date);
+    var outpatient_encounter = inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
     // look for bilateral mastectomy or unilateral mastectomy
-   var has_breast = (!measure.bilateral_mastectomy && _.uniq(measure.unilateral_mastectomy || []).length <=1  );
+   var has_breast = (!measure.bilateral_mastectomy_procedure_performed && _.uniq(measure.unilateral_mastectomy_procedure_performed || []).length <=1  );
     return (outpatient_encounter && has_breast);
   }
   
   var numerator = function() {
-    return inRange(measure.breast_cancer_screening, earliest_encounter, effective_date);
+    return inRange(measure.breast_cancer_screening_diagnostic_study_performed, earliest_encounter, effective_date);
   }
   
   var exclusion = function() {

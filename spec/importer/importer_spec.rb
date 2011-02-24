@@ -138,17 +138,16 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to breast cancer screening" do
-    pending "Waiting for measure 0031 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0031/numerator.xml', '0031', @loader)
     
-    measure_info['encounter_outpatient'].should include(1270598400)
-    measure_info['unilateral_mastectomy'].length.should == 2
-    measure_info['unilateral_mastectomy'].should include(1248825600)
-    measure_info['unilateral_mastectomy'].should include(1248825600)
-    measure_info['bilateral_mastectomy'].length.should == 1
-    measure_info['bilateral_mastectomy'].should include(1248825600)
+    measure_info['encounter_outpatient_encounter'].should include(1270598400)
+    measure_info['unilateral_mastectomy_procedure_performed'].length.should == 2
+    measure_info['unilateral_mastectomy_procedure_performed'].should include(1248825600)
+    measure_info['unilateral_mastectomy_procedure_performed'].should include(1248825600)
+    measure_info['bilateral_mastectomy_procedure_performed'].length.should == 1
+    measure_info['bilateral_mastectomy_procedure_performed'].should include(1248825600)
     
-    measure_info['breast_cancer_screening'].should include(1248825600)
+    measure_info['breast_cancer_screening_diagnostic_study_performed'].should include(1248825600)
   end
   
   it "should import the the information relevant to determining pneumonia vaccination status" do
