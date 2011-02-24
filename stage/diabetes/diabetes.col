@@ -4,56 +4,6 @@
   [
     {
       "metadata": {
-        "id": "0059",
-        "name": "Diabetes HbA1c Poor Control",
-        "description": "The percentage of patients 18–75 years of age with diabetes (type 1 or type 2) who had HbA1c >9.0%.",
-        "numerator": {
-          "category": "Laboratory Test Result",
-          "title": "Most recent HbA1c > 9.0%"
-        }
-      },
-      "measure": {
-        "hba1c_test": {
-          "descirption": "Results of HbA1c tests",
-          "standard_category": "laboratory_test",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "value": {
-                "description": "HbA1c test result",
-                "type": "number" 
-              },
-              "date": {
-                "description": "HbA1c test date",
-                "type": "number",
-                "format": "utc-sec" 
-              }
-            }
-          },
-          "codes": [
-            {
-              "set": "SNOMED-CT",
-              "version": "07/2009",
-              "values": ["117346004", "165680008", "259689004", "259690008", "313835008", "33601001", "40402000", "408254005", "43396009"]
-            },
-            {
-              "set": "LOINC",
-              "version": "06/2009",
-              "values": ["17856-6", "4548-4", "4549-2"]
-            },
-            {
-              "set": "CPT",
-              "version": "06/2009",
-              "values": ["83036", "83037"]
-            }
-          ]
-        }
-      },
-      "map_fn": "0059_NQF_Diabetes_HbA1c_Poor_Control.js"
-    },
-    {
-      "metadata": {
         "id": "0061",
         "name": "Diabetes Blood Pressure Management",
         "description": "The percentage of patients 18–75 years of age with diabetes (type 1 or type 2) who had BP <140/90 mmHg.",
