@@ -28,16 +28,12 @@ function () {
   // the denominator, and the exclusions are shared in the 'diabetes_utils.js' file
   // that is located in the /js directory of the project
   var numerator = function() {
-    var latest_encounter_acute_inpatient=null, latest_encounter_non_acute_inpatient=null, latest_encounter_outpatient=null, latest_encounter_outpatient_ophthamological_services=null;
-    if (measure.encounter_acute_inpatient)
-      latest_encounter_acute_inpatient = _.max(_.select(measure.encounter_acute_inpatient, function(when){return inRange(when, period_start, effective_date); }));
-    if (measure.encounter_non_acute_inpatient)
-      latest_encounter_non_acute_inpatient = _.max(_.select(measure.encounter_non_acute_inpatient, function(when){return inRange(when, period_start, effective_date); }));
-    if (measure.encounter_outpatient)
-      latest_encounter_outpatient = _.max(_.select(measure.encounter_outpatient, function(when){return inRange(when, period_start, effective_date); }));
-    if (measure.encounter_outpatient_ophthamological_services)
-      latest_encounter_outpatient_ophthamological_services = _.max(_.select(measure.encounter_outpatient_ophthamological_services, function(when){return inRange(when, period_start, effective_date); }));
-    latest_encounter = _.max([latest_encounter_acute_inpatient, latest_encounter_non_acute_inpatient, latest_encounter_outpatient, latest_encounter_outpatient_ophthamological_services]);
+    var latest_encounter_acute=null, latest_encounter_other=null;
+    if (measure.encounter_acute_inpatient_or_ed_encounter)
+      latest_encounter_acute = _.max(_.select(measure.encounter_acute_inpatient_or_ed_encounter, function(when){return inRange(when, period_start, effective_date); }));
+    if (measure.encounter_non_acute_inpatient_outpatient_or_ophthalmology_encounter)
+      latest_encounter_other = _.max(_.select(measure.encounter_non_acute_inpatient_outpatient_or_ophthalmology_encounter, function(when){return inRange(when, period_start, effective_date); }));
+    latest_encounter = _.max([latest_encounter_acute, latest_encounter_other]);
 
     if (latest_encounter==null)
       return false;
@@ -47,8 +43,8 @@ function () {
     start_latest_encounter = latest_encounter-day;
     end_latest_encounter = latest_encounter+day;
 
-    systolic_min = minValueInDateRange(measure.systolic_blood_pressure, start_latest_encounter, end_latest_encounter, 200);
-    diastolic_min = minValueInDateRange(measure.diastolic_blood_pressure, start_latest_encounter, end_latest_encounter, 200);
+    systolic_min = minValueInDateRange(measure.systolic_blood_pressure_physical_exam_finding, start_latest_encounter, end_latest_encounter, 200);
+    diastolic_min = minValueInDateRange(measure.diastolic_blood_pressure_physical_exam_finding, start_latest_encounter, end_latest_encounter, 200);
     return (systolic_min<140 && diastolic_min<90);
   }
 
