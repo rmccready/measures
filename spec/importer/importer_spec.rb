@@ -38,9 +38,8 @@ describe QME::Importer::GenericImporter do
 
     #	0055/N_c47 Diabetes active
     it "should import the information relevant relevant to 0055" do
-      pending "Waiting for measure 0055 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0055', @loader)
-      measure_info['diagnosis_diabetes'].should include(-631152000 )
+      measure_info['diabetes_diagnosis_active'].should include(-631152000 )
     end
 
     # 0068/N_c191 (acute MI) Active Cardiac Pacemaker in Situ 
@@ -167,18 +166,15 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to determining diabetic eye exam measure status" do
-    pending "Waiting for measure 0055 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/diabetes/numerator.xml', '0055', @loader)
 
-    measure_info['encounter_acute_inpatient'].should include(1275177600)
-    measure_info['encounter_non_acute_inpatient'].should include(1275177600)
-    measure_info['encounter_outpatient'].should include(1275177600)
-    measure_info['encounter_outpatient_ophthamological_services'].should include(1275177600)
-    measure_info['medications_indicative_of_diabetes'].should include(1275177600)
-    measure_info['diagnosis_diabetes'].should include(1275177600)
-    measure_info['diagnosis_gestational_diabetes'].should include(1275177600)
-    measure_info['diagnosis_steroid_induced_diabetes'].should include(1275177600)
-    measure_info['polycystic_ovaries'].should include(1275177600)
-    measure_info['procedure_eye_exam'].should include(1275177600)
+    measure_info['encounter_acute_inpatient_or_ed_encounter'].should include(1275177600)
+    measure_info['encounter_non_acute_inpatient_outpatient_or_ophthalmology_encounter'].should include(1275177600)
+    measure_info['diabetes_diagnosis_active'].should include(1275177600)
+    measure_info['gestational_diabetes_diagnosis_active'].should include(1275177600)
+    measure_info['steroid_induced_diabetes_diagnosis_active'].should include(1275177600)
+    measure_info['polycystic_ovaries_diagnosis_active'].should include(1275177600)
+    measure_info['eye_exam_procedure_performed'].should include(1275177600)
+    measure_info['medications_indicative_of_diabetes_medication_active'].should include(1275177600)
   end
 end
