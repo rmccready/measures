@@ -1,14 +1,12 @@
 {
-  "first": "Felicity",
+  "first": "Emily",
   "last": "Bloggs",
   "gender": "F",
   "birthdate": 622166400,                 // Time.gm(1989, 9, 19).to_i
   "measures": {                           // bag of measures, one entry per measure
     "0033": {
-      "encounter_outpatient": 1277856000, // Time.gm(2010, 6, 30).to_i
-      "contraceptives": 1277856000,
-      "pregnancy_test": 1277856000,
-      "x_ray_study": 1277856000
+      "encounter_outpatient_encounter": 1277856000, // Time.gm(2010, 6, 30).to_i
+      "contraceptives_medication_active": 1277856000
     }
   }
 }
