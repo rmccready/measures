@@ -18,14 +18,14 @@ function () {
   }
   
   var denominator = function() {
-    outpatient_encounter = inRange(measure.encounter_outpatient, earliest_encounter, effective_date);
-    obgyn_encounter = inRange(measure.encounter_obgyn, earliest_encounter, effective_date);
-    no_hysterectomy = (measure.hysterectomy==null || measure.hysterectomy>=effective_date);
+    outpatient_encounter = inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
+    obgyn_encounter = inRange(measure.encounter_ob_gyn_encounter, earliest_encounter, effective_date);
+    no_hysterectomy = (measure.hysterectomy_procedure_performed==null || _.min(measure.hysterectomy_procedure_performed)>=effective_date);
     return ((outpatient_encounter || obgyn_encounter) && no_hysterectomy);
   }
   
   var numerator = function() {
-    return inRange(measure.pap_test, earliest_pap, effective_date);
+    return inRange(measure.pap_test_laboratory_test_result, earliest_pap, effective_date);
   }
   
   var exclusion = function() {

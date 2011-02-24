@@ -114,12 +114,11 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to determining cervical cancer screening status" do
-    pending "Waiting for measure 0032 to be completed"
     measure_info = get_measure_info('fixtures/c32_fragments/0032/numerator.xml', '0032', @loader)
 
-    measure_info['encounter_outpatient'].should include(1270598400)
-    measure_info['pap_test'].should include(1269302400)
-    measure_info['hysterectomy'].should eql(nil)
+    measure_info['encounter_outpatient_encounter'].should include(1270598400)
+    measure_info['pap_test_laboratory_test_result'].should include(1269302400)
+    measure_info['hysterectomy_procedure_performed'].should eql(nil)
   end
 
   it "should import the the information relevant to chlamydia screening" do

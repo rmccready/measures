@@ -1,0 +1,55 @@
+{
+  "id": "0032",
+  "properties": "NQF_Retooled_Measure_0032.xlsx.json",
+  "name": "Cervical Cancer Screening",
+  "description": "Women from 21 to 64 years old who received one or more Pap tests.",
+  "category": "Women's Health",
+  "steward": "NCQA",
+  "parameters": {
+    "effective_date": {
+      "description": "Effective end date for measure",
+      "type": "number",
+      "format": "utc-sec" 
+    } 
+  },
+  "patient": {
+    "birthdate": {
+      "description": "Date of birth",
+      "critical": true,
+      "type": "number",
+      "format": "utc-sec",
+      "codes": [
+        {
+          "set": "HL7",
+          "version": "3.0",
+          "values": [
+            "00110"
+          ] 
+        } 
+      ] 
+    } 
+  },
+  "population": {
+    "category": "Patient Characteristic",
+    "title": "Age between 23 and 63" 
+  },
+  "denominator": {
+    "and": [
+      {
+        "category": "Encounter",
+        "title": "Outpatient or ObGyn within 2 years" 
+      },
+      {
+        "category": "Procedure Performed",
+        "title": "No Hysterectomy" 
+      } 
+    ] 
+  },
+  "numerator": {
+    "category": "Laboratory test result",
+    "title": "Pap test within 3 years" 
+  },
+  "exclusions": {
+    
+  }
+}
