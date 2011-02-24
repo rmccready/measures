@@ -1,0 +1,12 @@
+{
+  "first": "David",
+  "last": "Evans",
+  "gender": "M",
+  "birthdate": -921542400, // Time.gm(1940, 10, 19)
+  "measures": {
+    "0041": {
+      "encounter_prev_med_40_and_older_encounter": [1276214400, 1284854400],    // Time.gm(2010, 9, 19) and 100 days before then
+      "influenza_vaccine_medication_administered": [1276214400]
+    }
+  }
+}
