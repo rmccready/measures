@@ -1,0 +1,124 @@
+{
+  "id": "0385",
+  "properties": "NQF_Retooled_Measure_0385.xlsx.json",
+  "name": "Oncology Colon Cancer: Chemotherapy for Stage III Colon Cancer Patients",
+  "description": "Percentage of patients aged 18 years and older with Stage IIIA through IIIC colon cancer who are referred for adjuvant chemotherapy, prescribed adjuvant chemotherapy, or have previously received adjuvant chemotherapy within the 12-month reporting period.",
+  "category": "Cancer",
+  "steward": "AMA",
+  "parameters": {
+    "effective_date": {
+      "description": "Effective end date for measure",
+      "type": "number",
+      "format": "utc-sec"
+    }
+  },
+  "patient": {
+    "birthdate": {
+      "description": "Date of birth",
+      "type": "number",
+      "standard_category": "characteristic",
+      "format": "utc-sec",
+      "codes": [
+        {
+          "set": "HL7",
+          "version": "3.0",
+          "values": [
+            "00110"
+          ]
+        }
+      ]
+    }
+  },
+  "population": {
+    "and": [
+      {
+        "category": "Patient characteristic",
+        "title": "Age >= 18 years"
+      },
+      {
+        "or": [
+          {
+            "category": "Diagnosis active",
+            "title": "Active colon cancer"
+          },
+          {
+            "category": "Diagnosis inactive",
+            "title": "Inactive colon cancer history"
+          }
+        ]
+      },
+      {
+        "category": "Encounter",
+        "title": ">= 2 counts of office visit encounter"
+      }
+    ]
+  },
+  "denominator": {
+    "and": [
+      {
+        "category": "Procedure result",
+        "title": "Colon cancer stage III result"
+      }
+    ]
+  },
+  "numerator": {
+    "or": [
+      {
+        "category": "Medication order",
+        "title": "Chemotherapy for colon cancer ordered"
+      },
+      {
+        "category": "Medication administered",
+        "title": "Chemotherapy for colon cancer administered"
+      }
+    ]
+  },
+  "exclusions": {
+    "or": [
+      {
+        "category": "Diagnosis active",
+        "title": "Metastatic sites common to colon cancer"
+      },
+      {
+        "category": "Diagnosis active",
+        "title": "Acute renal insufficiency"
+      },
+      {
+        "category": "Diagnosis active",
+        "title": "Neutropenia"
+      },
+      {
+        "category": "Diagnosis active",
+        "title": "Leukopenia"
+      },
+      {
+        "category": "Patient characteristic",
+        "title": "ECOG performance status poor"
+      },
+      {
+        "category": "Medication intolerance",
+        "title": "Chemotherapy for colon cancer intolerance"
+      },
+      {
+        "category": "Medication adverse event",
+        "title": "Chemotherapy for colon cancer adverse event"
+      },
+      {
+        "category": "Medication allergy",
+        "title": "Chemotherapy for colon cancer allergy"
+      },
+      {
+        "category": "Medication not done",
+        "title": "Medical reason"
+      },
+      {
+        "category": "Medication not done",
+        "title": "Patient reason"
+      },
+      {
+        "category": "Medication not done",
+        "title": "System reason"
+      }
+    ]
+  }
+}
