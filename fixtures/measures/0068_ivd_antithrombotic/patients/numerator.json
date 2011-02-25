@@ -1,0 +1,13 @@
+{ 
+ "first": "Sandy",              
+  "last": "Clifface",
+  "gender": "M",
+  "birthdate": 656294400,      
+  "measures": {                 
+    "0068": {
+      "cabg_procedure_performed": 1247042000, 
+      "oral_anti_platelet_therapy_medication_active": 1247043000,
+      "encounter_acute_inpt_and_outpt_encounter": 1247041000
+    }
+  }
+}

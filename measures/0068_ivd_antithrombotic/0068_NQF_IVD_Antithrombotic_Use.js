@@ -29,23 +29,23 @@ The percentage of patients 18 years of age and older who were discharged alive f
   }
   
   var denominator = function() {
-      encounters_24 = inRange(measure.encounter_acute_inpt_and_outpt, earliest_encounter_0_24, effective_date);
-      encounters_14_24 = inRange(measure.encounter_acute_inpt_and_outpt, earliest_encounter_0_24, latest_encounter_14_24);
+      encounters_24 = inRange(measure.encounter_acute_inpt_and_outpt_encounter, earliest_encounter_0_24, effective_date);
+      encounters_14_24 = inRange(measure.encounter_acute_inpt_and_outpt_encounter, earliest_encounter_0_24, latest_encounter_14_24);
 
-    ami = inRange(measure.acute_myocardial_infarction, earliest_procedure, latest_procedure_14_24);
-    cabg = inRange(measure.cabg, earliest_procedure, latest_procedure_14_24);
+    ami = inRange(measure.acute_myocardial_infarction_diagnosis_active, earliest_procedure, latest_procedure_14_24);
+    cabg = inRange(measure.cabg_procedure_performed, earliest_procedure, latest_procedure_14_24);
 
-    ptca = inRange(measure.ptca, earliest_procedure, latest_procedure_14_24);
-    ivd = inRange(measure.ischemic_vascular_disease, earliest_diagnosis, effective_date);
+    ptca = inRange(measure.ptca_procedure_performed, earliest_procedure, latest_procedure_14_24);
+    ivd = inRange(measure.ischemic_vascular_disease_diagnosis_active, earliest_diagnosis, effective_date);
 
-    encounter_after_ami_diagnosis = actionAfterSomething(measure.encounter_acute_inpt_and_outpt, measure.acute_myocardial_infarction);
-    encounter_after_ivd_diagnosis = actionAfterSomething(measure.encounter_acute_inpt_and_outpt, measure.ischemic_vascular_disease); 
+    encounter_after_ami_diagnosis = actionAfterSomething(measure.encounter_acute_inpt_and_outpt_encounter, measure.acute_myocardial_infarction_diagnosis_active);
+    encounter_after_ivd_diagnosis = actionAfterSomething(measure.encounter_acute_inpt_and_outpt_encounter, measure.ischemic_vascular_disease_diagnosis_active); 
     return ( ptca || ((encounters_14_24>0) && (ami || cabg)) || (encounter_after_ami_diagnosis>0 )|| (encounter_after_ivd_diagnosis > 0))
 
  }
   
   var numerator = function() {
-   meds = inRange(measure.oral_anti_platelet_therapy, earliest_encounter_0_24, effective_date);
+   meds = inRange(measure.oral_anti_platelet_therapy_medication_active, earliest_encounter_0_24, effective_date);
     return meds;
   }
   

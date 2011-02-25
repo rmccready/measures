@@ -5,7 +5,7 @@
   "birthdate": 656294400,      // Time.gm(1990, 10, 19).to_i
   "measures": {                 // bag of measures, one entry per measure
     "0068": {
-       "cabg": 1276992000 
+       "cabg_procedure_performed": 1276992000 
     }
   }
 }
