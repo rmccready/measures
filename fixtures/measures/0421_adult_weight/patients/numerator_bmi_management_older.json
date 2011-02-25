@@ -5,14 +5,14 @@
   "birthdate": -921542400,       // Time.gm(1940, 10, 19)
   "measures": {
     "0421": {
-      "encounter": [1271721600], // Time.gm(2010, 4, 20)
-      "bmi": [
+      "encounter_outpatient_encounter": [1271721600], // Time.gm(2010, 4, 20)
+      "bmi_physical_exam_finding": [
         {
           "value": 32, 
           "date": 1269043200     // Time.gm(2010, 3, 20)
         }
       ], 
-      "bmi_management": [1271721600]
+      "follow_up_plan_bmi_management_care_plan": [1271721600]
     }
   }
 }

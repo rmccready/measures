@@ -79,9 +79,8 @@ describe QME::Importer::GenericImporter do
 
     # 0421/Q_C155 BMI Management Plan
     it "should import the information relevant to 0421" do
-      pending "Waiting for measure 0421 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0421', @loader)
-      measure_info['bmi_management'].should include(956275200)
+      measure_info['follow_up_plan_bmi_management_care_plan'].should include(956275200)
     end
   end
   
