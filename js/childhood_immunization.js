@@ -10,7 +10,7 @@
   var root = this;
 
   root.has_outpatient_encounter_with_pcp_obgyn = function(measure, earliest_diagnosis, effective_date) {
-    return inRange(measure.outpatient_with_pcp_and_obgyn_encounter, earliest_diagnosis, effective_date);
+    return inRange(measure.encounter_outpatient_w_pcp_obgyn_encounter, earliest_diagnosis, effective_date);
   }
 
 })();
