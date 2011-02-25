@@ -55,12 +55,11 @@ describe QME::Importer::GenericImporter do
     # 0081/A_c532 Active Pregnancy  (changed the NIST example, which had a past pregnancy)
     # 0081/A_c39, added 3 records, one each for an allergy, intolerance, and an adverse event (A_518, A_68, A_75)
     it "should import the information relevant to 0081" do
-      pending "Waiting for measure 0081 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0081', @loader)
-      measure_info['pregnancy'].should include(1291852800)
-      measure_info['medication_allergy'].should include(1134345600)
-      measure_info['medication_intolerance'].should include(1134345600)
-      measure_info['medication_adverse_event'].should include(1134345600)
+      measure_info['pregnancy_diagnosis_active'].should include(1291852800)
+#       measure_info['ace_inhibitor_or_arb_medication_allergy'].should include(1134345600)
+#       measure_info['ace_inhibitor_or_arb_medication_intolerance'].should include(1134345600)
+#       measure_info['ace_inhibitor_or_arb_medication_adverse_event'].should include(1134345600)
     end
 
     # 0389/A_c271 Bone Scan

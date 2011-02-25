@@ -10,6 +10,10 @@ group :test do
   gem 'awesome_print', :require => 'ap'
   gem 'metric_fu'
   gem 'sinatra'
+  gem 'roo'
+  gem 'builder'
+  gem 'spreadsheet'
+  gem 'google-spreadsheet-ruby'
 end
 
 group :build do
