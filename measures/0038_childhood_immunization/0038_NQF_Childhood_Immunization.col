@@ -12,10 +12,19 @@
         {
           "and":
           [
-            {
-              "category": "Medication Administered",
-              "title": ">= 4 Counts Tetanus and Acellular Pertussis (DTaP) Vaccine from 42 days old - 2 years"
-            }
+               {
+                 "or":
+                  [
+                    {
+                      "category": "Medication Administered",
+                      "title": ">= 4 Counts Tetanus and Acellular Pertussis (DTaP) Vaccine from 42 days old - 2 years"
+                    },
+                    {
+                      "category": "Procedure Performed",
+                      "title": ">= 4 Counts Tetanus and Acellular Pertussis (DTaP) Vaccine from 42 days old - 2 years"
+                    }
+                  ]
+               }
           ]
         },
         "exclusions":
@@ -23,16 +32,16 @@
           "or":
           [
             {
-              "category": "Diagnosis",
-              "title": "Active Encephalopathy"
-            },
-            {
-              "category": "Diagnosis",
-              "title": "Active Progressive Neurological Disorder"
-            },
-            {
               "category": "Allergy",
               "title": "Tetanus and Acellular Pertussis (DTaP) Vaccine Allergy"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Encephalopathy"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Progressive Neurological Disorder"
             }
           ] 
         }
@@ -49,17 +58,30 @@
         {
           "and":
           [
-            {
-              "category": "Medication Administered",
-              "title": ">= 3 Counts Polio (IPV) Vaccine from 42 days old - 2 years"
-            }
-          ]
+              {
+               "or":
+                  [
+                    {
+                          "category": "Medication Administered",
+                          "title": ">= 3 Counts Polio (IPV) Vaccine from 42 days old - 2 years"
+                     },
+                    {
+                      "category": "Procedure Performed",
+                      "title": ">= 3 Counts Polio (IPV) Vaccine from 42 days old - 2 years"
+                   }
+                  ]
+               }
+            ]
         },
         "exclusions":
         {
           "or":
           [
             {
+              "category": "Allergy",
+              "title": "Polio (IPV) Vaccine Allergy"
+            },
+             {
               "category": "Allergy",
               "title": "Neomycin Allergy"
             },
@@ -70,12 +92,8 @@
             {
               "category": "Allergy",
               "title": "Polymyxin Allergy"
-            },
-            {
-              "category": "Allergy",
-              "title": "Polio (IPV) Vaccine Allergy"
             }
-          ] 
+         ] 
         }
       },
       "map_fn": "ipv_map.js"
@@ -89,10 +107,21 @@
         {
           "or":
           [
-            {
-              "category": "Medication Administered",
-              "title": ">= 1 Count Measles, Mumps and Rubella (MMR) Vaccine prior to 2 years old"
-            },
+            { "and":
+               {
+               "or": 
+                [
+                 {
+                 "category": "Medication Administered",
+                 "title": ">= 1 Count Measles, Mumps and Rubella (MMR) Vaccine prior to 2 years old"
+                 },
+                 {
+                 "category": "Procedure Performed",
+                 "title": ">= 1 Count Measles, Mumps and Rubella (MMR) Vaccine prior to 2 years old"
+                 }
+                ]
+               }
+             },
             {
               "and":
               [
@@ -103,7 +132,11 @@
                       "category": "Medication Administered",
                       "title": ">= 1 Count Mumps Vaccine prior to 2 years old"
                     },
-                    {
+                   {
+                      "category": "Procedure Performed",
+                      "title": ">= 1 Count Mumps Vaccine prior to 2 years old"
+                    },
+                     {
                       "category": "Diagnosis",
                       "title": "Mumps Resolved"
                     },
@@ -118,6 +151,10 @@
                   [
                     {
                       "category": "Medication Administered",
+                      "title": ">= 1 Count Measles Vaccine prior to 2 years old"
+                    },
+                    {
+                      "category": "Procedure Performed",
                       "title": ">= 1 Count Measles Vaccine prior to 2 years old"
                     },
                     {
@@ -137,7 +174,11 @@
                       "category": "Medication Administered",
                       "title": ">= 1 Count Rubella Vaccine prior to 2 years old"
                     },
-                    {
+                     {
+                      "category": "Procedure Performed",
+                      "title": ">= 1 Count Rubella Vaccine prior to 2 years old"
+                    },
+                   {
                       "category": "Diagnosis",
                       "title": "Rubella Resolved"
                     },
@@ -156,28 +197,40 @@
           "or":
           [
             {
-              "category": "Diagnosis",
-              "title": "Cancer of Lymphoreticular or Histiocytic Tissue"
-            },
-            {
-              "category": "Diagnosis",
-              "title": "Asymptomatic HIV"
-            },
-            {
-              "category": "Diagnosis",
-              "title": "Multiple Myeloma"
-            },
-            {
-              "category": "Diagnosis",
-              "title": "Leukemia"
-            },
-            {
-              "category": "Diagnosis",
-              "title": "Immunodeficiency"
+              "category": "Allergy",
+              "title": "Mumps Vaccine Allergy"
             },
             {
               "category": "Allergy",
-              "title": "Measles, Mumps and Rubella (MMR) Vaccine Allergy"
+              "title": "Measles Vaccine Allergy"
+            },
+            {
+              "category": "Allergy",
+              "title": "Rubella Vaccine Allergy"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Cancer of Lymphoreticular or Histiocytic Tissue"
+            },
+            {
+              "category": "Diagnosis Inactive",
+              "title": "Cancer of Lymphoreticular or Histiocytic Tissue"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "HIV Disease"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Multiple Myeloma"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Leukemia"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Immunodeficiency"
             }
           ]
         }
@@ -192,12 +245,21 @@
         "short_subtitle": "HiB",
         "numerator":
         {
-          "and":
+           "and":
           [
-            {
-              "category": "Medication Administered",
-              "title": ">= 2 Counts H influenza type B (HiB) Vaccine from 42 days old - 2 years"
-            }
+               {
+                 "or":
+                  [
+                    {
+                         "category": "Medication Administered",
+                         "title": ">= 2 Counts H influenza type B (HiB) Vaccine from 42 days old - 2 years"
+                    },
+                    {
+                         "category": "Procedure Performed",
+                         "title": ">= 2 Counts H influenza type B (HiB) Vaccine from 42 days old - 2 years"
+                    }
+                  ]
+                }
           ]
         },
         "exclusions":
@@ -207,6 +269,10 @@
             {
               "category": "Allergy",
               "title": "H influenza type B (HiB) Vaccine Allergy"
+            },
+           {
+              "category": "Allergy",
+              "title": "Baker's Yeast Allergy"
             }
           ]
         }
@@ -228,8 +294,16 @@
               "title": ">= 3 Counts Hepatitis B (Hep B) Vaccine up until 2 years old"
             },
             {
-              "category": "Diagnosis",
-              "title": "Hepatitis B Resolved"
+              "category": "Procedure Performed",
+              "title": ">= 3 Counts Hepatitis B (Hep B) Vaccine up until 2 years old"
+            },            
+            {
+              "category": "Diagnosis Active",
+              "title": "Hepatitis B"
+            },            
+            {
+              "category": "Diagnosis Resolved",
+              "title": "Hepatitis B"
             }
           ]
         },
@@ -258,12 +332,21 @@
         "short_subtitle": "VZV",
         "numerator":
         {
-          "and":
+           "and":
           [
-            {
-              "category": "Medication Administered",
-              "title": ">= 1 Counts Chicken Pox (VZV) Vaccine up until 2 years old"
-            }
+               {
+                 "or":
+                  [
+                    {
+                         "category": "Medication Administered",
+                         "title": ">= 1 Counts Chicken Pox (VZV) Vaccine up until 2 years old"
+                    },
+                    {
+                         "category": "Procedure Performed",
+                         "title": ">= 1 Counts Chicken Pox (VZV) Vaccine up until 2 years old"
+                    }
+                  ]
+                }
           ]
         },
         "exclusions":
@@ -271,23 +354,27 @@
           "or":
           [
             {
-              "category": "Diagnosis",
+              "category": "Diagnosis Active",
               "title": "Cancer of Lymphoreticular or Histiocytic Tissue"
             },
             {
-              "category": "Diagnosis",
-              "title": "Asymptomatic HIV"
+              "category": "Diagnosis Inactive",
+              "title": "Cancer of Lymphoreticular or Histiocytic Tissue"
             },
             {
-              "category": "Diagnosis",
+              "category": "Diagnosis Active",
+              "title": "HIV Disease"
+            },
+            {
+              "category": "Diagnosis Active",
               "title": "Multiple Myeloma"
             },
             {
-              "category": "Diagnosis",
+              "category": "Diagnosis Active",
               "title": "Leukemia"
             },
             {
-              "category": "Diagnosis",
+              "category": "Diagnosis Active",
               "title": "Immunodeficiency"
             },
             {
@@ -307,12 +394,21 @@
         "short_subtitle": "PCV",
         "numerator":
         {
-          "and":
+           "and":
           [
-            {
-              "category": "Medication Administered",
-              "title": ">= 4 Counts Pneumococcal Conjugate (PCV) Vaccine up until 2 years old"
-            }
+               {
+                 "or":
+                  [
+                    {
+                         "category": "Medication Administered",
+                         "title": ">= 4 Counts Pneumococcal Conjugate (PCV) Vaccine up until 2 years old"
+                    },
+                    {
+                         "category": "Procedure Performed",
+                         "title": ">= 4 Counts Pneumococcal Conjugate (PCV) Vaccine up until 2 years old"
+                    }
+                  ]
+                }
           ]
         },
         "exclusions":
@@ -335,17 +431,27 @@
         "subtitle": "Hepatitis A (Hep A) Vaccine",
         "short_subtitle": "HepA",
         "numerator":
-        {
-          "or":
+       {
+           "and":
           [
-            {
-              "category": "Medication Administered",
-              "title": ">= 2 Counts Hepatitis A (Hep A) Vaccine up until 2 years old"
-            },
-            {
-              "category": "Diagnosis",
-              "title": "Hepatitis A Resolved"
-            }
+               {
+                 "or":
+                  [
+                    {
+                         "category": "Medication Administered",
+                         "title": ">= 2 Counts Hepatitis A (Hep A) Vaccine up until 2 years old"
+                    },
+                    {
+                         "category": "Procedure Performed",
+                         "title": ">= 2 Counts Hepatitis A (Hep A) Vaccine up until 2 years old"
+                    },
+                    {
+                         "category": "Diagnosis Resolved",
+                         "title": "Hepatitis A"
+                    }
+
+                  ]
+                }
           ]
         },
         "exclusions":
@@ -368,13 +474,22 @@
         "subtitle": "Rotavirus (RV) Vaccine",
         "short_subtitle": "RV",
         "numerator":
-        {
-          "or":
+       {
+           "and":
           [
-            {
-              "category": "Medication Administered",
-              "title": ">= 2 Counts Rotavirus (RV) Vaccine up until 2 years old"
-            }
+               {
+                 "or":
+                  [
+                    {
+                         "category": "Medication Administered",
+                         "title": ">= 2 Counts Rotavirus (RV) Vaccine from 42 days up until 2 years old"
+                    },
+                    {
+                         "category": "Procedure Performed",
+                         "title": ">= 2 Counts Rotavirus (RV) Vaccine from 42 days up until 2 years old"
+                    }
+                  ]
+                }
           ]
         },
         "exclusions":
@@ -389,6 +504,124 @@
         }
       },
       "map_fn": "rv_map.js"
+    },
+   {
+      "metadata":
+      {
+        "sub_id": "j",
+        "subtitle": "Influenza (Inf) Vaccine",
+        "numerator":
+       {
+           "and":
+          [
+               {
+                 "or":
+                  [
+                    {
+                         "category": "Medication Administered",
+                         "title": ">= 2 Counts Influenza (Inf) Vaccine up until 2 years old"
+                    },
+                    {
+                         "category": "Procedure Performed",
+                         "title": ">= 2 Counts Influenza (Inf) Vaccine up until 2 years old"
+                    }
+                  ]
+                }
+          ]
+        },
+        "exclusions":
+        {
+          "or":
+          [
+            {
+              "category": "Allergy",
+              "title": "Influenza (Inf) Vaccine Allergy"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Cancer of Lymphoreticular or Histiocytic Tissue"
+            },
+            {
+              "category": "Diagnosis Inactive",
+              "title": "Cancer of Lymphoreticular or Histiocytic Tissue"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "HIV Disease"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Multiple Myeloma"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Leukemia"
+            },
+            {
+              "category": "Diagnosis Active",
+              "title": "Immunodeficiency"
+            }
+
+          ]
+        }
+      },
+      "map_fn": "inf_map.js"
+    },
+   {
+      "metadata":
+      {
+        "sub_id": "k",
+        "subtitle": "Summary1",
+        "numerator":
+        {
+          "or":
+          [
+            {
+              "category": "Summary 1",
+              "title": "Patients who have received DTaP, MMR, HiB, HepB, VZV, PCV, hepA, and RV Vaccinations"
+            }
+          ]
+        },
+        "exclusions":
+        {
+          "or":
+          [
+            {
+              "category": "Exclusions",
+              "title": "Exclusions for DTaP, MMR, HiB, HepB, VZV, PCV, hepA, and RV"
+            }
+          ]
+        }
+      },
+      "map_fn": "sum1_map.js"
+    },
+   {
+      "metadata":
+      {
+        "sub_id": "l",
+        "subtitle": "Summary2",
+        "numerator":
+        {
+          "or":
+          [
+            {
+              "category": "Summary 2",
+              "title": "Patients who have received DTaP, MMR, HiB, HepB, VZV, PCV, hepA, RV, and Inf Vaccinations"
+            }
+          ]
+        },
+        "exclusions":
+        {
+          "or":
+          [
+            {
+              "category": "exclusions",
+              "title": "Exclusions for DTaP, MMR, HiB, HepB, VZV, PCV, hepA, RV, and Inf"
+            }
+          ]
+        }
+      },
+      "map_fn": "sum2_map.js"
     }
   ]
 }

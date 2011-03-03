@@ -12,10 +12,6 @@ function () {
   var earliest_birthdate =  effective_date - 2 * year;
   var latest_birthdate =    effective_date - 1 * year;
 
-  // HiB vaccines are considered when they are occurring >= 42 days and
-  // < 2 years after the patients' birthdate
-  var earliest_hib_vaccine = patient.birthdate + 42 * day;
-  var latest_hib_vaccine =   patient.birthdate + 2  * year;
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -28,20 +24,16 @@ function () {
     return has_outpatient_encounter_with_pcp_obgyn(measure, patient.birthdate, effective_date);
   }
 
-  // patient needs 2 different H influenza type B (HiB) vaccines from the time that they 
-  // are 42 days old, until the time that they are 2 years old
+  // patient needs 2 different hibluenza vaccines from the time that they 
+  // are 180 days old, until the time that they are 2 years old
   var numerator = function() {
-    number_hib_vaccine_administered = inRange(measure.hib_medication_administered,
-                                              earliest_hib_vaccine,
-                                              latest_hib_vaccine);
-
-    return (number_hib_vaccine_administered >= 2);
+	return(hib_numerator(measure, patient.birthdate, effective_date));
   }
 
-  // Exclude patients who have an allergy to HiB Vaccine
   var exclusion = function() {
-    return (inRange(measure.hib_medication_allergy, patient.birthdate, effective_date));
+    return (hib_exclusion(measure, patient.birthdate, effective_date));
   }
+
 
   map(patient, population, denominator, numerator, exclusion);
 };

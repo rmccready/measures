@@ -11,9 +11,6 @@ function () {
   var earliest_birthdate =  effective_date - 2 * year;
   var latest_birthdate =    effective_date - 1 * year;
 
-  // PCV vaccines are considered when they are occurring < 2 years after 
-  // the patients' birthdate
-  var latest_pcv_vaccine = patient.birthdate + 2 * year;
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -30,16 +27,12 @@ function () {
   // 4 Pneumococcal Conjugate (PCV) vaccines up until the time that they are 2 years old
   // AND cannot have Medication allergy to PCV vaccine
   var numerator = function() {
-    number_pcv_vaccine_administered = inRange(measure.pneumococcal_vaccine_medication_administered,
-                                              patient.birthdate,
-                                              latest_pcv_vaccine);
-
-    return (number_pcv_vaccine_administered >= 4);
+	return(pcv_numerator(measure, patient.birthdate, effective_date));
   }
 
   // Exclude patients who have either an allergy to PCV vaccine
   var exclusion = function() {
-    return (inRange(measure.pneumococcal_vaccine_medication_allergy, patient.birthdate, effective_date));
+    return (pcv_exclusion(measure, patient.birthdate, effective_date));
   }
 
   map(patient, population, denominator, numerator, exclusion);

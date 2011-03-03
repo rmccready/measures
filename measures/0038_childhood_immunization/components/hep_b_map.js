@@ -11,9 +11,6 @@ function () {
   var earliest_birthdate =  effective_date - 2 * year;
   var latest_birthdate =    effective_date - 1 * year;
 
-  // Hepatitis B vaccines are considered when they are occurring < 2 years after
-  // the patients' birthdate
-  var latest_hep_b_vaccine = patient.birthdate + 2 * year;
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -30,21 +27,13 @@ function () {
   // 3 different Hepatitis B (Hep B) vaccines until the time that they are 2 years old,
   // OR resolution on a hepatitis B diagnosis by the end of the effective date
   var numerator = function() {
-    number_hep_b_vaccine_administered = inRange(measure.hepatitis_b_vaccine_medication_administered,
-                                                patient.birthdate,
-                                                latest_hep_b_vaccine);
-
-    return ((number_hep_b_vaccine_administered >= 3)
-              ||
-             (conditionResolved(measure.hepatitis_b_diagnosis_diagnosis_resolved, patient.birthdate, effective_date)));
+    return(hep_b_numerator(measure, patient.birthdate, effective_date));
   }
 
   // Exclude patients who have either an allergy to either Baker's yeast, or an allergy
   // to Hepatitis B vaccine
   var exclusion = function() {
-    return ((inRange(measure.baker_s_yeast_substance_substance_allergy,     patient.birthdate, effective_date))
-             ||
-            (inRange(measure.hepatitis_b_vaccine_medication_allergy, patient.birthdate, effective_date)));
+    return (hep_b_exclusion(measure, patient.birthdate, effective_date));
   }
 
   map(patient, population, denominator, numerator, exclusion);

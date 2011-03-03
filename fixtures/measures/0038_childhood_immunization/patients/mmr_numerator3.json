@@ -7,7 +7,7 @@
   "measures": {             // bag of measures, one entry per measure
     "0038": {
       "encounter_outpatient_w_pcp_obgyn_encounter": 1252972800, // Time.gm(2009, 9, 15).to_i
-      "measles_vaccine_medication_allergy":                 1253404800, // Time.gm(2009, 9, 20).to_i
+      "measles_vaccine_medication_administered":                 1253404800, // Time.gm(2009, 9, 20).to_i
       // mumps condition detected on September 15, 2009 and then recorded as 
       // resolved on September 17, 2009
       "mumps_diagnosis_resolved": 
