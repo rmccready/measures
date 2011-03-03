@@ -11,9 +11,6 @@ function () {
   var earliest_birthdate =  effective_date - 2 * year;
   var latest_birthdate =    effective_date - 1 * year;
 
-  // Hepatitis A vaccines are considered when they are occurring < 2 years after
-  // the patients' birthdate
-  var latest_hep_a_vaccine = patient.birthdate + 2 * year;
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -30,18 +27,14 @@ function () {
   // 2 different Hepatitis A (Hep A) vaccines until the time that they are 2 years old,
   // OR resolution on a hepatitis A diagnosis by the end of the effective date
   var numerator = function() {
-    number_hep_a_vaccine_administered = inRange(measure.hepatitis_a_vaccine_medication_administered,
-                                                patient.birthdate,
-                                                latest_hep_a_vaccine);
-
-    return ((number_hep_a_vaccine_administered >= 2)
-              ||
-             (conditionResolved(measure.hepatitis_a_diagnosis_diagnosis_resolved, patient.birthdate, effective_date)));
+    return(hep_a_numerator(measure, patient.birthdate, effective_date));
   }
+
+
 
   // Exclude patients who have an allergy to hepatitis A vaccine
   var exclusion = function() {
-    return (inRange(measure.hepatitis_a_vaccine_medication_allergy, patient.birthdate, effective_date));
+    return (hep_a_exclusion(measure, patient.birthdate, effective_date));
   }
 
   map(patient, population, denominator, numerator, exclusion);

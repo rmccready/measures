@@ -12,10 +12,6 @@ function () {
   var earliest_birthdate =  effective_date - 2 * year;
   var latest_birthdate =    effective_date - 1 * year;
 
-  // DTaP vaccines are considered when they are occurring >= 42 days and
-  // < 2 years after the patients' birthdate
-  var earliest_dtap_vaccine = patient.birthdate + 42 * day;
-  var latest_dtap_vaccine =   patient.birthdate + 2  * year;
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -31,21 +27,13 @@ function () {
   // patient needs 4 different Tetanus and Acellular Pertussis (DTaP) vaccines
   // from the time that they are 42 days old, until the time that they are 2 years old
   var numerator = function() {
-    var number_dtap_vaccine_administered = inRange(measure.dtap_vaccine_medication_administered,
-                                               earliest_dtap_vaccine,
-                                               latest_dtap_vaccine);
-
-    return (number_dtap_vaccine_administered >= 4);
+     return(dtap_numerator(measure,patient.birthdate, effective_date));
   }
-
+ 
   // Exclude patients who have either DTaP vaccine allergy OR a diagnosis of encephalopathy
   // or diagnosis of progressive neurological disorder
   var exclusion = function() {
-    return ((inRange(measure.dtap_vaccine_medication_allergy,            patient.birthdate, effective_date))
-             ||
-            (inRange(measure.encephalopathy_diagnosis_active,     patient.birthdate, effective_date))
-             ||
-            (inRange(measure.progressive_neurologic_disorder_diagnosis_active, patient.birthdate, effective_date)));
+    return (dtap_exclusion(measure, patient.birthdate, effective_date));
   }
 
   map(patient, population, denominator, numerator, exclusion);

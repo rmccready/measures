@@ -11,9 +11,6 @@ function () {
   var earliest_birthdate =  effective_date - 2 * year;
   var latest_birthdate =    effective_date - 1 * year;
 
-  // RV vaccines are considered when they are occurring < 2 years after 
-  // the patients' birthdate
-  var latest_rv_vaccine = patient.birthdate + 2 * year;
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -29,17 +26,12 @@ function () {
   // To meet the criteria for this report, the patient needs to have either:
   // 2 Rotavirus (RV) vaccines up until the time that they are 2 years old
   var numerator = function() {
-    number_rv_vaccine_administered = inRange(measure.rotavirus_vaccine_medication_administered,
-                                             patient.birthdate,
-                                             latest_rv_vaccine);
-
-    return (number_rv_vaccine_administered >= 2);
+    return(rv_numerator(measure, patient.birthdate, effective_date));
   }
-
-  // Exclude patients who have a Medication allergy to RV vaccine
+   // Exclude patients who have a Medication allergy to RV vaccine
   var exclusion = function() {
-    return (inRange(measure.rotavirus_vaccine_medication_allergy, patient.birthdate, effective_date));
+    return (rv_exclusion(measure, patient.birthdate, effective_date));
   }
-
+ 
   map(patient, population, denominator, numerator, exclusion);
 };

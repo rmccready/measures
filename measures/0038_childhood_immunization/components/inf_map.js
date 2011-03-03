@@ -27,14 +27,15 @@ function () {
   // patient needs 3 different polio (IPV) vaccines from the time that they are 42 days old,
   // until the time that they are 2 years old
   var numerator = function() {
-	return(ipv_numerator(measure, patient.birthdate, effective_date));
+    return (inf_numerator(measure,patient.birthdate, effective_date));
   }
 
   // Exclude patients who have an allergy to IPV Vaccine or allergy to neomycin,
   // or allergy to streptomycin, or allergy to polymyxin
   var exclusion = function() {
-    return(ipv_exclusion(measure, patient.birthdate, effective_date));
-  }
+    return (inf_exclusion(measure, patient.birthdate, effective_date))
+ }
+
 
   map(patient, population, denominator, numerator, exclusion);
 };

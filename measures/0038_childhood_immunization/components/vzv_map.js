@@ -11,9 +11,6 @@ function () {
   var earliest_birthdate =  effective_date - 2 * year;
   var latest_birthdate =    effective_date - 1 * year;
 
-  // VZV vaccines are considered when they are occurring < 2 years after
-  // the patients' birthdate
-  var latest_vzv_vaccine = patient.birthdate + 2 * year;
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -30,41 +27,13 @@ function () {
   // 1 Chicken Pox (VZV) vaccine up until the time that they are 2 years old,
   // OR resolution on VZV diagnosis by the end of the effective date of this measure
   var numerator = function() {
-    number_vzv_vaccine_administered = inRange(measure.vzv_vaccine_medication_administered,
-                                              patient.birthdate,
-                                              latest_vzv_vaccine);
-
-    return ((number_vzv_vaccine_administered >= 1)
-             ||
-             (conditionResolved(measure.vzv_diagnosis_resolved, patient.birthdate, effective_date)));
+    return(vzv_numerator(measure, patient.birthdate, effective_date));
   }
 
   // Exclude patients who have either Lymphoreticular or Histiocytic cancer, or Asymptomatic HIV,
   // or Multiple Myeloma, or Leukemia, or Immunodeficiency, or medication allergy to VZV vaccine
   var exclusion = function() {
-    return (inRange(measure.cancer_of_lymphoreticular_or_histiocytic_tissue_diagnosis_active,
-                    patient.birthdate,
-                    effective_date)
-             ||
-            inRange(measure.hiv_disease_diagnosis_active,
-                    patient.birthdate,
-                    effective_date)
-             ||
-            inRange(measure.multiple_myeloma_diagnosis_active,
-                    patient.birthdate,
-                    effective_date)
-             ||
-            inRange(measure.leukemia_diagnosis_active,
-                    patient.birthdate,
-                    effective_date)
-             ||
-            inRange(measure.immunodeficiency_diagnosis_active,
-                    patient.birthdate,
-                    effective_date)
-             ||
-            inRange(measure.vzv_vaccine_medication_allergy,
-                    patient.birthdate,
-                    effective_date));
+     return(vzv_exclusion(measure, patient.birthdate, effective_date));
   }
 
   map(patient, population, denominator, numerator, exclusion);
