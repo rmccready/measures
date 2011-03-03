@@ -7,6 +7,7 @@
       {
         "sub_id": "a",
         "subtitle": "Tetanus and Acellular Pertussis (DTAP) Vaccine",
+        "short_subtitle": "DTAP",
         "numerator":
         {
           "and":
@@ -43,6 +44,7 @@
       {
         "sub_id": "b",
         "subtitle": "Polio (IPV) Vaccine",
+        "short_subtitle": "IPV",
         "numerator":
         {
           "and":
@@ -187,6 +189,7 @@
       {
         "sub_id": "d",
         "subtitle": "H Influenza Type B (HiB) Vaccine",
+        "short_subtitle": "HiB",
         "numerator":
         {
           "and":
@@ -215,6 +218,7 @@
       {
         "sub_id": "e",
         "subtitle": "Hepatitis B (Hep B) Vaccine",
+        "short_subtitle": "HepB",
         "numerator":
         {
           "or":
@@ -251,6 +255,7 @@
       {
         "sub_id": "f",
         "subtitle": "Chicken Pox (VZV) Vaccine",
+        "short_subtitle": "VZV",
         "numerator":
         {
           "and":
@@ -299,6 +304,7 @@
       {
         "sub_id": "g",
         "subtitle": "Pneumococcal Conjugate (PCV) Vaccine",
+        "short_subtitle": "PCV",
         "numerator":
         {
           "and":
@@ -327,6 +333,7 @@
       {
         "sub_id": "h",
         "subtitle": "Hepatitis A (Hep A) Vaccine",
+        "short_subtitle": "HepA",
         "numerator":
         {
           "or":
@@ -359,6 +366,7 @@
       {
         "sub_id": "i",
         "subtitle": "Rotavirus (RV) Vaccine",
+        "short_subtitle": "RV",
         "numerator":
         {
           "or":
