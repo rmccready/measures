@@ -5,6 +5,7 @@
       "metadata": {
         "sub_id": "a",
         "subtitle": "Advising Smokers and Tobacco Users to Quit",
+        "short_subtitle": "Use",
         "numerator": {
           "or": [
             {
@@ -20,6 +21,7 @@
       "metadata": {
         "sub_id": "b",
         "subtitle": "Discussing Smoking and Tobacco Use Cessation Medications and Strategies",
+        "short_subtitle": "Counsel",
         "numberator": {
           "and": [
             {

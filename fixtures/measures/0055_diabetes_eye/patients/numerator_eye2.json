@@ -6,7 +6,7 @@
   "measures": {                                         // bag of measures, one entry per measure
     "0055": {
       "medications_indicative_of_diabetes_medication_order": 1277856000, // Time.gm(2010, 6, 30).to_i
-      "eye_exam_procedure_performed": 1209513600                  // Time.gm(2008, 4, 30).to_i
+      "eye_exam_procedure_performed": 1241049600                  // Time.gm(2009, 4, 30).to_i
     }
   }
 }

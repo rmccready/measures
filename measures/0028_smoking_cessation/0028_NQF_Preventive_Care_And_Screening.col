@@ -6,6 +6,7 @@
         "properties": "NQF_Retooled_Measure_0028a.xlsx.json",
         "sub_id": "a",
         "subtitle": "Tobacco Use Assessment",
+        "short_subtitle": "Use",
         "numerator": {
           "or": [
             {
@@ -27,6 +28,7 @@
         "properties": "NQF_Retooled_Measure_0028b.xlsx.json",
         "sub_id": "b",
         "subtitle": "Tobacco Cessation Intervention",
+        "short_subtitle": "Counsel",
         "numerator": {
           "or": [
             {

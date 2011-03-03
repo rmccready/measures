@@ -6,6 +6,7 @@
       "metadata": {
         "sub_id": "a",
         "subtitle": "LDL Tested",
+        "short_subtitle": "Tested",
         "numerator": {
           "or": [
             {
@@ -21,6 +22,7 @@
       "metadata": {
         "sub_id": "b",
         "subtitle": "LDL Under Control",
+        "short_subtitle": "Control",
         "numerator": {
           "or": [
             {

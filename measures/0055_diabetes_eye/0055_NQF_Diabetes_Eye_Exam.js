@@ -10,11 +10,12 @@ function () {
   // that is located in the /js directory of the project for shared 
   // code across all of the diabetes measures. 
   var year = 365 * 24 * 60 * 60;
-  var effective_date =                <%= effective_date %>;
-  var earliest_birthdate =                effective_date - 74 * year;
-  var latest_birthdate =                  effective_date - 17 * year;
-  var earliest_diagnosis =                effective_date - 2 * year;
-  var year_prior_to_measurement_period =  effective_date - 3 * year;
+  var effective_date = <%= effective_date %>;
+  var period_start = effective_date - year;
+  var earliest_birthdate = effective_date - 74 * year;
+  var latest_birthdate = effective_date - 17 * year;
+  var earliest_diagnosis = effective_date - 2 * year;
+  var year_prior_to_measurement_period = effective_date - 2 * year;
 
   var population = function() {
     return diabetes_population(patient, earliest_birthdate, latest_birthdate);
@@ -29,10 +30,10 @@ function () {
   // the denominator, and the exclusions are shared in the 'diabetes_utils.js' file
   // that is located in the /js directory of the project
   var numerator = function() {
-    return (inRange(measure.eye_exam_procedure_performed, earliest_diagnosis, effective_date)
-            || (inRange(measure.eye_exam_procedure_performed, year_prior_to_measurement_period, effective_date) 
+    return (inRange(measure.eye_exam_procedure_performed, period_start, effective_date)
+            || (inRange(measure.eye_exam_procedure_performed, year_prior_to_measurement_period, period_start) 
                 && 
-                !inRange(measure.diabetic_retinopathy_diagnosis_active, year_prior_to_measurement_period, effective_date))
+                !inRange(measure.diabetic_retinopathy_diagnosis_active, year_prior_to_measurement_period, period_start))
             );
   }
 

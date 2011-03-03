@@ -7,6 +7,7 @@
       {
         "sub_id": "a",
         "subtitle": "Age 65+",
+        "short_subtitle": "65+",
         "numerator":
         {
           "or":
@@ -52,6 +53,7 @@
       {
         "sub_id": "b",
         "subtitle": "Age 18-64",
+        "short_subtitle": "18-64",
         "numerator":
         {
           "or":

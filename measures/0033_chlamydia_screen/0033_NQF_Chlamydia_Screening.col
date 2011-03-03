@@ -7,6 +7,7 @@
       {
         "sub_id": "a",
         "subtitle": "Ages 15 to 23",
+        "short_subtitle": "15-23",
         "population": {
           "category": "Patient Characteristic",
           "title": "Age between 15 and 23"
@@ -19,6 +20,7 @@
       {
         "sub_id": "b",
         "subtitle": "Ages 14 to 19",
+        "short_subtitle": "14-19",
         "population": 
         {
           "category": "Patient Characteristic",
@@ -32,6 +34,7 @@
       {
         "sub_id": "c",
         "subtitle": "Ages 20 to 23",
+        "short_subtitle": "20-23",
         "population": 
         {
           "category": "Patient Characteristic",
