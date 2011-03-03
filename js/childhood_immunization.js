@@ -11,6 +11,15 @@
 
   var root = this;
 
+//  Utility Function -- should probably be elsewhere for reuse
+ root.unique_dates = function(times){
+   if (!_.isArray(times)){ // a single date is unique
+          return times; 
+   }  
+   var dates = _.map(times, function(time) { return parseInt((time/(24*60*60)).toFixed(0))*(24*60*60); });
+   return(_.uniq(dates));
+ };
+
   // Denominator function
   root.has_outpatient_encounter_with_pcp_obgyn = function(measure, earliest_diagnosis, effective_date) {
     return inRange(measure.encounter_outpatient_w_pcp_obgyn_encounter, earliest_diagnosis, effective_date);
@@ -262,18 +271,18 @@ root.pcv_numerator = function (measure,  birthdate, effective_date){
   };
 /// influenza -- numerator 10
   root.inf_numerator = function (measure, birthdate, effective_date){   
-  // IPV vaccines are considered when they are occurring >= 42 days and 
+  // Influenza vaccines are considered when they are occurring >= 180 days and 
   // < 2 years after the patients' birthdate
   var earliest_vaccine = birthdate + 180 * day;
   var latest_vaccine =   birthdate + 2  * year;
-    var number_inf_vaccine_administered = inRange(measure.influenza_vaccination_procedure_performed,
+    var number_inf_vaccine_administered = inRange(unique_dates(measure.influenza_vaccination_procedure_performed),
                                               earliest_vaccine, 
-                                              latest_vaccine) +
-                                      inRange(measure.influenza_vaccine_medication_administered,
+                                              latest_vaccine);
+     var number_inf_vaccine_procedure =   inRange(unique_dates(measure.influenza_vaccine_medication_administered),
                                               earliest_vaccine, 
                                               latest_vaccine);
 
-    return (number_inf_vaccine_administered >= 2);
+    return (number_inf_vaccine_administered >= 2 || number_inf_vaccine_procedure >= 2);
   };
 
   root.inf_exclusion = function(measure, birthdate, effective_date){
@@ -288,14 +297,5 @@ root.pcv_numerator = function (measure,  birthdate, effective_date){
 };
   
 
-//  Utility Function -- should probably be elsewhere for reuse
- root.unique_dates = function(times){
-   if (!_.isArray(times)){ // a single date is unique
-          return times; 
-   }  
-   dates = _.map(times, function(time) { return time/(24*60*60); });
-   unique_dates = _.uniq(dates);
-   return(unique_dates);
- };
 
 })();
