@@ -13,25 +13,29 @@ function () {
   var earliest_encounter = effective_date - year;
   
   var population = function() {
-    correct_age = inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
-    encounters = inRange(measure.encounter_office_outpatient_consult_encounter, earliest_encounter, effective_date);
-    asthma = inRange(measure.asthma_diagnosis_active, earliest_encounter, effective_date);
-    persistent_asthma = inRange(measure.asthma_persistent_diagnosis_active, earliest_encounter, effective_date);
+    var correct_age = inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
+    var encounters = inRange(measure.encounter_office_outpatient_consult_encounter, earliest_encounter, effective_date);
+    var asthma = inRange(measure.asthma_diagnosis_active, earliest_encounter, effective_date);
+    var persistent_asthma = inRange(measure.asthma_persistent_diagnosis_active, earliest_encounter, effective_date);
     return correct_age && (asthma || persistent_asthma) && encounters>=2;
   }
   
   var denominator = function() {
-    persistent_asthma = inRange(measure.asthma_persistent_diagnosis_active, earliest_encounter, effective_date);
-    return persistent_asthma;
+    return true;
   }
   
   var numerator = function() {
-    medication = inRange(measure.corticosteroid_inhaled_or_alternative_asthma_medication_medication_active, earliest_encounter, effective_date);
-    return medication;
+    var medication_active = inRange(measure.corticosteroid_inhaled_or_alternative_asthma_medication_medication_active, earliest_encounter, effective_date);
+    var medication_order = inRange(measure.corticosteroid_inhaled_or_alternative_asthma_medication_medication_order, earliest_encounter, effective_date);
+    return medication_active || medication_order;
   }
   
   var exclusion = function() {
-    return inRange(measure.patient_reason_medication_not_done, earliest_encounter, effective_date);
+    var not_done_patient = inRange(measure.patient_reason_medication_not_done, earliest_encounter, effective_date);
+    var allergy = inRange(measure.corticosteroid_inhaled_or_alternative_asthma_medication_medication_allergy, earliest_encounter, effective_date);
+    var adverse = inRange(measure.corticosteroid_inhaled_or_alternative_asthma_medication_medication_adverse_event, earliest_encounter, effective_date);
+    var intolerance = inRange(measure.corticosteroid_inhaled_or_alternative_asthma_medication_medication_intolerance, earliest_encounter, effective_date);
+    return not_done_patient && (allergy || adverse || intolerance);
   }
   
   map(patient, population, denominator, numerator, exclusion);
