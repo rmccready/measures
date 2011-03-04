@@ -19,8 +19,23 @@ function () {
   var denominator = function() {
     var outpatient_encounter = inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
     // look for bilateral mastectomy or unilateral mastectomy
-   var has_breast = (!measure.bilateral_mastectomy_procedure_performed && _.uniq(measure.unilateral_mastectomy_procedure_performed || []).length <=1  );
-    return (outpatient_encounter && has_breast);
+    if (measure.unilateral_mastectomy_procedure_performed && !_.isArray(measure.unilateral_mastectomy_procedure_performed))
+      measure.unilateral_mastectomy_procedure_performed = [measure.unilateral_mastectomy_procedure_performed];
+    if (measure.bilateral_mastectomy_procedure_performed && !_.isArray(measure.bilateral_mastectomy_procedure_performed))
+      measure.bilateral_mastectomy_procedure_performed = [measure.bilateral_mastectomy_procedure_performed];
+    if (measure.bilateral_mastectomy_modifier_procedure_performed && !_.isArray(measure.bilateral_mastectomy_modifier_procedure_performed))
+      measure.bilateral_mastectomy_modifier_procedure_performed = [measure.bilateral_mastectomy_modifier_procedure_performed];
+    
+    unilateral = _.uniq(measure.unilateral_mastectomy_procedure_performed || []);
+    bilateral = measure.bilateral_mastectomy_procedure_performed || [];
+    modifier = measure.bilateral_mastectomy_modifier_procedure_performed || [];
+    
+    var no_breast = (
+      (bilateral.length>0) ||
+      (unilateral.length>0 && modifier.length>0) ||
+      (unilateral.length > 1)  
+    );
+    return (outpatient_encounter && !no_breast);
   }
   
   var numerator = function() {
