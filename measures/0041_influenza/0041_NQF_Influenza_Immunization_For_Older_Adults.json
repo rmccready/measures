@@ -75,8 +75,15 @@
     "title": "Influenza between prior 58 and 122 days" 
   },
   "numerator": {
-    "category": "Medication Administered",
-    "title": "Influenza vaccine" 
+    "or": [
+      {
+    	"category": "Medication Administered",
+    	"title": "Influenza vaccine" 
+     },
+      {
+        "category": "Procedure Performed",
+        "title": "Influenza vaccine" 
+      }    ] 
   },
   "exclusions": {
     "or": [
@@ -85,12 +92,8 @@
         "title": "Influenza immunization contraindication" 
       },
       {
-        "category": "Allergy",
-        "title": "Eggs" 
-      },
-      {
         "category": "Medication not done",
-        "title": "Influenza immunization declined" 
+        "title": "Influenza vaccine declined" 
       },
       {
         "category": "Medication not done",
@@ -103,7 +106,36 @@
       {
         "category": "Medication not done",
         "title": "Influenza immunization for system reason" 
-      } 
+      },
+      {
+        "category": "Medication Intolerance",
+        "title": "Influenza Vaccine" 
+      },
+      {
+        "category": "Medication Adverse Effects",
+        "title": "Influenza Vaccine" 
+      },
+      {
+        "category": "Medication Allergy",
+        "title": "Influenza Vaccine" 
+      },
+      {
+        "category": "Procedure Intolerance",
+        "title": "Influenza Vaccine" 
+      },
+      {
+        "category": "Procedure Adverse Event",
+        "title": "Influenza Vaccine" 
+      },
+      {
+        "category": "Allergy",
+        "title": "Eggs" 
+      },
+      {
+        "category": "Medication not done",
+        "title": "Influenza immunization declined" 
+      },
+ 
     ] 
   }
 }
