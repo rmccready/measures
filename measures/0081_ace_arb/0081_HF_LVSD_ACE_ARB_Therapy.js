@@ -56,10 +56,9 @@ function () {
     var lvf_assmt = actionAfterReading(measure.lvf_assmt_diagnostic_study_result,allEncounters);
     var ejection_fraction = actionAfterReading(measure.ejection_fraction_diagnostic_study_result,allEncounters);
 
-    // Get the latest values for lvf and ejection_fraction...if there are none, provide 100
-    // This should be changed to get LOWEST value in Date range based on steward feedback...
-    lvf_value = latestValueInDateRange (measure.lvf_assmt_diagnostic_study_result, ancient_times, effective_date, 100) ;
-    ejection_fraction_value = latestValueInDateRange(measure.ejection_fraction_diagnostic_study_result, ancient_times, effective_date, 100) ; // Returns the most recent readings  
+    // The measure stewards have clarified that if ANY measured value is below threshhold, it should be used.  Not necessarily the latest.
+    lvf_value = minValueInDateRange (measure.lvf_assmt_diagnostic_study_result, ancient_times, effective_date, 100) ;
+    ejection_fraction_value = minValueInDateRange(measure.ejection_fraction_diagnostic_study_result, ancient_times, effective_date, 100) ; // Returns the most recent readings  
 
     return ((lvf_value < 40 && lvf_assmt>0) || (ejection_fraction>0 && ejection_fraction_value < 40));
 

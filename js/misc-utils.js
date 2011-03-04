@@ -103,4 +103,26 @@ root.actionAfterSomething = function(something, action) {
 
   };
 
+  // Returns the min readings[i].value where readings[i].date is in
+  // the supplied startDate and endDate. If no reading meet this criteria,
+  // returns defaultValue.
+  root.minValueInDateRange = function(readings, startDate, endDate, defaultValue) {
+    var readingInDateRange = function(reading) {
+      var result = inRange(reading.date, startDate, endDate);
+      return result;
+    };
+    
+    if (!readings || readings.length<1)
+      return defaultValue;
+  
+    var allInDateRange = _.select(readings, readingInDateRange);
+    var lowest = _.min(allInDateRange, function(reading) {return reading.value;});
+    if (lowest)
+      return lowest.value;
+    else
+      return defaultValue;
+  };
+
+
+
  })();

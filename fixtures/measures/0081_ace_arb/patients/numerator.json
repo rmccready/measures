@@ -7,11 +7,16 @@
     "0081": {
        "heart_failure_diagnosis_active": 1276992000,
        "encounter_outpatient_encounter": [1276993000,1276994000],
-       "lvf_assmt_diagnostic_study_result": [
+       "lvf_assmt_diagnostic_study_result": [  // a value below 40 is enough for inclusion in numerator, even if it is not the lATEST measurement
         {
           "date": 1276992500,                           
           "value": 30
-        }],
+        },
+        {
+          "date": 1276993000,                           
+          "value": 90
+        }
+        ],
        "ejection_fraction_diagnostic_study_result": [
         {
           "date": 1276992500,                           
