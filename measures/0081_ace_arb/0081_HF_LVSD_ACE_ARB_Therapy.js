@@ -57,6 +57,7 @@ function () {
     var ejection_fraction = actionAfterReading(measure.ejection_fraction_diagnostic_study_result,allEncounters);
 
     // Get the latest values for lvf and ejection_fraction...if there are none, provide 100
+    // This should be changed to get LOWEST value in Date range based on steward feedback...
     lvf_value = latestValueInDateRange (measure.lvf_assmt_diagnostic_study_result, ancient_times, effective_date, 100) ;
     ejection_fraction_value = latestValueInDateRange(measure.ejection_fraction_diagnostic_study_result, ancient_times, effective_date, 100) ; // Returns the most recent readings  
 
@@ -76,93 +77,33 @@ function () {
   
   var exclusion = function() {
 
-       var manyDiseaseExclusions = _.flatten(_.compact(new Array(measure.nonrheumatic_mitral_valve_disease_diagnosis_active,
-                                          measure.chronic_kidney_disease_with_and_without_hypertension_diagnosis_active,
-		                                      measure.hypertensive_renal_disease_with_renal_failure_diagnosis_active, 
-                                          measure.renal_failure_and_esrd_diagnosis_active, 
-                                          measure.acute_renal_failure_diagnosis_active, 
-                                          measure.atresia_and_stenosis_of_aorta_diagnosis_active)));
+       var manyDiseaseExclusions = _.flatten(_.compact(new Array                  
+          (measure.nonrheumatic_mitral_valve_disease_diagnosis_active,
+           measure.chronic_kidney_disease_with_and_without_hypertension_diagnosis_active,
+           measure.hypertensive_renal_disease_with_renal_failure_diagnosis_active, 
+           measure.renal_failure_and_esrd_diagnosis_active, 
+           measure.acute_renal_failure_diagnosis_active, 
+           measure.atresia_and_stenosis_of_aorta_diagnosis_active,
+           measure.atherosclerosis_of_renal_artery_diagnosis_active,
+           measure.deficiencies_of_circulating_enzymes_diagnosis_active,
+           measure.disease_of_aortic_and_mitral_valves_diagnosis_active
+)));
 
 
       // active_pregnancy diagnosis during allEncounters
       var pregnancy = diagnosisDuringEncounter(measure.pregnancy_diagnosis_active, allEncounters, earliest_encounter, latest_encounter);
-      var diseaseExclusions = actionAfterSomething(manyDiseaseExclusions, allEncounters);
- 
-      // medication_not_done events
-      // medication allergy, adverse_events, and intolerance
- /*     ace_inhibitor_or_arb_allergy = actionAfterSomething(measure.ace_inhibitor_or_arb_allergy,allEncounters);
-       ace_inhibitor_or_arb_adverse_event = actionAfterSomething(measure.ace_inhibitor_or_arb_adverse_event,allEncounters);
-       ace_inhibitor_or_arb_intolerance = actionAfterSomething(measure.ace_inhibitor_or_arb_intolerance,allEncounters);
-        patient_reason_for_ace_inhibitor_or_arb_decline
-*/
-     return(diseaseExclusions || pregnancy);
+      var disease_exclusions = actionAfterSomething(manyDiseaseExclusions, allEncounters);
+      var allergy_exclusions = actionAfterSomething(measure.ace_inhibitor_or_arb_medication_allergy, allEncounters) + actionAfterSomething(measure.ace_inhibitor_or_arb_medication_intolerance, allEncounters) +
+actionAfterSomething(measure.ace_inhibitor_or_arb_medication_adverse_event  , allEncounters);
+      var medication_not_done_exclusions = inRange(measure.medical_reason_medication_not_done, ancient_times, effective_date) +
+inRange(measure.system_reason_medication_not_done, ancient_times, effective_date) +
+inRange(measure.patient_reason_medication_not_done, ancient_times, effective_date);
+
+      return(medication_not_done_exclusions || disease_exclusions || pregnancy || allergy_exclusions);
 
      
 }
 
- // Returns count of number of diagnoses that occured within 1 day of an encounter
-var diagnosisDuringEncounter = function(diagnosis, encounter, startTimeRange, endTimeRange){
-   if(!diagnosis || !encounter) return(0);
-
-   var result = 0;
-   if (!_.isArray(diagnosis))
-      diagnosis = [diagnosis];
-    if (!_.isArray(encounter))
-      encounter = [encounter];
-    // for each diagnosis, see if there is an encounter within 1 day
-    for(var i = 0; i<diagnosis.length;i++){
-        if(!diagnosis[i] || diagnosis[i]>endTimeRange || diagnosis[i]<startTimeRange) continue;
-        window_start = diagnosis[i] - day;
-	window_end = diagnosis[i] + day;
-      for (var j=0; j<encounter.length;j++) {
-        if(!encounter[i] || encounter[i]>endTimeRange || encounter[i]<startTimeRange) continue;
-        if (encounter[j]>=window_start && encounter[j]<= window_end )
-          result++;
-      }
-    }
-    return result;
-}
-
- // Returns count of number of somethings that are followed by at least one action
-var actionAfterSomething = function(something, action) {
-    if (!_.isArray(something))
-      something = [something];
-    if (!_.isArray(action))
-      action = [action];
-    
-    var result = 0;
-    for (var i=0; i<something.length; i++) {
-      var timeStamp = something[i];
-      for (var j=0; j<action.length;j++) {
-        if (action[j]>=timeStamp )
-          result++;
-      }
-    }
-    return result;
-  }
-
- // Returns count of number of readings that are followed by at least one action
-  actionAfterReading = function(readings, action) {
-    if (!_.isArray(readings))
-      readings = [readings];
-    if (!_.isArray(action))
-      action = [action];
-  
-    var results = 0; // number of readings that are followed by an action
-    for (var i=0; i<readings.length; i++) {
-      if(!readings[i]) continue;
-      var timeStamp = readings[i].date;
-      var result = 0; // number of actions that follow a particular reading
-      for (var j=0; j<action.length;j++) {
-        if(!action[j]) continue;
-        if (action[j]>=timeStamp )
-          result++;
-      }
-      if(result>0)results++;  // if there are any actions that follow this reading, increment results
-    }
-    return results;
-
-  };
 
   map(patient, population, denominator, numerator, exclusion);
 };
