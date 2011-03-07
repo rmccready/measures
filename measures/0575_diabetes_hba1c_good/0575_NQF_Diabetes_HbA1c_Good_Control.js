@@ -12,7 +12,6 @@ function () {
   var earliest_birthdate =                effective_date - 74 * year;
   var latest_birthdate =                  effective_date - 17 * year;
   var earliest_diagnosis =                effective_date - 2 * year;
-  var year_prior_to_measurement_period =  effective_date - 3 * year;
 
   var population = function() {
     return diabetes_population(patient, earliest_birthdate, latest_birthdate);
