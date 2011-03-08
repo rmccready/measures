@@ -5,8 +5,8 @@
   "birthdate": 656294400,      
   "measures": {                 
     "0068": {
-      "acute_myocardial_infarction_diagnosis_active": 1253318500,
-      "encounter_acute_inpt_and_outpt_encounter": 1253318400
+      "acute_myocardial_infarction_diagnosis_active": 1247318500, //2009-07-11 09:21:40 -0400
+      "encounter_acute_inpt_and_outpt_encounter": 1247318400      //2009-07-11 09:20:00 -0400 
     }
   }
 }
