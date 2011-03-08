@@ -11,17 +11,6 @@
 
   var root = this;
 
-  //  Utility Function -- should probably be elsewhere for reuse
-  root.unique_dates = function (times) {
-    if (!_.isArray(times)) { // a single date is unique
-      return times;
-    }
-    var dates = _.map(times, function (time) {
-      return parseInt((time / (24 * 60 * 60)).toFixed(0)) * (24 * 60 * 60);
-    });
-    return (_.uniq(dates));
-  };
-
   // Denominator function
   root.has_outpatient_encounter_with_pcp_obgyn = function (measure, earliest_diagnosis, effective_date) {
     return inRange(measure.encounter_outpatient_w_pcp_obgyn_encounter, earliest_diagnosis, effective_date);
