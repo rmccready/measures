@@ -44,11 +44,11 @@
   "denominator": {
     "and": [
       {
+        "category": "Diagnosis active",
+        "title": "D(Rh) negative"
+      },
+      {
         "or": [
-          {
-            "category": "Diagnosis active",
-            "title": "D(Rh) negative, unsensitized"
-          },
           {
             "and": [
               {
@@ -93,7 +93,7 @@
       },
       {
         "category": "Medication administered",
-        "title": "Anti-D immune globulin administered at an estimated date of conception of 26 to 30 weeks, inclusive"
+        "title": "Anti-D immune globulin administered between 26 and 30 weeks (inclusive) after the estimated date of conception"
       }
     ]
   },
@@ -101,15 +101,7 @@
     "or": [
       {
         "category": "Medication not done",
-        "title": "Patient reason"
-      },
-      {
-        "category": "Medication not done",
-        "title": "Medical reason"
-      },
-      {
-        "category": "Medication not done",
-        "title": "System reason"
+        "title": "Patient, medical or system reason"
       },
       {
         "category": "Patient characteristic",
@@ -117,7 +109,7 @@
       },
       {
         "category": "Medication not done",
-        "title": "anti-D immune globulin declined"
+        "title": "anti-D immune globulin declined within 30 weeks of estimated date of conception"
       }
     ]
   }
