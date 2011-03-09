@@ -13,7 +13,7 @@ function () {
   var earliest_birthdate =  effective_date - 18 * year;
   var latest_birthdate =    effective_date - 2 * year;
 
-  var meds_prescribed_after_encounter;  // computed by denominator, used by numerator
+  var meds_prescribed_after_encounter = [];  // computed by denominator, used by numerator
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -38,8 +38,6 @@ function () {
     var threeDays = 3 * day;
     var thirtyDays = 30 * day;
     
-    var meds_matched = new Array(meds.length);
-
     var medsThreeAfterAndNotThirtyBefore = function(timeStamp) {
       var match=false;
       for (var i=0; i<meds.length;i++) {
@@ -47,7 +45,7 @@ function () {
             if (meds[i] <= (timeStamp+threeDays)) { // meds within three days of timestamp
                 match=true;  // keep on looking for prior meds
                 // if meds[i] is ever matched as true, mark it as a match for use in the numerator
-                meds_matched[i] = true;
+                meds_prescribed_after_encounter.push(meds[i]);
             }
         } else if(meds[i] >= (timeStamp-thirtyDays)) { // meds are before timestamp, are they within 30 days prior to timestamp?
                 match=false;
@@ -59,23 +57,13 @@ function () {
 
     
     var matchingEncounters = _.select(encounters, medsThreeAfterAndNotThirtyBefore);
-
-    meds_prescribed_after_encounter = new Array();
-
-    // The numerator computation uses the medication events that were within 3 days of an appropriate encounter
-    // We've flagged them above, now build an array of them
-    for(var i = 0; i < meds_matched.length; i++){
-	if(meds_matched[i]){
-	    meds_prescribed_after_encounter.push(meds[i]);
-        }
-    }
        
     return matchingEncounters.length > 0;
   };
 
   var numerator = function() {
-/* “Laboratory test performed: group A streptococcus test” using “group A streptococcus 	
-test code list grouping” before or simultaneously to <medications> */
+    /* “Laboratory test performed: group A streptococcus test” using “group A streptococcus     
+    test code list grouping” before or simultaneously to <medications> */
 
     return (actionFollowingSomething(  // test precedes medication by less than 3 days
       measure.group_a_streptococcus_test_laboratory_test_performed, meds_prescribed_after_encounter, 3*day));
