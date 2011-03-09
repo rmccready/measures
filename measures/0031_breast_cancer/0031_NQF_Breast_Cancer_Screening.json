@@ -55,7 +55,7 @@
           },
           {
             "category": "Procedure",
-            "title": "No More Than 1 Unilateral Mastectomy Performed" 
+            "title": "No More Than 1 Unilateral Mastectomy Performed and no bilateral mastectomy modifier" 
           } 
         ] 
       } 
@@ -64,8 +64,8 @@
   "numerator": {
     "and": [
       {
-        "category": "Encounter",
-        "title": "Breast Cancer Screen Performed <= 2 Years" 
+        "category": "Diagnostic Study",
+        "title": "Breast Cancer Screen Performed within 2 Years" 
       } 
     ] 
   },
