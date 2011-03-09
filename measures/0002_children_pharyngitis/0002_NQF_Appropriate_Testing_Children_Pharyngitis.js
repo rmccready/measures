@@ -77,8 +77,8 @@ function () {
 /* “Laboratory test performed: group A streptococcus test” using “group A streptococcus 	
 test code list grouping” before or simultaneously to <medications> */
 
-    return (actionFollowingSomething(meds_prescribed_after_encounter,
-      measure.group_a_streptococcus_test_laboratory_test_performed, 3*day));
+    return (actionFollowingSomething(  // test precedes medication by less than 3 days
+      measure.group_a_streptococcus_test_laboratory_test_performed, meds_prescribed_after_encounter, 3*day));
   }
 
   var exclusion = function() {
