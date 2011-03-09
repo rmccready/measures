@@ -36,11 +36,11 @@
     "or": [
       {
         "category": "Physical Exam Not Done",
-        "title": "Patient or medical reason"
+        "title": "Patient, medical or system reason"
       },
       {
         "category": "Patient Characteristic",
-        "title": "Terminal Illness"
+        "title": "Terminal illness 6 months or less before encounter"
       },
       {
         "category": "Condition",
