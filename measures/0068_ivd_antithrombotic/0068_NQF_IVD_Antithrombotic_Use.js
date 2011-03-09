@@ -29,19 +29,15 @@ The percentage of patients 18 years of age and older who were discharged alive f
   
   var denominator = function() {
     ptca = inRange(measure.ptca_procedure_performed, earliest_procedure, latest_procedure_14_24);
-    encounters_24 = inRange(measure.encounter_acute_inpt_and_outpt_encounter, earliest_encounter_0_24, effective_date);
-    encounters_14_24 = inRange(measure.encounter_acute_inpt_and_outpt_encounter, earliest_encounter_0_24, latest_encounter_14_24);
-
     cabg = inRange(measure.cabg_procedure_performed, earliest_procedure, latest_procedure_14_24);
+// Measure stewards changed definition, so that simply an active diagnosis is all that is necessary
+    ami = inRange(measure.acute_myocardial_infarction_diagnosis_active, latest_encounter_14_24);
+    ivd  = inRange(measure.ischemic_vascular_disease_diagnosis_active, earliest_procedure, latest_encounter_0_24);
 
-    //Diagnosis active: ischemic vascular disease” during “Encounter: encounter acute inpt and outpt” (less than 2 years before measurement end date)
-    ivd_diagnosis_during_encounter = diagnosisDuringEncounter(measure.ischemic_vascular_disease_diagnosis_active, measure.encounter_acute_inpt_and_outpt_encounter, earliest_encounter_0_24, latest_encounter_0_24);
-    //”Diagnosis active: acute myocardial infarction” during “Encounter: encounter acute inpt”;  (14-24 months from measurement end date)
-    ami_diagnosis_during_encounter = diagnosisDuringEncounter(measure.acute_myocardial_infarction_diagnosis_active, measure.encounter_acute_inpt_and_outpt_encounter, earliest_encounter_0_24, latest_encounter_14_24)
-
-    return ( ptca || ((encounters_14_24>0) && (cabg)) 
-                  || (ami_diagnosis_during_encounter>0 ) 
-                  || (ivd_diagnosis_during_encounter>0))
+    return ( (ptca > 0) ||
+             (cabg>0) ||
+             (ami >0 ) ||
+             (ivd >0))
 
  }
   
