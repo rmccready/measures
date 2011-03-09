@@ -49,11 +49,11 @@
             "or": [
               {
                 "category": "Encounter",
-                "title": "Acute Inpatient or ED" 
+                "title": "One or more Acute Inpatient or ED" 
               },
               {
                 "category": "Encounter",
-                "title": "Non‐Acute Inpatient, Outpatient, or Ophthalmology" 
+                "title": "Two or more Non‐Acute Inpatient, Outpatient, or Ophthalmology" 
               } 
             ] 
           } 
@@ -65,7 +65,7 @@
     "or": [
       {
         "category": "Procedure Performed",
-        "title": "Eye exam within 2 years" 
+        "title": "Eye exam during the measurement period" 
       },
       {
         "and": [
@@ -75,7 +75,7 @@
           },
           {
             "category": "Diagnosis",
-            "title": "Diabetic retinopathy during the year prior to the measurement period" 
+            "title": "Not Diabetic retinopathy during the year prior to the measurement period" 
           } 
         ] 
       } 
@@ -123,7 +123,7 @@
           },
           {
             "category": "Diagnosis",
-            "title": "Diabetes Active within 2 years" 
+            "title": "Not Diabetes Active within 2 years" 
           },
           {
             "or": [
