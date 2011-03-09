@@ -39,7 +39,7 @@
         "or": [
           {
             "category": "Diagnosis active",
-            "title": "Asthma"
+            "title": "Asthma, severity persistent"
           },
           {
             "category": "Diagnosis active",
@@ -49,13 +49,11 @@
       },
       {
         "category": "Encounter",
-        "title": ">= 2 counts of office & outpatient consult encounter"
+        "title": ">= 2 counts of office & outpatient consult"
       }
     ]
   },
   "denominator": {
-    "category": "Diagnosis active",
-    "title": "Persistent asthma"
   },
   "numerator": {
     "or": [
