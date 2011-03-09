@@ -72,7 +72,7 @@
   },
   "denominator": {
     "category": "Encounter",
-    "title": "Influenza between prior 58 and 122 days" 
+    "title": "Influenza between Sept and Feb inclusive" 
   },
   "numerator": {
     "or": [
@@ -128,7 +128,7 @@
         "title": "Influenza Vaccine" 
       },
       {
-        "category": "Allergy",
+        "category": "Substance Allergy",
         "title": "Eggs" 
       },
       {
