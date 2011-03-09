@@ -8,7 +8,7 @@
       "encounter_ambulatory_including_pediatrics_encounter": [1280620800],  // Time.gm(2010, 8, 1).to_i
       "pharyngitis_diagnosis_active": [1280620800],                      // Time.gm(2010, 8, 1).to_i
       "pharyngitis_antibiotics_medication_dispensed": [1280793600],                    // Time.gm(2010, 8, 3).to_i
-      "group_a_streptococcus_test_laboratory_test_performed": [1280620800]
+      "group_a_streptococcus_test_laboratory_test_performed": [1280793800]
     }
   }
 }
