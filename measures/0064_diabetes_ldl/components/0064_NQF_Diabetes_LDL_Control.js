@@ -26,9 +26,10 @@ function () {
   // MU diabetes measure.  All of the other definitions for the initial population, 
   // the denominator, and the exclusions are shared in the 'diabetes_utils.js' file
   // that is located in the /js directory of the project
+  // Updated measure (supplemental) specified most RECENT measurement
   var numerator = function() {
-    minLDL = minValueInDateRange(measure.ldl_test_laboratory_test_result, period_start, effective_date, 200.0)
-    return (minLDL < 100.0);
+    lastLDL = latestValueInDateRange(measure.ldl_test_laboratory_test_result, period_start, effective_date, 200.0)
+    return (lastLDL < 100.0);
   }
 
   var exclusion = function() {
