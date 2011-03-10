@@ -29,26 +29,30 @@ function () {
     var multigravida = inRange(measure.multigravida_diagnosis_active, earliest_encounter, effective_date);
     var rh_status_mother = minValueInDateRange(measure.rh_status_mother_laboratory_test_result, earliest_encounter, delivery_date, false)
     var rh_status_baby = minValueInDateRange(measure.rh_status_baby_laboratory_test_result, earliest_encounter, delivery_date, false)
-    return prenatal_encounter && drh_neg_diagnosis && (
+    return (prenatal_encounter && drh_neg_diagnosis && (
       (primigravida && !rh_status_mother) || 
-      (multigravida && !rh_status_mother && !rh_status_baby));
+      (multigravida && !rh_status_mother && !rh_status_baby)));
   }
 
   var numerator = function() {
-    estimated_conception_within_ten_months = actionFollowingSomething(estimated_conception, delivery_date, 304*day);
+    var estimated_conception_within_ten_months = actionFollowingSomething(estimated_conception, delivery_date, 304*day);
+/*
+        AND: “Medication administered: anti‐D immune globulin” ‐ “Patient characteristic: 
+        estimated date of conception” >= 26 weeks; 
+        AND: “Medication administered: anti‐D immune globulin” ‐ “Patient characteristic: 
+        estimated date of conception” <= 30 weeks; 
+*/
+    var antid_admin_between_26_30_weeks = inRange(measure.anti_d_immune_globulin_medication_administered, estimated_conception + 26*7*day, estimated_conception + 30*7*day);
     
-    antid_admin_within_30_weeks = actionFollowingSomething(estimated_conception, measure.anti_d_immune_globulin_medication_administered, 30*7*day);
-    antid_admin_within_26_weeks = actionFollowingSomething(estimated_conception, measure.anti_d_immune_globulin_medication_administered, 26*7*day);
-    
-    return estimated_conception_within_ten_months && antid_admin_within_30_weeks && !antid_admin_within_26_weeks;
+    return (estimated_conception_within_ten_months && antid_admin_between_26_30_weeks);
   }
 
   var exclusion = function() {
-    medical_reason = inRange(measure.medical_reason_medication_not_done, earliest_encounter, effective_date);
-    patient_reason = inRange(measure.patient_reason_medication_not_done, earliest_encounter, effective_date);
-    system_reason = inRange(measure.system_reason_medication_not_done, earliest_encounter, effective_date);
-    antid_declined_within_30_weeks = actionFollowingSomething(estimated_conception, measure.anti_d_immune_globulin_declined_medication_not_done, 30*7*day);
-    return antid_declined_within_30_weeks|| system_reason || medical_reason || patient_reason;
+    var medical_reason = inRange(measure.medical_reason_medication_not_done, earliest_encounter, effective_date);
+    var patient_reason = inRange(measure.patient_reason_medication_not_done, earliest_encounter, effective_date);
+    var system_reason = inRange(measure.system_reason_medication_not_done, earliest_encounter, effective_date);
+    var antid_declined_between_26_and_30_weeks = inRange(measure.anti_d_immune_globulin_declined_medication_not_done, estimated_conception + 26*7*day, estimated_conception + 30*7*day);
+    return (antid_declined_between_26_and_30_weeks|| system_reason || medical_reason || patient_reason);
   }
 
   map(patient, population, denominator, numerator, exclusion);
