@@ -11,13 +11,14 @@ function () {
   var effective_date = <%= effective_date %>;
   var period_start = effective_date - year;
   var latest_birthdate = effective_date - 18*year;
+  var ancient_times = effective_date - 200*year;
 
   var encounters = _.flatten(_.compact([measure.encounter_outpatient_encounter,  measure.encounter_nursing_facility_encounter]));
   
   var population = function() {
-    correct_age = patient.birthdate <= latest_birthdate;
-    hypertension = inRange(measure.hypertension_diagnosis_active, period_start, effective_date);
-    num_encounters = inRange(encounters, period_start, effective_date);
+    var correct_age = patient.birthdate <= latest_birthdate;
+    var hypertension = inRange(measure.hypertension_diagnosis_active, ancient_times, effective_date); // hypertension diagnosis is not bounded in time
+    var num_encounters = inRange(encounters, period_start, effective_date);
     return (correct_age && hypertension && (num_encounters>=2));
   };
   
@@ -26,8 +27,8 @@ function () {
   };
   
   var numerator = function() {
-    systolic = eventDuringEncounter(measure.systolic_blood_pressure_physical_exam_finding, encounters, period_start, effective_date);
-    diastolic = eventDuringEncounter(measure.diastolic_blood_pressure_physical_exam_finding, encounters, period_start, effective_date);
+    var systolic = eventDuringEncounter(measure.systolic_blood_pressure_physical_exam_finding, encounters, period_start, effective_date);
+    var diastolic = eventDuringEncounter(measure.diastolic_blood_pressure_physical_exam_finding, encounters, period_start, effective_date);
     return (systolic && diastolic);
   };
   
