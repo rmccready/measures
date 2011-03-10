@@ -17,7 +17,7 @@ function () {
   
   var population = function() {
     var correct_age = patient.birthdate <= latest_birthdate;
-    var hypertension = inRange(measure.hypertension_diagnosis_active, ancient_times, effective_date); // hypertension diagnosis is not bounded in time
+    var hypertension = lessThan(measure.hypertension_diagnosis_active, effective_date); // hypertension diagnosis is not bounded in time
     var num_encounters = inRange(encounters, period_start, effective_date);
     return (correct_age && hypertension && (num_encounters>=2));
   };
