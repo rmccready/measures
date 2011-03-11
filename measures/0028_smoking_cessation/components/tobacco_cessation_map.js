@@ -41,12 +41,11 @@ function () {
   var denominator = function() {
     // Tobacco user in last 24 months, prior to an encounter
     // If not a user, false
-   return(inRange(measure.tobacco_user_patient_characteristic, earliest_cessation_method_date, last_encounter_in_measurement_period));
-
+    return(inRange(measure.tobacco_user_patient_characteristic, earliest_cessation_method_date, last_encounter_in_measurement_period));
   }
   
   var numerator = function() {
-  // need to check that cessation methods are within 24 months and before an encounter.
+    // need to check that cessation methods are within 24 months and before an encounter.
     var cessation_procedure = inRange(measure.tobacco_use_cessation_counseling_procedure_performed, earliest_cessation_method_date, last_encounter_in_measurement_period);
     var cessation_medication_active = inRange(measure.smoking_cessation_agents_medication_active, earliest_cessation_method_date, last_encounter_in_measurement_period);
     var cessation_medication_order = inRange(measure.smoking_cessation_agents_medication_order, earliest_cessation_method_date, last_encounter_in_measurement_period);

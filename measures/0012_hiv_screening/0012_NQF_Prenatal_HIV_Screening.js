@@ -27,25 +27,22 @@ function () {
   var numerator = function() {
     var estimated_conception = _.max(measure.estimated_date_of_conception_patient_characteristic);
     var estimated_conception_within_ten_months = actionFollowingSomething(estimated_conception, measure.delivery_live_births_procedure_procedure_performed, 304*day);
-/*
+    /*
     var encounters_in_range = selectWithinRange(measure.prenatal_visit_encounter, estimated_conception, effective_date);
     var first_encounter = _.min(encounters_in_range);
     encounters_in_range = selectWithinRange(measure.prenatal_visit_encounter, first_encounter+day, effective_date);
     var second_encounter = _.min(encounters_in_range);
     var hiv_screen_after_first = actionFollowingSomething(first_encounter, measure.hiv_screening_laboratory_test_performed, 30*day);
     var hiv_screen_after_second = actionFollowingSomething(second_encounter, measure.hiv_screening_laboratory_test_performed, 30*day);
-*/
+    */
     var encounters_in_range = _.sortBy(selectWithinRange(measure.prenatal_visit_encounter, estimated_conception, effective_date), function(num){ return num; });  // there has to be at least 1 due to denominator
     var first_encounter = encounters_in_range[0];
     var hiv_screen_after_first = actionFollowingSomething(first_encounter, measure.hiv_screening_laboratory_test_performed, 30*day);
     var hiv_screen_after_second = false;
-    if(encounters_in_range.length > 1){
-    var second_encounter = encounters_in_range[1];
-    hiv_screen_after_second = actionFollowingSomething(second_encounter, measure.hiv_screening_laboratory_test_performed, 30*day);
+    if(encounters_in_range.length > 1) {
+      var second_encounter = encounters_in_range[1];
+      hiv_screen_after_second = actionFollowingSomething(second_encounter, measure.hiv_screening_laboratory_test_performed, 30*day);
     }
-    return estimated_conception_within_ten_months && (hiv_screen_after_first || hiv_screen_after_second);
-
-    
     return estimated_conception_within_ten_months && (hiv_screen_after_first || hiv_screen_after_second);
   }
 

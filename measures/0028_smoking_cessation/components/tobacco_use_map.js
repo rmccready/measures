@@ -43,13 +43,13 @@ function () {
     if (measure.tobacco_user_patient_characteristic == null && measure.tobacco_non_user_patient_characteristic == null) {
         return false;
     }
-/*
-         o “Patient characteristic: tobacco non-user” using the “tobacco non-user code list” within and including 24 months before or simultaneously to “Encounter: encounter psychiatric & psychologic” ......
-         o “Patient characteristic: tobacco user” using the “tobacco user code list” within and including 24 months before or simultaneously to “Encounter: encounter psychiatric & psychologic” ....
-*/
-// Let's look for an encounter within the measurement period that follows within 24 months of tobacco use/non-use
-    tobacco_user = actionAfterSomething(measure.tobacco_user_patient_characteristic, all_encounters_in_measurement_period, twenty_four_months);
-    tobacco_non_user = actionAfterSomething(measure.tobacco_non_user_patient_characteristic, all_encounters_in_measurement_period, twenty_four_months);
+    /*
+     o “Patient characteristic: tobacco non-user” using the “tobacco non-user code list” within and including 24 months before or simultaneously to “Encounter: encounter psychiatric & psychologic” ......
+     o “Patient characteristic: tobacco user” using the “tobacco user code list” within and including 24 months before or simultaneously to “Encounter: encounter psychiatric & psychologic” ....
+    */
+    // Let's look for an encounter within the measurement period that follows within 24 months of tobacco use/non-use
+    var tobacco_user = actionAfterSomething(measure.tobacco_user_patient_characteristic, all_encounters_in_measurement_period, twenty_four_months);
+    var tobacco_non_user = actionAfterSomething(measure.tobacco_non_user_patient_characteristic, all_encounters_in_measurement_period, twenty_four_months);
     return (tobacco_user || tobacco_non_user);
   }
   
