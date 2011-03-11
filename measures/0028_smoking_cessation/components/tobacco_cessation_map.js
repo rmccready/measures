@@ -7,33 +7,50 @@ function () {
   <%= init_js_frameworks %>
 
   var year = 365*24*60*60;
+  var twenty_four_months = 2*year;   // interval used in numerator
   var effective_date = <%= effective_date %>;
   var latest_birthdate = effective_date - 18*year;
-  var earliest_encounter = effective_date - 2*year;
-  var latest_encounter = effective_date - 1*year;
+  var earliest_encounter = effective_date - 1*year;
+  var earliest_cessation_method_date = effective_date - 2*year;
+  var latest_encounter = effective_date;
+  var all_encounters_in_measurement_period = selectWithinRange(_.flatten(_.compact( [ measure.encounter_health_and_behavior_assessment_encounter, 
+                                      measure.encounter_occupational_therapy_encounter, 
+                                      measure.encounter_psychiatric_psychologic_encounter,
+                                      measure.encounter_prev_med_services_18_and_older_encounter,
+                                      measure.encounter_prev_med_other_services_encounter,
+                                      measure.encounter_prev_med_individual_counseling_encounter,
+                                      measure.encounter_prev_med_group_counseling_encounter])), earliest_encounter, latest_encounter);
+  var last_encounter_in_measurement_period = _.max(all_encounters_in_measurement_period);
+
   
   var population = function() {
-    other_encounters = 
+    // look for appropriate encounters within measurement period
+    var other_encounters = 
       inRange(measure.encounter_health_and_behavior_assessment_encounter, earliest_encounter, effective_date) +
       inRange(measure.encounter_occupational_therapy_encounter, earliest_encounter, effective_date) +
       inRange(measure.encounter_office_visit_encounter, earliest_encounter, effective_date) +
       inRange(measure.encounter_psychiatric_psychologic_encounter, earliest_encounter, effective_date);
-    preventive_encounters = 
-      inRange(measure.encounter_prev_med_services_18_and_older_encounter, latest_encounter, effective_date) +
-      inRange(measure.encounter_prev_med_other_services_encounter, latest_encounter, effective_date) +
-      inRange(measure.encounter_prev_med_individual_counseling_encounter, latest_encounter, effective_date) +
-      inRange(measure.encounter_prev_med_group_counseling_encounter, latest_encounter, effective_date);
+    var preventive_encounters = 
+      inRange(measure.encounter_prev_med_services_18_and_older_encounter, earliest_encounter, effective_date) +
+      inRange(measure.encounter_prev_med_other_services_encounter, earliest_encounter, effective_date) +
+      inRange(measure.encounter_prev_med_individual_counseling_encounter, earliest_encounter, effective_date) +
+      inRange(measure.encounter_prev_med_group_counseling_encounter, earliest_encounter, effective_date);
     return (patient.birthdate<=latest_birthdate && (other_encounters>1 || preventive_encounters>0));
   }
   
   var denominator = function() {
-    return inRange(measure.tobacco_user_patient_characteristic, earliest_encounter, effective_date);
+    // Tobacco user in last 24 months, prior to an encounter
+    // If not a user, false
+   return(inRange(measure.tobacco_user_patient_characteristic, earliest_cessation_method_date, last_encounter_in_measurement_period));
+
   }
   
   var numerator = function() {
-    cessation_procedure = inRange(measure.tobacco_use_cessation_counseling_procedure_performed, earliest_encounter, effective_date);
-    cessation_medication_active = inRange(measure.smoking_cessation_agents_medication_active, earliest_encounter, effective_date);
-    cessation_medication_order = inRange(measure.smoking_cessation_agents_medication_order, earliest_encounter, effective_date);
+  // need to check that cessation methods are within 24 months and before an encounter.
+    var cessation_procedure = inRange(measure.tobacco_use_cessation_counseling_procedure_performed, earliest_cessation_method_date, last_encounter_in_measurement_period);
+    var cessation_medication_active = inRange(measure.smoking_cessation_agents_medication_active, earliest_cessation_method_date, last_encounter_in_measurement_period);
+    var cessation_medication_order = inRange(measure.smoking_cessation_agents_medication_order, earliest_cessation_method_date, last_encounter_in_measurement_period);
+
     return (cessation_procedure || cessation_medication_active || cessation_medication_order);
   }
   
