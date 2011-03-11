@@ -21,12 +21,12 @@ function () {
                                       measure.encounter_prev_med_group_counseling_encounter])), earliest_encounter, latest_encounter);
 
   var population = function() {
-    num_other_encounters = 
+    var num_other_encounters = 
       inRange(measure.encounter_health_and_behavior_assessment_encounter, earliest_encounter, latest_encounter) +
       inRange(measure.encounter_occupational_therapy_encounter, earliest_encounter, latest_encounter) +
       inRange(measure.encounter_office_visit_encounter, earliest_encounter, latest_encounter) +
       inRange(measure.encounter_psychiatric_psychologic_encounter, earliest_encounter, latest_encounter);
-    num_preventive_encounters = 
+    var num_preventive_encounters = 
       inRange(measure.encounter_prev_med_services_18_and_older_encounter, earliest_encounter, latest_encounter) +
       inRange(measure.encounter_prev_med_other_services_encounter, earliest_encounter, latest_encounter) +
       inRange(measure.encounter_prev_med_individual_counseling_encounter, earliest_encounter, latest_encounter) +
