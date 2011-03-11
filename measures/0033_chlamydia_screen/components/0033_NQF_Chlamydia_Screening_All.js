@@ -23,7 +23,7 @@ function () {
     var pregnancy_test = inRange(measure.pregnancy_test_laboratory_test_performed, earliest_encounter, effective_date) +
                          inRange(measure.pregnancy_test_laboratory_test_result, earliest_encounter, effective_date);
 
-     // events prior to end of measurement period (could be before measurement period)
+    // events prior to end of measurement period (could be before measurement period)
     var indicative_labs = lessThan(measure.laboratory_tests_indicative_of_sexually_active_women_laboratory_test_performed,  effective_date);
     var outpatient_encounter = lessThan(measure.encounter_outpatient_encounter, effective_date);
     var iud = lessThan(measure.iud_use_device_applied, earliest_encounter, effective_date);
@@ -61,7 +61,7 @@ function () {
    
     var retinoid = actionFollowingSomething(pregnancyTestResultsInMeasureRange, measure.retinoid_medication_active, 7*day) +
                    actionFollowingSomething(pregnancyTestResultsInMeasureRange, measure.retinoid_medication_order, 7*day) +
-                   actionFollowingSomething(pregnancyTestResultsInMeasureRange, measure.retinoid_medication_dispensed, 7*day);
+                   actionFollowingSomething(pregnancyTestResultsInMeasureRange, measure.retinoid_medication_dispensed, 7*day) +
                    actionFollowingSomething(pregnancyTestsInMeasureRange, measure.retinoid_medication_active, 7*day) +
                    actionFollowingSomething(pregnancyTestsInMeasureRange, measure.retinoid_medication_order, 7*day) +
                    actionFollowingSomething(pregnancyTestsInMeasureRange, measure.retinoid_medication_dispensed, 7*day);
