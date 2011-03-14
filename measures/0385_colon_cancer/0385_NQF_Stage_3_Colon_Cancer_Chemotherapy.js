@@ -40,9 +40,9 @@ function () {
     var leukopenia = lessThan(measure.leukopenia_diagnosis_active, latest_encounter);
     var ecog = lessThan(measure.ecog_performance_status_poor_patient_characteristic, latest_encounter);
     var allergy = lessThan(measure.chemotherapy_for_colon_cancer_medication_allergy, latest_encounter);
-    var medical = inRange(measure.medical_reason_medication_not_done, earliest_encounter, effective_date);
-    var patient = inRange(measure.patient_reason_medication_not_done, earliest_encounter, effective_date);
-    var system = inRange(measure.system_reason_medication_not_done, earliest_encounter, effective_date);
+    var medical = lessThan(measure.medical_reason_medication_not_done, effective_date);
+    var patient = lessThan(measure.patient_reason_medication_not_done, effective_date);
+    var system = lessThan(measure.system_reason_medication_not_done, effective_date);
     return metastatic_sites || renal_isufficiency || neutropenia || leukopenia || ecog || allergy
       || medical || patient || system;
   }

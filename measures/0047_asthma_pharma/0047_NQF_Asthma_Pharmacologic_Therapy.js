@@ -15,8 +15,8 @@ function () {
   var population = function() {
     var correct_age = inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
     var encounters = inRange(measure.encounter_office_outpatient_consult_encounter, earliest_encounter, effective_date);
-    var asthma = inRange(measure.asthma_diagnosis_active, earliest_encounter, effective_date);
-    var persistent_asthma = inRange(measure.asthma_persistent_diagnosis_active, earliest_encounter, effective_date);
+    var asthma = lessThan(measure.asthma_diagnosis_active, effective_date);
+    var persistent_asthma = lessThan(measure.asthma_persistent_diagnosis_active, effective_date);
     return correct_age && (asthma || persistent_asthma) && encounters>=2;
   }
   
