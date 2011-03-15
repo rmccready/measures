@@ -7,9 +7,9 @@
 (function () {
   var root = this;
 
-  // Returns count of number of diagnoses that occured within 1 day of an encounter
-  root.eventDuringEncounter = function (event, encounter, startTimeRange, endTimeRange) {
-    if (!event || !encounter) {
+  // Returns count of something that occured within 1 day of an encounter
+  root.somethingDuringEncounter = function (something, encounter, startTimeRange, endTimeRange) {
+    if (!something || !encounter) {
       return (0);
     }
 
@@ -17,19 +17,19 @@
     var i, j;
     var day = 24 * 60 * 60;
 
-    if (!_.isArray(event)) {
-      event = [event];
+    if (!_.isArray(something)) {
+      something = [something];
     }
     if (!_.isArray(encounter)) {
       encounter = [encounter];
     }
-    // for each event, see if there is an encounter within 1 day
-    for (i = 0; i < event.length; i++) {
-      if (!event[i] || event[i] > endTimeRange || event[i] < startTimeRange) {
+    // for each something, see if there is an encounter within 1 day
+    for (i = 0; i < something.length; i++) {
+      if (!something[i] || something[i] > endTimeRange || something[i] < startTimeRange) {
         continue;
       }
-      window_start = event[i] - day;
-      window_end = event[i] + day;
+      window_start = something[i] - day;
+      window_end = something[i] + day;
       for (j = 0; j < encounter.length; j++) {
         if (!encounter[i] || encounter[i] > endTimeRange || encounter[i] < startTimeRange) {
           continue;
@@ -43,26 +43,14 @@
 
   };
 
+  // Returns count of diagnoses that occured within 1 day of an encounter
+  root.eventDuringEncounter = function (event, encounter, startTimeRange, endTimeRange) {
+    return root.somethingDuringEncounter(event, encounter, startTimeRange, endTimeRange);
+  };
 
-  // Returns count of number of diagnoses that occured within 1 day of an encounter
+  // Returns count of diagnoses that occured within 1 day of an encounter
   root.diagnosisDuringEncounter = function (diagnosis, encounter, startTimeRange, endTimeRange) {
-    var day = 24 * 60 * 60;
-    if (!diagnosis || !encounter) return (0);
-
-    var result = 0;
-    if (!_.isArray(diagnosis)) diagnosis = [diagnosis];
-    if (!_.isArray(encounter)) encounter = [encounter];
-    // for each diagnosis, see if there is an encounter within 1 day
-    for (var i = 0; i < diagnosis.length; i++) {
-      if (!diagnosis[i] || diagnosis[i] > endTimeRange || diagnosis[i] < startTimeRange) continue;
-      window_start = diagnosis[i] - day;
-      window_end = diagnosis[i] + day;
-      for (var j = 0; j < encounter.length; j++) {
-        if (!encounter[i] || encounter[i] > endTimeRange || encounter[i] < startTimeRange) continue;
-        if (encounter[j] >= window_start && encounter[j] <= window_end) result++;
-      }
-    }
-    return result;
+    return root.somethingDuringEncounter(diagnosis, encounter, startTimeRange, endTimeRange);
   }
 
   // Returns count of number of somethings that are followed by at least one action
