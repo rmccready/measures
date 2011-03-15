@@ -20,20 +20,23 @@ function () {
   }
   
   var denominator = function() {
-    total_colectomy = measure.total_colectomy_procedure_performed!=null && lessThan(measure.total_colectomy_procedure_performed, effective_date);
-    encounter = inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
+    var total_colectomy = measure.total_colectomy_procedure_performed!=null && lessThan(measure.total_colectomy_procedure_performed, effective_date);
+    var encounter = inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
     return encounter && !total_colectomy;
   }
   
   var numerator = function() {
-    colonoscopy = inRange(measure.colonoscopy_procedure_performed, ten_years, effective_date);
-    sigmoidoscopy = inRange(measure.flexible_sigmoidoscopy_procedure_performed, five_years, effective_date);
-    fobt = inRange(measure.fobt_laboratory_test_performed, one_year, effective_date);
+    var colonoscopy = inRange(measure.colonoscopy_procedure_performed, ten_years, effective_date);
+    var sigmoidoscopy = inRange(measure.flexible_sigmoidoscopy_procedure_performed, five_years, effective_date);
+    var fobt = inRange(measure.fobt_laboratory_test_performed, one_year, effective_date);
     return colonoscopy || sigmoidoscopy || fobt;
   }
   
   var exclusion = function() {
-    return inRange(measure.colorectal_cancer_diagnosis_active, one_year, effective_date);
+    return ( lessThan(measure.colorectal_cancer_diagnosis_active, effective_date) +
+             lessThan(measure.colorectal_cancer_diagnosis_inactive, effective_date) +
+             lessThan(measure.colorectal_cancer_diagnosis_resolved, effective_date));
+             
   }
   
   map(patient, population, denominator, numerator, exclusion);
