@@ -11,7 +11,6 @@ function () {
   var effective_date = <%= effective_date %>;
   var latest_birthdate = effective_date - 18*year;
   var earliest_encounter = effective_date - 1*year;
-  var first_diagnosis = null;
   var all_encounters = _.flatten(_.compact([
     measure.encounter_inpatient_discharge_encounter,
     measure.encounter_nursing_facility_encounter,
