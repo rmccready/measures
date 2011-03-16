@@ -14,13 +14,13 @@ function () {
   var all_encounters = _.flatten(_.compact([
     measure.encounter_nursing_facility_encounter,
     measure.encounter_outpatient_encounter]));
-  var encounters_in_range = inRange(all_encounters, earliest_encounter, effective_date);
   
   var population = function() {
     var cad_before_encounter = actionAfterSomething(
       measure.coronary_artery_disease_includes_mi_diagnosis_active, all_encounters);
     var surgery_before_encounter = actionAfterSomething(
       measure.cardiac_surgery_procedure_performed, all_encounters);
+    var encounters_in_range = inRange(all_encounters, earliest_encounter, effective_date);
       
     return (patient.birthdate<=latest_birthdate) && 
       (cad_before_encounter || surgery_before_encounter) &&
@@ -53,7 +53,7 @@ function () {
     var system = inRange(measure.system_reason_medication_not_done, 
       earliest_encounter, effective_date);
 
-    var final_encounter = _.max(encounters_in_range);
+    var final_encounter = _.max(selectWithinRange(all_encounters, earliest_encounter, effective_date));
     var ldl = latestValueInDateRange(measure.ldl_laboratory_test_laboratory_test_result,
       patient.birthdate, final_encounter, 200);
     var normal_ldl = (ldl<130);
