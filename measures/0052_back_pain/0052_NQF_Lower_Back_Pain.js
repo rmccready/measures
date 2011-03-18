@@ -19,9 +19,7 @@ function () {
   }
   
   var denominator = function() {
-    if (!measure.low_back_pain_diagnosis_active)
-      return false;
-    var all_diagnoses = selectWithinRange(measure.low_back_pain_diagnosis_active,
+    var all_diagnoses = selectWithinRange(normalize(measure.low_back_pain_diagnosis_active),
       earliest_encounter, effective_date);
     if (all_diagnoses==null || all_diagnoses.length==0)
       return false; // no need to check this further at the end of the function

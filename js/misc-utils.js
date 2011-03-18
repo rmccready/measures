@@ -6,23 +6,22 @@
 // connection.
 (function () {
   var root = this;
+  
+  // Takes an arbitrary number of arrays and single values and returns a flattened
+  // array of all of the elements with any null values removed.
+  root.normalize = function() {
+    return _.compact(_.flatten(arguments));
+  }
 
   // Returns count of something that occured within 1 day of an encounter
   root.somethingDuringEncounter = function (something, encounter, startTimeRange, endTimeRange) {
-    if (!something || !encounter) {
-      return (0);
-    }
-
     var result = 0;
     var i, j;
     var day = 24 * 60 * 60;
 
-    if (!_.isArray(something)) {
-      something = [something];
-    }
-    if (!_.isArray(encounter)) {
-      encounter = [encounter];
-    }
+    something = root.normalize(something);
+    encounter = root.normalize(encounter);
+
     // for each something, see if there is an encounter within 1 day
     for (i = 0; i < something.length; i++) {
       if (!something[i] || something[i] > endTimeRange || something[i] < startTimeRange) {
@@ -55,8 +54,8 @@
 
   // Returns count of number of somethings that are followed by at least one action
   root.actionAfterSomething = function (something, action) {
-    if (!_.isArray(something)) something = [something];
-    if (!_.isArray(action)) action = [action];
+    something = root.normalize(something);
+    action = root.normalize(action);
 
     var result = 0;
     for (var i = 0; i < something.length; i++) {
@@ -70,8 +69,8 @@
 
   // Returns count of number of readings that are followed by at least one action
   root.actionAfterReading = function (readings, action) {
-    if (!_.isArray(readings)) readings = [readings];
-    if (!_.isArray(action)) action = [action];
+    readings = root.normalize(readings);
+    action = root.normalize(action);
 
     var results = 0; // number of readings that are followed by an action
     for (var i = 0; i < readings.length; i++) {
