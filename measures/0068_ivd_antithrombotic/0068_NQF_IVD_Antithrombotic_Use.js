@@ -30,7 +30,7 @@ function () {
  }
 
   var numerator = function() {
-   meds = inRange(measure.oral_anti_platelet_therapy_medication_active,    earliest_encounter, effective_date) +
+    meds = inRange(measure.oral_anti_platelet_therapy_medication_active,    earliest_encounter, effective_date) +
           inRange(measure.oral_anti_platelet_therapy_medication_order,     earliest_encounter, effective_date) +
           inRange(measure.oral_anti_platelet_therapy_medication_dispensed, earliest_encounter, effective_date);
     return meds;
