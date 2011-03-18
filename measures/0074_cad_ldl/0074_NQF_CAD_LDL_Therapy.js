@@ -11,9 +11,9 @@ function () {
   var effective_date = <%= effective_date %>;
   var latest_birthdate = effective_date - 18*year;
   var earliest_encounter = effective_date - 1*year;
-  var all_encounters = _.flatten(_.compact([
+  var all_encounters = normalize(
     measure.encounter_nursing_facility_encounter,
-    measure.encounter_outpatient_encounter]));
+    measure.encounter_outpatient_encounter);
   
   var population = function() {
     var cad_before_encounter = actionAfterSomething(
@@ -53,10 +53,12 @@ function () {
     var system = inRange(measure.system_reason_medication_not_done, 
       earliest_encounter, effective_date);
 
+    // we have to have at least 2 encounter to get this far
+    var MAX_NORMAL_LDL = 130;
     var final_encounter = _.max(selectWithinRange(all_encounters, earliest_encounter, effective_date));
     var ldl = latestValueInDateRange(measure.ldl_laboratory_test_laboratory_test_result,
-      patient.birthdate, final_encounter, 200);
-    var normal_ldl = (ldl<130);
+      patient.birthdate, final_encounter, MAX_NORMAL_LDL+1);
+    var normal_ldl = (ldl<MAX_NORMAL_LDL);
       
     return (allergy || adverse || intollerence || patient || medical || system || normal_ldl);
   }

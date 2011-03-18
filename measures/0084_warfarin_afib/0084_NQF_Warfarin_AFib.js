@@ -11,9 +11,9 @@ function () {
   var effective_date = <%= effective_date %>;
   var latest_birthdate = effective_date - 18*year;
   var earliest_encounter = effective_date - 1*year;
-  var all_encounters = _.flatten(_.compact([
+  var all_encounters = normalize(
     measure.encounter_nursing_facility_encounter,
-    measure.encounter_outpatient_encounter]));
+    measure.encounter_outpatient_encounter);
   
   var population = function() {
     var hf_before_encounter = actionAfterSomething(
