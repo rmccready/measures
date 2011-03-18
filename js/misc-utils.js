@@ -40,7 +40,6 @@
       }
     }
     return result;
-
   };
 
   // Returns count of diagnoses that occured within 1 day of an encounter
@@ -72,7 +71,6 @@
   root.actionAfterReading = function (readings, action) {
     if (!_.isArray(readings)) readings = [readings];
     if (!_.isArray(action)) action = [action];
-
     var results = 0; // number of readings that are followed by an action
     for (var i = 0; i < readings.length; i++) {
       if (!readings[i]) continue;
@@ -85,7 +83,6 @@
       if (result > 0) results++; // if there are any actions that follow this reading, increment results
     }
     return results;
-
   };
 
   // Returns the min readings[i].value where readings[i].date is in
@@ -118,6 +115,5 @@
     });
     return (_.uniq(dates));
   };
-
 
 })();

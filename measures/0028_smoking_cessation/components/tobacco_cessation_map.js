@@ -22,7 +22,6 @@ function () {
                                       measure.encounter_prev_med_group_counseling_encounter])), earliest_encounter, latest_encounter);
   var last_encounter_in_measurement_period = _.max(all_encounters_in_measurement_period);
 
-  
   var population = function() {
     // look for appropriate encounters within measurement period
     var other_encounters = 

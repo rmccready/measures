@@ -11,7 +11,6 @@ function () {
   var earliest_birthdate =  effective_date - 2 * year;
   var latest_birthdate =    effective_date - 1 * year;
 
-
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
   }
@@ -29,8 +28,6 @@ function () {
   var numerator = function() {
     return(hep_a_numerator(measure, patient.birthdate, effective_date));
   }
-
-
 
   // Exclude patients who have an allergy to hepatitis A vaccine
   var exclusion = function() {
