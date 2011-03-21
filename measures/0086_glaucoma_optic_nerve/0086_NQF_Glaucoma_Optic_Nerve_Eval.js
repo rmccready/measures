@@ -11,11 +11,11 @@ function () {
   var effective_date = <%= effective_date %>;
   var latest_birthdate = effective_date - 18*year;
   var earliest_encounter = effective_date - 1*year;
-  var all_encounters = _.flatten(_.compact([
+  var all_encounters = normalize(
     measure.encounter_domiciliary_encounter,
     measure.encounter_nursing_facility_encounter,
     measure.encounter_office_outpatient_consult_encounter,
-    measure.encounter_ophthalmological_services_encounter]));
+    measure.encounter_ophthalmological_services_encounter);
   
   var population = function() {
     var poag_before_encounter = actionAfterSomething(
