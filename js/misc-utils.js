@@ -68,14 +68,8 @@
 
   // Returns count of number of readings that are followed by at least one action
   root.actionAfterReading = function (readings, action) {
-<<<<<<< HEAD
     if (!_.isArray(readings)) readings = [readings];
     if (!_.isArray(action)) action = [action];
-=======
-    readings = root.normalize(readings);
-    action = root.normalize(action);
-
->>>>>>> marc/master
     var results = 0; // number of readings that are followed by an action
     for (var i = 0; i < readings.length; i++) {
       if (!readings[i]) continue;

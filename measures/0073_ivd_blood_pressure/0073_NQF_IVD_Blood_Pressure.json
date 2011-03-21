@@ -68,12 +68,16 @@
         ]
       },
       {
-        "category": "Encounter",
-        "title": "Acute inpatient and outpatient encounter <=2 years, inclusive, before the measurement end date"
-      },
-      {
-        "category": "Diagnosis",
-        "title": "Ischemic vascular disease active during acute inpatient and outpatient encounter"
+        "and": [
+          {
+            "category": "Encounter",
+            "title": "Acute inpatient and outpatient encounter <=2 years, inclusive, before the measurement end date"
+          },
+          {
+            "category": "Diagnosis",
+            "title": "Ischemic vascular disease active during acute inpatient and outpatient encounter"
+          }
+        ]
       }
     ]
   },
@@ -81,11 +85,11 @@
     "and": [
       {
         "category": "Physical exam finding",
-        "title": "Systolic blood pressure minimum < 140 mmHg during most recent encounter acute inpatient and outpatient"
+        "title": "Systolic blood pressure minimum < 140 mmHg during most recent encounter, acute inpatient and outpatient"
       },
       {
         "category": "Physical exam finding",
-        "title": "Diastolic blood pressure minimum < 90 mmHg during most recent encounter acute inpatient and outpatient"
+        "title": "Diastolic blood pressure minimum < 90 mmHg during most recent encounter, acute inpatient and outpatient"
       }
     ]
   },
