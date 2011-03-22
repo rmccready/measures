@@ -28,10 +28,10 @@
 
   // dtap -- exclusion 1
   root.dtap_exclusion = function (measure, birthdate, effective_date) {
-    many_exclusions = _.flatten(_.compact([
+    many_exclusions = normalize(
       measure.dtap_vaccine_medication_allergy,
       measure.encephalopathy_diagnosis_active,
-      measure.progressive_neurologic_disorder_diagnosis_active]));
+      measure.progressive_neurologic_disorder_diagnosis_active);
     return (inRange(many_exclusions, birthdate, effective_date));
   };
   /// IPV -- numerator 2
@@ -48,11 +48,11 @@
 
   // IPC -- exclusion 2 Exclude patients who have an allergy to ipv Vaccine and various medications
   root.ipv_exclusion = function (measure, birthdate, effective_date) {
-    var many_exclusions = _.flatten(_.compact([
+    var many_exclusions = normalize(
       measure.ipv_medication_allergy,
       measure.neomycin_medication_allergy,
       measure.streptomycin_medication_allergy,
-      measure.polymyxin_medication_allergy]));
+      measure.polymyxin_medication_allergy);
     return (inRange(many_exclusions, birthdate, effective_date));
 
   };
@@ -79,7 +79,7 @@
   };
 
   root.mmr_exclusion = function (measure, birthdate, effective_date) {
-    many_exclusions = _.flatten(_.compact([
+    many_exclusions = normalize(
       measure.cancer_of_lymphoreticular_or_histiocytic_tissue_diagnosis_active,
       measure.cancer_of_lymphoreticular_or_histiocytic_tissue_diagnosis_inactive,
       measure.hiv_disease_diagnosis_active,
@@ -88,7 +88,7 @@
       measure.immunodeficiency_diagnosis_active,
       measure.measles_vaccine_medication_allergy,
       measure.mumps_vaccine_medication_allergy,
-      measure.rubella_vaccine_medication_allergy]));
+      measure.rubella_vaccine_medication_allergy);
     return (inRange(many_exclusions, birthdate, effective_date));
 
   };
@@ -146,14 +146,14 @@
   // Exclude patients who have either Lymphoreticular or Histiocytic cancer, or Asymptomatic HIV,
   // or Multiple Myeloma, or Leukemia, or Immunodeficiency, or medication allergy to VZV vaccine
   root.vzv_exclusion = function (measure, birthdate, effective_date) {
-    many_exclusions = _.flatten(_.compact([
+    many_exclusions = normalize(
       measure.cancer_of_lymphoreticular_or_histiocytic_tissue_diagnosis_active,
       measure.cancer_of_lymphoreticular_or_histiocytic_tissue_diagnosis_inactive,
       measure.hiv_disease_diagnosis_active,
       measure.multiple_myeloma_diagnosis_active,
       measure.leukemia_diagnosis_active,
       measure.immunodeficiency_diagnosis_active,
-      measure.vzv_vaccine_medication_allergy]));
+      measure.vzv_vaccine_medication_allergy);
     return (inRange(many_exclusions, birthdate, effective_date));
 
   };
@@ -223,14 +223,14 @@
 
 
   root.inf_exclusion = function (measure, birthdate, effective_date) {
-    many_exclusions = _.flatten(_.compact([
+    many_exclusions = normalize(
       measure.cancer_of_lymphoreticular_or_histiocytic_tissue_diagnosis_active,
       measure.cancer_of_lymphoreticular_or_histiocytic_tissue_diagnosis_inactive,
       measure.hiv_disease_diagnosis_active, 
       measure.multiple_myeloma_diagnosis_active,
       measure.leukemia_diagnosis_active,
       measure.influenza_vaccine_medication_allergy, 
-      measure.immunodeficiency_diagnosis_active]));
+      measure.immunodeficiency_diagnosis_active);
     return (inRange(many_exclusions, birthdate, effective_date));
   };
 
