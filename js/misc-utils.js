@@ -7,104 +7,55 @@
 (function () {
   var root = this;
   
-  // Takes an arbitrary number of arrays and single values and returns a flattened
-  // array of all of the elements with any null values removed.
-  root.normalize = function() {
-    return _.compact(_.flatten(arguments));
+  var between = function(value, start, end) {
+    return (value>=start && value<=end);
   }
-
+  
   // Returns count of something that occured within 1 day of an encounter
-  root.somethingDuringEncounter = function (something, encounter, startTimeRange, endTimeRange) {
+  root.somethingDuringEncounter = function (somethings, encounters, startTimeRange, endTimeRange) {
     var result = 0;
     var i, j;
     var day = 24 * 60 * 60;
+    
+    if (startTimeRange===undefined)
+      startTimeRange=-Infinity;
+    if (endTimeRange===undefined)
+      endTimeRange=Infinity;
 
-    something = root.normalize(something);
-    encounter = root.normalize(encounter);
+    somethings = normalize(somethings);
+    encounters = normalize(encounters);
+    
+    somethings_in_range = _.select(somethings, function(val) {return between(val, startTimeRange, endTimeRange);});
+    encounters_in_range = _.select(encounters, function(val) {return between(val, startTimeRange, endTimeRange);});
 
-    // for each something, see if there is an encounter within 1 day
-    for (i = 0; i < something.length; i++) {
-      if (!something[i] || something[i] > endTimeRange || something[i] < startTimeRange) {
-        continue;
-      }
-      window_start = something[i] - day;
-      window_end = something[i] + day;
-      for (j = 0; j < encounter.length; j++) {
-        if (!encounter[i] || encounter[i] > endTimeRange || encounter[i] < startTimeRange) {
-          continue;
-        }
-        if (encounter[j] >= window_start && encounter[j] <= window_end) {
-          result++;
-        }
-      }
-    }
-    return result;
-
+    matching = _.select(somethings_in_range, function(something) {
+      window_start = something - day;
+      window_end = something + day;
+      // true if any encounters are within 24hrs of the something
+      return _.any(encounters_in_range, function(enc) {
+        return between(enc, window_start, window_end);
+      });
+    });
+    
+    return matching.length;
   };
 
   // Returns count of diagnoses that occured within 1 day of an encounter
   root.eventDuringEncounter = function (event, encounter, startTimeRange, endTimeRange) {
-    return root.somethingDuringEncounter(event, encounter, startTimeRange, endTimeRange);
+    return somethingDuringEncounter(event, encounter, startTimeRange, endTimeRange);
   };
 
   // Returns count of diagnoses that occured within 1 day of an encounter
   root.diagnosisDuringEncounter = function (diagnosis, encounter, startTimeRange, endTimeRange) {
-    return root.somethingDuringEncounter(diagnosis, encounter, startTimeRange, endTimeRange);
-  }
-
-  // Returns count of number of somethings that are followed by at least one action
-  root.actionAfterSomething = function (something, action) {
-    something = root.normalize(something);
-    action = root.normalize(action);
-
-    var result = 0;
-    for (var i = 0; i < something.length; i++) {
-      var timeStamp = something[i];
-      for (var j = 0; j < action.length; j++) {
-        if (action[j] >= timeStamp) result++;
-      }
-    }
-    return result;
+    return somethingDuringEncounter(diagnosis, encounter, startTimeRange, endTimeRange);
   }
 
   // Returns count of number of readings that are followed by at least one action
   root.actionAfterReading = function (readings, action) {
-    readings = root.normalize(readings);
-    action = root.normalize(action);
-
-    var results = 0; // number of readings that are followed by an action
-    for (var i = 0; i < readings.length; i++) {
-      if (!readings[i]) continue;
-      var timeStamp = readings[i].date;
-      var result = 0; // number of actions that follow a particular reading
-      for (var j = 0; j < action.length; j++) {
-        if (!action[j]) continue;
-        if (action[j] >= timeStamp) result++;
-      }
-      if (result > 0) results++; // if there are any actions that follow this reading, increment results
-    }
-    return results;
-
-  };
-
-  // Returns the min readings[i].value where readings[i].date is in
-  // the supplied startDate and endDate. If no reading meet this criteria,
-  // returns defaultValue.
-  root.minValueInDateRange = function (readings, startDate, endDate, defaultValue) {
-    var readingInDateRange = function (reading) {
-      var result = inRange(reading.date, startDate, endDate);
-      return result;
-    };
-
-    if (!readings || readings.length < 1) return defaultValue;
-
-    var allInDateRange = _.select(readings, readingInDateRange);
-    var lowest = _.min(allInDateRange, function (reading) {
-      return reading.value;
-    });
-    if (lowest) return lowest.value;
-    else
-    return defaultValue;
+    readings = normalize(readings);
+    action = normalize(action);
+    reading_dates = _.pluck(readings, 'date');
+    return actionAfterSomething(reading_dates, action);
   };
 
   //  unique_dates:  list of unique dates in a list of times
