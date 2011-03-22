@@ -30,7 +30,9 @@ function () {
     latestValue = latestValueInDateRange(measure.hba1c_test_laboratory_test_result, 
                                          period_start, 
                                          effective_date,
-                                         0.0);
+                                         false);
+    if (latestValue===false)
+      return false;
     return latestValue > 9.0;
   }
 

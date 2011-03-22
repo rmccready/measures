@@ -28,12 +28,12 @@ function () {
     var population = function () {
 
         var num_outpatient_encounters = inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
-        var other_encounters = _.flatten(_.compact(new Array(
+        var other_encounters = normalize(
           measure.encounter_prev_med_40_and_older_encounter, 
           measure.encounter_prev_med_individual_counseling_encounter, 
           measure.encounter_prev_med_other_services_encounter, 
           measure.encounter_nursing_facility_encounter, 
-          measure.encounter_nursing_discharge_encounter)));
+          measure.encounter_nursing_discharge_encounter);
         var num_other_encounters = inRange(other_encounters, earliest_encounter, effective_date);
         return (patient.birthdate <= earliest_birthdate && (num_outpatient_encounters > 1 || num_other_encounters > 0));
 
@@ -48,7 +48,7 @@ function () {
     };
 
     var exclusion = function () {
-        many_exclusions = _.flatten(_.compact(new Array(
+        many_exclusions = normalize(
           measure.allergy_to_eggs_substance_allergy,
           measure.influenza_vaccine_medication_allergy,
           measure.influenza_vaccine_medication_adverse_event,
@@ -59,7 +59,7 @@ function () {
           measure.medical_reason_medication_not_done,
           measure.system_reason_medication_not_done,
           measure.influenza_vaccination_procedure_adverse_event,
-          measure.influenza_vaccination_procedure_intolerance)));
+          measure.influenza_vaccination_procedure_intolerance);
         return (many_exclusions.length > 0);
     };
 
