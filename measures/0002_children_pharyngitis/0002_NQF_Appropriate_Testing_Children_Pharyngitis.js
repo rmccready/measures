@@ -21,7 +21,7 @@ function () {
   
   var denominator = function() {
 
-    var encounters = measure.encounter_ambulatory_including_pediatrics_encounter
+    var encounters = normalize(measure.encounter_ambulatory_including_pediatrics_encounter)
     if (!inRange(encounters, earliest_encounter, effective_date))
       return false;
 
@@ -29,11 +29,9 @@ function () {
       return false;
     }
       
-    if (!_.isArray(encounters))
-      encounters = [encounters];
-    var meds = _.flatten(_.compact( [ measure.pharyngitis_antibiotics_medication_dispensed, 
-                                      measure.pharyngitis_antibiotics_medication_order, 
-                                      measure.pharyngitis_antibiotics_medication_active ]));
+    var meds = normalize(measure.pharyngitis_antibiotics_medication_dispensed, 
+                         measure.pharyngitis_antibiotics_medication_order, 
+                         measure.pharyngitis_antibiotics_medication_active );
     var result = 0;
     var threeDays = 3 * day;
     var thirtyDays = 30 * day;

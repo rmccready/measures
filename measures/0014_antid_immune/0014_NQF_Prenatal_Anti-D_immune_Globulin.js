@@ -11,7 +11,8 @@ function () {
   var effective_date =  <%= effective_date %>;
   var earliest_encounter = effective_date - year;
   var estimated_conception = null;
-  if (measure.estimated_date_of_conception_patient_characteristic)
+  var estimated_dates_of_conception = normalize(measure.estimated_date_of_conception_patient_characteristic);
+  if (estimated_dates_of_conception.length>0)
     estimated_conception = _.max(measure.estimated_date_of_conception_patient_characteristic);
   var delivery_date = maxInRange(measure.delivery_live_births_procedure_procedure_performed, earliest_encounter, effective_date);
 

@@ -13,29 +13,21 @@ function () {
   var earliest_encounter = effective_date - 1*year;
   var earliest_cessation_method_date = effective_date - 2*year;
   var latest_encounter = effective_date;
-  var all_encounters_in_measurement_period = selectWithinRange(_.flatten(_.compact( [ measure.encounter_health_and_behavior_assessment_encounter, 
-                                      measure.encounter_occupational_therapy_encounter, 
-                                      measure.encounter_psychiatric_psychologic_encounter,
-                                      measure.encounter_prev_med_services_18_and_older_encounter,
-                                      measure.encounter_prev_med_other_services_encounter,
-                                      measure.encounter_prev_med_individual_counseling_encounter,
-                                      measure.encounter_prev_med_group_counseling_encounter])), earliest_encounter, latest_encounter);
+  var preventive_encounters = normalize(measure.encounter_prev_med_services_18_and_older_encounter,
+    measure.encounter_prev_med_other_services_encounter,
+    measure.encounter_prev_med_individual_counseling_encounter,
+    measure.encounter_prev_med_group_counseling_encounter);
+  var other_encounters = normalize(measure.encounter_health_and_behavior_assessment_encounter,
+    measure.encounter_occupational_therapy_encounter,
+    measure.encounter_office_visit_encounter,
+    measure.encounter_psychiatric_psychologic_encounter);
+  var all_encounters = normalize(preventive_encounters, other_encounters);
+  var all_encounters_in_measurement_period = selectWithinRange(all_encounters, earliest_encounter, latest_encounter);
   var last_encounter_in_measurement_period = _.max(all_encounters_in_measurement_period);
 
   
   var population = function() {
-    // look for appropriate encounters within measurement period
-    var other_encounters = 
-      inRange(measure.encounter_health_and_behavior_assessment_encounter, earliest_encounter, effective_date) +
-      inRange(measure.encounter_occupational_therapy_encounter, earliest_encounter, effective_date) +
-      inRange(measure.encounter_office_visit_encounter, earliest_encounter, effective_date) +
-      inRange(measure.encounter_psychiatric_psychologic_encounter, earliest_encounter, effective_date);
-    var preventive_encounters = 
-      inRange(measure.encounter_prev_med_services_18_and_older_encounter, earliest_encounter, effective_date) +
-      inRange(measure.encounter_prev_med_other_services_encounter, earliest_encounter, effective_date) +
-      inRange(measure.encounter_prev_med_individual_counseling_encounter, earliest_encounter, effective_date) +
-      inRange(measure.encounter_prev_med_group_counseling_encounter, earliest_encounter, effective_date);
-    return (patient.birthdate<=latest_birthdate && (other_encounters>1 || preventive_encounters>0));
+    return (patient.birthdate<=latest_birthdate && (other_encounters.length>1 || preventive_encounters.length>0));
   }
   
   var denominator = function() {

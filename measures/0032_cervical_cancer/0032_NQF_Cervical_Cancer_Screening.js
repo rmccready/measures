@@ -20,7 +20,8 @@ function () {
   var denominator = function() {
     var outpatient_encounter = inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
     var obgyn_encounter = inRange(measure.encounter_ob_gyn_encounter, earliest_encounter, effective_date);
-    var no_hysterectomy = (measure.hysterectomy_procedure_performed==null || _.min(measure.hysterectomy_procedure_performed)>=effective_date);
+    var hysterectomies = normalize(measure.hysterectomy_procedure_performed);
+    var no_hysterectomy = hysterectomies.length==0 || (_.min(hysterectomies)>=effective_date);
     return ((outpatient_encounter || obgyn_encounter) && no_hysterectomy);
   }
   

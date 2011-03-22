@@ -20,7 +20,7 @@ function () {
   }
   
   var denominator = function() {
-    var total_colectomy = measure.total_colectomy_procedure_performed!=null && lessThan(measure.total_colectomy_procedure_performed, effective_date);
+    var total_colectomy = lessThan(measure.total_colectomy_procedure_performed, effective_date);
     var encounter = inRange(measure.encounter_outpatient_encounter, earliest_encounter, effective_date);
     return encounter && !total_colectomy;
   }

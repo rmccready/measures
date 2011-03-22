@@ -28,7 +28,7 @@ function () {
   }
   
   var numerator = function() {
-    var latest_encounter = _.max(_.select(measure.encounter_outpatient_encounter, function(when){return inRange(when, period_start, effective_date); }));
+    var latest_encounter = maxInRange(measure.encounter_outpatient_encounter, period_start, effective_date);
     // for measure purposes a BP reading is considered to be *during* an encounter if its timestamp
     // is between 24 hours before and 24 hours after the timestamp of the encounter
     var start_latest_encounter = latest_encounter-day;
