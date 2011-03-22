@@ -4,7 +4,6 @@
   "last": "Idol",
   "gender": "M",
   "birthdate": 645408000,   // Time.gm(1990, 6, 15).to_i
-   "birthdate": 645408000,   // Time.gm(1990, 6, 15).to_i
   "measures": {             // bag of measures, one entry per measure
     "0105": {
       "encounter_outpt_bh_encounter": [1262304000],  // Time.gm(2010, 1, 1).to_i
