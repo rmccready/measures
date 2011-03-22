@@ -55,7 +55,7 @@ The percentage of patients 18 years of age and older who were discharged alive f
   // Returns the number of actions that occur after
   // something. The first two arguments are arrays or single-valued time stamps in
   // seconds-since-the-epoch.
-  var actionAfterSomething = function(something, action) {
+  var actionFollowingSomething = function(something, action) {
     if (!_.isArray(something))
       something = [something];
     if (!_.isArray(action))

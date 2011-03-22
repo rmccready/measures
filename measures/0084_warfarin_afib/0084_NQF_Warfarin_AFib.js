@@ -16,7 +16,7 @@ function () {
     measure.encounter_outpatient_encounter);
   
   var population = function() {
-    var hf_before_encounter = actionAfterSomething(
+    var hf_before_encounter = actionFollowingSomething(
       measure.heart_failure_diagnosis_active, all_encounters);
     var encounters_in_range = inRange(all_encounters, earliest_encounter, effective_date);
       
@@ -38,11 +38,11 @@ function () {
   }
   
   var exclusion = function() {
-    var allergy = actionAfterSomething(
+    var allergy = actionFollowingSomething(
       measure.warfarin_therapy_medication_allergy, all_encounters);
-    var adverse = actionAfterSomething(
+    var adverse = actionFollowingSomething(
       measure.warfarin_therapy_medication_adverse_event, all_encounters);
-    var intollerence = actionAfterSomething(
+    var intollerence = actionFollowingSomething(
       measure.warfarin_therapy_medication_intolerance, all_encounters);
     var patient = inRange(measure.patient_reason_medication_not_done, 
       earliest_encounter, effective_date);
@@ -51,21 +51,21 @@ function () {
     var system = inRange(measure.system_reason_medication_not_done, 
       earliest_encounter, effective_date);
       
-    var anemia = actionAfterSomething(
+    var anemia = actionFollowingSomething(
       measure.anemias_and_bleeding_disorders_diagnosis_active, all_encounters);
-    var esophageal = actionAfterSomething(
+    var esophageal = actionFollowingSomething(
       measure.esophageal_and_gi_bleed_diagnosis_active, all_encounters);
-    var intracranial = actionAfterSomething(
+    var intracranial = actionFollowingSomething(
       measure.intracranial_hemorrhage_diagnosis_active, all_encounters);
-    var leukemias = actionAfterSomething(
+    var leukemias = actionFollowingSomething(
       measure.leukemias_myeloproliferative_disorders_diagnosis_active, all_encounters);
-    var hematuria = actionAfterSomething(
+    var hematuria = actionFollowingSomething(
       measure.hematuria_diagnosis_active, all_encounters);
-    var hemoptysis = actionAfterSomething(
+    var hemoptysis = actionFollowingSomething(
       measure.hemoptysis_diagnosis_active, all_encounters);
-    var hemorrhage = actionAfterSomething(
+    var hemorrhage = actionFollowingSomething(
       measure.hemorrhage_diagnosis_active, all_encounters);
-    var liver = actionAfterSomething(
+    var liver = actionFollowingSomething(
       measure.liver_disorders_diagnosis_active, all_encounters);
       
     return (allergy || adverse || intollerence || patient || medical || system || anemia ||

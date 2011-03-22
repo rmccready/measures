@@ -17,7 +17,7 @@ function () {
   var encounters_in_range = selectWithinRange(all_encounters, earliest_encounter, effective_date);
   
   var population = function() {
-    var hf_before_encounter = actionAfterSomething(
+    var hf_before_encounter = actionFollowingSomething(
       measure.heart_failure_diagnosis_active, all_encounters);
     var encounters_in_range = inRange(all_encounters, earliest_encounter, effective_date);
       
@@ -43,11 +43,11 @@ function () {
   }
   
   var exclusion = function() {
-    var allergy = actionAfterSomething(
+    var allergy = actionFollowingSomething(
       measure.beta_blocker_therapy_medication_allergy, all_encounters);
-    var adverse = actionAfterSomething(
+    var adverse = actionFollowingSomething(
       measure.beta_blocker_therapy_medication_adverse_event, all_encounters);
-    var intollerence = actionAfterSomething(
+    var intollerence = actionFollowingSomething(
       measure.beta_blocker_therapy_medication_intolerance, all_encounters);
     var patient = inRange(measure.patient_reason_medication_not_done, 
       earliest_encounter, effective_date);
@@ -56,21 +56,21 @@ function () {
     var system = inRange(measure.system_reason_medication_not_done, 
       earliest_encounter, effective_date);
       
-    var arrhythmia = actionAfterSomething(
+    var arrhythmia = actionFollowingSomething(
       measure.arrhythmia_diagnosis_active, all_encounters);
-    var hypotension = actionAfterSomething(
+    var hypotension = actionFollowingSomething(
       measure.hypotension_diagnosis_active, all_encounters);
-    var asthma = actionAfterSomething(
+    var asthma = actionFollowingSomething(
       measure.asthma_diagnosis_active, all_encounters);
-    var block = actionAfterSomething(
+    var block = actionFollowingSomething(
       measure.atrioventricular_block_diagnosis_active, all_encounters);
-    var cardiac_pacer_in_situ = actionAfterSomething(
+    var cardiac_pacer_in_situ = actionFollowingSomething(
       measure.cardiac_pacer_in_situ_diagnosis_active, all_encounters);
-    var cardiac_pacer = actionAfterSomething(
+    var cardiac_pacer = actionFollowingSomething(
       measure.cardiac_pacer_device_applied, all_encounters);
-    var bradycardia = actionAfterSomething(
+    var bradycardia = actionFollowingSomething(
       measure.bradycardia_diagnosis_active, all_encounters);
-    var heart_rate = actionAfterSomething(
+    var heart_rate = actionFollowingSomething(
       measure.heart_rate_physical_exam_finding, all_encounters);
       
     return (allergy || adverse || intollerence || patient || medical || system || 

@@ -55,7 +55,7 @@
     readings = normalize(readings);
     action = normalize(action);
     reading_dates = _.pluck(readings, 'date');
-    return actionAfterSomething(reading_dates, action);
+    return actionFollowingSomething(reading_dates, action);
   };
 
   //  unique_dates:  list of unique dates in a list of times

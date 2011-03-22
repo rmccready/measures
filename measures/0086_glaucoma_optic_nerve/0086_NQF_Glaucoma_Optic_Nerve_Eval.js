@@ -18,7 +18,7 @@ function () {
     measure.encounter_ophthalmological_services_encounter);
   
   var population = function() {
-    var poag_before_encounter = actionAfterSomething(
+    var poag_before_encounter = actionFollowingSomething(
       measure.primary_open_angle_glaucoma_poag_diagnosis_active, all_encounters, 
       earliest_encounter, effective_date);
     var encounters_in_range = inRange(all_encounters, earliest_encounter, effective_date);

@@ -16,9 +16,9 @@ function () {
     measure.encounter_outpatient_encounter);
   
   var population = function() {
-    var cad_before_encounter = actionAfterSomething(
+    var cad_before_encounter = actionFollowingSomething(
       measure.coronary_artery_disease_includes_mi_diagnosis_active, all_encounters);
-    var surgery_before_encounter = actionAfterSomething(
+    var surgery_before_encounter = actionFollowingSomething(
       measure.cardiac_surgery_procedure_performed, all_encounters);
     var encounters_in_range = inRange(all_encounters, earliest_encounter, effective_date);
       
@@ -40,11 +40,11 @@ function () {
   }
   
   var exclusion = function() {
-    var allergy = actionAfterSomething(
+    var allergy = actionFollowingSomething(
       measure.lipid_lowering_therapy_medication_allergy, all_encounters);
-    var adverse = actionAfterSomething(
+    var adverse = actionFollowingSomething(
       measure.lipid_lowering_therapy_medication_adverse_event, all_encounters);
-    var intollerence = actionAfterSomething(
+    var intollerence = actionFollowingSomething(
       measure.lipid_lowering_therapy_medication_intolerance, all_encounters);
     var patient = inRange(measure.patient_reason_medication_not_done, 
       earliest_encounter, effective_date);
