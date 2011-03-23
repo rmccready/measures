@@ -56,17 +56,17 @@
           "category": "Procedure not performed",
           "title": "Procedure indicative of ESRD"
         }
-      ]        
+      ]
     },
     "numerator": {
       "and": [
         {
           "category": "Physical exam finding",
-          "title": "Min diastolic blood pressure < 90mmHg during most recent encounter"
+          "title": "Min diastolic blood pressure < 90 mmHg during most recent encounter"
         },
         {
           "category": "Physical exam finding",
-          "title": "Min systolic blood pressure < 140mmHg during most recent encounter"
+          "title": "Min systolic blood pressure < 140 mmHg during most recent encounter"
         }
       ]        
     },

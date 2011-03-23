@@ -8,7 +8,6 @@
 (function () {
   var day = 24 * 60 * 60;
   var year = 365 * day;
-
   var root = this;
 
   // Denominator function
@@ -22,7 +21,6 @@
     var latest_vaccine = birthdate + 2 * year;
     var number_dtap_vaccine_administered = inRange(unique_dates(measure.dtap_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_dtap_vaccine_procedure = inRange(unique_dates(measure.dtap_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
-
     return (number_dtap_vaccine_administered >= 4 || number_dtap_vaccine_procedure >= 4);
   };
 
@@ -34,6 +32,7 @@
       measure.progressive_neurologic_disorder_diagnosis_active);
     return (inRange(many_exclusions, birthdate, effective_date));
   };
+
   /// IPV -- numerator 2
   root.ipv_numerator = function (measure, birthdate, effective_date) {
     // IPV vaccines are considered when they are occurring >= 42 days and 
@@ -42,7 +41,6 @@
     var latest_vaccine = birthdate + 2 * year;
     var number_ipv_vaccine_administered = inRange(unique_dates(measure.ipv_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_ipv_vaccine_procedure = inRange(unique_dates(measure.ipv_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
-
     return (number_ipv_vaccine_administered >= 3 || number_ipv_vaccine_procedure >= 3);
   };
 
@@ -54,13 +52,12 @@
       measure.streptomycin_medication_allergy,
       measure.polymyxin_medication_allergy);
     return (inRange(many_exclusions, birthdate, effective_date));
-
   };
+  
   /// MMR Numerator 3
   root.mmr_numerator = function (measure, birthdate, effective_date) {
     var latest_vaccine = birthdate + 2 * year;
     var earliest_vaccine = birthdate;
-
     var number_mmr_vaccine_administered = inRange(unique_dates(measure.mmr_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_measles_vaccine_administered = inRange(unique_dates(measure.measles_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_mumps_vaccine_administered = inRange(unique_dates(measure.mumps_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
@@ -69,12 +66,10 @@
     var number_measles_vaccine_procedure = inRange(unique_dates(measure.measles_vaccine_procedure_performed), earliest_vaccine, latest_vaccine);
     var number_mumps_vaccine_procedure = inRange(unique_dates(measure.mumps_vaccine_procedure_performed), earliest_vaccine, latest_vaccine);
     var number_rubella_vaccine_procedure = inRange(unique_dates(measure.rubella_vaccine_procedure_performed), earliest_vaccine, latest_vaccine);
-
     var mmr_criteria = (number_mmr_vaccine_administered >= 1 || number_mmr_vaccine_procedure >= 1);
     var rubella_criteria = (number_rubella_vaccine_administered >= 1 || number_rubella_vaccine_procedure >= 1) || (conditionResolved(measure.rubella_diagnosis_resolved, birthdate, effective_date));
     var measles_criteria = (number_measles_vaccine_administered >= 1 || number_measles_vaccine_procedure >= 1) || (conditionResolved(measure.measles_diagnosis_resolved, birthdate, effective_date));
     var mumps_criteria = (number_mumps_vaccine_administered >= 1 || number_mumps_vaccine_procedure >= 1) || (conditionResolved(measure.mumps_diagnosis_resolved, birthdate, effective_date));
-
     return (mmr_criteria || (rubella_criteria && measles_criteria && mumps_criteria));
   };
 
@@ -90,7 +85,6 @@
       measure.mumps_vaccine_medication_allergy,
       measure.rubella_vaccine_medication_allergy);
     return (inRange(many_exclusions, birthdate, effective_date));
-
   };
 
   // HiB - Numerator 4
@@ -101,7 +95,6 @@
     var latest_vaccine = birthdate + 2 * year;
     var number_hib_vaccine_administered = inRange(unique_dates(measure.hib_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_hib_vaccine_procedure = inRange(unique_dates(measure.hib_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
-
     return (number_hib_vaccine_administered >= 2 || number_hib_vaccine_procedure >= 2);
   };
 
@@ -109,7 +102,6 @@
   root.hib_exclusion = function (measure, birthdate, effective_date) {
     return (inRange(measure.hib_medication_allergy, birthdate, effective_date));
   };
-
 
   // Hepatitis B -- Numerator 5
   root.hep_b_numerator = function (measure, birthdate, effective_date) {
@@ -119,7 +111,6 @@
     var latest_vaccine = birthdate + 2 * year;
     var number_hep_b_vaccine_procedure = inRange(unique_dates(measure.hepatitis_b_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
     var number_hep_b_vaccine_administered = inRange(unique_dates(measure.hepatitis_b_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
-
     return (number_hep_b_vaccine_administered >= 3 || number_hep_b_vaccine_procedure >= 3 || (conditionResolved(measure.hepatitis_b_diagnosis_diagnosis_resolved, birthdate, effective_date)));
   };
 
@@ -135,10 +126,8 @@
   root.vzv_numerator = function (measure, birthdate, effective_date) {
     var latest_vaccine = birthdate + 2 * year;
     var earliest_vaccine = birthdate;
-
     var number_vzv_vaccine_administered = inRange(unique_dates(measure.vzv_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_vzv_vaccine_procedure = inRange(unique_dates(measure.vzv_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
-
     return ((number_vzv_vaccine_administered >= 1 || number_vzv_vaccine_procedure >= 1) || (conditionResolved(measure.vzv_diagnosis_resolved, birthdate, effective_date)));
   };
 
@@ -155,7 +144,6 @@
       measure.immunodeficiency_diagnosis_active,
       measure.vzv_vaccine_medication_allergy);
     return (inRange(many_exclusions, birthdate, effective_date));
-
   };
 
   /// PCV - numerator 7
@@ -166,7 +154,6 @@
     var earliest_vaccine = birthdate;
     var number_pcv_vaccine_administered = inRange(unique_dates(measure.pneumococcal_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_pcv_vaccine_procedure = inRange(unique_dates(measure.pneumococcal_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
-
     return (number_pcv_vaccine_administered >= 4 || number_pcv_vaccine_procedure >= 4);
   };
 
@@ -174,7 +161,6 @@
   root.pcv_exclusion = function (measure, birthdate, effective_date) {
     return (inRange(measure.pneumococcal_vaccine_medication_allergy, birthdate, effective_date));
   };
-
 
   // Hepatitis A -- numerator 8
   root.hep_a_numerator = function (measure, birthdate, effective_date) {
@@ -201,7 +187,6 @@
     var earliest_vaccine = birthdate;
     var number_rv_vaccine_administered = inRange(unique_dates(measure.rotavirus_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_rv_vaccine_procedure = inRange(unique_dates(measure.rotavirus_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
-
     return (number_rv_vaccine_administered >= 2 || number_rv_vaccine_procedure >= 2);
   };
 
@@ -209,6 +194,7 @@
   root.rv_exclusion = function (measure, birthdate, effective_date) {
     return (inRange(measure.rotavirus_vaccine_medication_allergy, birthdate, effective_date));
   };
+
   /// influenza -- numerator 10
   root.inf_numerator = function (measure, birthdate, effective_date) {
     // Influenza vaccines are considered when they are occurring >= 180 days and 
@@ -221,7 +207,6 @@
     return (number_inf_vaccine_administered >= 2 || number_inf_vaccine_procedure >= 2);
   };
 
-
   root.inf_exclusion = function (measure, birthdate, effective_date) {
     many_exclusions = normalize(
       measure.cancer_of_lymphoreticular_or_histiocytic_tissue_diagnosis_active,
@@ -233,7 +218,5 @@
       measure.immunodeficiency_diagnosis_active);
     return (inRange(many_exclusions, birthdate, effective_date));
   };
-
-
 
 })();

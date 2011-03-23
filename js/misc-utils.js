@@ -69,5 +69,4 @@
     return (_.uniq(dates));
   };
 
-
 })();

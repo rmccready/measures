@@ -1,9 +1,9 @@
-{ 
-   "first": "Gossmunder",          
+{
+  "first": "Gossmunder",
   "last": "Thunderfork",
   "gender": "M",
-  "birthdate": 971913600,     
-  "measures": {               
+  "birthdate": 1120780800, // Time.gm(2005, 7, 8).to_i
+  "measures": {
     "0068": {
     }
   }

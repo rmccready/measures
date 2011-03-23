@@ -25,7 +25,6 @@ function () {
   var all_encounters_in_measurement_period = selectWithinRange(all_encounters, earliest_encounter, latest_encounter);
   var last_encounter_in_measurement_period = _.max(all_encounters_in_measurement_period);
 
-  
   var population = function() {
     return (patient.birthdate<=latest_birthdate && (other_encounters.length>1 || preventive_encounters.length>0));
   }

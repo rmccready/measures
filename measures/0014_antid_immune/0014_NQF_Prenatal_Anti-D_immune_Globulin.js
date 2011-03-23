@@ -44,7 +44,6 @@ function () {
         estimated date of conception” <= 30 weeks; 
     */
     var antid_admin_between_26_30_weeks = inRange(measure.anti_d_immune_globulin_medication_administered, estimated_conception + 26*7*day, estimated_conception + 30*7*day);
-    
     return (estimated_conception_within_ten_months && antid_admin_between_26_30_weeks);
   }
 
