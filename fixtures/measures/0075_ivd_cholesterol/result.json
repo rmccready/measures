@@ -1,0 +1,21 @@
+{
+  "results":
+  [
+    {
+      "id": "0075",
+      "sub_id": "a",
+      "initialPopulation": 9,
+      "numerator": 4,
+      "denominator": 8,
+      "exclusions": 0
+    },
+    {
+      "id": "0075",
+      "sub_id": "b",
+      "initialPopulation": 9,
+      "numerator": 8,
+      "denominator": 8,
+      "exclusions": 0
+    }
+  ]
+}
