@@ -25,10 +25,7 @@ function () {
   }
   
   var exclusion = function() {
-    var terminal_illness = actionFollowingSomething(measure.terminal_illness_patient_characteristic, measure.encounter_outpatient_encounter, year/2);
-    var pregnant = inRange(measure.pregnancy_diagnosis_active, earliest_encounter, effective_date);
-    var not_done = inRange(measure.physical_exam_not_done_physical_exam_not_done, earliest_encounter, effective_date);
-    return pregnant || not_done || terminal_illness;
+    return weight_exclusion(measure, earliest_encounter, effective_date);
   }
   
   map(patient, population, denominator, numerator, exclusion);
