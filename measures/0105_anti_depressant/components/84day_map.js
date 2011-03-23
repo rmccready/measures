@@ -19,8 +19,8 @@ function () {
     if(patient.birthdate > latest_birthdate){
         return(false);
     } 
-   var all_encounters = normalize([
-      measure.encounter_ed_encounter, measure.encounter_outpt_bh_req_pos_encounter,measure.encounter_outpt_bh_encounter]);
+   var all_encounters = normalize(
+      measure.encounter_ed_encounter, measure.encounter_outpt_bh_req_pos_encounter,measure.encounter_outpt_bh_encounter);
    var encounters_during_interval = inRange(all_encounters, earliest_encounter, latest_encounter);
    var major_depression_during_interval = inRange(measure.major_depression_diagnosis_active, earliest_encounter, latest_encounter);
 
