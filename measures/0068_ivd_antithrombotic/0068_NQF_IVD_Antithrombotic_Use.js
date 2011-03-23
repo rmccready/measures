@@ -18,10 +18,9 @@ function () {
   var latest_encounter_0_24 = effective_date;
   var earliest_procedure = dates_14_to_24_month_start;
   var latest_procedure_14_24 = dates_14_to_24_month_end; 
-/*
-The percentage of patients 18 years of age and older who were discharged alive for acute myocardial infarction (AMI), coronary artery bypass graft (CABG) or percutaneous transluminal coronary angioplasty (PTCA) from January 1–November 1 of the year prior to the measurement year, or who had a diagnosis of ischemic vascular disease (IVD) during the measurement year and the year prior to the measurement year and who had documentation of use of aspirin or another antithrombotic during the measurement year.
-
-*/
+  /*
+  The percentage of patients 18 years of age and older who were discharged alive for acute myocardial infarction (AMI), coronary artery bypass graft (CABG) or percutaneous transluminal coronary angioplasty (PTCA) from January 1–November 1 of the year prior to the measurement year, or who had a diagnosis of ischemic vascular disease (IVD) during the measurement year and the year prior to the measurement year and who had documentation of use of aspirin or another antithrombotic during the measurement year.
+  */
   
   var population = function() {
     return (patient.birthdate<=latest_birthdate);
@@ -42,9 +41,9 @@ The percentage of patients 18 years of age and older who were discharged alive f
  }
   
   var numerator = function() {
-   meds = inRange(measure.oral_anti_platelet_therapy_medication_active, earliest_encounter_0_24, effective_date) +
-          inRange(measure.oral_anti_platelet_therapy_medication_order, earliest_encounter_0_24, effective_date) +
-          inRange(measure.oral_anti_platelet_therapy_medication_dispensed, earliest_encounter_0_24, effective_date);
+    meds = inRange(measure.oral_anti_platelet_therapy_medication_active, earliest_encounter_0_24, effective_date) +
+      inRange(measure.oral_anti_platelet_therapy_medication_order, earliest_encounter_0_24, effective_date) +
+      inRange(measure.oral_anti_platelet_therapy_medication_dispensed, earliest_encounter_0_24, effective_date);
     return meds;
   }
 

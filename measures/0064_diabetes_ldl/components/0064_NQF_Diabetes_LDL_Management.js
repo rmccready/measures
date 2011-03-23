@@ -27,9 +27,7 @@ function () {
   // the denominator, and the exclusions are shared in the 'diabetes_utils.js' file
   // that is located in the /js directory of the project
   var numerator = function() {
-    var ldl_test_dates = [];
-    if (_.isArray(measure.ldl_test_laboratory_test_result))
-      ldl_test_dates = _.pluck(measure.ldl_test_laboratory_test_result, 'date');
+    var ldl_test_dates = _.pluck(normalize(measure.ldl_test_laboratory_test_result), 'date');
     return inRange(ldl_test_dates, period_start, effective_date);
   }
 
