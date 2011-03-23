@@ -40,7 +40,7 @@
     return matching.length;
   };
 
-  // Returns count of diagnoses that occured within 1 day of an encounter
+  // Returns count of event that occured within 1 day of an encounter
   root.eventDuringEncounter = function (event, encounter, startTimeRange, endTimeRange) {
     return somethingDuringEncounter(event, encounter, startTimeRange, endTimeRange);
   };
@@ -50,11 +50,51 @@
     return somethingDuringEncounter(diagnosis, encounter, startTimeRange, endTimeRange);
   }
 
+  // Returns count of something that occured within 1 day of an encounter
+  root.allSomethingsDuringEncounter = function (something, encounter, startTimeRange, endTimeRange) {
+    var resultArray = new Array(0);
+    var i, j;
+    var day = 24 * 60 * 60;
+
+    something = root.normalize(something);
+    encounter = root.normalize(encounter);
+
+    // for each something, see if there is an encounter within 1 day
+    for (i = 0; i < something.length; i++) {
+      if (!something[i] || something[i] > endTimeRange || something[i] < startTimeRange) {
+        continue;
+      }
+      window_start = something[i] - day;
+      window_end = something[i] + day;
+      for (j = 0; j < encounter.length; j++) {
+        if (!encounter[i] || encounter[i] > endTimeRange || encounter[i] < startTimeRange) {
+          continue;
+        }
+        if (encounter[j] >= window_start && encounter[j] <= window_end) {
+          resultArray.push(encounter[j]);
+        }
+      }
+    }
+    return resultArray;
+
+  };
+
+  // Returns list of diagnoses that occured within 1 day of an encounter
+  root.allEventsDuringEncounter = function (event, encounter, startTimeRange, endTimeRange) {
+    return allSomethingsDuringEncounter(event, encounter, startTimeRange, endTimeRange);
+  };
+
+  // Returns list of diagnoses that occured within 1 day of an encounter
+  root.allDiagnosesDuringEncounter = function (diagnosis, encounter, startTimeRange, endTimeRange) {
+    return allSomethingsDuringEncounter(diagnosis, encounter, startTimeRange, endTimeRange);
+  }
+
+
   // Returns count of number of readings that are followed by at least one action
   root.actionAfterReading = function (readings, action) {
-    readings = normalize(readings);
-    action = normalize(action);
-    reading_dates = _.pluck(readings, 'date');
+    var readings = normalize(readings);
+    var action = normalize(action);
+    var reading_dates = _.pluck(readings, 'date');
     return actionFollowingSomething(reading_dates, action);
   };
 
