@@ -26,7 +26,7 @@ function () {
 
   var numerator = function() {
     var encounters = selectWithinRange(measure.encounter_acute_inpt_and_outpt_encounter, -Infinity, effective_date);
-    if (encounter.length==0)
+    if (encounters.length==0)
       return false;
     var last_inpt_and_outpt_encounter = _.max(encounters);
     
