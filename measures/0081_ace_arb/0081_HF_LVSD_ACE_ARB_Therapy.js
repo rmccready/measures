@@ -74,7 +74,7 @@ function () {
 
   var exclusion = function () {
 
-    var manyDiseaseExclusions = _.flatten(_.compact([
+    var manyDiseaseExclusions = normalize(
       measure.nonrheumatic_mitral_valve_disease_diagnosis_active,
       measure.chronic_kidney_disease_with_and_without_hypertension_diagnosis_active,
       measure.hypertensive_renal_disease_with_renal_failure_diagnosis_active, 
@@ -83,7 +83,7 @@ function () {
       measure.atresia_and_stenosis_of_aorta_diagnosis_active, 
       measure.atherosclerosis_of_renal_artery_diagnosis_active, 
       measure.deficiencies_of_circulating_enzymes_diagnosis_active, 
-      measure.disease_of_aortic_and_mitral_valves_diagnosis_active]));
+      measure.disease_of_aortic_and_mitral_valves_diagnosis_active);
 
     // active_pregnancy diagnosis during allEncounters
     var pregnancy = diagnosisDuringEncounter(measure.pregnancy_diagnosis_active, allEncounters, earliest_encounter, latest_encounter);

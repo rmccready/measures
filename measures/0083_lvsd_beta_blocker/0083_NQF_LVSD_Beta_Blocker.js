@@ -26,12 +26,14 @@ function () {
   }
   
   var denominator = function() {
+    // have to 2 or more encounters to get this far
+    var MIN_FRACTION = 40;
     var final_encounter = _.max(encounters_in_range);
     var lvf = minValueInDateRange(measure.lvf_assmt_diagnostic_study_result,
-      patient.birthdate, final_encounter, 100);
+      patient.birthdate, final_encounter, MIN_FRACTION+1);
     var eject = minValueInDateRange(measure.ejection_fraction_diagnostic_study_result,
-      patient.birthdate, final_encounter, 100);
-    return (lvf<40) || (eject<40);
+      patient.birthdate, final_encounter, MIN_FRACTION+1);
+    return (lvf<MIN_FRACTION) || (eject<MIN_FRACTION);
   }
   
   var numerator = function() {

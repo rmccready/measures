@@ -25,24 +25,24 @@ function () {
   }
 
   var numerator = function() {
-    // whenever using _.max you need to test to see if the item exists first
-    if (measure.encounter_acute_inpt_and_outpt_encounter) {
-      var last_inpt_and_outpt_encounter = _.max(measure.encounter_acute_inpt_and_outpt_encounter);
-      var start_latest_encounter = last_inpt_and_outpt_encounter - day;
-      var end_latest_encounter = last_inpt_and_outpt_encounter   + day;
-      var systolic_min  = minValueInDateRange(measure.systolic_blood_pressure_physical_exam_finding,
-                                              start_latest_encounter,
-                                              end_latest_encounter,
-                                              false);
-      var diastolic_min = minValueInDateRange(measure.diastolic_blood_pressure_physical_exam_finding,
-                                              start_latest_encounter,
-                                              end_latest_encounter,
-                                              false);
-      if (systolic_min && diastolic_min) {
-        return (systolic_min < 140 && diastolic_min < 90);
-      }
-    }
-    return false;
+    var encounters = selectWithinRange(measure.encounter_acute_inpt_and_outpt_encounter, -Infinity, effective_date);
+    if (encounter.length==0)
+      return false;
+    var last_inpt_and_outpt_encounter = _.max(encounters);
+    
+    var start_latest_encounter = last_inpt_and_outpt_encounter - day;
+    var end_latest_encounter = last_inpt_and_outpt_encounter   + day;
+    var systolic_min  = minValueInDateRange(measure.systolic_blood_pressure_physical_exam_finding,
+                                            start_latest_encounter,
+                                            end_latest_encounter,
+                                            false);
+    var diastolic_min = minValueInDateRange(measure.diastolic_blood_pressure_physical_exam_finding,
+                                            start_latest_encounter,
+                                            end_latest_encounter,
+                                            false);
+    if (systolic_min===false || diastolic_min===false)
+      return false;
+    return (systolic_min < 140 && diastolic_min < 90);
   }
 
   var exclusion = function() {
