@@ -1,7 +1,7 @@
 {
-  "first": "Ima",
-  "last": "McHealthy",
-  "gender": "F",
+  "first": "Felix",
+  "last": "Waltham",
+  "gender": "M",
   "birthdate": 404784000, // Time.gm(1982, 10, 30).to_i
   "measures": {
     "0075": {
@@ -10,25 +10,25 @@
       "ldl_test_laboratory_test_performed": [
         {
           "date": 1277769600, // Time.gm(2010, 6, 29).to_i
-          "value": 71
+          "value": 99
         }
       ],
       "high_density_lipoprotein_hdl_laboratory_test_performed": [
         {
           "date": 1277769600, // Time.gm(2010, 6, 29).to_i
-          "value": 56
+          "value": 41
         }
       ],
       "total_cholesterol_laboratory_test_performed": [
         {
           "date": 1277769600, // Time.gm(2010, 6, 29).to_i
-          "value": 151
+          "value": 223
         }
       ],
       "triglycerides_laboratory_test_performed": [
         {
           "date": 1277769600, // Time.gm(2010, 6, 29).to_i
-          "value": 86
+          "value": 60
         }
       ]
     }

@@ -34,7 +34,7 @@ function () {
     // ... or if the HDL, and total cholesterol, and trigylyceried lab tests were
     // performed, then meet numerator criteria...
     if (measure.high_density_lipoprotein_hdl_laboratory_test_performed &&
-        measure.total_cholesterol_laboratory_test_performed && 
+        measure.total_cholesterol_laboratory_test_performed &&
         measure.triglycerides_laboratory_test_performed) {
       return true;
     }

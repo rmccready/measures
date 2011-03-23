@@ -25,7 +25,31 @@ function () {
   }
 
   var numerator = function() {
-    return true;
+
+    latestLDLValue = latestValueInDateRange(measure.ldl_test_laboratory_test_performed, -Infinity, effective_date, false);
+    if (latestLDLValue && latestLDLValue < 100)
+    {
+      print("latestLDLValue looks good and is " + latestLDLValue);
+      return true;
+    }
+
+    latestTotalCholesterolValue = latestValueInDateRange(measure.total_cholesterol_laboratory_test_performed,
+                                                         -Infinity, effective_date, false);
+    latestHDLValue =              latestValueInDateRange(measure.high_density_lipoprotein_hdl_laboratory_test_performed,
+                                                         -Infinity, effective_date, false);
+    latestTrigylceridesValue =    latestValueInDateRange(measure.triglycerides_laboratory_test_performed,
+                                                         -Infinity, effective_date, false);
+    if (latestTotalCholesterolValue && latestHDLValue && latestTrigylceridesValue) {
+      print("latestTotalCholesterolValue " + latestTotalCholesterolValue);
+      print("latestHDLValue " + latestHDLValue);
+      print("latestTrigylceridesValue " + latestTrigylceridesValue);
+      lipidPanelResult = latestTotalCholesterolValue - latestHDLValue - (latestTrigylceridesValue / 5);
+      print("lipidPanelResult " + lipidPanelResult);
+      return (lipidPanelResult < 100);
+    }
+
+    print("Look out snerdy, she's a pump'n mud");
+    return false;
   }
 
   var exclusion = function() {
