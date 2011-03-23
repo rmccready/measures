@@ -29,7 +29,6 @@ function () {
     latestLDLValue = latestValueInDateRange(measure.ldl_test_laboratory_test_performed, -Infinity, effective_date, false);
     if (latestLDLValue && latestLDLValue < 100)
     {
-      print("latestLDLValue looks good and is " + latestLDLValue);
       return true;
     }
 
@@ -40,15 +39,10 @@ function () {
     latestTrigylceridesValue =    latestValueInDateRange(measure.triglycerides_laboratory_test_performed,
                                                          -Infinity, effective_date, false);
     if (latestTotalCholesterolValue && latestHDLValue && latestTrigylceridesValue) {
-      print("latestTotalCholesterolValue " + latestTotalCholesterolValue);
-      print("latestHDLValue " + latestHDLValue);
-      print("latestTrigylceridesValue " + latestTrigylceridesValue);
       lipidPanelResult = latestTotalCholesterolValue - latestHDLValue - (latestTrigylceridesValue / 5);
-      print("lipidPanelResult " + lipidPanelResult);
       return (lipidPanelResult < 100);
     }
 
-    print("Look out snerdy, she's a pump'n mud");
     return false;
   }
 
