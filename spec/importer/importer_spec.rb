@@ -64,9 +64,8 @@ describe QME::Importer::GenericImporter do
 
     # 0389/A_c271 Bone Scan
     it "should import the information relevant to 0389" do
-      pending "Waiting for measure 0389 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0389', @loader)
-      measure_info['bone_scan'].should include(955026000)
+      measure_info['bone_scan_diagnostic_study_performed'].should include(955026000)
     end
 
     # 0387/A_c278History of Breast Cancer (basically inactive breast cancer) 
