@@ -13,7 +13,7 @@ function () {
   var earliest_encounter = effective_date - 2*year;
 
   var population = function() {
-    return patient.gender == "F" && inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
+    return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
   }
   
   var denominator = function() {
