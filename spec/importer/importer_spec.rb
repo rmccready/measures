@@ -47,9 +47,8 @@ describe QME::Importer::GenericImporter do
     
     # 0070/A_c303 Pacemaker 
     it "should import the information relevant to 0070" do
-      pending "Waiting for measure 0070 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0070', @loader)
-      measure_info['cardiac_pacer'].should include(942278400)
+      measure_info['cardiac_pacer_device_applied'].should include(942278400)
     end
 
     # 0081/A_c532 Active Pregnancy  (changed the NIST example, which had a past pregnancy)
