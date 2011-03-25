@@ -97,8 +97,8 @@ describe QME::Importer::GenericImporter do
     measure_info['esrd_diagnosis_active'].should include (1291939200)
     measure_info['encounter_outpatient_encounter'].should include(1239062400)
     measure_info['hypertension_diagnosis_active'].should include(1258156800)
-    measure_info['systolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => '132')
-    measure_info['diastolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => '86')
+    measure_info['systolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => 132.0)
+    measure_info['diastolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => 86.0)
   end
 
   it "should import the the information relevant to determining tobacco use" do
