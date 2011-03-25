@@ -1,18 +1,4 @@
 {
-  "Q_100": {
-    "value": {
-      "type": "number",
-      "description": "BMI",
-      "date_description": "Date of BMI" 
-    } 
-  },
-  "Q_114": {
-    "value": {
-      "type": "number",
-      "description": "BMI",
-      "date_description": "Date of BMI" 
-    } 
-  },
   "Q_102": {
     "descriptive_type": "terminal_illness" 
   },
@@ -37,6 +23,11 @@
     "standard_concept_id": "added-Q_c69-Q_c148",
     "standard_taxonomy": "GROUPING",
     "standard_code_list": "Q_c69,Q_c148",
-    "QDS_datatype_specific_attributes": "datetime" 
+    "QDS_datatype_specific_attributes": "datetime",
+    "value": {
+      "type": "number",
+      "description": "BMI",
+      "date_description": "Date of BMI" 
+    } 
   }
 }
