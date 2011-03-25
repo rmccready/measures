@@ -29,16 +29,13 @@
     ],
     "procedures": [
       "dummy"
-    ],
-    "medications": [
-      "dummy"
       <% if percent(90) %>
       <% 4.times do %>
       ,{
         "description": "DTaP Vaccine",
         "time": <%= between(birthdate+42*day, birthdate+365*2*day) %>,
-        "code": "204525",
-        "code_set": "RxNorm"
+        "code": "90698",
+        "code_set": "CPT"
       }
       <% end %>
       <% end %>
@@ -47,28 +44,41 @@
       ,{
         "description": "Polio (IPV) Vaccine",
         "time": <%= between(birthdate+42*day, birthdate+365*2*day) %>,
-        "code": "763103",
-        "code_set": "RxNorm"
+        "code": "90713",
+        "code_set": "CPT"
       }
       <% end %>
-      <% end %>
-      <% if percent(80) %>
-      ,{
-        "description": "MMR Vaccine",
-        "time": <%= between(birthdate+42*day, birthdate+365*2*day) %>,
-        "code": "762820",
-        "code_set": "RxNorm"
-      }
       <% end %>
       <% if percent(90) %>
       <% 2.times do %>
       ,{
         "description": "Influenza (HiB) Vaccine",
         "time": <%= between(birthdate+42*day, birthdate+365*2*day) %>,
-        "code": "260123",
-        "code_set": "RxNorm"
+        "code": "90645",
+        "code_set": "CPT"
       }
       <% end %>
+      <% end %>
+      <% if percent(90) %>
+      <% 2.times do %>
+      ,{
+        "description": "Influenza (Inf) Vaccine",
+        "time": <%= between(birthdate+42*day, birthdate+365*2*day) %>,
+        "code": "90655",
+        "code_set": "CPT"
+      }
+      <% end %>
+      <% end %>
+    ],
+    "medications": [
+      "dummy"
+      <% if percent(80) %>
+      ,{
+        "description": "MMR Vaccine",
+        "time": <%= between(birthdate+42*day, birthdate+365*2*day) %>,
+        "code": "804186",
+        "code_set": "RxNorm"
+      }
       <% end %>
       <% if percent(90) %>
       <% 3.times do %>
@@ -82,9 +92,9 @@
       <% end %>
       <% if percent(80) %>
       ,{
-        "description": "Chicken Pox Vaccine",
+        "description": "Chicken Pox Vaccine (VZV)",
         "time": <%= between(birthdate+42*day, birthdate+365*2*day) %>,
-        "code": "106483",
+        "code": "759605",
         "code_set": "RxNorm"
       }
       <% end %>

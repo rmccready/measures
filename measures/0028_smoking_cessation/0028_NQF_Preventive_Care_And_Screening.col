@@ -4,9 +4,8 @@
     {
       "metadata": {
         "properties": "NQF_Retooled_Measure_0028a.xlsx.json",
-        "sub_id": "a",
-        "subtitle": "Tobacco Use Assessment",
-        "short_subtitle": "Use",
+        "id": "0028a",
+        "name": "Preventive Care and Screening: Tobacco Use Assessment",
         "numerator": {
           "or": [
             {
@@ -26,9 +25,8 @@
     {
       "metadata": {
         "properties": "NQF_Retooled_Measure_0028b.xlsx.json",
-        "sub_id": "b",
-        "subtitle": "Tobacco Cessation Intervention",
-        "short_subtitle": "Counsel",
+        "id": "0028b",
+        "name": "Preventive Care and Screening: Tobacco Cessation Intervention",
         "numerator": {
           "or": [
             {

@@ -99,7 +99,7 @@
     // < 2 years after the patients' birthdate
     var earliest_vaccine = birthdate + 42 * day;
     var latest_vaccine = birthdate + 2 * year;
-    var number_hib_vaccine_administered = inRange(unique_dates(measure.hib_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
+    var number_hib_vaccine_administered = inRange(unique_dates(measure.hib_medication_administered), earliest_vaccine, latest_vaccine);
     var number_hib_vaccine_procedure = inRange(unique_dates(measure.hib_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
 
     return (number_hib_vaccine_administered >= 2 || number_hib_vaccine_procedure >= 2);

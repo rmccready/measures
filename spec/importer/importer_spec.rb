@@ -23,7 +23,7 @@ describe QME::Importer::GenericImporter do
     end
 
     it "should import the information relevant to 0028" do
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0028', @loader)
+      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0028a', @loader)
       measure_info['tobacco_non_user_patient_characteristic'].should include(-725846400)
     end
 
@@ -102,7 +102,7 @@ describe QME::Importer::GenericImporter do
   end
 
   it "should import the the information relevant to determining tobacco use" do
-    measure_info = get_measure_info('fixtures/c32_fragments/0028/numerator.xml', '0028', @loader)
+    measure_info = get_measure_info('fixtures/c32_fragments/0028/numerator.xml', '0028a', @loader)
     measure_info['encounter_prev_med_individual_counseling_encounter'].should include(1270598400)
     measure_info['tobacco_user_patient_characteristic'].should include(1262304000)
   end
