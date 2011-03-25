@@ -10,13 +10,13 @@
       "ajcc_cancer_stage_low_risk_recurrence_prostate_cancer_procedure_result": [1270080000],  // Time.gm(2010,4,1).to_i
       "prostate_specific_antigen_test_laboratory_test_result": [
         {
-          "date": [1270080000],  // Time.gm(2010,4,1).to_i
+          "date": 1270080000,  // Time.gm(2010,4,1).to_i
           "value": 9
         }
       ],
       "gleason_score_laboratory_test_result": [
         {
-          "date": [1270080000],  // Time.gm(2010,4,1).to_i
+          "date": 1270080000,  // Time.gm(2010,4,1).to_i
           "value": 5
         }
       ],
