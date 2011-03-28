@@ -9,8 +9,8 @@
     "effective_date": {
       "description": "Effective end date for measure",
       "type": "number",
-      "format": "utc-sec" 
-    } 
+      "format": "utc-sec"
+    }
   },
   "patient": {
     "birthdate": {
@@ -24,10 +24,10 @@
           "version": "3.0",
           "values": [
             "00110"
-          ] 
-        } 
-      ] 
-    } 
+          ]
+        }
+      ]
+    }
   },
   "population": {
     "and": [
@@ -35,22 +35,22 @@
         "or": [
           {
             "category": "Patient Characteristic",
-            "title": "Gender Male" 
+            "title": "Gender Male"
           },
           {
             "category": "Patient Characteristic",
-            "title": "Gender Female" 
-          } 
-        ] 
+            "title": "Gender Female"
+          }
+        ]
       },
       {
         "category": "Patient Characteristic",
-        "title": "Age between 1 and 2" 
-      } 
-    ] 
+        "title": "Age between 1 and 2"
+      }
+    ]
   },
   "denominator": {
     "category": "Encounter",
-    "title": "Outpatient with PCP and OBGYN" 
+    "title": "Outpatient with PCP and OBGYN"
   }
 }

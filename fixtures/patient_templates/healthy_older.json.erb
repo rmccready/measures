@@ -11,7 +11,8 @@
     "encounters": [
       {
         "description": "Outpatient encounter",
-        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 6, 30)) %>,
+        <% encounter_date = between(Time.gm(2010, 1, 1), Time.gm(2010, 6, 30)) %>
+        "time": <%= encounter_date %>,
         "code": "99201",
         "code_set": "CPT"
       }
@@ -94,7 +95,7 @@
       <% if asked_about_tobacco && tobacco_user && percent(70) %>
       ,{
         "description": "Tobacco Cessation Couselling",
-        "time": <%= between(Time.gm(2010, 4, 1), Time.gm(2010, 12, 31)) %>,
+        "time": <%= encounter_date %>,
         "code": "171055003",
         "code_set": "SNOMED-CT"
       }
@@ -121,7 +122,7 @@
       <% if sex.eql?('F') && percent(90) %>
       ,{
         "description": "Cervical cancer screening",
-        "time": <%= between(Time.gm(2009, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "time": <%= encounter_date %>,
         "code": "439958008",
         "code_set": "SNOMED-CT"
       }
@@ -132,7 +133,7 @@
       <% if percent(70) %>
       ,{
         "description": "Influenza Vaccine",
-        "time": <%= between(Time.gm(2010, 9, 1), Time.gm(2010, 12, 31)) %>,
+        "time": <%= encounter_date %>,
         "code": "857924",
         "code_set": "RxNorm"
       }
@@ -140,7 +141,7 @@
       <% if percent(30) %>
       ,{
         "description": "Pneumonia Vaccine",
-        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
+        "time": <%= encounter_date %>,
         "code": "854931",
         "code_set": "RxNorm"
       }

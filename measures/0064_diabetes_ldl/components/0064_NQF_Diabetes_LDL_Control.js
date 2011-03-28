@@ -28,7 +28,9 @@ function () {
   // that is located in the /js directory of the project
   // Updated measure (supplemental) specified most RECENT measurement
   var numerator = function() {
-    lastLDL = latestValueInDateRange(measure.ldl_test_laboratory_test_result, period_start, effective_date, 200.0)
+    lastLDL = latestValueInDateRange(measure.ldl_test_laboratory_test_result, period_start, effective_date, false);
+    if (lastLDL===false)
+      return false;
     return (lastLDL < 100.0);
   }
 

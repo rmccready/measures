@@ -23,7 +23,7 @@ describe QME::Importer::GenericImporter do
     end
 
     it "should import the information relevant to 0028" do
-      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0028', @loader)
+      measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0028a', @loader)
       measure_info['tobacco_non_user_patient_characteristic'].should include(-725846400)
     end
 
@@ -47,9 +47,8 @@ describe QME::Importer::GenericImporter do
     
     # 0070/A_c303 Pacemaker 
     it "should import the information relevant to 0070" do
-      pending "Waiting for measure 0070 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0070', @loader)
-      measure_info['cardiac_pacer'].should include(942278400)
+      measure_info['cardiac_pacer_device_applied'].should include(942278400)
     end
 
     # 0081/A_c532 Active Pregnancy  (changed the NIST example, which had a past pregnancy)
@@ -64,9 +63,8 @@ describe QME::Importer::GenericImporter do
 
     # 0389/A_c271 Bone Scan
     it "should import the information relevant to 0389" do
-      pending "Waiting for measure 0389 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0389', @loader)
-      measure_info['bone_scan'].should include(955026000)
+      measure_info['bone_scan_diagnostic_study_performed'].should include(955026000)
     end
 
     # 0387/A_c278History of Breast Cancer (basically inactive breast cancer) 
@@ -99,12 +97,12 @@ describe QME::Importer::GenericImporter do
     measure_info['esrd_diagnosis_active'].should include (1291939200)
     measure_info['encounter_outpatient_encounter'].should include(1239062400)
     measure_info['hypertension_diagnosis_active'].should include(1258156800)
-    measure_info['systolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => '132')
-    measure_info['diastolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => '86')
+    measure_info['systolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => 132.0)
+    measure_info['diastolic_blood_pressure_physical_exam_finding'].should include('date' => 1258156800, 'value' => 86.0)
   end
 
   it "should import the the information relevant to determining tobacco use" do
-    measure_info = get_measure_info('fixtures/c32_fragments/0028/numerator.xml', '0028', @loader)
+    measure_info = get_measure_info('fixtures/c32_fragments/0028/numerator.xml', '0028a', @loader)
     measure_info['encounter_prev_med_individual_counseling_encounter'].should include(1270598400)
     measure_info['tobacco_user_patient_characteristic'].should include(1262304000)
   end

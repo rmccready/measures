@@ -28,23 +28,22 @@ function () {
   // the denominator, and the exclusions are shared in the 'diabetes_utils.js' file
   // that is located in the /js directory of the project
   var numerator = function() {
-    var latest_encounter_acute=null, latest_encounter_other=null;
-    if (measure.encounter_acute_inpatient_or_ed_encounter)
-      latest_encounter_acute = _.max(_.select(measure.encounter_acute_inpatient_or_ed_encounter, function(when){return inRange(when, period_start, effective_date); }));
-    if (measure.encounter_non_acute_inpatient_outpatient_or_ophthalmology_encounter)
-      latest_encounter_other = _.max(_.select(measure.encounter_non_acute_inpatient_outpatient_or_ophthalmology_encounter, function(when){return inRange(when, period_start, effective_date); }));
-    latest_encounter = _.max([latest_encounter_acute, latest_encounter_other]);
-
-    if (latest_encounter==null)
+    var all_encounters = normalize(measure.encounter_acute_inpatient_or_ed_encounter, 
+      measure.encounter_non_acute_inpatient_outpatient_or_ophthalmology_encounter);
+    var all_encounters_in_range = selectWithinRange(all_encounters, period_start, effective_date);
+    if (all_encounters_in_range.length==0)
       return false;
+    latest_encounter = _.max(all_encounters_in_range);
 
     // for measure purposes a BP reading is considered to be during an encounter if its timestamp
     // is between 24 hours before and 24 hours after the timestamp of the encounter
     start_latest_encounter = latest_encounter-day;
     end_latest_encounter = latest_encounter+day;
 
-    systolic_min = minValueInDateRange(measure.systolic_blood_pressure_physical_exam_finding, start_latest_encounter, end_latest_encounter, 200);
-    diastolic_min = minValueInDateRange(measure.diastolic_blood_pressure_physical_exam_finding, start_latest_encounter, end_latest_encounter, 200);
+    systolic_min = minValueInDateRange(measure.systolic_blood_pressure_physical_exam_finding, start_latest_encounter, end_latest_encounter, false);
+    diastolic_min = minValueInDateRange(measure.diastolic_blood_pressure_physical_exam_finding, start_latest_encounter, end_latest_encounter, false);
+    if (systolic_min===false || diastolic_min===false)
+      return false;
     return (systolic_min<140 && diastolic_min<90);
   }
 

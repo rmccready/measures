@@ -11,18 +11,17 @@ function () {
   var effective_date = <%= effective_date %>;
   var latest_birthdate = effective_date - 18*year;
   var earliest_encounter = effective_date - 1*year;
-  var all_encounters = _.flatten(_.compact([
-                               measure.encounter_domiciliary_encounter,
-                               measure.encounter_nursing_facility_encounter,
-                               measure.encounter_office_outpatient_consult_encounter,
-                               measure.encounter_ophthalmological_services_encounter]));  
+  var all_encounters = normalize(
+    measure.encounter_domiciliary_encounter,
+    measure.encounter_nursing_facility_encounter,
+    measure.encounter_office_outpatient_consult_encounter,
+    measure.encounter_ophthalmological_services_encounter);  
 
   var population = function() {
-
     var encounters = inRange(all_encounters, earliest_encounter, effective_date);
-    var retinopathy_diagnosis_before_encounter = actionAfterSomething(all_encounters,                                
-                                                    measure.diabetic_retinopathy_diagnosis_active,  
-                                                    earliest_encounter, effective_date);
+    var retinopathy_diagnosis_before_encounter = actionFollowingSomething(all_encounters,
+      measure.diabetic_retinopathy_diagnosis_active,  
+      earliest_encounter, effective_date);
     return ((patient.birthdate<=latest_birthdate) && (encounters>=2) && retinopathy_diagnosis_before_encounter);
   }
   
@@ -31,19 +30,17 @@ function () {
   }
   
   var numerator = function() {
-      var macular_fundus = diagnosisDuringEncounter(measure.macular_or_fundus_exam_procedure_performed, all_encounters, earliest_encounter, effective_date);
-
-      var macular_edema = actionAfterSomething(all_encounters,                                
-                                                    measure.macular_edema_findings_physical_exam_finding, 
-                                                    earliest_encounter, effective_date);
-      var retinopathy = 
-                         actionAfterSomething (all_encounters,   
-                                            measure.level_of_severity_of_retinopathy_findings_physical_exam_finding, 
-                                            earliest_encounter, effective_date);
-      var retinopathy_and_macular = 
-                         actionAfterSomething (all_encounters,                                   
-                                   measure.severity_of_retinopathy_and_macular_edema_findings_physical_exam_finding, 
-                                   earliest_encounter, effective_date);
+    var macular_fundus = diagnosisDuringEncounter(measure.macular_or_fundus_exam_procedure_performed, 
+      all_encounters, earliest_encounter, effective_date);
+    var macular_edema = actionFollowingSomething(all_encounters,
+      measure.macular_edema_findings_physical_exam_finding, 
+      earliest_encounter, effective_date);
+    var retinopathy = actionFollowingSomething (all_encounters,
+      measure.level_of_severity_of_retinopathy_findings_physical_exam_finding, 
+      earliest_encounter, effective_date);
+    var retinopathy_and_macular = actionFollowingSomething (all_encounters,                                   
+       measure.severity_of_retinopathy_and_macular_edema_findings_physical_exam_finding, 
+       earliest_encounter, effective_date);
     return (macular_fundus || macular_edema || retinopathy || retinopathy_and_macular);
   }
   

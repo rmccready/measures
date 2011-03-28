@@ -10,6 +10,8 @@ function () {
   var year = 365 * day;
   var effective_date =  <%= effective_date %>;
   var earliest_encounter = effective_date - year;
+  var conception = normalize(measure.estimated_date_of_conception_patient_characteristic);
+  var estimated_conception = null;
 
   var population = function() {
     var live_birth_diagnosis = inRange(measure.delivery_live_births_diagnosis_diagnosis_active, earliest_encounter, effective_date);
@@ -18,14 +20,13 @@ function () {
   }
   
   var denominator = function() {
-    if (!measure.estimated_date_of_conception_patient_characteristic)
+    if (conception.length==0)
       return false;
-    var estimated_conception = _.max(measure.estimated_date_of_conception_patient_characteristic);
+    estimated_conception = _.max(conception);
     return inRange(measure.prenatal_visit_encounter, estimated_conception, effective_date);
   }
 
   var numerator = function() {
-    var estimated_conception = _.max(measure.estimated_date_of_conception_patient_characteristic);
     var estimated_conception_within_ten_months = actionFollowingSomething(estimated_conception, measure.delivery_live_births_procedure_procedure_performed, 304*day);
     /*
     var encounters_in_range = selectWithinRange(measure.prenatal_visit_encounter, estimated_conception, effective_date);

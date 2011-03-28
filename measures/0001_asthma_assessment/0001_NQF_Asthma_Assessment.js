@@ -22,7 +22,7 @@ function () {
     “Diagnosis active: asthma” using the “asthma code list grouping” before or
     simultaneously to “Encounter: encounter office & outpatient consult”;
     */
-    var encounter_after_asthma_diagnosis = actionAfterSomething (measure.asthma_diagnosis_active, measure.encounter_office_outpatient_consult_encounter);  // **should this be constrained to measurement period**???
+    var encounter_after_asthma_diagnosis = actionFollowingSomething (measure.asthma_diagnosis_active, measure.encounter_office_outpatient_consult_encounter);  // **should this be constrained to measurement period**???
 
     /*
     “Encounter: encounter office & outpatient consult” using the “encounter office &
@@ -47,19 +47,19 @@ function () {
     symptoms quantified code list” before or simultaneously to “Encounter: encounter
     office & outpatient consult”;
     */
-    var daytime_symptoms_assessed_before_encounter = actionAfterSomething (measure.asthma_daytime_symptoms_quantified_symptom_assessed, measure.encounter_office_outpatient_consult_encounter);
+    var daytime_symptoms_assessed_before_encounter = actionFollowingSomething (measure.asthma_daytime_symptoms_quantified_symptom_assessed, measure.encounter_office_outpatient_consult_encounter);
     /*
     “Symptom assessed: asthma nighttime symptoms quantified” using the “asthma
     nighttime symptoms quantified code list” before or simultaneously to “Encounter:
     encounter office & outpatient consult”;
     */
-    var nighttime_symptoms_assessed_before_encounter = actionAfterSomething (measure.asthma_nighttime_symptoms_quantified_symptom_assessed, measure.encounter_office_outpatient_consult_encounter);
+    var nighttime_symptoms_assessed_before_encounter = actionFollowingSomething (measure.asthma_nighttime_symptoms_quantified_symptom_assessed, measure.encounter_office_outpatient_consult_encounter);
     /*
     “Symptom active: asthma daytime symptoms” using the “asthma daytime symptoms
     code list” before or simultaneously to “Encounter: encounter office & outpatient
     consult”;
     */
-    var daytime_symptoms_diagnosed_before_encounter = actionAfterSomething (
+    var daytime_symptoms_diagnosed_before_encounter = actionFollowingSomething (
       measure.asthma_daytime_symptoms_diagnosis_active, 
       measure.encounter_office_outpatient_consult_encounter);
     /*
@@ -67,14 +67,14 @@ function () {
     code list” before or simultaneously to “Encounter: encounter office & outpatient
     consult”;
     */
-    var nighttime_symptoms_diagnosed_before_encounter = actionAfterSomething( measure.asthma_nighttime_symptoms_diagnosis_active, measure.encounter_office_outpatient_consult_encounter);
+    var nighttime_symptoms_diagnosed_before_encounter = actionFollowingSomething( measure.asthma_nighttime_symptoms_diagnosis_active, measure.encounter_office_outpatient_consult_encounter);
 
     /*
     “Risk category /assessment: asthma symptom assessment tool” using the “asthma
     symptom assessment tool code list” before or simultaneously to “Encounter: encounter
     office & outpatient consult”;
     */
-    var asthma_assessment_before_encounter = actionAfterSomething (measure.asthma_symptom_assessment_tool_risk_category_assessment, measure.encounter_office_outpatient_consult_encounter);
+    var asthma_assessment_before_encounter = actionFollowingSomething (measure.asthma_symptom_assessment_tool_risk_category_assessment, measure.encounter_office_outpatient_consult_encounter);
 
     return ( (daytime_symptoms_assessed_before_encounter && nighttime_symptoms_assessed_before_encounter) ||
             (daytime_symptoms_diagnosed_before_encounter && nighttime_symptoms_diagnosed_before_encounter) ||
