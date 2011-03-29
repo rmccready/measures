@@ -69,9 +69,8 @@ describe QME::Importer::GenericImporter do
 
     # 0387/A_c278History of Breast Cancer (basically inactive breast cancer) 
     it "should import the information relevant to 0387" do
-      pending "Waiting for measure 0387 to be completed"
       measure_info = get_measure_info('fixtures/c32_fragments/testingc32.xml', '0387', @loader)
-      measure_info['breast_cancer_history'].should include(-631152000 )
+      measure_info['breast_cancer_history_diagnosis_inactive'].should include(-631152000 )
     end
 
     # 0421/Q_C155 BMI Management Plan
