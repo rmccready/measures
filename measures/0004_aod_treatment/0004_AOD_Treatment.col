@@ -1,0 +1,65 @@
+{
+    "root": "root.json",
+    "combinations": [
+        {
+            "metadata": {
+                "sub_id": "a",
+                "subtitle": "(ages 12-17) ",
+                "short_subtitle": "AODyouth14",
+                "population:": "AODyouth.json",
+                "numerator": "AODnumerator1.json"
+            },
+            "map_fn": "AODyouth14_map.js"
+        },
+      {
+       "metadata": {
+        "sub_id": "b",
+        "subtitle": "(ages 12-17) with followup within 14 and 30 days. ",
+        "short_subtitle": "AODyouth30",
+       "population:": "AODyouth.json",
+       "numerator": "AODnumerator2.json"
+       },
+       "map_fn": "AODyouth30_map.js"
+      },
+      {
+       "metadata": {
+        "sub_id": "c",
+        "subtitle": "(ages 17+) with followup within 14 days ",
+        "short_subtitle": "AODyouth14",
+      "population:": "AODadult.json",
+      "numerator": "AODnumerator1.json"
+       },
+      "map_fn": "AODadult14_map.js"
+     },
+      {
+       "metadata": {
+        "sub_id": "d",
+        "subtitle": "(ages 17+) with followup within 14 and 30 days ",
+        "short_subtitle": "AODadult30",
+      "population:": "AODadult.json",
+      "numerator": "AODnumerator2.json"
+      },
+      "map_fn": "AODadult14_map.js" 
+    },
+      {
+       "metadata": {
+        "sub_id": "e",
+        "subtitle": "(ages 12+) with followup within 14 days ",
+        "short_subtitle": "AODall14",
+      "population:": "AODall.json",
+      "numerator": "AODnumerator1.json"
+      },
+      "map_fn": "AODall14_map.js"
+    },
+      {
+       "metadata": {
+        "sub_id": "f",
+        "subtitle": " (ages 12+) with followup within 14 and 30 days ",
+        "short_subtitle": "AODall30",
+      "population:": "AODall.json",
+      "numerator": "AODnumerator2.json"
+      },
+      "map_fn": "AODall30_map.js"
+    }
+    ] 
+}

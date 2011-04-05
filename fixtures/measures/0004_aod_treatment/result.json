@@ -1,0 +1,54 @@
+{
+  "results":[
+    {
+      "id": "0004",
+      "sub_id": "a",
+      "initialPopulation": 5,
+      "numerator": 1,
+      "denominator": 4,
+      "exclusions": 0
+    },
+    {
+      "id": "0004",
+      "sub_id": "b",
+      "initialPopulation": 5,
+      "numerator": 1,
+      "denominator": 4,
+      "exclusions": 0
+    },
+   {
+      "id": "0004",
+      "sub_id": "c",
+      "initialPopulation": 3,
+      "numerator": 1,
+      "denominator": 2,
+      "exclusions": 0
+    },
+   {
+      "id": "0004",
+      "sub_id": "d",
+      "initialPopulation": 3,
+      "numerator": 1,
+      "denominator": 2,
+      "exclusions": 0
+    },
+   {
+      "id": "0004",
+      "sub_id": "e",
+      "initialPopulation": 8,
+      "numerator": 2,
+      "denominator": 6,
+      "exclusions": 0
+    },
+   {
+      "id": "0004",
+      "sub_id": "f",
+      "initialPopulation": 8,
+      "numerator": 2,
+      "denominator": 6,
+      "exclusions": 0
+   }
+
+   ]
+}
+
