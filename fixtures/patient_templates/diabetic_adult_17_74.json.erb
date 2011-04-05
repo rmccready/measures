@@ -102,6 +102,14 @@
         "code_set": "SNOMED-CT"
       }
       <% end %>
+      <% if retinopathy && percent(50) %>
+      ,{
+        "description": "severity_of_retinopathy_and_macular_edema_findings",
+        "time": <%= between(Time.gm(2010, 6, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "399872003",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
       <% if percent(90) %>
       ,{
         "description": "Systolic",
@@ -118,14 +126,6 @@
         "code_set": "SNOMED-CT",
         "value": <%= between(70, 100) %>,
         "unit": "mmHg"
-      }
-      <% end %>
-      <% if retinopathy && percent(50) %>
-      ,{
-        "description": "severity_of_retinopathy_and_macular_edema_findings",
-        "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
-        "code": "399872003",
-        "code_set": "SNOMED-CT"
       }
       <% end %>
     ],
@@ -152,6 +152,14 @@
         "description": "Macular or Fundus Exam",
         "time": <%= between(Time.gm(2010, 1, 1), Time.gm(2010, 12, 31)) %>,
         "code": "410455004",
+        "code_set": "SNOMED-CT"
+      }
+      <% end %>
+      <% if retinopathy && percent(50) %>
+      ,{
+        "description": "severity_of_retinopathy_and_macular_edema_findings",
+        "time": <%= between(Time.gm(2010, 6, 1), Time.gm(2010, 12, 31)) %>,
+        "code": "399872003",
         "code_set": "SNOMED-CT"
       }
       <% end %>

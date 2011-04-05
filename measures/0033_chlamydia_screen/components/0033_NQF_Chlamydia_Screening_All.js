@@ -24,7 +24,9 @@ function () {
   }
   
   var numerator = function() {
-    return inRange(measure.chlamydia_screening_laboratory_test_performed, earliest_encounter, effective_date);
+    var screening = normalize(measure.chlamydia_screening_laboratory_test_performed,
+      measure.chlamydia_screening_laboratory_test_result);
+    return inRange(screening, earliest_encounter, effective_date);
   }
   
   var exclusion = function() {

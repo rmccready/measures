@@ -14,11 +14,6 @@ function () {
   
   var population = function() {
     var age_match = patient.birthdate <= latest_birthdate;
-    if (!latest_encounter)
-      return false;
-// The measure spec says that the breast_cancer/breast_cancer_history should happen before
-// an encounter...clearly it must also happen before the latest_encounter.  Since latest_encounter will be null if there
-// are no relevant encounters, we return if it is null.
     var breast_cancer = lessThan(measure.breast_cancer_diagnosis_active, latest_encounter); 
     var breast_cancer_history = lessThan(measure.breast_cancer_history_diagnosis_inactive, latest_encounter);
     return (age_match && (breast_cancer || breast_cancer_history)) ;
@@ -31,13 +26,16 @@ function () {
   };
   
   var numerator = function() {
-    var meds_order_active = _.flatten([measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_order, measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_active]);
+    var meds_order_active = normalize(measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_order,
+      measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_active);
     var meds = inRange(meds_order_active, earliest_encounter, effective_date);
     return (meds)
   };
   
   var exclusion = function() {
-    var meds_issues = _.flatten([measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_intolerance, measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_adverse_event, measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_allergy]);
+    var meds_issues = normalize(measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_intolerance, 
+      measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_adverse_event, 
+      measure.tamoxifen_or_aromatase_inhibitor_therapy_medication_allergy);
 
     var meds_issues_happened = inRange(meds_issues, earliest_encounter, effective_date);
     var metastatic_sites = lessThan(measure.metastatic_sites_common_to_breast_cancer_diagnosis_active, latest_encounter);
@@ -47,7 +45,8 @@ function () {
     var medical = lessThan(measure.medical_reason_medication_not_done, effective_date);
     var patient = lessThan(measure.patient_reason_medication_not_done, effective_date);
     var system = lessThan(measure.system_reason_medication_not_done, effective_date);
-    return meds_issues_happened || metastatic_sites || bilateral_oophorectomy || radiation_therapy || chemotherapy || medical || patient || system;
+    return meds_issues_happened || metastatic_sites || bilateral_oophorectomy || 
+      radiation_therapy || chemotherapy || medical || patient || system;
   }
   
   map(patient, population, denominator, numerator, exclusion);
