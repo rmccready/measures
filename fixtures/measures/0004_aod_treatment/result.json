@@ -3,40 +3,40 @@
     {
       "id": "0004",
       "sub_id": "a",
-      "initialPopulation": 5,
-      "numerator": 1,
-      "denominator": 4,
+      "initialPopulation": 4,
+      "numerator": 2,
+      "denominator": 3,
       "exclusions": 0
     },
     {
       "id": "0004",
       "sub_id": "b",
-      "initialPopulation": 5,
+      "initialPopulation": 4,
       "numerator": 1,
-      "denominator": 4,
+      "denominator": 3,
       "exclusions": 0
     },
    {
       "id": "0004",
       "sub_id": "c",
-      "initialPopulation": 3,
-      "numerator": 1,
-      "denominator": 2,
+      "initialPopulation": 4,
+      "numerator": 2,
+      "denominator": 3,
       "exclusions": 0
     },
    {
       "id": "0004",
       "sub_id": "d",
-      "initialPopulation": 3,
-      "numerator": 1,
-      "denominator": 2,
-      "exclusions": 0
+      "initialPopulation": 4,
+      "denominator": 3,
+       "numerator": 1,
+       "exclusions": 0
     },
    {
       "id": "0004",
       "sub_id": "e",
       "initialPopulation": 8,
-      "numerator": 2,
+      "numerator": 4,
       "denominator": 6,
       "exclusions": 0
     },

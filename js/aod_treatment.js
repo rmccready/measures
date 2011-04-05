@@ -62,18 +62,16 @@
   };
 
   root.alcohol_drug_numerator1 = function(measure) {
-          alcohol_drug_treatments = normalize(
-                 selectWithinRange( measure.encounter_acute_inpt_encounter, first_alcohol_drug_event+1, first_alcohol_drug_event + 14*day),
-                 selectWithinRange( measure.encounter_non_acute_inpatient_encounter, first_alcohol_drug_event+1, first_alcohol_drug_event + 14*day),
-                 selectWithinRange( measure.encounter_outpatient_bh_encounter, first_alcohol_drug_event+1, first_alcohol_drug_event + 14*day));
-
+    var alcohol_drug_treatments = selectWithinRange( diagnoses_during_encounters, first_alcohol_drug_event+1, first_alcohol_drug_event + 14*day);
+ 
     if(alcohol_drug_treatments.length > 0) first_alcohol_drug_treatment_event = _.min(alcohol_drug_treatments);
 
     return(alcohol_drug_treatments.length > 0);
   };
  
    root.alcohol_drug_numerator2 = function(measure) {
-   return (inRange(encounters, first_alcohol_drug_treatment_event+1, first_alcohol_drug_treatment_event + 30*day) );
+      var followup_treatments = inRange(diagnoses_during_encounters, first_alcohol_drug_treatment_event+1, first_alcohol_drug_treatment_event + 30*day);
+   return ( followup_treatments > 0);
   };
 
 

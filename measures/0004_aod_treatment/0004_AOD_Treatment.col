@@ -39,7 +39,7 @@
       "population:": "AODadult.json",
       "numerator": "AODnumerator2.json"
       },
-      "map_fn": "AODadult14_map.js" 
+      "map_fn": "AODadult30_map.js" 
     },
       {
        "metadata": {
