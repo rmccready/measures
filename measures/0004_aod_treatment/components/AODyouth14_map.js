@@ -19,12 +19,12 @@ function () {
   };
   
   var denominator = function() {
-     return(alcohol_drug_denominator(measure));  
-   };
+    return(alcohol_drug_denominator(measure));  
+  };
   
   var numerator = function() {
-   // numerator1 
-   return(alcohol_drug_numerator1(measure));
+    // numerator1 
+    return(alcohol_drug_numerator1(measure));
   };
   
   var exclusion = function() {

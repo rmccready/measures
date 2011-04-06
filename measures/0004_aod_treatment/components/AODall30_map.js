@@ -16,8 +16,8 @@ function () {
   }
   
   var denominator = function() {
-     return(alcohol_drug_denominator(measure));  
-   }
+    return(alcohol_drug_denominator(measure));  
+  }
   
   var numerator = function() {
     // numerator1 && numerator2
