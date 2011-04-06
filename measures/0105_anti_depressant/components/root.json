@@ -2,7 +2,7 @@
     "endorser": "NQF",
     "id": "0105",
     "properties": "NQF_Retooled_Measure_0105.xlsx.json",
-    "name": "Anti‐depressant medication management: (a) Effective Acute Phase Treatment, (b)Effective Continuation Phase Treatment",
+    "name": "Anti‐depressant medication management",
     "description": "The percentage of patients 18 years of age and older who were diagnosed with a new episode of major depression, treated with antidepressant medication, and who remained on an antidepressant medication treatment.",
     "category": "Miscellaneous",
     "steward": "NCQA",
