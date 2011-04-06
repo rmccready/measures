@@ -33,7 +33,7 @@
         "not": [
                     {
                         "category": "Diagnosis Active",
-                        "title": "Diagnosis of Alcholol or Drug Dependence less than 60 days prior to FIRST" 
+                        "title": "Diagnosis of Alcohol or Drug Dependence less than 60 days prior to FIRST" 
                     }
                 ] 
     },
