@@ -66,7 +66,7 @@
 
     root.alcohol_drug_numerator2 = function (measure) {
         var followup_treatments = inRange(diagnoses_during_encounters, first_alcohol_drug_treatment_event + 1, first_alcohol_drug_treatment_event + 30 * day);
-        return (followup_treatments > 0);
+        return (followup_treatments >= 2);
     };
 
 
