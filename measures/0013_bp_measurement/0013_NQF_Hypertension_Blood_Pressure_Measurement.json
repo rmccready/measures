@@ -42,7 +42,7 @@
       },
       {
         "category": "Encounter",
-        "title": "2 or more outpatient or nursing facility encounters"
+        "title": ">= 2 counts of outpatient or nursing facility encounters"
       }
     ]
   },

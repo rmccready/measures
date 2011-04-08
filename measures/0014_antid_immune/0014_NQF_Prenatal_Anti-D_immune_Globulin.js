@@ -30,7 +30,8 @@ function () {
     var multigravida = inRange(measure.multigravida_diagnosis_active, earliest_encounter, effective_date);
     var rh_status_mother = minValueInDateRange(measure.rh_status_mother_laboratory_test_result, earliest_encounter, delivery_date, false)
     var rh_status_baby = minValueInDateRange(measure.rh_status_baby_laboratory_test_result, earliest_encounter, delivery_date, false)
-    return (prenatal_encounter && drh_neg_diagnosis && (
+    return (prenatal_encounter && (
+      drh_neg_diagnosis ||
       (primigravida && !rh_status_mother) || 
       (multigravida && !rh_status_mother && !rh_status_baby)));
   }

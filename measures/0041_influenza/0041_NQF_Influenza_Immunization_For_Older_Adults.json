@@ -83,14 +83,14 @@
      },
       {
         "category": "Procedure Performed",
-        "title": "Influenza vaccine" 
+        "title": "Influenza vaccination" 
       }    ] 
   },
   "exclusions": {
     "or": [
       {
         "category": "Medication not done",
-        "title": "Influenza immunization contraindication" 
+        "title": "Influenza vaccine contraindication" 
       },
       {
         "category": "Medication not done",
@@ -98,43 +98,39 @@
       },
       {
         "category": "Medication not done",
-        "title": "Influenza immunization for patient reason" 
+        "title": "Influenza vaccine for patient reason" 
       },
       {
         "category": "Medication not done",
-        "title": "Influenza immunization for medical reason" 
+        "title": "Influenza vaccine for medical reason" 
       },
       {
         "category": "Medication not done",
-        "title": "Influenza immunization for system reason" 
+        "title": "Influenza vaccine for system reason" 
       },
       {
         "category": "Medication Intolerance",
-        "title": "Influenza Vaccine" 
+        "title": "Influenza vaccine" 
       },
       {
         "category": "Medication Adverse Effects",
-        "title": "Influenza Vaccine" 
+        "title": "Influenza vaccine" 
       },
       {
         "category": "Medication Allergy",
-        "title": "Influenza Vaccine" 
+        "title": "Influenza vaccine" 
       },
       {
         "category": "Procedure Intolerance",
-        "title": "Influenza Vaccine" 
+        "title": "Influenza vaccination" 
       },
       {
         "category": "Procedure Adverse Event",
-        "title": "Influenza Vaccine" 
+        "title": "Influenza vaccination" 
       },
       {
         "category": "Substance Allergy",
         "title": "Eggs" 
-      },
-      {
-        "category": "Medication not done",
-        "title": "Influenza immunization declined" 
       }
     ] 
   }

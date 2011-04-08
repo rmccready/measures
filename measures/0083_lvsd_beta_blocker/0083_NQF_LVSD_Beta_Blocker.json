@@ -107,12 +107,12 @@
             "title": "Atrioventricular block"
           },
           {
-            "category": "Diagnosis active",
-            "title": "No cardiac pacer in situ"
+            "category": "Diagnosis NOT active",
+            "title": "Cardiac pacer in situ"
           },
           {
-            "category": "Device applied",
-            "title": "No cardiac pacer"
+            "category": "Device NOT applied",
+            "title": "Cardiac pacer"
           }
         ]
       },
@@ -138,7 +138,7 @@
       },
       {
         "category": "Medication allergy",
-        "title": "Beta-blocker therapyy"
+        "title": "Beta-blocker therapy"
       },
       {
         "category": "Medication adverse event",

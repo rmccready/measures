@@ -39,23 +39,23 @@
         [
           {
             "category": "Encounter",
-            "title": "2 or more counts of health and behavior assessment OR occupational therapy OR office visit OR psychiatric and psychologic"
+            "title": ">= 2 counts of health and behavior assessment OR occupational therapy OR office visit OR psychiatric and psychologic"
           },
           {
             "category": "Encounter",
-            "title": "1 or more counts preventive medicine services 18 and older"
+            "title": ">= 1 count of preventive medicine services 18 and older"
           },
           {
             "category": "Encounter",
-            "title": "1 or more preventive medicine other services"
+            "title": ">=1 count of preventive medicine other services"
           },
           {
             "category": "Encounter",
-            "title": "1 or more preventive medicine individual counseling"
+            "title": ">=1 count of preventive medicine individual counseling"
           },
           {
             "category": "Encounter",
-            "title": "1 or more preventive medicine group counseling"
+            "title": ">= 1 count of preventive medicine group counseling"
           }
         ]
       }

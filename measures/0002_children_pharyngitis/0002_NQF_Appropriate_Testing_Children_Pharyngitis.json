@@ -34,7 +34,7 @@
     "and": [
       {
         "category": "Patient Characteristic",
-        "title": "Age between 2 and 18 years"
+        "title": "2 <= age <= 18"
       }
     ]
   },
@@ -42,11 +42,11 @@
     "and": [
       {
         "category": "Encounter",
-        "title": "Ambulatory encounter, including pediatrics"
+        "title": "Ambulatory encounter, including pediatrics during the measurement period"
       },
       {
-        "category": "Diagnosis",
-        "title": "Active pharyngitis"
+        "category": "Diagnosis Active",
+        "title": "Pharyngitis, occuring during encounter"
       },
       {
         "or": [
@@ -65,16 +65,16 @@
         ]
       },
       {
-        "category": "Medication Active",
-        "title": "Pharyngitis antibiotics > 30 days after encounter"
+        "category": "Medication NOT Active",
+        "title": "Pharyngitis antibiotics <= 30 days after encounter"
       },
       {
-        "category": "Medication Order",
-        "title": "Pharyngitis antibiotics > 30 days after encounter"
+        "category": "Medication NOT Ordered",
+        "title": "Pharyngitis antibiotics <= 30 days after encounter"
       },
       {
-        "category": "Medication Dispensed",
-        "title": "Pharyngitis antibiotics > 30 days after encounter"
+        "category": "Medication NOT Dispensed",
+        "title": "Pharyngitis antibiotics <= 30 days after encounter"
       }
     ]
   },

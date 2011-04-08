@@ -40,7 +40,7 @@
         "or": [
           {
             "category": "Diagnosis active",
-            "title": "Active coronary artery disease without MI"
+            "title": "Coronary artery disease without MI"
           },
           {
             "category": "Procedure performed",
@@ -115,11 +115,11 @@
             "title": "Active atrioventricular block"
           },
           {
-            "category": "Diagnosis inactive",
+            "category": "Diagnosis NOT active",
             "title": "Cardiac pacer in situ"
           },
           {
-            "category": "Device not applied",
+            "category": "Device NOT applied",
             "title": "Cardiac pacer"
           }
         ]
@@ -137,7 +137,7 @@
         "title": "Beta-blocker therapy"
       },
       {
-        "category": "Medication intollerance",
+        "category": "Medication intolerance",
         "title": "Beta-blocker therapy"
       },
       {

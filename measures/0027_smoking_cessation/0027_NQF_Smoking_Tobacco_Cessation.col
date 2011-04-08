@@ -22,7 +22,7 @@
         "sub_id": "b",
         "subtitle": "Discussing Smoking and Tobacco Use Cessation Medications and Strategies",
         "short_subtitle": "Counsel",
-        "numberator": {
+        "numerator": {
           "and": [
             {
               "or": [

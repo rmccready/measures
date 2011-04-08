@@ -34,11 +34,15 @@
       "and": [
          {
             "category": "Encounter",
-            "title": "Outpatient with PCP or ObGyn"
+            "title": "Outpatient with PCP or ObGyn, during the measurement period"
          },
          {
-            "category": "Condition",
-            "title": "Not Pregnant"
+            "category": "NOT Encounter",
+            "title": "Pregnancy, during the measurement period"
+         },
+         {
+            "category": "Diagnosis NOT Active",
+            "title": "Pregnancy, during the measurement period"
          }
       ]
    },

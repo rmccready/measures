@@ -45,11 +45,11 @@
   "denominator": {
     "and": [
       {
-        "category": "Diagnosis active",
-        "title": "D(Rh) negative"
-      },
-      {
         "or": [
+          {
+            "category": "Diagnosis active",
+            "title": "D(Rh) negative, status unsensitized"
+          },
           {
             "and": [
               {
@@ -102,7 +102,15 @@
     "or": [
       {
         "category": "Medication not done",
-        "title": "Patient, medical or system reason"
+        "title": "Patient reason"
+      },
+      {
+        "category": "Medication not done",
+        "title": "Medical reason"
+      },
+      {
+        "category": "Medication not done",
+        "title": "System reason"
       },
       {
         "category": "Patient characteristic",

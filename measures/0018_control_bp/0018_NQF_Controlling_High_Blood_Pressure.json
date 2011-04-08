@@ -33,7 +33,7 @@
   },
   "population": {
     "category": "Patient Characteristic",
-    "title": "Age 18 to 85"        
+    "title": "18 <= age <= 85"        
   },
   "denominator": {
     "and": [
@@ -43,19 +43,19 @@
       },
       {
         "category": "Encounter",
-        "title": "Outpatient"
+        "title": "Outpatient, during the measurement period"
       },
       {
-        "category": "Diagnosis not active",
-        "title": "Pregnancy"
+        "category": "Diagnosis NOT active",
+        "title": "Pregnancy, during the measurement period"
       },
       {
-        "category": "Diagnosis not active",
-        "title": "ESRD"
+        "category": "Diagnosis NOT active",
+        "title": "ESRD, during the measurement period"
       },
       {
-        "category": "Procedure not performed",
-        "title": "Procedure indicative of ESRD"
+        "category": "Procedure NOT performed",
+        "title": "Procedure indicative of ESRD, during the measurement period"
       }
     ]
   },
@@ -63,11 +63,11 @@
     "and": [
       {
         "category": "Physical exam finding",
-        "title": "Min diastolic blood pressure < 90 mmHg during most recent encounter"
+        "title": "Minimum diastolic blood pressure < 90 mmHg during most recent encounter"
       },
       {
         "category": "Physical exam finding",
-        "title": "Min systolic blood pressure < 140 mmHg during most recent encounter"
+        "title": "Minimum systolic blood pressure < 140 mmHg during most recent encounter"
       }
     ]        
   },

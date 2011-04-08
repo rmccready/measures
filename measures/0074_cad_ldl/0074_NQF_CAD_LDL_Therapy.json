@@ -85,7 +85,7 @@
     "or": [
       {
         "category": "Laboratory test result",
-        "title": "Last LDL laboratory test value < 130mg/dL 0 to 1 years, inclusive, before outpatient or nursing facility encounter"
+        "title": "Last LDL laboratory test value < 130mg/dL"
       },
       {
         "category": "Medication allery",

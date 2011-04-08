@@ -50,7 +50,7 @@
       },
       {
         "category": "Encounter",
-        "title": ">= 2 counts of office & outpatient consult"
+        "title": ">= 2 counts of office or outpatient consult"
       }
     ]
   },
