@@ -14,6 +14,7 @@ function () {
   var latest_birthdate =    effective_date - 2 * year;
 
   var meds_prescribed_after_encounter = [];  // computed by denominator, used by numerator
+  var pharyngits_diagnoses_during_encounter; // computed by denominator, used by numerator
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -25,10 +26,12 @@ function () {
     if (!inRange(encounters, earliest_encounter, effective_date))
       return false;
 
-    if(!diagnosisDuringEncounter(measure.pharyngitis_diagnosis_active, encounters, earliest_encounter, effective_date) ){
-      return false;
+    pharyngits_diagnoses_during_encounter = allDiagnosesDuringEncounter(measure.pharyngitis_diagnosis_active, encounters, earliest_encounter, effective_date);
+
+    if(pharyngits_diagnoses_during_encounter.length == 0){
+        return(false);
     }
-      
+
     var meds = normalize(measure.pharyngitis_antibiotics_medication_dispensed, 
                          measure.pharyngitis_antibiotics_medication_order, 
                          measure.pharyngitis_antibiotics_medication_active );
@@ -53,15 +56,16 @@ function () {
       return match;
     };
 
-    
-    var matchingEncounters = _.select(encounters, medsThreeAfterAndNotThirtyBefore);
+    /*  These encounters are the "EVENTS" in the revised spec */
+
+    var matchingEncounters = _.select(pharyngits_diagnoses_during_encounter, medsThreeAfterAndNotThirtyBefore);
        
     return matchingEncounters.length > 0;
   };
 
   var numerator = function() {
-    /* “Laboratory test performed: group A streptococcus test” using “group A streptococcus     
-    test code list grouping” before or simultaneously to <medications> */
+ 
+    /* o OR: “Laboratory test performed: group A streptococcus test” <= 3 days before or simultaneously to “Medication active: pharyngitis antibiotics”, occurring <= 3 days after “EVENT”  */
 
     return (actionFollowingSomething(  // test precedes medication by less than 3 days
       measure.group_a_streptococcus_test_laboratory_test_performed, meds_prescribed_after_encounter, 3*day));
