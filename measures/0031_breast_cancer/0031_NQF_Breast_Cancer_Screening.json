@@ -1,9 +1,10 @@
 {
+  "endorser": "NQF",
   "id": "0031",
   "properties": "NQF_Retooled_Measure_0031.xlsx.json",
   "name": "Breast Cancer Screening",
   "description": "The percentage of women 40–69 years of age who had a mammogram to screen for breast cancer.",
-  "category": "Cancer",
+  "category": "Women's Health",
   "steward": "NCQA",
   "parameters": {
     "effective_date": {
@@ -33,11 +34,7 @@
     "and": [
       {
         "category": "Patient Characteristic",
-        "title": "Gender Female" 
-      },
-      {
-        "category": "Patient Characteristic",
-        "title": "Age between 41 and 68" 
+        "title": "41 <= age <= 68" 
       } 
     ] 
   },
@@ -45,17 +42,17 @@
     "and": [
       {
         "category": "Encounter",
-        "title": "Outpatient within 2 Years" 
+        "title": "Outpatient within 2 years of measurement period end" 
       },
       {
         "or": [
           {
-            "category": "Procedure",
-            "title": "No Bilateral Mastectomy Performed" 
+            "category": "Procedure NOT performed",
+            "title": "Bilateral mastectomy, before measurement period end" 
           },
           {
-            "category": "Procedure",
-            "title": "No More Than 1 Unilateral Mastectomy Performed and no bilateral mastectomy modifier" 
+            "category": "Procedure performed",
+            "title": "No more than 1 unilateral mastectomy with no bilateral mastectomy modifier, before measurement period end" 
           } 
         ] 
       } 
@@ -65,7 +62,7 @@
     "and": [
       {
         "category": "Diagnostic Study",
-        "title": "Breast Cancer Screen Performed within 2 Years" 
+        "title": "Breast cancer screen performed within 2 years of measurement period end" 
       } 
     ] 
   },

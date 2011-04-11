@@ -1,7 +1,8 @@
 {
+  "endorser": "NQF",
   "id": "0004",
   "properties": "NQF_Retooled_Measure_0004.xlsx.json",
-  "name": "Initiation and Engagement of Alcohol and Other Drug Dependence Treatment:(a) Initiation, (b) Engagement",
+  "name": "Initiation and Engagement of Alcohol and Other Drug Dependence Treatment",
   "description": "The percentage of adolescent and adult patients with a new episode of alcohol and other drug (AOD) dependence who initiate treatment through an inpatient AOD admission, outpatient visit, intensive outpatient encounter or partial hospitalization within 14 days of the diagnosis and who initiated treatment and who had two or more additional services with an AOD diagnosis within 30 days of the initiation visit. ",
   "category": "Miscellaneous",
   "steward": "NCQA",

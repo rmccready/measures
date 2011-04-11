@@ -1,4 +1,5 @@
 {
+  "endorser": "NQF",
   "id": "0047",
   "properties": "NQF_Retooled_Measure_0047.xlsx.json",
   "name": "Asthma Pharmacologic Therapy",
@@ -49,7 +50,7 @@
       },
       {
         "category": "Encounter",
-        "title": ">= 2 counts of office & outpatient consult"
+        "title": ">= 2 counts of office or outpatient consult"
       }
     ]
   },

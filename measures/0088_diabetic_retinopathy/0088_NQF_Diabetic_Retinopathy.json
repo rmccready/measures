@@ -1,7 +1,8 @@
 {
+   "endorser": "NQF",
    "id": "0088",
    "properties": "NQF_Retooled_Measure_0088.xlsx.json",
-   "name": "Diabetic Retinopathy",
+   "name": "Diabetic Retinopathy - Level of Severity",
    "description": "Percentage of patients aged 18 years and older with a diagnosis of diabetic retinopathy who had a dilated macular or fundus exam performed which included documentation of the level of severity of retinopathy and the presence or absence of macular edema during one or more office visits within 12 months.",
    "category": "Diabetes",
    "steward": "AMA",
@@ -43,19 +44,19 @@
             "or": [
                {
                   "category": "Encounter",
-                  "title": "Office and outpatient consult"
+                  "title": ">= 2 counts of office and outpatient consult"
                },
                {
                   "category": "Encounter",
-                  "title": "Ophthalmological services"
+                  "title": ">= 2 counts of ophthalmological services"
                },
                {
                   "category": "Encounter",
-                  "title": "Nursing facility"
+                  "title": ">= 2 counts of nursing facility"
                },
                {
                   "category": "Encounter",
-                  "title": "Domiciliary"
+                  "title": ">= 2 counts of domiciliary"
                }
             ]
          }
@@ -66,7 +67,7 @@
       "and": [
          {
             "category": "Procedure",
-            "title": "Macular or fungus exam"
+            "title": "Macular or fundus exam"
          },
          {
             "or": [

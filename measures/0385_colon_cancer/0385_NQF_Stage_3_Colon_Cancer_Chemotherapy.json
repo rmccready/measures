@@ -1,4 +1,5 @@
 {
+  "endorser": "NQF",
   "id": "0385",
   "properties": "NQF_Retooled_Measure_0385.xlsx.json",
   "name": "Oncology Colon Cancer: Chemotherapy for Stage III Colon Cancer Patients",
@@ -39,17 +40,17 @@
         "or": [
           {
             "category": "Diagnosis active",
-            "title": "Active colon cancer"
+            "title": "Colon cancer"
           },
           {
             "category": "Diagnosis inactive",
-            "title": "Inactive colon cancer history"
+            "title": "Colon cancer history"
           }
         ]
       },
       {
         "category": "Encounter",
-        "title": ">= 2 counts of office visit encounter"
+        "title": ">= 2 counts of office visit"
       }
     ]
   },
@@ -57,7 +58,7 @@
     "and": [
       {
         "category": "Procedure result",
-        "title": "Colon cancer stage III result"
+        "title": "Colon cancer stage III"
       }
     ]
   },
@@ -65,11 +66,11 @@
     "or": [
       {
         "category": "Medication order",
-        "title": "Chemotherapy for colon cancer ordered"
+        "title": "Chemotherapy for colon cancer"
       },
       {
         "category": "Medication administered",
-        "title": "Chemotherapy for colon cancer administered"
+        "title": "Chemotherapy for colon cancer"
       }
     ]
   },
@@ -97,15 +98,15 @@
       },
       {
         "category": "Medication intolerance",
-        "title": "Chemotherapy for colon cancer intolerance"
+        "title": "Chemotherapy for colon cancer"
       },
       {
         "category": "Medication adverse event",
-        "title": "Chemotherapy for colon cancer adverse event"
+        "title": "Chemotherapy for colon cancer"
       },
       {
         "category": "Medication allergy",
-        "title": "Chemotherapy for colon cancer allergy"
+        "title": "Chemotherapy for colon cancer"
       },
       {
         "category": "Medication not done",

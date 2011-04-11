@@ -1,4 +1,5 @@
 {
+  "endorser": "NQF",
   "id": "0389",
   "properties": "NQF_Retooled_Measure_0389.xlsx.json",
   "name": "Prostate Cancer: Avoidance of Overuse of Bone Scan for Staging Low Risk Prostate Cancer Patients",
@@ -49,7 +50,7 @@
       },
       {
         "category": "Laboratory test result",
-        "title": "Prostate-specific antigen result <= 10mg/dL"
+        "title": "Prostate-specific antigen result <= 10ng/dL"
       },
       {
         "or": [

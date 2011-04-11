@@ -4,8 +4,8 @@
     {
       "metadata": {
         "sub_id": "a",
-        "subtitle": "(ages 12-17) ",
-        "short_subtitle": "AODyouth14"
+        "subtitle": "Age 12-17 with followup within 14 days.",
+        "short_subtitle": "Youth14"
       },
       "population": "AODyouth.json",
       "numerator": "AODnumerator1.json", 
@@ -14,8 +14,8 @@
     {
       "metadata": {
         "sub_id": "b",
-        "subtitle": "(ages 12-17) with followup within 14 and 30 days. ",
-        "short_subtitle": "AODyouth30"
+        "subtitle": "Age 12-17 with followup within 14 and 30 days.",
+        "short_subtitle": "Youth30"
       },
       "population": "AODyouth.json",
       "numerator": "AODnumerator2.json", 
@@ -24,8 +24,8 @@
     {
       "metadata": {
         "sub_id": "c",
-        "subtitle": "(ages 17+) with followup within 14 days ",
-        "short_subtitle": "AODyouth14"
+        "subtitle": "Age 17+ with followup within 14 days.",
+        "short_subtitle": "Adult14"
       },
       "population": "AODadult.json",
       "numerator": "AODnumerator1.json", 
@@ -34,8 +34,8 @@
     {
       "metadata": {
         "sub_id": "d",
-        "subtitle": "(ages 17+) with followup within 14 and 30 days ",
-        "short_subtitle": "AODadult30"
+        "subtitle": "Age 17+ with followup within 14 and 30 days.",
+        "short_subtitle": "Adult30"
       },
       "population": "AODadult.json",
       "numerator": "AODnumerator2.json", 
@@ -44,8 +44,8 @@
     {
       "metadata": {
         "sub_id": "e",
-        "subtitle": "(ages 12+) with followup within 14 days ",
-        "short_subtitle": "AODall14"
+        "subtitle": "Age 12+ with followup within 14 days.",
+        "short_subtitle": "All14"
       },
       "population": "AODall.json",
       "numerator": "AODnumerator1.json", 
@@ -54,8 +54,8 @@
     {
       "metadata": {
         "sub_id": "f",
-        "subtitle": " (ages 12+) with followup within 14 and 30 days ",
-        "short_subtitle": "AODall30"
+        "subtitle": "Age 12+ with followup within 14 and 30 days.",
+        "short_subtitle": "All30"
       },
       "population": "AODall.json",
       "numerator": "AODnumerator2.json", 

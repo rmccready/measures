@@ -1,4 +1,5 @@
 {
+  "endorser": "NQF",
   "id": "0081",
   "properties": "NQF_Retooled_Measure_0081.xlsx.json",
   "name": "Heart Failure: Angiotensin-Converting Enzyme (ACE) Inhibitor or Angiotensin Receptor Blocker (ARB) Therapy for Left Ventricular Systolic Dysfunction (LVSD)",
@@ -43,15 +44,15 @@
         "or": [
           {
             "category": "Encounter",
-            "title": ">= 2 counts of outpatient encounter" 
+            "title": ">= 2 counts of outpatient" 
           },
           {
             "category": "Encounter",
-            "title": ">= 2 counts of nursing facility encounter" 
+            "title": ">= 2 counts of nursing facility" 
           },
           {
             "category": "Encounter",
-            "title": ">= 1 count(s) of inpatient discharge encounter" 
+            "title": ">= 1 count(s) of inpatient discharge" 
           }
         ] 
       } 
@@ -79,11 +80,11 @@
         "or": [
           {
             "category": "Medication order",
-            "title": "ACE inhibitor or ARB ordered" 
+            "title": "ACE inhibitor or ARB" 
           },
           {
             "category": "Medication active",
-            "title": "ACE inhibitor or ARB active" 
+            "title": "ACE inhibitor or ARB" 
           }
         ]
       } 
@@ -93,15 +94,15 @@
     "or": [
       {
         "category": "Medication allergy",
-        "title": "ACE inhibitor or ARB allergy" 
+        "title": "ACE inhibitor or ARB" 
       },
       {
         "category": "Medication adverse event",
-        "title": "ACE inhibitor or ARB adverse event" 
+        "title": "ACE inhibitor or ARB" 
       },
       {
         "category": "Medication intolerance",
-        "title": "ACE inhibitor or ARB intolerance" 
+        "title": "ACE inhibitor or ARB" 
       },
       {
         "category": "Diagnosis active",

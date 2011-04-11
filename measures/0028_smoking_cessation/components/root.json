@@ -1,4 +1,5 @@
 {
+  "endorser": "NQF",
   "description": "Percentage of patients aged 18 years or older who have been seen for at least 2 office visits, who were queried about tobacco use one or more times within 24 months. If identified as tobacco users, patient received cessation intervention.",
   "steward": "AMA",
   "category": "Core",
@@ -38,23 +39,23 @@
         [
           {
             "category": "Encounter",
-            "title": "2 or more counts of health and behavior assessment OR occupational therapy OR office visit OR psychiatric and psychologic"
+            "title": ">= 2 counts of health and behavior assessment OR occupational therapy OR office visit OR psychiatric and psychologic"
           },
           {
             "category": "Encounter",
-            "title": "1 or more counts preventive medicine services 18 and older"
+            "title": ">= 1 count of preventive medicine services 18 and older"
           },
           {
             "category": "Encounter",
-            "title": "1 or more preventive medicine other services"
+            "title": ">=1 count of preventive medicine other services"
           },
           {
             "category": "Encounter",
-            "title": "1 or more preventive medicine individual counseling"
+            "title": ">=1 count of preventive medicine individual counseling"
           },
           {
             "category": "Encounter",
-            "title": "1 or more preventive medicine group counseling"
+            "title": ">= 1 count of preventive medicine group counseling"
           }
         ]
       }

@@ -9,11 +9,11 @@
         "numerator": {
           "or": [
             {
-              "category": "Condition",
+              "category": "Patient Characteristic",
               "title": "Tobacco user"
             },
             {
-              "category": "Condition",
+              "category": "Patient Characteristic",
               "title": "Tobacco non-user"
             }
           ]
@@ -34,12 +34,12 @@
               "title": "Tobacco use cessation counseling"
             },
             {
-              "category": "Medication",
-              "title": "Medication active: smoking cessation agents"
+              "category": "Medication Active",
+              "title": "Smoking cessation agents"
             },
             {
-              "category": "Medication",
-              "title": "Medication order: smoking cessation agents"
+              "category": "Medication Order",
+              "title": "Smoking cessation agents"
             }
           ]
         },

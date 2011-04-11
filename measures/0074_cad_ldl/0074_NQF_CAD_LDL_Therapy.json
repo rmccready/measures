@@ -1,4 +1,5 @@
 {
+  "endorser": "NQF",
   "id": "0074",
   "properties": "NQF_Retooled_Measure_0074.xlsx.json",
   "name": "Coronary Artery Disease (CAD): Drug Therapy for Lowering LDL-Cholesterol",
@@ -84,7 +85,7 @@
     "or": [
       {
         "category": "Laboratory test result",
-        "title": "Last LDL laboratory test value < 130mg/dL 0 to 1 years, inclusive, before outpatient or nursing facility encounter"
+        "title": "Last LDL laboratory test value < 130mg/dL"
       },
       {
         "category": "Medication allery",

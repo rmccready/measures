@@ -1,4 +1,5 @@
 {
+  "endorser": "NQF",
   "id": "0084",
   "properties": "NQF_Retooled_Measure_0084.xlsx.json",
   "name": "Heart Failure: Warfarin Therapy for Patients with Atrial Fibrillation",
@@ -37,7 +38,7 @@
       },
       {
         "category": "Diagnosis active",
-        "title": "Active heart failure"
+        "title": "Heart failure"
       },
       {
         "or": [
