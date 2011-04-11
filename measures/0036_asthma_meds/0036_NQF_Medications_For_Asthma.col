@@ -8,7 +8,7 @@
         "short_subtitle": "5-11",
         "population": {
           "category": "Patient Characteristic",
-          "title": "Age between 5 and 11"
+          "title": "5 <= age <= 11"
         }
       },
       "map_fn": "0036_NQF_Medications_For_Asthma_Younger.js"
@@ -20,7 +20,7 @@
         "short_subtitle": "12-50",
         "population": {
           "category": "Patient Characteristic",
-          "title": "Age between 12 and 50"
+          "title": "12 <= age <= 50"
         }
       },
       "map_fn": "0036_NQF_Medications_For_Asthma_Older.js"
@@ -32,7 +32,7 @@
         "short_subtitle": "5-50",
         "population": {
           "category": "Patient Characteristic",
-          "title": "Age between 5 and 50"
+          "title": "5 <= age <= 50"
         }
       },
       "map_fn": "0036_NQF_Medications_For_Asthma_All.js"

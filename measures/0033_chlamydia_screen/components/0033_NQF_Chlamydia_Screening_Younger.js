@@ -10,7 +10,7 @@ function () {
   var year = 365*day;
   var effective_date = <%= effective_date %>;
   var earliest_birthdate = effective_date - 19*year;
-  var latest_birthdate = effective_date - 14*year;
+  var latest_birthdate = effective_date - 15*year;
   var earliest_encounter = effective_date - 1*year;
   var pregnancy_tests = normalize(measure.pregnancy_test_laboratory_test_performed,
     measure.pregnancy_test_laboratory_test_result);

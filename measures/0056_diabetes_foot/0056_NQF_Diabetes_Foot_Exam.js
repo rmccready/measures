@@ -11,8 +11,8 @@ function () {
   // code across all of the diabetes measures. 
   var year = 365 * 24 * 60 * 60;
   var effective_date =  <%= effective_date %>;
-  var earliest_birthdate =  effective_date - 74 * year;
-  var latest_birthdate =    effective_date - 17 * year;
+  var earliest_birthdate =  effective_date - 75 * year;
+  var latest_birthdate =    effective_date - 18 * year;
   var earliest_diagnosis =  effective_date - 2 * year;
 
   var population = function() {

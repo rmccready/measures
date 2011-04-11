@@ -3,7 +3,7 @@
   "id": "0043",
   "properties": "NQF_Retooled_Measure_0043.xlsx.json",
   "name": "Pneumonia Vaccination Status for Older Adults",
-  "description": "Patients more than 65 years old who received a pneumococcal vaccine.",
+  "description": "Patients more than 65 years old who have ever received a pneumococcal vaccine.",
   "category": "Miscellaneous",
   "steward": "NCQA",
   "parameters": {
@@ -36,12 +36,20 @@
     "title": "Age >= 64" 
   },
   "denominator": {
-    "category": "Outpatient Encounter",
-    "title": "Within a year" 
+    "category": "Encounter",
+    "title": "Outpatient, <=1 year before or simultaneously to measurement period end date" 
   },
   "numerator": {
-    "category": "Medication Administered",
-    "title": "Pneumococcal vaccination" 
+    "or": [
+      {
+        "category": "Medication Administered",
+        "title": "Pneumococcal vaccination, before or simultaneously to measurement period end date" 
+      },
+      {
+        "category": "Procedure performed",
+        "title": "Pneumococcal vaccination, before or simultaneously to measurement period end date" 
+      }
+    ]
   },
   "exclusions": {
     

@@ -3,7 +3,7 @@
   "id": "0068",
   "properties": "NQF_Retooled_Measure_0068.xlsx.json",
   "name": "Ischemic Vascular Disease (IVD): Use of Aspirin or another Antithrombotic",
-  "description": "The percentage of patients 18 years of age and older who were discharged alive for acute myocardial infarction (AMI), coronary artery bypass graft (CABG) or percutaneous transluminal coronary angioplasty (PTCA) from January 1–November 1 of the year prior to the measurement year, omr who had a diagnosis of ischemic vascular disease (IVD) during the measurement year and the year prior to the measurement year and who had documentation of use of aspirin or another antithrombotic during the measurement year.",
+  "description": "The percentage of patients 18 years of age or older who were discharged alive for acute myocardial infarction (AMI), coronary artery bypass graft (CABG) or percutaneous transluminal coronary angioplasty (PTCA) from January 1–November 1 of the year prior to the measurement year, omr who had a diagnosis of ischemic vascular disease (IVD) during the measurement year and the year prior to the measurement year and who had documentation of use of aspirin or another antithrombotic during the measurement year.",
   "category": "Heart conditions",
   "steward": "NCQA",
   "parameters": {
@@ -32,19 +32,19 @@
   },
   "population": {
     "category": "Patient characteristic",
-    "title": "Age >= 17 years" 
+    "title": "Age >= 17" 
   },
   "denominator": {
     "or": [
       {
         "category": "Procedure Performed",
-        "title": "PTCA performed 14 to 24 months before the measurement end date" 
+        "title": "PTCA performed 14 to 24 months before the measurement period end date" 
       },
       {
         "and": [
           {
             "category": "Encounter",
-            "title": "Acute inpatient encounter 14 to 24 months before the measurement end date" 
+            "title": "Acute inpatient encounter 14 to 24 months before the measurement period end date" 
           },
           {
             "category": "Diagnosis active",
@@ -56,37 +56,41 @@
         "and": [
           {
             "category": "Encounter",
-            "title": "Acute inpatient encounter 14 to 24 months before the measurement end date" 
+            "title": "Acute inpatient encounter 14 to 24 months before the measurement period end date" 
           },
           {
             "category": "Procedure performed",
-            "title": "CABG procedure performed 14 to 24 months before the measurement end date" 
+            "title": "CABG procedure performed 14 to 24 months before the measurement period end date" 
           }
         ] 
       },
       {
-        "category": "Encounter",
-        "title": "Acute inpatient and outpatient encounter 0 to 2 years, inclusive, before the measurement end date" 
-      },
-      {
-        "category": "Diagnosis active",
-        "title": "Ischemic vascular disease active during acute inpatient and outpatient encounter" 
-      } 
+        "and": [
+          {
+            "category": "Encounter",
+            "title": "Acute inpatient and outpatient encounter 0 to 2 years, inclusive, before the measurement period end date" 
+          },
+          {
+            "category": "Diagnosis active",
+            "title": "Ischemic vascular disease active during acute inpatient and outpatient encounter" 
+          }
+        ]
+      }
     ] 
   },
   "numerator": {
     "or": [
       {
         "category": "Medication dispensed",
-        "title": "Oral anti-platelet therapy dispensed" 
+        "title": "Oral anti-platelet therapy dispensed, during the measurement period" 
       },
       {
         "category": "Medication order",
-        "title": "Oral anti-platelet therapy ordered" 
+        "title": "Oral anti-platelet therapy ordered, during the measurement period" 
       },
       {
         "category": "Medication active",
-        "title": "Oral anti-platelet therapy active" 
+        "title": "Oral anti-platelet therapy active, during the measurement period" 
       } 
     ] 
   },

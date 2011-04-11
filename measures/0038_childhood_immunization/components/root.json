@@ -31,27 +31,11 @@
     }
   },
   "population": {
-    "and": [
-      {
-        "or": [
-          {
-            "category": "Patient Characteristic",
-            "title": "Gender Male"
-          },
-          {
-            "category": "Patient Characteristic",
-            "title": "Gender Female"
-          }
-        ]
-      },
-      {
-        "category": "Patient Characteristic",
-        "title": "Age between 1 and 2"
-      }
-    ]
+    "category": "Patient Characteristic",
+    "title": "1 <= age <= 2"
   },
   "denominator": {
     "category": "Encounter",
-    "title": "Outpatient with PCP and OBGYN"
+    "title": "Outpatient with PCP and OBGYN, before or simultaneously to measurement end date"
   }
 }

@@ -270,10 +270,6 @@
             {
               "category": "Allergy",
               "title": "H influenza type B (HiB) Vaccine Allergy"
-            },
-           {
-              "category": "Allergy",
-              "title": "Baker's Yeast Allergy"
             }
           ]
         }
@@ -402,11 +398,11 @@
                   [
                     {
                          "category": "Medication Administered",
-                         "title": ">= 4 Counts Pneumococcal Conjugate (PCV) Vaccine up until 2 years old"
+                         "title": ">= 4 Counts Pneumococcal Conjugate (PCV) Vaccine 42 days after birth up until 2 years old"
                     },
                     {
                          "category": "Procedure Performed",
-                         "title": ">= 4 Counts Pneumococcal Conjugate (PCV) Vaccine up until 2 years old"
+                         "title": ">= 4 Counts Pneumococcal Conjugate (PCV) Vaccine 42 days after birth up until 2 years old"
                     }
                   ]
                 }
@@ -521,11 +517,11 @@
                   [
                     {
                          "category": "Medication Administered",
-                         "title": ">= 2 Counts Influenza (Inf) Vaccine up until 2 years old"
+                         "title": ">= 2 Counts Influenza (Inf) Vaccine 180 days after birth up until 2 years old"
                     },
                     {
                          "category": "Procedure Performed",
-                         "title": ">= 2 Counts Influenza (Inf) Vaccine up until 2 years old"
+                         "title": ">= 2 Counts Influenza (Inf) Vaccine 180 days after birth up until 2 years old"
                     }
                   ]
                 }
@@ -581,7 +577,7 @@
           [
             {
               "category": "Summary 1",
-              "title": "Patients who have received DTaP, MMR, HiB, HepB, VZV, PCV, hepA, and RV Vaccinations"
+              "title": "Patients who have received all their shots for DTaP, MMR, HiB, HepB, VZV and IPV"
             }
           ]
         },
@@ -610,7 +606,7 @@
           [
             {
               "category": "Summary 2",
-              "title": "Patients who have received DTaP, MMR, HiB, HepB, VZV, PCV, hepA, RV, and Inf Vaccinations"
+              "title": "Patients who have received all their shots for DTaP, MMR, HiB, HepB, VZV, , IPV and PCV"
             }
           ]
         },

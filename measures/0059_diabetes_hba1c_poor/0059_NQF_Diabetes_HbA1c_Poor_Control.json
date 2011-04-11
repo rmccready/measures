@@ -32,29 +32,29 @@
   },
   "population": {
     "category": "Patient Characteristic",
-    "title": "Age between 17 and 74" 
+    "title": "18 <= age <= 75" 
   },
   "denominator": {
     "or": [
       {
         "category": "Medication",
-        "title": "Medication Indicative of Diabetes Within 2 years" 
+        "title": "Medication Indicative of Diabetes, <=2 years before or simultaneously to measurement period end date" 
       },
       {
         "and": [
           {
-            "category": "Diagnosis",
-            "title": "Diabetes Active Within 2 years" 
+            "category": "Diagnosis Active",
+            "title": "Diabetes, <=2 years before or simultaneously to measurement period end date" 
           },
           {
             "or": [
               {
                 "category": "Encounter",
-                "title": "Acute Inpatient or ED" 
+                "title": "Acute Inpatient or ED, during the measurement period" 
               },
               {
                 "category": "Encounter",
-                "title": "Non‐Acute Inpatient, Outpatient, or Ophthalmology" 
+                "title": "Non‐Acute Inpatient, Outpatient, or Ophthalmology, during the measurement period" 
               } 
             ] 
           } 
@@ -64,7 +64,7 @@
   },
   "numerator": {
     "category": "Laboratory Test Result",
-    "title": "Most recent HbA1c > 9.0%" 
+    "title": "Most recent HbA1c > 9.0%, during the measurement period" 
   },
   "exclusions": {
     "or": [
@@ -72,23 +72,23 @@
         "and": [
           {
             "category": "Diagnosis",
-            "title": "Polycystic Ovaries" 
+            "title": "Polycystic Ovaries, before or simultaneously to measurement period end date" 
           },
           {
             "and": [
               {
                 "category": "Diagnosis",
-                "title": "Diabetes Not Active Within 2 years" 
+                "title": "Diabetes Not Active, <=2 years before or simultaneously to measurement period end date" 
               },
               {
                 "or": [
                   {
                     "category": "Encounter",
-                    "title": "No Acute Inpatient or ED" 
+                    "title": "No Acute Inpatient or ED, <=2 years before or simultaneously to measurement period end date" 
                   },
                   {
                     "category": "Encounter",
-                    "title": "No Non‐Acute Inpatient, Outpatient, or Ophthalmology" 
+                    "title": "No Non‐Acute Inpatient, Outpatient, or Ophthalmology, <=2 years before or simultaneously to measurement period end date" 
                   } 
                 ] 
               } 
@@ -100,25 +100,25 @@
         "and": [
           {
             "category": "Diagnosis",
-            "title": "Gestational Diabetes or Steroid Induced Diabetes Within 2 years" 
+            "title": "Gestational Diabetes or Steroid Induced Diabetes, <=2 years before or simultaneously to measurement period end date" 
           },
           {
             "category": "Medication",
-            "title": "Medications Indicative of Diabetes Within 2 years" 
+            "title": "Medications Indicative of Diabetes, <=2 years before or simultaneously to measurement period end date" 
           },
           {
             "category": "Diagnosis",
-            "title": "Diabetes Active within 2 years" 
+            "title": "Diabetes Active, <=2 years before or simultaneously to measurement period end date" 
           },
           {
             "or": [
               {
                 "category": "Encounter",
-                "title": "Acute Inpatient or ED Within 2 years" 
+                "title": "Acute Inpatient or ED, <=2 years before or simultaneously to measurement period end date" 
               },
               {
                 "category": "Encounter",
-                "title": "Non‐Acute Inpatient, Outpatient, or Opthalmology" 
+                "title": "Non‐Acute Inpatient, Outpatient, or Opthalmology, <=2 years before or simultaneously to measurement period end date" 
               } 
             ] 
           } 

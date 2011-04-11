@@ -34,7 +34,7 @@
     "and": [
       {
         "category": "Patient characteristic",
-        "title": "Age 18 to 49 years, inclusive"
+        "title": "18 <= age <= 49"
       }
     ]
   },
@@ -42,7 +42,7 @@
     "and": [
       {
         "category": "Encounter",
-        "title": "Ambulatory encounter, including orthopedics and chiropractics"
+        "title": "Ambulatory encounter, including orthopedics and chiropractics, during the measurement period"
       },
       {
         "category": "Diagnosis active",
@@ -64,7 +64,7 @@
           },
           {
             "category": "Diagnosis active",
-            "title": "No ctive IV drug abuse 0 to 2 years, inclusive, before measurement end date"
+            "title": "No active IV drug abuse 0 to 2 years, inclusive, before measurement end date"
           },
           {
             "category": "Diagnosis active",

@@ -30,41 +30,41 @@
     "and": [
       {
         "category": "Encounter",
-        "title": "Outpatient"
+        "title": "Outpatient, before or simultaneously to the measurement end date"
       },
       {
         "or": [
           {
             "category": "Procedure Performed",
-            "title": "Procedure Indicative of Sexually Active Women"
+            "title": "Procedure Indicative of Sexually Active Women, during the measurement period"
           },
           {
             "category": "Laboratory Test Performed or Result",
-            "title": "Pregnancy Test"
+            "title": "Pregnancy test, during the measurement period"
           },
           {
             "category": "Device Applied or Allergy",
-            "title": "IUD"
+            "title": "IUD, before or simultaneously to the measurement end date"
           },
           {
             "category": "Communication to Patient",
-            "title": "Contraceptive Use Education"
+            "title": "Contraceptive use education, before or simultaneously to the measurement end date"
           },
           {
             "category": "Medication Active, Order or Dispensed",
-            "title": "Contraceptives"
+            "title": "Contraceptives, before or simultaneously to the measurement end date"
           },
           {
             "category": "Encounter",
-            "title": "Pregnancy"
+            "title": "Pregnancy, during the measurement period"
           },
           {
             "category": "Laboratory Test Performed",
-            "title": "Lab Test Indicative of Sexually Active Women"
+            "title": "Lab test indicative of sexually active women, before or simultaneously to the measurement end date"
           },
           {
             "category": "Diagnosis Active",
-            "title": "Sexually Active Woman"
+            "title": "Sexually active woman, before or simultaneously to the measurement end date"
           }
         ]
       }
@@ -74,11 +74,11 @@
     "or": [
       {
         "category": "Laboratory Test Performed",
-        "title": "Chlamydia Screening"
+        "title": "Chlamydia screening, during the measurement period"
       },
       {
         "category": "Laboratory Test Result",
-        "title": "Chlamydia Screening"
+        "title": "Chlamydia screening, during the measurement period"
       }
     ]
   },
@@ -86,7 +86,7 @@
     "and": [
       {
         "category": "Laboratory Test Performed or Result",
-        "title": "Pregnancy Test"
+        "title": "Pregnancy test, during the measurement period"
       },
       {
         "or": [

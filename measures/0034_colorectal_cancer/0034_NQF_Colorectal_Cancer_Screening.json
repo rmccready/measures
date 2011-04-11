@@ -34,19 +34,19 @@
     "and": [
       {
         "category": "Patient characteristic",
-        "title": "Birth date 50 to 74 years, inclusive"
+        "title": "50 <= age <= 75"
       }
     ]
   },
   "denominator": {
-    "or": [
+    "and": [
       {
         "category": "Encounter",
-        "title": "Outpatient encounter 0 to 2 years, inclusive, before measurement end date not performed"
+        "title": "Outpatient encounter 0 to 2 years, inclusive, before or simultaneously to the measurement end date"
       },
       {
-        "category": "Procedure performed",
-        "title": "Total colectomy performed"
+        "category": "Procedure NOT performed",
+        "title": "Total colectomy, before or simultaneously to the measurement end date"
       }
     ]
   },
@@ -54,15 +54,15 @@
     "or": [
       {
         "category": "Procedure performed",
-        "title": "Colonoscopy performed 0 to 10 years, inclusive, before measurement end date"
+        "title": "Colonoscopy performed 0 to 10 years, inclusive, before or simultaneously to the measurement end date"
       },
       {
         "category": "Procedure performed",
-        "title": "Flexible sigmoidoscopy performed 0 to 5 years, inclusive, before measurement end date"
+        "title": "Flexible sigmoidoscopy performed 0 to 5 years, inclusive, before or simultaneously to the measurement end date"
       },
       {
         "category": "Laboratory test performed",
-        "title": "Fecal occult blood testing (FOBT)"
+        "title": "Fecal occult blood testing (FOBT), during the measurement period"
       }
     ]
   },
@@ -70,15 +70,15 @@
     "or": [
       {
         "category": "Diagnosis active",
-        "title": "Colorectal cancer"
+        "title": "Colorectal cancer, before or simultaneously to the measurement end date"
       },
       {
         "category": "Diagnosis inactive",
-        "title": "Colorectal cancer"
+        "title": "Colorectal cancer, before or simultaneously to the measurement end date"
       },
       {
         "category": "Diagnosis resolved",
-        "title": "Colorectal cancer"
+        "title": "Colorectal cancer, before or simultaneously to the measurement end date"
       }
     ]
   }

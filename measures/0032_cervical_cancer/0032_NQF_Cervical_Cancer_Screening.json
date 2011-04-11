@@ -32,23 +32,23 @@
   },
   "population": {
     "category": "Patient Characteristic",
-    "title": "Age between 23 and 63" 
+    "title": "23 <= age <= 63" 
   },
   "denominator": {
     "and": [
       {
         "category": "Encounter",
-        "title": "Outpatient or ObGyn within 2 years" 
+        "title": "Outpatient or ObGyn <= 2 years before measurement end date" 
       },
       {
-        "category": "Procedure Performed",
-        "title": "No Hysterectomy" 
+        "category": "Procedure NOT Performed",
+        "title": "Hysterectomy before measurement end date" 
       } 
     ] 
   },
   "numerator": {
     "category": "Laboratory test result",
-    "title": "Pap test within 3 years" 
+    "title": "Pap test <= 3 years before measurement end date" 
   },
   "exclusions": {
     

@@ -11,7 +11,7 @@
           "or": [
             {
               "category": "Laboratory Test Performed",
-              "title": "LDL Test"
+              "title": "LDL Test, during the measurement period"
             }
           ]
         }
@@ -27,7 +27,7 @@
           "or": [
             {
               "category": "Laboratory Test Performed",
-              "title": "LDL Test Result < 100 mg/dL"
+              "title": "Most recent LDL Test Result < 100 mg/dL, during the measurement period"
             }
           ]
         }
