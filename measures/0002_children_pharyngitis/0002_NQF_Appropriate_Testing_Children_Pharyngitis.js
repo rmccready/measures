@@ -14,7 +14,7 @@ function () {
   var latest_birthdate =    effective_date - 2 * year;
 
   var meds_prescribed_after_encounter = [];  // computed by denominator, used by numerator
-  var pharyngits_diagnoses_during_encounter; // computed by denominator, used by numerator
+
 
   var population = function() {
     return inRange(patient.birthdate, earliest_birthdate, latest_birthdate);
@@ -26,9 +26,9 @@ function () {
     if (!inRange(encounters, earliest_encounter, effective_date))
       return false;
 
-    pharyngits_diagnoses_during_encounter = allDiagnosesDuringEncounter(measure.pharyngitis_diagnosis_active, encounters, earliest_encounter, effective_date);
+    var pharyngitis_diagnoses_during_encounter = allDiagnosesDuringEncounter(measure.pharyngitis_diagnosis_active, encounters, earliest_encounter, effective_date);
 
-    if(pharyngits_diagnoses_during_encounter.length == 0){
+    if(pharyngitis_diagnoses_during_encounter.length == 0){
         return(false);
     }
 
@@ -58,7 +58,7 @@ function () {
 
     /*  These encounters are the "EVENTS" in the revised spec */
 
-    var matchingEncounters = _.select(pharyngits_diagnoses_during_encounter, medsThreeAfterAndNotThirtyBefore);
+    var matchingEncounters = _.select(pharyngitis_diagnoses_during_encounter, medsThreeAfterAndNotThirtyBefore);
        
     return matchingEncounters.length > 0;
   };
