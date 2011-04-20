@@ -1,4 +1,6 @@
 {
+  "id": "0028",
+  "properties": ["NQF_Retooled_Measure_0028a.xlsx.json","NQF_Retooled_Measure_0028b.xlsx.json"],
   "endorser": "NQF",
   "description": "Percentage of patients aged 18 years or older who have been seen for at least 2 office visits, who were queried about tobacco use one or more times within 24 months. If identified as tobacco users, patient received cessation intervention.",
   "steward": "AMA",
