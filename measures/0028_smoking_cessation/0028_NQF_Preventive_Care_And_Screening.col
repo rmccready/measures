@@ -4,7 +4,8 @@
     {
       "metadata": {
         "sub_id": "a",
-        "name": "Preventive Care and Screening: Tobacco Use Assessment",
+        "subtitle": "Use Assessment",
+        "short_subtitle": "Use",
         "numerator": {
           "or": [
             {
@@ -24,7 +25,8 @@
     {
       "metadata": {
         "sub_id": "b",
-        "name": "Preventive Care and Screening: Tobacco Cessation Intervention",
+        "subtitle": "Cessation Intervention",
+        "short_subtitle": "Cease",
         "numerator": {
           "or": [
             {
