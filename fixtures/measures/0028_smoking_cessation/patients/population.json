@@ -4,10 +4,7 @@
   "gender": "F",
   "birthdate": 25142400,                              // Time.gm(1970, 10, 19)
   "measures": {                                       // bag of measures, one entry per measure
-    "0028a": {
-      "encounter_prev_med_individual_counseling_encounter": 1271721600   // Time.gm(2010, 4, 20)
-    },
-    "0028b": {
+    "0028": {
       "encounter_prev_med_individual_counseling_encounter": 1271721600   // Time.gm(2010, 4, 20)
     }
   }
