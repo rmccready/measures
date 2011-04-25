@@ -3,6 +3,8 @@ function () {
   var measure = patient.measures["0038"];
   if (measure==null)
     measure={};
+    
+  <%= init_js_frameworks %>
 
   var year = 365 * 24 * 60 * 60;
   var effective_date =  <%= effective_date %>;
