@@ -3,7 +3,7 @@ require 'ap'
 describe QME::Importer::GenericImporter do
 
   before(:all) do
-    @loader = load_bundle
+    @loader = reload_bundle
   end
 
   def get_measure_info(c32_file, measure_id)
