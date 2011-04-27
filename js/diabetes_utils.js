@@ -4,7 +4,7 @@
 //
 // lib/qme/mongo_helpers.rb executes this function on a database
 // connection.
-(function() {
+function() {
 
   var root = this;
 
@@ -55,4 +55,4 @@
              && !(diagnosis_diabetes && (encounter_acute || encounter_other))));
   };
 
-})();
+}

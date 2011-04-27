@@ -4,7 +4,7 @@
 //
 // lib/qme/mongo_helpers.rb executes this function on a database
 // connection.
-(function () {
+function () {
   var root = this;
   
   var between = function(value, start, end) {
@@ -85,4 +85,4 @@
     return (_.uniq(dates));
   };
 
-})();
+}

@@ -3,9 +3,10 @@
 // that needs common definitions of these algorithms.
 // lib/qme/mongo_helpers.rb executes this function on a database
 // connection.
-(function() {
+function() {
 
   var root = this;
+  var year = 365*24*60*60;
 
   root.weight_denominator = function(measure, period_start, effective_date) {
     var encounter =           inRange(measure.encounter_outpatient_w_pcp_obgyn_encounter, period_start, effective_date);
@@ -52,4 +53,4 @@
     return pregnant || not_done || terminal_illness;
   }
 
-})();
+}

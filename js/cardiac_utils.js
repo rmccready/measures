@@ -4,11 +4,11 @@
 //
 // lib/qme/mongo_helpers.rb executes this function on a database
 // connection.
-(function() {
+function() {
 
   var root = this;
 
-  root.ivd_denominator = function(measure, earliest_procedure, latest_procedure, earliest_encounter, latest_encounter) {
+  root.ivd_denominator = function(measure, effective_date, earliest_procedure, latest_procedure, earliest_encounter, latest_encounter) {
     // if criteria for either:
     //   ptac (Percutaneous Transluminal Cardiac Angioplasty)
     //   or ami (Acute Myocardial Infarction)
@@ -28,4 +28,4 @@
     return (ptca || cabg || ami || ivd);
   }
 
-})();
+}

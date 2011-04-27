@@ -3,7 +3,7 @@
 //
 // lib/qme/mongo_helpers.rb executes this function on a database
 // connection.
-(function () {
+function () {
   var root = this;
 
   var day = 24 * 60 * 60;
@@ -81,4 +81,4 @@
     return (followup_treatments >= 2);
   };
 
-})();
+}

@@ -21,7 +21,7 @@ function () {
   }
 
   var denominator = function() {
-     return ivd_denominator(measure, earliest_procedure, latest_procedure, earliest_encounter, latest_encounter);
+     return ivd_denominator(measure, effective_date, earliest_procedure, latest_procedure, earliest_encounter, latest_encounter);
   }
 
   var numerator = function() {
