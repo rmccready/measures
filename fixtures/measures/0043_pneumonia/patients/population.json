@@ -2,6 +2,7 @@
   "first": "Goss",              // personal data
   "last": "Thunderhammer",
   "gender": "M",
+  "patient_id" : "100433",
   "birthdate": -921542400,      // Time.gm(1940, 10, 19).to_i
   "measures": {                 // bag of measures, one entry per measure
     "0043": {

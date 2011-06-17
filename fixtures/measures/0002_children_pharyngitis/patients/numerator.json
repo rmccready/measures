@@ -2,6 +2,7 @@
   "first": "Billy",
   "last": "Bloggs",
   "gender": "M",
+  "patient_id" : "100023",
   "birthdate": 946684800,                              // Time.gm(2000, 1, 1)
   "measures": {
     "0002": {

@@ -2,6 +2,7 @@
   "first": "Fred",                                    // personal data
   "last": "Bloggs",
   "gender": "M",
+  "patient_id" : "103854",
   "birthdate": -631152000,                            // Time.gm(1950, 1, 1).to_i
   "measures": {
     "0385": {

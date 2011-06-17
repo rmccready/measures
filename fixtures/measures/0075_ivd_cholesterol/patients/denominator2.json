@@ -2,6 +2,7 @@
   "first": "Granite",
   "last": "Shaleface",
   "gender": "M",
+  "patient_id" : "100752",
   "birthdate": 656208000, // Time.gm(1990, 10, 18).to_i
   "measures": {
     "0075": {

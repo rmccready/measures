@@ -2,6 +2,7 @@
   "first": "Abigail",
   "last": "Bloggs",
   "gender": "M",
+  "patient_id" : "100334",
   "birthdate": 808790400,                 // Time.gm(1995, 8, 19).to_i
   "measures": {                           // bag of measures, one entry per measure
     "0033": {

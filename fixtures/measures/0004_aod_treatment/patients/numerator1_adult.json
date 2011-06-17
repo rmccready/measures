@@ -3,6 +3,7 @@
   "first": "Milo",          // personal data
   "last": "Jones",
   "gender": "F",
+  "patient_id" : "100043",
   "birthdate": 549504000,   // Time.gm(1987,6,1).to_i
   "measures": {             // bag of measures, one entry per measure
     "0004": {

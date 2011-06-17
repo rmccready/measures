@@ -2,7 +2,8 @@
 {
   "first": "Geraldine",     // personal data
   "last": "Elliott",
-  "gender": "F",
+  "gender": "F",s
+  "patient_id" : "1003824",
   "birthdate": 1245024000,  // Time.gm(2009, 6, 15).to_i
   "measures": {             // bag of measures, one entry per measure
     "0038": {
