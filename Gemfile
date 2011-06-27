@@ -1,6 +1,6 @@
 source :gemcutter
 
-gem 'quality-measure-engine', :git => 'http://github.com/pophealth/quality-measure-engine.git', :branch => 'develop'
+gem 'quality-measure-engine', :git => 'http://github.com/rmccready/quality-measure-engine.git', :branch => 'develop'
 gem 'bson_ext', :platforms => :mri
 gem 'rake'
 
