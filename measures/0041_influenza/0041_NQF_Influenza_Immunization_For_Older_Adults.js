@@ -2,7 +2,7 @@ function () {
     var patient = this;
     var measure = patient.measures["0041"];
 
-    if (measure === null) {
+    if (measure == null) {
         measure = {};
     } 
     <%= init_js_frameworks %>

@@ -1,7 +1,7 @@
 function () {
   var patient = this;
   var measure = patient.measures["0013"];
-  if (measure===null){
+  if (measure==null){
     measure={};
   };
 
