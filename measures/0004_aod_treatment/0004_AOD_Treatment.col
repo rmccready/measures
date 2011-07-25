@@ -4,7 +4,7 @@
     {
       "metadata": {
         "sub_id": "a",
-        "subtitle": "Age 12-17 with followup within 14 days.",
+        "subtitle": "Age 12-16 with followup within 14 days.",
         "short_subtitle": "Youth14"
       },
       "population": "AODyouth.json",
@@ -14,7 +14,7 @@
     {
       "metadata": {
         "sub_id": "b",
-        "subtitle": "Age 12-17 with followup within 14 and 30 days.",
+        "subtitle": "Age 12-16 with followup within 14 and 30 days.",
         "short_subtitle": "Youth30"
       },
       "population": "AODyouth.json",
