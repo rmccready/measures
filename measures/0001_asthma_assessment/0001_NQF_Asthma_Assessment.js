@@ -8,10 +8,14 @@ function () {
 
   var year = 365 * 24 * 60 * 60;
   var effective_date =  <%= effective_date %>;
-  var earliest_birthdate =  effective_date - 40 * year;
-  var latest_birthdate =    effective_date - 5 * year;
-  var earliest_diagnosis =  effective_date - 2 * year;
+  /*
+    o AND:“Patientcharacteristic:birthdate” (age)>=5years   (before the beginning of the “measurement period”;); 
+    o AND:“Patient characteristic:birthdate ”(age)<=40years (before the beginning of the “measurement period”;); 
+  */
   var measurement_period_start = effective_date -1 * year;
+  var earliest_birthdate =  measurement_period_start - 40 * year;
+  var latest_birthdate =    measurement_period_start - 5 * year;
+
 
   var population = function() {
     // the number of counts of office encounters and outpatient consults 
