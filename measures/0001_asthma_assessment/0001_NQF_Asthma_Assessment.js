@@ -4,10 +4,10 @@ function() {
     if (measure == null)
     measure = {};
 
-    < %=init_js_frameworks % >
+    <%=init_js_frameworks %>
 
     var year = 365 * 24 * 60 * 60;
-    var effective_date = <%=effective_date % >;
+    var effective_date = <%=effective_date %>;
     /*
     o AND:“Patientcharacteristic:birthdate” (age)>=5years   (before the beginning of the “measurement period”;); 
     o AND:“Patient characteristic:birthdate ”(age)<=40years (before the beginning of the “measurement period”;); 
