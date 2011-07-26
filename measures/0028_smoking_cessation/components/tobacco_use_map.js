@@ -9,8 +9,12 @@ function () {
   var year = 365 * 24 * 60 * 60;
   var twenty_four_months = 2*year;   // interval used in numerator
   var effective_date = <%= effective_date %>;
-  var latest_birthdate =   effective_date - 18 * year;
-  var earliest_encounter = effective_date - 1  * year;
+  var measurement_period_start = effective_date -1*year;
+  /*
+		AND:“Patientcharacteristic:birthdate”(age)>=18years; (beforethebeginning of the “measurement period”;)
+  */
+  var latest_birthdate = measurement_period_start - 18*year;
+  var earliest_encounter = measurement_period_start;
   var latest_encounter =   effective_date;
   var preventive_encounters = normalize(measure.encounter_prev_med_services_18_and_older_encounter,
     measure.encounter_prev_med_other_services_encounter,
@@ -21,10 +25,16 @@ function () {
     measure.encounter_office_visit_encounter,
     measure.encounter_psychiatric_psychologic_encounter);
   var all_encounters = normalize(preventive_encounters, other_encounters);
+ // Qualify the lists of encounters with the measurement period
+  var preventive_encounters_in_measurement_period = selectWithinRange(preventive_encounters, earliest_encounter, latest_encounter);
+  var other_encounters_in_measurement_period = selectWithinRange(other_encounters, earliest_encounter, latest_encounter);
   var all_encounters_in_measurement_period = selectWithinRange(all_encounters, earliest_encounter, latest_encounter);
 
+ 
+
+
   var population = function() {
-    return (patient.birthdate <= latest_birthdate && ((other_encounters.length >= 2) || (preventive_encounters.length >= 1)));
+    return (patient.birthdate <= latest_birthdate && ((other_encounters_in_measurement_period.length >= 2) || (preventive_encounters_in_measurement_period.length >= 1)));
   }
 
   var denominator = function() {
