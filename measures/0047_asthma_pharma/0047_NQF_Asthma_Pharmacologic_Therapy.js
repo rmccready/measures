@@ -8,8 +8,13 @@ function () {
 
   var year = 365*24*60*60;
   var effective_date = <%= effective_date %>;
-  var earliest_birthdate = effective_date - 40*year;
-  var latest_birthdate = effective_date - 5*year;
+  var measurement_period_start = effective_date -1*year;
+  /*
+    AND: “Patient characteristic: birth date” (age) >= 5 years; o	AND: “Patient characteristic: birth date” (age) <= 40 years;
+    (from beginning of measurement period)
+  */
+  var earliest_birthdate = measurement_period_start - 40*year;
+  var latest_birthdate = measurement_period_start - 5*year;
   var earliest_encounter = effective_date - year;
   
   var population = function() {
