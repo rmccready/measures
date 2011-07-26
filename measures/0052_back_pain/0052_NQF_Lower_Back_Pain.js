@@ -9,8 +9,12 @@ function () {
   var day = 24*60*60;
   var year = 365*day;
   var effective_date = <%= effective_date %>;
-  var earliest_birthdate = effective_date - 49*year;
-  var latest_birthdate = effective_date - 18*year;
+  var measurement_period_start = effective_date - 1*year;
+  /*
+    o	AND: “Patient characteristic: birth date” (age) >=18 years and <=49 years; (from beginning of measurement period)
+   */
+  var earliest_birthdate = measurement_period_start - 49*year;
+  var latest_birthdate = measurement_period_start - 18*year;
   var earliest_encounter = effective_date - 1*year;
   var first_diagnosis = null;
   
