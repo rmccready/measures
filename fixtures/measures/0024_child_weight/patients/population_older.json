@@ -3,7 +3,7 @@
   "last": "Thompson",
   "gender": "M",
   "patient_id" : "100245",
-  "birthdate": 936144000,     // Time.gm(1999, 9, 1).to_i
+  "birthdate": 904608000 ,     // Time.gm(1998, 9, 1).to_i
   "measures": {               // bag of measures, one entry per measure
   }
 }
