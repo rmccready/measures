@@ -8,7 +8,12 @@ function () {
 
   var year = 365*24*60*60;
   var effective_date = <%= effective_date %>;
-  var latest_birthdate = effective_date - 18*year;
+  var measurement_period_start = effective_date - 1*year;
+  /* 
+     AND: “Patient characteristic: birth date” (age) >= 17 years to capture all patients who 
+           will reach the age of 18 years and older during the “measurement period”;
+  */
+  var latest_birthdate = measurement_period_start - 17*year;
   var earliest_encounter = effective_date - 2*year;
   var earliest_tobacco_user = effective_date - 1*year;
   

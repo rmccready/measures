@@ -1,7 +1,7 @@
 {
   "first": "Lavern",                               // personal data
   "last": "Defazio3",
-  "birthdate": 340761600,                          // Time.gm(1980, 10, 19).to_i
+  "birthdate": -37929600,                          // Time.gm(1968, 10, 19).to_i
   "gender" : "F",
   "patient_id" : "100313",
   "measures": {                                    // bag of measures, one entry per measure

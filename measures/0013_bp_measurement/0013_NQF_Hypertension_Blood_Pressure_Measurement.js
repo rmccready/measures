@@ -10,7 +10,12 @@ function () {
   var year = 365*24*60*60;
   var effective_date = <%= effective_date %>;
   var period_start = effective_date - year;
-  var latest_birthdate = effective_date - 18*year;
+  var measurement_period_start = effective_date - 1 * year;
+
+  /*
+       AND: “Patientcharacteristic:birthdate”(age)>=18years”(before the “measurement period” )
+  */
+  var latest_birthdate = measurement_period_start - 18*year;
 
   var encounters = normalize(measure.encounter_outpatient_encounter,
     measure.encounter_nursing_facility_encounter);

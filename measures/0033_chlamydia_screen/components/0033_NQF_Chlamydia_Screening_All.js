@@ -9,8 +9,13 @@ function () {
   var day = 24 * 60 * 60;
   var year = 365 * day;
   var effective_date = <%= effective_date %>;
-  var earliest_birthdate = effective_date - 23 * year;
-  var latest_birthdate =   effective_date - 15 * year;
+  var measurement_period_start = effective_date - 1*year;
+/*
+            AND: “Patient characteristic: birth date” (age) >=15 and <= 23 years (at beginning of measurement period) 
+                  to expect screening for patients within one year after reaching 15 years until 24 years;
+*/
+ var earliest_birthdate = measurement_period_start - 23 * year;
+ var latest_birthdate =   measurement_period_start - 15 * year;
   var earliest_encounter = effective_date - 1 * year;
   var pregnancy_tests = normalize(measure.pregnancy_test_laboratory_test_performed,
     measure.pregnancy_test_laboratory_test_result);

@@ -9,20 +9,25 @@ function () {
   var day = 24*60*60;
   var year = 365*day;
   var effective_date = <%= effective_date %>;
-  var period_start = effective_date - year;
-  var latest_birthdate = effective_date - 11*year;
-  var earliest_birthdate = effective_date - 16*year;
+  var measurement_period_start = effective_date - 1 * year;
+
+  /*
+		AND: “Patient characteristic: birth date” (age) >=11 and <=16 years (at beginning of measurement period) to expect screening for patients 
+		within one year after reaching 12 years until 17 years;  
+  */
+  var earliest_birthdate  = measurement_period_start - 16*year;
+  var latest_birthdate = measurement_period_start - 11*year;
   
   var population = function() {
     return weight_population(patient, earliest_birthdate, latest_birthdate);
   }
   
   var denominator = function() {
-    return weight_denominator(measure, period_start, effective_date);
+    return weight_denominator(measure, measurement_period_start, effective_date);
   }
   
   var numerator = function() {
-    return inRange(measure.counseling_for_physical_activity_communication_to_patient, period_start, effective_date);
+    return inRange(measure.counseling_for_physical_activity_communication_to_patient, measurement_period_start, effective_date);
   }
   
   var exclusion = function() {

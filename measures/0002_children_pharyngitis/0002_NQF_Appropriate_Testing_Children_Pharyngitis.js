@@ -10,8 +10,12 @@ function () {
   var year = 365 * day;
   var effective_date =  <%= effective_date %>;
   var earliest_encounter = effective_date - year;
-  var earliest_birthdate =  effective_date - 18 * year;
-  var latest_birthdate =    effective_date - 2 * year;
+  /*
+  o AND: “Patient characteristic: birth date” (age) >=2 and <=18 years; (before the beginning of the “measurement period”;)
+  */
+  var measurement_period_start = effective_date - 1 * year;
+  var earliest_birthdate =  measurement_period_start - 18 * year;
+  var latest_birthdate =    measurement_period_start - 2 * year;
 
   var meds_prescribed_after_encounter = [];  // computed by denominator, used by numerator
 
