@@ -7,7 +7,7 @@
       {
         "sub_id": "a",
         "subtitle": "LDL Test",
-        "short_subtitle": "LDL Test",
+        "short_subtitle": "Test",
         "numerator": {
           "or": [
             {
@@ -40,8 +40,8 @@
       "metadata":
       {
         "sub_id": "b",
-        "subtitle": "Polio (IPV) Vaccine",
-        "short_subtitle": "IPV",
+        "subtitle": "LDL Control",
+        "short_subtitle": "Control",
         "numerator": {
           "or": [
             {
