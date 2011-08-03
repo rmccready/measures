@@ -8,7 +8,6 @@
 function () {
   var day = 24 * 60 * 60;
   var year = 365 * day;
-
   var root = this;
 
   // Denominator function
@@ -58,23 +57,26 @@ function () {
   };
   /// MMR Numerator 3
   root.mmr_numerator = function (measure, birthdate, effective_date) {
-    var latest_vaccine = birthdate + 2 * year;
+    var latest_vaccine = birthdate + (2 * year);
     var earliest_vaccine = birthdate;
 
     var number_mmr_vaccine_administered = inRange(unique_dates(measure.mmr_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_measles_vaccine_administered = inRange(unique_dates(measure.measles_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_mumps_vaccine_administered = inRange(unique_dates(measure.mumps_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
     var number_rubella_vaccine_administered = inRange(unique_dates(measure.rubella_vaccine_medication_administered), earliest_vaccine, latest_vaccine);
-    var number_mmr_vaccine_procedure = inRange(unique_dates(measure.mmr_vaccine_procedure_performed), earliest_vaccine, latest_vaccine);
-    var number_measles_vaccine_procedure = inRange(unique_dates(measure.measles_vaccine_procedure_performed), earliest_vaccine, latest_vaccine);
-    var number_mumps_vaccine_procedure = inRange(unique_dates(measure.mumps_vaccine_procedure_performed), earliest_vaccine, latest_vaccine);
-    var number_rubella_vaccine_procedure = inRange(unique_dates(measure.rubella_vaccine_procedure_performed), earliest_vaccine, latest_vaccine);
+
+    var number_mmr_vaccine_procedure = inRange(unique_dates(measure.mmr_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
+    var number_measles_vaccine_procedure = inRange(unique_dates(measure.measles_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
+    var number_mumps_vaccine_procedure = inRange(unique_dates(measure.mumps_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
+    var number_rubella_vaccine_procedure = inRange(unique_dates(measure.rubella_vaccination_procedure_performed), earliest_vaccine, latest_vaccine);
 
     var mmr_criteria = (number_mmr_vaccine_administered >= 1 || number_mmr_vaccine_procedure >= 1);
-    var rubella_criteria = (number_rubella_vaccine_administered >= 1 || number_rubella_vaccine_procedure >= 1) || (conditionResolved(measure.rubella_diagnosis_resolved, birthdate, effective_date));
-    var measles_criteria = (number_measles_vaccine_administered >= 1 || number_measles_vaccine_procedure >= 1) || (conditionResolved(measure.measles_diagnosis_resolved, birthdate, effective_date));
-    var mumps_criteria = (number_mumps_vaccine_administered >= 1 || number_mumps_vaccine_procedure >= 1) || (conditionResolved(measure.mumps_diagnosis_resolved, birthdate, effective_date));
-
+    var rubella_criteria = (number_rubella_vaccine_administered >= 1 || number_rubella_vaccine_procedure >= 1) ||
+                            (conditionResolved(measure.rubella_diagnosis_resolved, birthdate, effective_date));
+    var measles_criteria = (number_measles_vaccine_administered >= 1 || number_measles_vaccine_procedure >= 1) ||
+                            (conditionResolved(measure.measles_diagnosis_resolved, birthdate, effective_date));
+    var mumps_criteria = (number_mumps_vaccine_administered >= 1 || number_mumps_vaccine_procedure >= 1) ||
+                          (conditionResolved(measure.mumps_diagnosis_resolved, birthdate, effective_date));
     return (mmr_criteria || (rubella_criteria && measles_criteria && mumps_criteria));
   };
 
@@ -221,7 +223,6 @@ function () {
     return (number_inf_vaccine_administered >= 2 || number_inf_vaccine_procedure >= 2);
   };
 
-
   root.inf_exclusion = function (measure, birthdate, effective_date) {
     many_exclusions = normalize(
       measure.cancer_of_lymphoreticular_or_histiocytic_tissue_diagnosis_active,
@@ -233,7 +234,5 @@ function () {
       measure.immunodeficiency_diagnosis_active);
     return (inRange(many_exclusions, birthdate, effective_date));
   };
-
-
 
 }

@@ -8,7 +8,7 @@
   "measures": {             // bag of measures, one entry per measure
     "0038": {
       "encounter_outpatient_w_pcp_obgyn_encounter": 1252972800, // Time.gm(2009, 9, 15).to_i
-      "mmr_vaccine_medication_administered":                1253404800  // Time.gm(2009, 9, 20).to_i
+      "mmr_vaccine_medication_administered": 1253404800  // Time.gm(2009, 9, 20).to_i
     }
   }
 }
