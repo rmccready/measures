@@ -1,7 +1,7 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0061"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
@@ -9,11 +9,13 @@ function () {
   var day = 24 * 60 * 60;
   var year = 365 * day;
   var effective_date =                <%= effective_date %>;
-  var period_start =                      effective_date - year;
-  var earliest_birthdate =                effective_date - 75 * year;
-  var latest_birthdate =                  effective_date - 18 * year;
-  var earliest_diagnosis =                effective_date - 2 * year;
-  var year_prior_to_measurement_period =  effective_date - 3 * year;
+
+  var measurement_period_start =          effective_date - year;
+  var earliest_birthdate =                measurement_period_start - (75 * year);
+  var latest_birthdate =                  measurement_period_start - (18 * year);
+
+  var earliest_diagnosis =                effective_date - (2 * year);
+  var year_prior_to_measurement_period =  effective_date - (3 * year);
 
   var population = function() {
     return diabetes_population(patient, earliest_birthdate, latest_birthdate);
@@ -28,23 +30,30 @@ function () {
   // the denominator, and the exclusions are shared in the 'diabetes_utils.js' file
   // that is located in the /js directory of the project
   var numerator = function() {
-    var all_encounters = normalize(measure.encounter_acute_inpatient_or_ed_encounter, 
+    var all_encounters = normalize(measure.encounter_acute_inpatient_or_ed_encounter,
       measure.encounter_non_acute_inpatient_outpatient_or_ophthalmology_encounter);
-    var all_encounters_in_range = selectWithinRange(all_encounters, period_start, effective_date);
-    if (all_encounters_in_range.length==0)
+    var all_encounters_in_range = selectWithinRange(all_encounters, measurement_period_start, effective_date);
+    if (all_encounters_in_range.length == 0) {
       return false;
+    }
     latest_encounter = _.max(all_encounters_in_range);
-
     // for measure purposes a BP reading is considered to be during an encounter if its timestamp
     // is between 24 hours before and 24 hours after the timestamp of the encounter
-    start_latest_encounter = latest_encounter-day;
-    end_latest_encounter = latest_encounter+day;
+    start_latest_encounter = latest_encounter - day;
+    end_latest_encounter = latest_encounter + day;
 
-    systolic_min = minValueInDateRange(measure.systolic_blood_pressure_physical_exam_finding, start_latest_encounter, end_latest_encounter, false);
-    diastolic_min = minValueInDateRange(measure.diastolic_blood_pressure_physical_exam_finding, start_latest_encounter, end_latest_encounter, false);
-    if (systolic_min===false || diastolic_min===false)
+    systolic_min = minValueInDateRange(measure.systolic_blood_pressure_physical_exam_finding,
+                                       start_latest_encounter,
+                                       end_latest_encounter,
+                                       false);
+    diastolic_min = minValueInDateRange(measure.diastolic_blood_pressure_physical_exam_finding,
+                                        start_latest_encounter,
+                                        end_latest_encounter,
+                                        false);
+    if ((systolic_min === false) || (diastolic_min === false)) {
       return false;
-    return (systolic_min<140 && diastolic_min<90);
+    }
+    return ((systolic_min < 140) && (diastolic_min < 90));
   }
 
   var exclusion = function() {

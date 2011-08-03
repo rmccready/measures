@@ -1,15 +1,17 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0073"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
 
   var day = 24 * 60 * 60;
   var year = 365 * day;
-  var effective_date = <%= effective_date %>;
-  var latest_birthdate =   effective_date - (18 * year); // patients who will reach the age of 18 during the “measurement period”
+  var effective_date =        <%= effective_date %>;
+
+  var measurement_period_start =  effective_date - year;
+  var latest_birthdate =          measurement_period_start - (17 * year); // patients who will reach the age of 18 during the “measurement period”
 
   var earliest_encounter = effective_date - (2 *  year);
   var latest_encounter =   effective_date - (1 *  year) - (61 * day);
@@ -29,7 +31,6 @@ function () {
     if (encounters.length==0)
       return false;
     var last_inpt_and_outpt_encounter = _.max(encounters);
-    
     var start_latest_encounter = last_inpt_and_outpt_encounter - day;
     var end_latest_encounter = last_inpt_and_outpt_encounter   + day;
     var systolic_min  = minValueInDateRange(measure.systolic_blood_pressure_physical_exam_finding,
@@ -40,7 +41,7 @@ function () {
                                             start_latest_encounter,
                                             end_latest_encounter,
                                             false);
-    if (systolic_min===false || diastolic_min===false)
+    if (systolic_min === false || diastolic_min === false)
       return false;
     return (systolic_min < 140 && diastolic_min < 90);
   }

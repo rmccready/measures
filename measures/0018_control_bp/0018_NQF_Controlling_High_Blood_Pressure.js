@@ -1,7 +1,7 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0018"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
@@ -9,16 +9,11 @@ function () {
   var day = 24*60*60;
   var year = 365*day;
   var effective_date = <%= effective_date %>;
+
   var measurement_period_start = effective_date - 1 * year;
+  var latest_birthdate = measurement_period_start - (18 * year);
 
-  /*
-       AND: “Patient characteristic: birth date” (age) >=17 and <=84 years 
-	   (before the beginning of the “measurement period”;)to capture all 
-       patients who will reach the ages between 18 and 85 years during the “measurement period”;
-  */
-  var latest_birthdate = measurement_period_start - 18*year;
-
-  var hypertension_diagnosis_end = measurement_period_start+year/2;
+  var hypertension_diagnosis_end = measurement_period_start + (year / 2);
   var latest_birthdate = measurement_period_start - 17*year;
   var earliest_birthdate = measurement_period_start - 84*year;
 

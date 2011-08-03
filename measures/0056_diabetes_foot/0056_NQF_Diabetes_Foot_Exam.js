@@ -1,19 +1,22 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0056"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
 
   // TODO: rjm Get these definitions into the 'diabetes_utils.js' file
   // that is located in the /js directory of the project for shared 
-  // code across all of the diabetes measures. 
+  // code across all of the diabetes measures.
   var year = 365 * 24 * 60 * 60;
-  var effective_date =  <%= effective_date %>;
-  var earliest_birthdate =  effective_date - 75 * year;
-  var latest_birthdate =    effective_date - 18 * year;
-  var earliest_diagnosis =  effective_date - 2 * year;
+  var effective_date =        <%= effective_date %>;
+
+  var measurement_period_start =  effective_date - year;
+  var earliest_birthdate =        measurement_period_start - (75 * year);
+  var latest_birthdate =          measurement_period_start - (18 * year);
+
+  var earliest_diagnosis =  effective_date - (2 * year);
 
   var population = function() {
     return diabetes_population(patient, earliest_birthdate, latest_birthdate);

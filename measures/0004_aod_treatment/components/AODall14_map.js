@@ -1,38 +1,34 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0004"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
 
-  var day = 24*60*60;
-  var year = 365*day;
+  var day = 24 * 60 * 60;
+  var year = 365 * day;
   var effective_date = <%= effective_date %>;
-  var measurement_period_start = effective_date - 1 * year;
 
-  /*
-       AND: “Patient characteristic: birth date” (age) >=12 before the “measurement period” 
-       to capture all patients who will reach age 13 years or greater during the “measurement period”;
-  */
-  var latest_birthdate = measurement_period_start - 12*year;
-  
+  var measurement_period_start = effective_date - (1 * year);
+  var latest_birthdate = measurement_period_start - (12 * year);
+
   var population = function() {
-    return((patient.birthdate < latest_birthdate) && alcoholDrugFirstEvent(measure, effective_date));   //This has a sideeffect....see aod_treatment.js
+    return((patient.birthdate < latest_birthdate) && 
+            alcoholDrugFirstEvent(measure, effective_date));
   }
-  
+
   var denominator = function() {
-    return(alcohol_drug_denominator(measure));  
+    return(alcohol_drug_denominator(measure));
   }
-  
+
   var numerator = function() {
-    // numerator1
     return(alcohol_drug_numerator1(measure));
   }
-  
+
   var exclusion = function() {
     return false;
   }
-  
+
   map(patient, population, denominator, numerator, exclusion);
 };

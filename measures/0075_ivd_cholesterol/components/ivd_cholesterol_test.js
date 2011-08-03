@@ -8,8 +8,10 @@ function () {
 
   var day = 24 * 60 * 60;
   var year = 365 * day;
-  var effective_date = <%= effective_date %>;
-  var latest_birthdate =   effective_date - (18 * year); // patients who will reach the age of 18 during the “measurement period”
+  var effective_date =        <%= effective_date %>;
+
+  var measurement_period_start =  effective_date - year;
+  var latest_birthdate =          measurement_period_start - (17 * year); // patients who will reach the age of 18 during the “measurement period”
 
   var earliest_encounter = effective_date - (2 *  year);
   var latest_encounter =   effective_date - (1 *  year) - (61 * day);

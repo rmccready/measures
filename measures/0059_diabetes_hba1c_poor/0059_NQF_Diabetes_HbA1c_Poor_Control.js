@@ -1,18 +1,21 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0059"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
 
-  var year = 365 * 24 * 60 * 60;
+  var day = 24 * 60 * 60;
+  var year = 365 * day;
   var effective_date =                <%= effective_date %>;
-  var period_start =                      effective_date - year;
-  var earliest_birthdate =                effective_date - 75 * year;
-  var latest_birthdate =                  effective_date - 18 * year;
-  var earliest_diagnosis =                effective_date - 2 * year;
-  var year_prior_to_measurement_period =  effective_date - 3 * year;
+
+  var measurement_period_start =          effective_date - year;
+  var earliest_birthdate =                measurement_period_start - (75 * year);
+  var latest_birthdate =                  measurement_period_start - (18 * year);
+
+  var earliest_diagnosis =                effective_date - (2 * year);
+  var year_prior_to_measurement_period =  effective_date - (3 * year);
 
   var population = function() {
     return diabetes_population(patient, earliest_birthdate, latest_birthdate);
@@ -27,12 +30,13 @@ function () {
   // the denominator, and the exclusions are shared in the 'diabetes_utils.js' file
   // that is located in the /js directory of the project
   var numerator = function() {
-    latestValue = latestValueInDateRange(measure.hba1c_test_laboratory_test_result, 
-                                         period_start, 
+    latestValue = latestValueInDateRange(measure.hba1c_test_laboratory_test_result,
+                                         measurement_period_start,
                                          effective_date,
                                          false);
-    if (latestValue===false)
+    if (latestValue === false) {
       return false;
+    }
     return latestValue > 9.0;
   }
 

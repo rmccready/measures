@@ -1,21 +1,25 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0067"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
 
-  var day = 24*60*60;
-  var year = 365*day;
-  var effective_date = <%= effective_date %>;
-  var latest_birthdate = effective_date - 18*year;
-  var earliest_encounter = effective_date - 1*year;
+  var day = 24 * 60 * 60;
+  var year = 365 * day;
+  var effective_date =        <%= effective_date %>;
+
+  var measurement_period_start =  effective_date - year;
+  var latest_birthdate =          measurement_period_start - (18 * year);
+
+  var earliest_encounter =        effective_date - (1 * year);
+
   var all_encounters = normalize(
     measure.encounter_inpatient_discharge_encounter,
     measure.encounter_nursing_facility_encounter,
     measure.encounter_outpatient_encounter);
-  
+
   var population = function() {
     var cad_before_encounter = actionFollowingSomething(
       measure.coronary_artery_disease_includes_mi_diagnosis_active, all_encounters);
@@ -27,16 +31,15 @@ function () {
       earliest_encounter, effective_date); 
     var nursing = inRange(measure.encounter_nursing_facility_encounter, 
       earliest_encounter, effective_date); 
-      
     return (patient.birthdate <= latest_birthdate) &&
       (cad_before_encounter || surgery_before_encounter) &&
       (nursing>=2 || outpatient>=2 || inpatient>=1);
   }
-  
+
   var denominator = function() {
     return true;
   }
-  
+
   var numerator = function() {
     var active = inRange(measure.antiplatelet_therapy_medication_active, 
       earliest_encounter, effective_date);
@@ -44,7 +47,7 @@ function () {
       earliest_encounter, effective_date);
     return (active || order);
   }
-  
+
   var exclusion = function() {
     var allergy = actionFollowingSomething(
       measure.antiplatelet_therapy_medication_allergy, all_encounters);
@@ -62,6 +65,6 @@ function () {
       earliest_encounter, effective_date);
     return (allergy || adverse || intollerence || disorder || patient || medical || system);
   }
-  
+
   map(patient, population, denominator, numerator, exclusion);
 };

@@ -1,7 +1,7 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0012"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
@@ -18,7 +18,7 @@ function () {
     var live_birth_procedure = inRange(measure.delivery_live_births_procedure_procedure_performed, earliest_encounter, effective_date);
     return live_birth_diagnosis && live_birth_procedure;
   }
-  
+
   var denominator = function() {
     if (conception.length==0)
       return false;
@@ -28,14 +28,6 @@ function () {
 
   var numerator = function() {
     var estimated_conception_within_ten_months = actionFollowingSomething(estimated_conception, measure.delivery_live_births_procedure_procedure_performed, 304*day);
-    /*
-    var encounters_in_range = selectWithinRange(measure.prenatal_visit_encounter, estimated_conception, effective_date);
-    var first_encounter = _.min(encounters_in_range);
-    encounters_in_range = selectWithinRange(measure.prenatal_visit_encounter, first_encounter+day, effective_date);
-    var second_encounter = _.min(encounters_in_range);
-    var hiv_screen_after_first = actionFollowingSomething(first_encounter, measure.hiv_screening_laboratory_test_performed, 30*day);
-    var hiv_screen_after_second = actionFollowingSomething(second_encounter, measure.hiv_screening_laboratory_test_performed, 30*day);
-    */
     var encounters_in_range = _.sortBy(selectWithinRange(measure.prenatal_visit_encounter, estimated_conception, effective_date), function(num){ return num; });  // there has to be at least 1 due to denominator
     var first_encounter = encounters_in_range[0];
     var hiv_screen_after_first = actionFollowingSomething(first_encounter, measure.hiv_screening_laboratory_test_performed, 30*day);

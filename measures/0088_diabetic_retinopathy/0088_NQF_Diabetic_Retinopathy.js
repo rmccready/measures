@@ -1,16 +1,19 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0088"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
 
-  var day = 24*60*60;
-  var year = 365*day;
+  var day = 24 * 60 * 60;
+  var year = 365 * day;
   var effective_date = <%= effective_date %>;
-  var latest_birthdate = effective_date - 18*year;
-  var earliest_encounter = effective_date - 1*year;
+
+  var measurement_period_start =  effective_date - (1 * year);
+  var latest_birthdate = effective_date - (18 * year);
+
+  var earliest_encounter = effective_date - (1 * year);
   var all_encounters = normalize(
     measure.encounter_domiciliary_encounter,
     measure.encounter_nursing_facility_encounter,

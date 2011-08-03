@@ -1,16 +1,19 @@
-function () {
+function() {
   var patient = this;
   var measure = patient.measures["0575"];
-  if (measure==null)
+  if (measure == null)
     measure={};
 
   <%= init_js_frameworks %>
 
-  var year = 365 * 24 * 60 * 60;
+  var day = 24 * 60 * 60;
+  var year = 365 * day;
   var effective_date =                <%= effective_date %>;
-  var period_start =                      effective_date - year;
-  var earliest_birthdate =                effective_date - 75 * year;
-  var latest_birthdate =                  effective_date - 18 * year;
+
+  var measurement_period_start =          effective_date - year;
+  var earliest_birthdate =                measurement_period_start - (75 * year);
+  var latest_birthdate =                  measurement_period_start - (18 * year);
+
   var earliest_diagnosis =                effective_date - 2 * year;
 
   var population = function() {
@@ -27,9 +30,11 @@ function () {
   // that is located in the /js directory of the project
   var numerator = function() {
     var NORMAL_VALUE = 8.0;
-    latestValue = latestValueInDateRange(measure.hba1c_test_laboratory_test_result, period_start, effective_date,
-      NORMAL_VALUE+1);
-    return latestValue<NORMAL_VALUE;
+    latestValue = latestValueInDateRange(measure.hba1c_test_laboratory_test_result,
+                                         measurement_period_start,
+                                         effective_date,
+                                         (NORMAL_VALUE + 1));
+    return (latestValue < NORMAL_VALUE);
   }
 
   var exclusion = function() {
